@@ -1,0 +1,40 @@
+<div class="main-card mb-3 card col-md-12">
+    <div class="card-body">
+       <div id="responseMess">
+       </div>
+        <h5 class="card-title">Job Details</h5>
+        <form class="fmjob" id="fmjob" method="post">
+            <div class="form-row">
+                <div class="col-md-6">
+                    <div class="position-relative form-group">
+                        <label for="title" class="">Title</label>
+                        <input name="title" id="title" placeholder="Job title" type="text" class="form-control" />
+                    </div>
+                    <div class="position-relative form-group">
+                        <label for="details" class="">Details</label>
+                        <textarea name="details" id="details" rows="3" placeholder="Job Details" class="form-control" ></textarea>
+                    </div>
+                    <div class="position-relative form-group">
+                        <label for="timeLength" class="">Estimated length of job</label>
+                        <select name="timeLength" id="timeLength" class="form-control">
+                            <option value="Less than 1 month">Less than 1 month</option>
+                            <option value="1 month">1 month</option>
+                            <option value="More than 1 month">More than 1 month</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="position-relative form-group">
+                        <label for="price" class="">Price</label>
+                        <input name="price" id="price" placeholder="price" type="number" min="1" class="form-control" />
+                    </div>
+                    <div class="position-relative form-group">
+                        <label for="skills" class="">Skills(Enter skills associated with job separated by comma)</label>
+                        <input name="skills" id="skills" placeholder="skills" type="text" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <input type="submit" id="btnpost" name="btnpost" class="mt-2 btn btn-primary" value="Post">
+        </form>
+    </div>
+</div>

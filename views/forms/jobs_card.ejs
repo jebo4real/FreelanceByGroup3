@@ -1,0 +1,34 @@
+<div class="card col-md-8 shadow p-3 mb-5 bg-white rounded" style="margin:auto;">
+    <table class="table table-hover " id="jobview_tb" name="jobview_tb">
+        <thead>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        <% jobs.map( job => { %>
+        <tr>
+            <td>
+                <figure class="media">
+                    <figcaption class="media-body">
+                        <h6 class="title text-truncate"><%=job.title %></h6>
+                        <p><%=job.details %></p>
+                    </figcaption>
+                </figure>
+            </td>
+            <td>
+                <div class="price-wrap">
+                    <var class="price"><%=job.price %></var>
+                </div> <!-- price-wrap .// -->
+            </td>
+            <td class="text-right">
+                <a title="" href="" class="btn btn-outline-success" data-toggle="tooltip" data-original-title="Save to Favourite"> <i class="fa fa-heart"></i></a>
+                <a href="jobs/<%=job.jobid %>" class="btn btn-outline-danger btn-round">Apply</a>
+            </td>
+        </tr>
+        <% }) %>
+        </tbody>
+    </table>
+</div> <!-- card.// -->

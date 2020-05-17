@@ -1,0 +1,27 @@
+<% include ../layout/header-portal.ejs %>
+<div class="app-main__outer">
+    <div class="app-main__inner">
+        <div class="app-page-title">
+            <div class="page-title-wrapper">
+                <div class="page-title-heading">
+                    <div class="page-title-icon">
+                        <i class="pe-7s-car icon-gradient bg-mean-fruit">
+                        </i>
+                    </div>
+                    <div><%=job.title%> Information
+                        <div class="page-title-subheading">
+                            Click on an applicant to award job to.
+                        </div>
+                    </div>
+                </div>
+                <div class="page-title-actions">
+                    <input type="submit" id="btndelete" name="btndelete" class="mt-2 btn btn-primary" value="Delete">
+                </div>
+            </div>
+            <div id="responseMess">
+            </div>
+        </div>
+        <div class="row">
+            <% include ../forms/view-single-job-form.ejs %>
+        </div>
+<% include ../layout/footer-portal.ejs %>

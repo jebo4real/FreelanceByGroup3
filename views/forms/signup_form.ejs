@@ -1,0 +1,72 @@
+<form role="form" action="/signup" method="post" class="">
+    <h2>Please Sign Up <small>It's free and always will be.</small></h2>
+    <hr class="colorgraph">
+        <% if(signUpErrorMessage){ %>
+            <div class="alert alert-danger" role="alert">
+                <strong><%=signUpErrorMessage%></strong>
+            </div>
+        <% }else if(signUpSuccessMessage){%>
+            <div class="alert alert-success" role="alert">
+                <strong>Successfully signed up. Click <a href="/user/profile">here</a> to complete your profile</strong>
+            </div>
+        <% } %>
+    <div class="form-group">
+        <label for="role">Register As</label>
+        <select name="role" id="role" class="form-control input-lg" tabindex="1" required >
+            <option value="2">Freelancer</option>
+            <option value="1">Client</option>
+        </select>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="form-group">
+                <input type="text" name="firstname" id="firstname" class="form-control input-lg" placeholder="First Name" tabindex="1" required />
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="form-group">
+                <input type="text" name="lastname" id="lastname" class="form-control input-lg" placeholder="Last Name" tabindex="2" required />
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="text" name="username" id="username" class="form-control input-lg" placeholder="User Name" tabindex="3" required />
+    </div>
+    <div class="form-group">
+        <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address" tabindex="4" required />
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="form-group">
+                <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" tabindex="5" title="Password must contain at least 6 characters, including UPPER/lowercase and numbers"
+                       pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+                       onchange="this.setCustomValidity(this.validity.patternMismatch ? this.title : '');
+                                    if(this.checkValidity()) form.conpassword.pattern = RegExp.escape(this.value);" />
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="form-group">
+                <input type="password" name="conpassword" id="conpassword" class="form-control input-lg" placeholder="Confirm Password" tabindex="6"
+                       title="Please enter the same Password as above" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+                       onchange="this.setCustomValidity(this.validity.patternMismatch ? this.title : '');"/>
+                <span id='message'></span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 col-sm-3 col-md-3">
+            <span class="button-checkbox">
+                <button type="button" class="btn" data-color="info" tabindex="7">I Agree</button>
+                <input type="checkbox" name="t_and_c" id="t_and_c" class="hidden" value="1" required/>
+            </span>
+        </div>
+        <div class="col-xs-8 col-sm-9 col-md-9">
+            By clicking <strong class="label label-primary">Register</strong>, you agree to the Terms and Conditions set out by this site, including our Cookie Use.
+        </div>
+    </div>
+
+    <hr class="colorgraph">
+    <div class="row" style="margin-bottom:10px;">
+        <div class="col-xs-12 col-md-6"><input type="submit" id="btnsignup" name="btnsignup" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
+    </div>
+</form>

@@ -1,0 +1,90 @@
+<div class="main-card mb-3 card col-md-12">
+    <div class="card-body">
+        <h5 class="card-title">Job Details</h5>
+            <div class="form-row">
+                <div class="col-md-6">
+                    <form class="fmupdatejob" id="fmupdatejob" method="post">
+                        <input name="id" id="id" value="<%=job.id%>" type="text" class="form-control" />
+                        <div class="position-relative form-group">
+                            <label for="title" class="">Title</label>
+                            <input name="title" id="title" value="<%=job.title%>" placeholder="Job title" type="text" class="form-control" />
+                        </div>
+                        <div class="position-relative form-group">
+                            <label for="details" class="">Details</label>
+                            <textarea name="details" id="details" rows="3" placeholder="Job Details" class="form-control" >
+                                <%=job.details%>
+                            </textarea>
+                        </div>
+                        <div class="position-relative form-group">
+                            <label for="timeLength" class="">Estimated length of job</label>
+                            <select name="timeLength" id="timeLength" class="form-control">
+                                <option value="Less than 1 month" <%(job.timeLength==="Less than 1 month") ? 'selected':''; %> >Less than 1 month</option>
+                                <option value="1 month" <%(job.timeLength==="1 month") ? 'selected':''; %> >1 month</option>
+                                <option value="More than 1 month" <%(job.timeLength==="More than 1 month") ? 'selected':''; %> >More than 1 month</option>
+                            </select>
+                        </div>
+                        <div class="position-relative form-group">
+                            <label for="price" class="">Price</label>
+                            <input name="price" id="price" value="<%=job.price%>" placeholder="price" type="number" min="1" class="form-control" />
+                        </div>
+                        <div class="position-relative form-group">
+                            <label for="skills" class="">Skills(Enter skills associated with job separated by comma)</label>
+                            <input name="skills" id="skills" value="<%=job.skills%>" placeholder="skills" type="text" class="form-control" />
+                        </div>
+                        <input type="submit" id="btnupdate" name="btnupdate" class="mt-2 btn btn-primary" value="Update">
+                    </form>
+                </div>
+                <div class="col-md-6">
+                    <div class="main-card mb-3 card">
+                        <div class="card-header">Applicants (<%=Object.keys(jobDetail).length%> applicants)
+                            <div class="btn-actions-pane-right">
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+                                <thead>
+                                <tr>
+                                    <th class="text-center">#</th>
+                                    <th class="text-center">ID</th>
+                                    <th>Name</th>
+                                    <th class="text-center">Status</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <% jobDetail.map( app => { %>
+                                <tr>
+                                    <td class="text-center text-muted">1</td>
+                                    <td class="text-center"><%=app.id%></td>
+                                    <td>
+                                        <div class="widget-content p-0">
+                                            <div class="widget-content-wrapper">
+                                                <div class="widget-content-left mr-3">
+                                                    <div class="widget-content-left">
+                                                        <img width="40" class="rounded-circle" src="/images/<%=app.User.picture%>" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="widget-content-left flex2">
+                                                    <div class="widget-heading"><%=app.User.firstame%></div>
+                                                    <div class="widget-subheading opacity-7">Web Developer</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="badge badge-warning"><%=app.status%></div>
+                                    </td>
+                                </tr>
+                                <% }); %>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="d-block text-center card-footer">
+                            <button class="mr-2 btn-icon btn-icon-only btn btn-outline-danger"><i class="pe-7s-trash btn-icon-wrapper"> </i></button>
+                            <button class="btn-wide btn btn-success">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </div>
+</div>

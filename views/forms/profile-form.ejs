@@ -1,0 +1,84 @@
+<div class="main-card mb-3 card col-md-12">
+    <div class="card-body">
+        <% if(profileChangeMessage === true){%>
+            <div class="alert alert-success" role="alert">
+                Update Successful
+            </div>
+        <% } else if(profileChangeMessage === false){%>
+            <div class="alert alert-danger" role="alert">
+                Error Updating
+            </div>
+        <% } %>
+        <h5 class="card-title">Personal Details</h5>
+        <form class="" action="update-profile" method="post" enctype = "multipart/form-data">
+            <input name="id" id="id" placeholder="" type="text" class="form-control" value="<%=user.id%>" hidden><br />
+            <div class="form-row">
+                <div class="col-md-10 row">
+                    <img src="/images/<%=user.picture%>" width="100px" height="100px" alt="picture"/>
+                    <div class="position-relative form-group">
+                        <input name="picture" id="picture" type="file" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="position-relative form-group">
+                        <label for="firstname" class="">First Name</label>
+                        <input name="firstname" id="firstName" value="<%=user.firstname%>" placeholder="" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="position-relative form-group">
+                        <label for="lastname" class="">Last Name</label>
+                        <input name="lastname" id="lastName" value="<%=user.lastname%>" placeholder="" type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-6">
+                    <div class="position-relative form-group">
+                        <label for="dob" class="">Date Of Birth</label>
+                        <input name="dob" id="dob" value="<%=user.dob%>"  placeholder="" type="date" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="position-relative form-group">
+                        <label for="gender" class="">Gender</label>
+                        <select id="gender" name="gender" class="form-control">
+                            <option value="male" <%(user.gender == "male")? 'selected':'';%> >Male</option>
+                            <option value="female" <%(user.gender == "female")? 'selected':'';%>  >Female</option>
+                            <option value="p" <%(user.gender=="p")? 'selected':'';%>  >Prefer not to disclose</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-6">
+                    <div class="position-relative form-group">
+                        <label for="email" class="">Email</label>
+                        <input name="email" id="email" value="<%=user.email%>" placeholder="" type="email" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="position-relative form-group">
+                        <label for="mobile" class="">Mobile</label>
+                        <input name="mobile" id="mobile" value="<%=user.mobile%>" placeholder="" type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-6">
+                    <div class="position-relative form-group">
+                        <label for="country" class="">Country</label>
+                        <input name="country" id="country" value="<%=user.country%>" placeholder="" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="position-relative form-group">
+                        <label for="city" class="">City</label>
+                        <input name="city" id="city" value="<%=user.city%>" placeholder="" type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <input type="submit" class="mt-2 btn btn-primary" value="Update">
+        </form>
+    </div>
+</div>
