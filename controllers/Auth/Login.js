@@ -23,16 +23,16 @@ module.exports.DoLogin = async (req, res, next) => {
             req.session.user = ret_userAccount;
             req.session.loginSuccessMessage = "Login Successful";
             req.session.loggedIn = true;
-            res.send("success");
+            res.send({loginRes: "success"});
         } else {
             console.log("Wrong Password");
             req.session.loginErrorMessage = "Wrong Password";
-            res.send("Wrong Password");
+            res.send({loginRes:"Wrong Password"});
         }
     } else {
         console.log("Wrong Username Or User does not exist");
         req.session.loginErrorMessage = "Wrong Username Or User does not exist";
-        res.send("Wrong email");
+        res.send({loginRes:"Wrong email"});
     }
 };
 

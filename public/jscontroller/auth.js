@@ -10,11 +10,11 @@ $(document).ready(function(){
                 type:'post',
                 data:{username:username,password:password},
                 success:function(response){
-                    if(response==="success"){
+                    if(response.loginRes==="success"){
                         //window.location = "/user/workspace/1"
                         location.reload();
                     }else {
-                        alert(response);
+                        alert(response.loginRes);
                     }
                 }
             });
