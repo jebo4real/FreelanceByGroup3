@@ -36,8 +36,8 @@ module.exports.DoSignUp = async (req, res, next) => {
         let user_Account = await User.create(userInfo, { include: [UserAccount] } );
         if(user_Account!==null){
             console.log("Account Created successfully");
-            req.session.user = user_Account;
-            req.session.loggedIn = true;
+            // req.session.user = user_Account;
+            // req.session.loggedIn = true;
             req.session.signUpSuccessMessage = "Account Created successfully. Login";
             SendMail(userInfo.email);
         }else{

@@ -1,15 +1,16 @@
-<div class="card col-md-3 shadow p-3 mb-5 bg-white rounded" style="margin-right: 1px;">
+<div class="card col-md-3 shadow p-3 mb-5 bg-white rounded" style="margin-right:40px;">
      <h3>Filter By:</h3>
      <hr />
         <h4>Price</h4>
         <div class="form-inline">
-             <input type="number" id="minprice" class="form-control col-4  rounded" style="margin:5px;" placeholder="min"/> to
-             <input type="number" id="minprice" class="form-control col-4 rounded" style="margin:5px;" placeholder="max"/>
+             <input type="number" id="minPrice" name="minPrice" class="form-control col-4  rounded" style="margin:5px;" placeholder="min"/> to
+             <input type="number" id="maxPrice" name="maxPrice" class="form-control col-4 rounded" style="margin:5px;" placeholder="max"/>
+            <button id="priceApply" name="priceApply">Apply</button>
         </div>
         <hr />
         <h4>Duration</h4>
         <div class="form-inline">
-            <select name="" id="" class="form-control rounded">
+            <select name="filterDuration" id="filterDuration" class="form-control rounded">
                 <option value="">Duration</option>
                 <option value="">Less than 1 Month</option>
                 <option value="">More than 1 Month</option>

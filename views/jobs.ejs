@@ -1,0 +1,22 @@
+
+<% include ./layout/header-public.ejs %>
+<% include ./layout/menu-public.ejs %>
+
+<div id="heading-breadcrumbs">
+    <div class="container">
+
+    </div>
+</div>
+<div id="content">
+    <div class="container" >
+        <div>
+            <% include ./forms/job_search.ejs %>
+            <div class="row">
+                <% include ./forms/job_filter.ejs %>
+                <% include ./forms/jobs_card.ejs %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include ./layout/footer-public.ejs %>

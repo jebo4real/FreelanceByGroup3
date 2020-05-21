@@ -8,6 +8,14 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      JobId:{
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        references:{
+          model: 'Jobs',
+          key:'id'
+        }
+      },
       SenderId:{
         type: Sequelize.UUID,
         onDelete: 'CASCADE',

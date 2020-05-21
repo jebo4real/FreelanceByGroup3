@@ -7,7 +7,12 @@
             </div>
         <% }else if(signUpSuccessMessage){%>
             <div class="alert alert-success" role="alert">
-                <strong>Successfully signed up. Click <a href="/user/profile">here</a> to complete your profile</strong>
+                <strong>
+                    Successfully signed up. Click
+                    <a href="#" data-toggle="modal" data-target="#login-modal">
+                        Here
+                    </a>
+                    to login and complete your profile</strong>
             </div>
         <% } %>
     <div class="form-group">

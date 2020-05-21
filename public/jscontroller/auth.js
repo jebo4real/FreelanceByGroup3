@@ -11,14 +11,14 @@ $(document).ready(function(){
                 data:{username:username,password:password},
                 success:function(response){
                     if(response==="success"){
-                        window.location="/user/profile";
+                        //window.location = "/user/workspace/1"
+                        location.reload();
                     }else {
                         alert(response);
                     }
                 }
             });
         } else {
-
             alert("Enter your login details");
 
         }

@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-md-6">
+        <div>
+            <label>Title: </label>
+            <label><%= job.title %></label><br/>
+        </div>
+        <div>
+            <label>Details: </label>
+            <label><%= job.details %></label><br/>
+        </div>
+        <div>
+            <label>Duration: </label>
+            <label><%= job.timeLength %></label><br/>
+        </div>
+        <div>
+            <label>Price: </label>
+            <label>USD <%= job.price %></label><br/>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div>
+            <label>Category: </label>
+            <label><%= job.JobCategory.name %></label><br/>
+        </div>
+        <div>
+            <label>Skills Required: </label>
+            <label><%= job.timeLength %></label><br/>
+        </div>
+    </div>
+</div>

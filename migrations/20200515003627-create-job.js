@@ -16,6 +16,14 @@ module.exports = {
           key:'id'
         }
       },
+      CatId:{
+        type: Sequelize.INTEGER,
+        onUpdate: 'CASCADE',
+        references:{
+          model: 'JobCategories',
+          key:'id'
+        }
+      },
       title: {
         type: Sequelize.STRING
       },

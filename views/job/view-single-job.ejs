@@ -14,8 +14,17 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="page-title-actions">
-                    <input type="submit" id="btndelete" name="btndelete" class="mt-2 btn btn-primary" value="Delete">
+                    <% if(jobAppAwardId!==0){ %>
+                        <a href="/user/workspace/<%=jobAppAwardId%>" class="mt-2 btn btn-primary">
+                           Go to Work Space
+                        </a>
+                    <% }else{ %>
+                        No applicant has been selected
+                        <input type="submit" id="btndelete" name="btndelete" class="mt-2 btn btn-primary" value="Delete">
+                    <% } %>
+
                 </div>
             </div>
             <div id="responseMess">
@@ -24,4 +33,6 @@
         <div class="row">
             <% include ../forms/view-single-job-form.ejs %>
         </div>
+
 <% include ../layout/footer-portal.ejs %>
+<% include ../modals/freelancer-info.ejs %>

@@ -14,6 +14,11 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'ReceiverId',
       onDelete: 'CASCADE'
     });
+
+    Chat.belongsTo(models.Job, {
+      foreignKey: 'JobId',
+      onDelete: 'CASCADE'
+    });
   };
   return Chat;
 };

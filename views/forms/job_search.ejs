@@ -1,20 +1,19 @@
-<div class="card col-md-12 shadow p-3 mb-5 bg-white rounded" style="background-color: #6aae7a !important;margin-top:20px;margin-left: -20px;margin-bottom: 200px;">
-    <form action="#" method="post" >
+<div class="card col-md-12 shadow p-3 mb-5 bg-white rounded" style="background-color: #6aae7a !important;margin-top:20px;margin-bottom: 200px;">
+    <form action="/jobs" method="post" style="margin-left:300px;">
         <div class="row form-group">
             <div class="col-md-6 col-lg-3 mb-3 mb-lg-0">
-                <input type="text" class="form-control rounded" placeholder="eg. Web Developer" />
+                <input type="text" id="keyword" name="keyword" class="form-control rounded" placeholder="eg. Website" />
             </div>
             <div class="col-md-6 col-lg-3 mb-3 mb-lg-0">
                 <div class="select-wrap">
                     <span class="icon-keyboard_arrow_down arrow-down"></span>
-                    <select name="" id="" class="form-control rounded">
-                        <option value="">Category</option>
-                        <option value="fulltime">Full Time</option>
+                    <select name="category" id="category" class="form-control rounded">
+                        <option value="all" >All</option>
+                        <% category.map(cat =>{ %>
+                        <option value="<%=cat.id%>" ><%=cat.name%></option>
+                        <% }); %>
                     </select>
                 </div>
-            </div>
-            <div class="col-md-6 col-lg-3 mb-3 mb-lg-0">
-                <input type="text" class="form-control form-control-block search-input rounded" id="autocomplete" placeholder="Location" onFocus="geolocate()">
             </div>
             <div class="col-md-6 col-lg-3 mb-3 mb-lg-0">
                 <input type="submit" class="btn btn-primary btn-block rounded" value="Search">

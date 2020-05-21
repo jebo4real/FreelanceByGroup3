@@ -91,7 +91,9 @@
                                         Client
                                     <%}else if(user.UserAccount.username === 2){%>
                                         Freelancer
-                                    <% } %>
+                                    <% }else{ %>
+                                        Admin
+                                    <%}%>
                                 </div>
                             </div>
                         </div>
@@ -105,4 +107,6 @@
     <% include ../layout/menu-portal-client.ejs %>
 <% }else if(user.UserAccount.RoleId === 2){ %>
     <% include ../layout/menu-portal-freelancer.ejs %>
+<% }else if(user.UserAccount.RoleId === 3){ %>
+    <% include ../layout/menu-portal-admin.ejs %>
 <% } %>

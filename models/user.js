@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
     lastname: DataTypes.STRING,
     gender: DataTypes.STRING,
     dob: DataTypes.DATE,
+    jobTitle: DataTypes.STRING,
     email: {
       type: DataTypes.STRING,
       unique: true
@@ -56,6 +57,11 @@ module.exports = (sequelize, DataTypes) => {
 
     User.hasMany(models.Notification, {
       foreignKey: 'ReceiverId',
+      onDelete: 'CASCADE'
+    });
+
+    User.hasMany(models.JobReport, {
+      foreignKey: 'UserId',
       onDelete: 'CASCADE'
     });
   };

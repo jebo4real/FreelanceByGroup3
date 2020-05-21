@@ -1,0 +1,22 @@
+<div class="main-card mb-3 card">
+    <div class="card-body col" id="messages" name="messages" style="background-color:gainsboro;max-height: 250px;overflow-y: scroll;">
+        <% chat.map(ch => {%>
+            <div class="card card-body col-md-8"
+                <% if(ch.SenderId===user.id){%>
+                    style = "margin-bottom:5px;float:right;"
+                <% }else{ %>
+                    style = "margin-bottom:5px;"
+                <% } %>
+                >
+                <p><%=ch.message%></p>
+            </div>
+        <% }); %>
+
+    </div>
+    <div class="card-footer row">
+        <textarea rows="3" class="form-control col-md-11" id="message" name="message"></textarea>
+        <input type="submit" value="Send" class="btn btn-primary" id="btnsendmess" name="btnsendmess">
+        <p id="sender"><%=user.id%></p>
+        <p id="jobid"><%=job.id%></p>
+    </div>
+</div>

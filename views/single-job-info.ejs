@@ -1,0 +1,79 @@
+
+<% include ./layout/header-public.ejs %>
+<% include ./layout/menu-public.ejs %>
+
+<div id="heading-breadcrumbs">
+    <div class="container">
+
+    </div>
+</div>
+<div id="content">
+    <div class="container" >
+        <div class="">
+            <div class="row">
+                <div class="card card-green col-md-8" style="margin-top: 10px;margin-right: 10px;">
+                    <div class="card-header">
+                        <h3>Job Details</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div>
+                                    <label>Title: </label>
+                                    <label><%= job.title %></label><br/>
+                                </div>
+                                <div>
+                                    <label>Details: </label>
+                                    <label><%= job.details %></label><br/>
+                                </div>
+                                <div>
+                                    <label>Duration: </label>
+                                    <label><%= job.timeLength %></label><br/>
+                                </div>
+                                <div>
+                                    <label>Price: </label>
+                                    <label>USD <%= job.price %></label><br/>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div>
+                                    <label>Category: </label>
+                                    <label><%= job.JobCategory.name %></label><br/>
+                                </div>
+                                <div>
+                                    <label>Skills Required: </label>
+                                    <label><%= job.timeLength %></label><br/>
+                                </div>
+                            </div>
+                        </div>
+                        <% if(user){ %>
+                            <% if(user.UserAccount.RoleId===2) {%>
+                                <a style="float:right" href="/job-apply/<%=job.id %>" class="btn btn-primary">Submit Application</a>
+                            <% }else{ %>
+                                <a style="float:right" href="#" data-toggle="modal" data-target="#login-modal" class="btn btn-primary">
+                                    Sign in as a freelancer to apply
+                                </a>
+                            <% } %>
+                        <% }else{ %>
+                        <a style="float:right" href="#" data-toggle="modal" data-target="#login-modal" class="btn btn-primary">
+                           Sign in to apply
+                        </a>
+                        <% } %>
+                    </div>
+                </div>
+                <div class="card card-green col-md-3" style="margin-top: 10px;">
+                    <div class="card-header">
+                        <h3>Related Jobs</h3>
+                    </div>
+                    <div class="card-body">
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<% include ./layout/footer-public.ejs %>

@@ -11,29 +11,28 @@ module.exports.GetLogin = (req, res, next) => {
 };
 
 module.exports.DoLogin = async (req, res, next) => {
-
     let userAccount = {
         username: req.body.username,
         password: hashPassword(req.body.password)
     };
 
     req.session.loggedIn = false;
-    let ret_userAccount = await User.findOne({ where:{email:userAccount.username} , include: UserAccount });
-    if(ret_userAccount!==null){
-        if(userAccount.password===ret_userAccount.UserAccount.password){
+    let ret_userAccount = await User.findOne({where: {email: userAccount.username}, include: UserAccount});
+    if (ret_userAccount !== null) {
+        if (userAccount.password === ret_userAccount.UserAccount.password) {
             req.session.user = ret_userAccount;
             req.session.loginSuccessMessage = "Login Successful";
             req.session.loggedIn = true;
             res.send("success");
-        }else {
+        } else {
             console.log("Wrong Password");
             req.session.loginErrorMessage = "Wrong Password";
-            res.send("wrong");
+            res.send("Wrong Password");
         }
-    }else{
+    } else {
         console.log("Wrong Username Or User does not exist");
         req.session.loginErrorMessage = "Wrong Username Or User does not exist";
-        res.send("not there");
+        res.send("Wrong email");
     }
 };
 

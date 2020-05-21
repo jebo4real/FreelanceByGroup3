@@ -8,7 +8,8 @@
         </div>
         <div class="row">
                 <div class="main-card mb-3 card col-md-12">
-                    <div class="card-body"><h5 class="card-title">Jobs Posted</h5>
+                    <div class="card-body"><h5 class="card-title"><%=title%></h5>
+                        <p>Click on a job to view its information</p>
                         <table class="table" id="client_jobs_tb">
                             <thead>
                             <tr>
@@ -23,7 +24,7 @@
                             </thead>
                             <tbody>
                             <% jobs.map( job => { %>
-                            <tr>
+                            <tr style="cursor: pointer;">
                                 <td><%=job.createdAt%></td>
                                 <td><%=job.id%></td>
                                 <td><%=job.title%></td>

@@ -18,6 +18,9 @@ module.exports = {
         type: Sequelize.STRING
       },
       dob: {
+        type: Sequelize.DATE
+      },
+      jobTitle: {
         type: Sequelize.STRING
       },
       email: {

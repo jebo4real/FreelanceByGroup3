@@ -35,13 +35,16 @@ module.exports.UpdateProfile = async (req, res, next) => {
                 lastname: req.body.lastname,
                 gender: req.body.gender,
                 dob: req.body.dob,
+                jobTitle: req.body.jobTitle || '',
                 email: req.body.email,
                 mobile: req.body.mobile,
                 country: req.body.country,
                 city: req.body.city,
                 picture: filenameGlobal
             };
-
+            if(filenameGlobal===""){
+                delete userDetails.picture
+            }
             User.update(userDetails, { where: {id:req.body.id} }).then(response =>{
                 req.session.profileChangeMessage = response != null;
                  User.findOne({ where:{id:req.body.id} , include: UserAccount }).then(rows=>{

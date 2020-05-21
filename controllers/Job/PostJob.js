@@ -1,12 +1,13 @@
 const Job = require('../../models').Job;
-const validator = require('validator');
-const crypto = require('crypto');
-let secret = "cv";
-const nodeMailer = require('nodemailer');
+const JobCategory = require('../../models').JobCategory;
 
-module.exports.GetPostJob = (req, res, next) => {
+module.exports.GetPostJob = async (req, res, next) => {
+    let category = await JobCategory.findAll();
     res.render(
-        'job/post-job'
+        'job/post-job',
+        {
+            category
+        }
     )
 };
 
@@ -19,6 +20,7 @@ module.exports.DoPostJob = async (req, res, next) => {
         timeLength: req.body.timeLength || '',
         price: req.body.price || '',
         skills: req.body.skills || '',
+        CatId: req.body.category || ''
     };
 
     let job_created = await Job.create(jobInfo);

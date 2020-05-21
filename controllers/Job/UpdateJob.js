@@ -8,6 +8,7 @@ module.exports.UpdateJob = async (req, res, next) => {
         timeLength: req.body.timeLength || '',
         price: req.body.price || '',
         skills: req.body.skills || '',
+        CatId: req.body.category || ''
     };
 
     let job_updated = await Job.update(jobInfo, { where:{id:req.body.id} });

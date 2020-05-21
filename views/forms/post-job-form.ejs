@@ -7,6 +7,14 @@
             <div class="form-row">
                 <div class="col-md-6">
                     <div class="position-relative form-group">
+                        <label for="category" class="">Category/Industry</label>
+                        <select name="category" id="category" class="form-control">
+                            <% category.map(cat =>{ %>
+                            <option value="<%=cat.id%>" ><%=cat.name%></option>
+                            <% }); %>
+                        </select>
+                    </div>
+                    <div class="position-relative form-group">
                         <label for="title" class="">Title</label>
                         <input name="title" id="title" placeholder="Job title" type="text" class="form-control" />
                     </div>

@@ -15,12 +15,32 @@ module.exports = (sequelize, DataTypes) => {
       onDelete: 'CASCADE'
     });
 
+    Job.belongsTo(models.JobCategory,{
+      foreignKey: 'CatId',
+      onUpdate: 'CASCADE'
+    });
+
     Job.hasMany(models.JobApplication,{
       foreignKey:'JobId',
       onDelete: 'CASCADE'
     });
 
     Job.hasMany(models.JobPayment,{
+      foreignKey:'JobId',
+      onDelete: 'CASCADE'
+    });
+
+    Job.hasMany(models.Chat,{
+      foreignKey:'JobId',
+      onDelete: 'CASCADE'
+    });
+
+    Job.hasOne(models.Contract,{
+      foreignKey:'JobId',
+      onDelete: 'CASCADE'
+    });
+
+    Job.hasMany(models.JobReport,{
       foreignKey:'JobId',
       onDelete: 'CASCADE'
     });

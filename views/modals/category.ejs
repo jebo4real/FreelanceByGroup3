@@ -1,0 +1,34 @@
+<!-- Modal -->
+<div class="modal fade" id="category-info" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Category Information</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <form method="post" id="fmjobcat" name="fmjobcat">
+                            <div class="position-relative form-group">
+                                <label for="id">ID:</label>
+                                <input type="text" id="id" name="id" class="form-control" hidden/>
+                            </div>
+                            <div class="position-relative form-group">
+                                <label for="name">Name:</label>
+                                <input type="text" id="name" name="name" class="form-control" required/>
+                            </div>
+                            <input type="submit" id="btnaddcat" name="btnaddcat" class="btn btn-primary" value="Add"/>
+                            <input type="submit" id="btnupdatecat" name="btnupdatecat" class="btn btn-primary" value="Update" disabled/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

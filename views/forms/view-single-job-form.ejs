@@ -4,7 +4,15 @@
             <div class="form-row">
                 <div class="col-md-6">
                     <form class="fmupdatejob" id="fmupdatejob" method="post">
-                        <input name="id" id="id" value="<%=job.id%>" type="text" class="form-control" />
+                        <input name="id" id="id" value="<%=job.id%>" type="text" class="form-control" hidden />
+                        <div class="position-relative form-group">
+                            <label for="category" class="">Category/Industry</label>
+                            <select name="category" id="category" class="form-control">
+                                <% category.map(cat =>{ %>
+                                <option value="<%=cat.id%>" <% if(cat.id==job.CatId){'selected'}else{''};%> > <%=cat.name%></option>
+                                <% }); %>
+                            </select>
+                        </div>
                         <div class="position-relative form-group">
                             <label for="title" class="">Title</label>
                             <input name="title" id="title" value="<%=job.title%>" placeholder="Job title" type="text" class="form-control" />
@@ -41,20 +49,29 @@
                             </div>
                         </div>
                         <div class="table-responsive">
-                            <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+                            <table id="app_tb" class="align-middle mb-0 table table-borderless table-striped table-hover">
                                 <thead>
                                 <tr>
                                     <th class="text-center">#</th>
-                                    <th class="text-center">ID</th>
+                                    <th class="text-center" hidden>ID</th>
+                                    <th class="text-center" hidden>fname</th>
+                                    <th class="text-center" hidden>lastname</th>
+                                    <th class="text-center" hidden>picture</th>
+                                    <th class="text-center" hidden>jobTitle</th>
                                     <th>Name</th>
                                     <th class="text-center">Status</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <% jobDetail.map( app => { %>
-                                <tr>
-                                    <td class="text-center text-muted">1</td>
-                                    <td class="text-center"><%=app.id%></td>
+                                <% let count = 1;
+                                jobDetail.map( app => { %>
+                                <tr data-toggle="modal" data-target="#freelancer-info" style="cursor: pointer;">
+                                    <td class="text-center text-muted"><%=count%></td>
+                                    <td class="text-center" hidden><%=app.id%></td>
+                                    <td class="text-center" hidden><%=app.User.firstname%></td>
+                                    <td class="text-center" hidden><%=app.User.lastname%></td>
+                                    <td class="text-center" hidden><%=app.User.picture%></td>
+                                    <td class="text-center" hidden><%=app.User.jobTitle%></td>
                                     <td>
                                         <div class="widget-content p-0">
                                             <div class="widget-content-wrapper">
@@ -64,7 +81,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="widget-content-left flex2">
-                                                    <div class="widget-heading"><%=app.User.firstame%></div>
+                                                    <div class="widget-heading"><%=app.User.firstname%> <%=app.User.lastname%></div>
                                                     <div class="widget-subheading opacity-7">Web Developer</div>
                                                 </div>
                                             </div>
@@ -74,13 +91,14 @@
                                         <div class="badge badge-warning"><%=app.status%></div>
                                     </td>
                                 </tr>
-                                <% }); %>
+                                <%
+                                    count++;
+                                }); %>
                                 </tbody>
                             </table>
                         </div>
                         <div class="d-block text-center card-footer">
-                            <button class="mr-2 btn-icon btn-icon-only btn btn-outline-danger"><i class="pe-7s-trash btn-icon-wrapper"> </i></button>
-                            <button class="btn-wide btn btn-success">Save</button>
+
                         </div>
                     </div>
                 </div>

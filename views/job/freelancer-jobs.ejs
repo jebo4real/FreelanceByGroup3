@@ -1,0 +1,57 @@
+<% include ../layout/header-portal.ejs %>
+<div class="app-main__outer">
+    <div class="app-main__inner">
+        <div class="app-page-title">
+            <div class="page-title-wrapper">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="main-card mb-3 card col-md-12">
+                <div class="card-body"><h5 class="card-title"><%=title%></h5>
+                    <table class="table" id="freelancer_jobs_tb">
+                        <thead>
+                        <tr>
+                            <th>Date Applied</th>
+                            <th hidden >ID</th>
+                            <th>Title</th>
+                            <th hidden >Details</th>
+                            <th hidden >TimeLength</th>
+                            <th>Price</th>
+                            <th hidden >Skills</th>
+                            <th>Status</th>
+                            <th>View Details</th>
+                            <th
+                                <%(title==='Awarded Jobs') ? '':'hidden';%> >
+                                Action
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <% jobApps.map( jobapp => { %>
+                        <tr style="cursor: pointer;">
+                            <td><%=jobapp.createdAt%></td>
+                            <td hidden><%=jobapp.id%></td>
+                            <td><%=jobapp.Job.title%></td>
+                            <td hidden ><%=jobapp.Job.details%></td>
+                            <td hidden><%=jobapp.Job.timeLength%></td>
+                            <td><%=jobapp.Job.price%></td>
+                            <td hidden><%=jobapp.Job.skills%></td>
+                            <td
+                                <%(jobapp.status==='accepted')? 'class="badge badge-success"':'';%>
+                                    >
+                                <%=jobapp.status%>
+                            </td>
+                            <td><a href="/job/<%=jobapp.Job.id%>">View Details</a></td>
+                            <td <%=(jobapp.status==='accepted' || jobapp.status!=='awarded') ? 'hidden':''; %> >
+                                <a href="/user/accept-job/<%=jobapp.id%>">Accept</a>
+                                <a href="/user/reject-job/<%=jobapp.id%>">Reject</a>
+                            </td>
+                        </tr>
+                        <% }); %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+<% include ../layout/footer-portal.ejs %>
