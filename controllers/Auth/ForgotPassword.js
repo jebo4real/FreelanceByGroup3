@@ -4,14 +4,16 @@ const UserAccount = require('../../models').UserAccount;
 const crypto = require('crypto');
 let secret = "cv";
 const nodeMailer = require('nodemailer');
+const errorLog = require('../../logger/logger').logger;
 
-module.exports.GetForgotPassword = (req, res, next) => {
+module.exports.GetForgotPassword = async (req, res, next) => {
     res.locals.display = false;
     res.render(
         'auth/forgot-password'
-    )
+    );
+    errorLog.info("forgot password page rendered");
 };
-module.exports.GetResetPassword = (req, res, next) => {
+module.exports.GetResetPassword = async (req, res, next) => {
     res.locals.display = false;
     let token = req.params.token;
     let email = req.params.email;

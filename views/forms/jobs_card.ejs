@@ -5,8 +5,6 @@
                 <th></th>
                 <th></th>
                 <th></th>
-                <th hidden>Price</th>
-                <th hidden>Duration</th>
             </tr>
         </thead>
         <tbody>
@@ -28,12 +26,6 @@
             <td class="text-right">
 <!--                <a title="" href="" class="btn btn-outline-success" data-toggle="tooltip" data-original-title="Save to Favourite"> <i class="fa fa-heart"></i></a>-->
                 <a href="job/<%=job.id %>" class="btn btn-outline-danger btn-round">Apply</a>
-            </td>
-            <td>
-                <%=job.price %>
-            </td>
-            <td>
-                <%=job.timeLength %>
             </td>
         </tr>
         <% }) %>
