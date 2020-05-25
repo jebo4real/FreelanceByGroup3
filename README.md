@@ -3,8 +3,8 @@
 A freelance website created by Group 3.
 
 Requirements
-    -Node: Download from https://nodejs.org/en/download/
-    -Mysql
+1. Node: Download from https://nodejs.org/en/download/
+2. Mysql
 
 Instructions
 1. Download or clone the repo
