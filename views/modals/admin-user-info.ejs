@@ -1,0 +1,84 @@
+<!-- Modal -->
+<div class="modal fade bd-example-modal-lg" id="admin-user-info" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">User Information</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="" action="update-profile" method="post" enctype = "multipart/form-data">
+                    <input name="id" id="id" placeholder="" type="text" class="form-control" value="" hidden><br />
+                    <div class="form-row">
+                        <div class="col-md-10 row">
+                            <img src="" width="100px" height="100px" alt="picture" id="picture" name="picture"/>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="position-relative form-group">
+                                <label for="firstname" class="">Full Name</label>
+                                <input name="fullname" id="fullname" value="" placeholder="" type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <div class="position-relative form-group">
+                                <label for="dob" class="">Date Of Birth</label>
+                                <input name="dob" id="dob" value=""  placeholder="" type="date" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="position-relative form-group">
+                                <label for="gender" class="">Gender</label>
+                                <input name="gender" id="gender" value=""  placeholder="" type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <div class="position-relative form-group">
+                                <label for="email" class="">Email</label>
+                                <input name="email" id="email" value="" placeholder="" type="email" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="position-relative form-group">
+                                <label for="mobile" class="">Mobile</label>
+                                <input name="mobile" id="mobile" value="" placeholder="" type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <div class="position-relative form-group">
+                                <label for="jobTitle" class="">Job Title</label>
+                                <input name="jobTitle" id="jobTitle" value="" placeholder="eg. Website Developer" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="position-relative form-group">
+                                <label for="country" class="">Country</label>
+                                <input name="country" id="country" value="" placeholder="" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="position-relative form-group">
+                                <label for="city" class="">City</label>
+                                <input name="city" id="city" value="" placeholder="" type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <input type="submit" class="mt-2 btn btn-primary" id="btnaccept" value="Accept">
+                    <input type="submit" class="mt-2 btn btn-primary" id="btnreject" value="Reject">
+                    <input type="submit" class="mt-2 btn btn-primary" id="btnblock" value="Block">
+                    <input type="submit" class="mt-2 btn btn-primary" id="btnunblock" value="Unblock">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

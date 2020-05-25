@@ -7,9 +7,9 @@
                         <input name="id" id="id" value="<%=job.id%>" type="text" class="form-control" hidden />
                         <div class="position-relative form-group">
                             <label for="category" class="">Category/Industry</label>
-                            <select name="category" id="category" class="form-control">
+                            <select name="category" id="category" class="form-control" >
                                 <% category.map(cat =>{ %>
-                                <option value="<%=cat.id%>" <% if(cat.id==job.CatId){'selected'}else{''};%> > <%=cat.name%></option>
+                                <option value="<%=cat.id%>" <% if(cat.id==job.CatId){'selected'}else{''}%> > <%=cat.name%></option>
                                 <% }); %>
                             </select>
                         </div>
@@ -25,7 +25,7 @@
                         </div>
                         <div class="position-relative form-group">
                             <label for="timeLength" class="">Estimated length of job</label>
-                            <select name="timeLength" id="timeLength" class="form-control">
+                            <select name="timeLength" id="timeLength" class="form-control" >
                                 <option value="Less than 1 month" <%(job.timeLength==="Less than 1 month") ? 'selected':''; %> >Less than 1 month</option>
                                 <option value="1 month" <%(job.timeLength==="1 month") ? 'selected':''; %> >1 month</option>
                                 <option value="More than 1 month" <%(job.timeLength==="More than 1 month") ? 'selected':''; %> >More than 1 month</option>
@@ -33,13 +33,15 @@
                         </div>
                         <div class="position-relative form-group">
                             <label for="price" class="">Price</label>
-                            <input name="price" id="price" value="<%=job.price%>" placeholder="price" type="number" min="1" class="form-control" />
+                            <input  name="price" id="price" value="<%=job.price%>" placeholder="price" type="number" min="1" class="form-control" />
                         </div>
                         <div class="position-relative form-group">
                             <label for="skills" class="">Skills(Enter skills associated with job separated by comma)</label>
                             <input name="skills" id="skills" value="<%=job.skills%>" placeholder="skills" type="text" class="form-control" />
                         </div>
+                        <% if(user.UserAccount.RoleId===3){}else{ %>
                         <input type="submit" id="btnupdate" name="btnupdate" class="mt-2 btn btn-primary" value="Update">
+                        <% } %>
                     </form>
                 </div>
                 <div class="col-md-6">

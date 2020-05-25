@@ -84,10 +84,12 @@ module.exports.GetJobsCategoryAndSearch = async (req, res, next) => {
 module.exports.JobDetail = async (req, res, next) => {
     let jobId = req.params.id;
     let job = await Job.findOne( { where:{id:jobId}, include: JobCategory});
+    let related_jobs = await Job.findAll( {where:{CatId:job.CatId}, include: JobCategory});
     res.render(
         'single-job-info',
         {
-            job
+            job,
+            related_jobs
         }
     )
 };

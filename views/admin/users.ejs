@@ -1,0 +1,58 @@
+<% include ../layout/header-portal.ejs %>
+<div class="app-main__outer">
+    <div class="app-main__inner">
+        <div class="app-page-title">
+            <div class="page-title-wrapper">
+                <div class="page-title-actions">
+<!--                    <a class="mt-2 btn btn-primary" data-toggle="modal" data-target="#category-info">New</a>-->
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="main-card mb-3 card col-md-12">
+                <div class="card-body"><h5 class="card-title"><%=title%></h5>
+                    <p>Click on a user to view their information</p>
+                    <table class="table" id="user_tb">
+                        <thead>
+                        <tr>
+                            <th>Date Registered</th>
+                            <th hidden>ID</th>
+                            <th>Full Name</th>
+                            <th>Gender</th>
+                            <th hidden>DOB</th>
+                            <th>Job title</th>
+                            <th>Email</th>
+                            <th hidden>Mobile</th>
+                            <th>Country</th>
+                            <th hidden>City</th>
+                            <th hidden>Picture</th>
+                            <th hidden>Verified</th>
+                            <th hidden>Blocked</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <% users.map( user => { %>
+                        <tr data-toggle="modal" data-target="#admin-user-info">
+                            <td><%=user.createdAt%></td>
+                            <td hidden ><%=user.id%></td>
+                            <td><%=user.User.firstname%> <%=user.User.lastname%></td>
+                            <td><%=user.User.gender%></td>
+                            <td hidden ><%=user.User.dob%></td>
+                            <td><%=user.User.jobTitle%></td>
+                            <td><%=user.User.email%></td>
+                            <td hidden ><%=user.User.mobile%></td>
+                            <td><%=user.User.country%></td>
+                            <td hidden ><%=user.User.city%></td>
+                            <td hidden ><%=user.User.picture%></td>
+                            <td hidden ><%=user.verified%></td>
+                            <td hidden ><%=user.blocked%></td>
+                        </tr>
+                        <% }); %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <% include ../layout/footer-portal.ejs %>
+<% include ../modals/admin-user-info.ejs %>

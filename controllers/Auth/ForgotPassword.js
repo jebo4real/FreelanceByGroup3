@@ -80,7 +80,7 @@ const SendMail = (emailReceiver, token)=>{
     let transporter = nodeMailer.createTransport({
         service: 'gmail',
         auth: {
-            user: 'jay4node@gmail.com', // generated ethereal user
+            user: 'jay4node@gmail.com',
             pass: 'Nodemailer4@'
         }
     });

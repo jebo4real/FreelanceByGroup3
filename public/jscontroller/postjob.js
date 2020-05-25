@@ -1,7 +1,6 @@
 $(document).ready(function(){
     //login
     $("#btnpost").click(function(event){
-        event.preventDefault();
         let data = $('#fmjob').serialize();
         $("#btnpost").val('Posting...');
         $("#fmjob input,textarea,select").prop("disabled",true);
@@ -15,12 +14,14 @@ $(document).ready(function(){
                 data:data,
                 success:function(response){
                     if(response==="success"){
+                        alert("Job Posted Successfully");
                         $('#responseMess').html(
                             '<div class="alert alert-success" role="alert">' +
                             'Job Posted Successfully' +
                             '</div>'
                         );
                     }else {
+                        alert(response);
                         $('#responseMess').html(
                             '<div class="alert alert-danger" role="alert">' +
                             '+ response +' +
@@ -36,6 +37,7 @@ $(document).ready(function(){
         $("#btnpost").val('Post');
         $("#fmjob input,textarea,select").prop("disabled",false);
         $("#fmjob")[0].reset();
+        event.preventDefault();
     });
 
     //login

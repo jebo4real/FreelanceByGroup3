@@ -32,13 +32,20 @@ module.exports.GetSingleJob = async (req, res, next) => {
         where: {JobId: jobId},
         include: User
     });
-    console.log(job);
+    let jobAppAwardId = 0;
+    jobDetail.map(app=>{
+        if(app.status==='awarded' || app.status==='accepted'){
+            jobAppAwardId = app.id;
+        }
+    });
+    console.log("Job app id: "+jobAppAwardId);
     res.render(
         'admin/view-single-job',
         {
             job,
             category,
-            jobDetail
+            jobDetail,
+            jobAppAwardId
         }
     )
 };

@@ -1,0 +1,42 @@
+<% include ../layout/header-portal.ejs %>
+<div class="app-main__outer">
+    <div class="app-main__inner">
+        <div class="app-page-title">
+            <div class="page-title-wrapper">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="main-card mb-3 card col-md-12">
+                <div class="card-body"><h5 class="card-title"><%=title%></h5>
+                    <p>Click on a job to view its information</p>
+                    <table class="table" id="client_jobs_tb">
+                        <thead>
+                        <tr>
+                            <th>Date Posted</th>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Details</th>
+                            <th>TimeLength</th>
+                            <th>Price</th>
+                            <th>Skills</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <% jobs.map( job => { %>
+                        <tr style="cursor: pointer;">
+                            <td><%=job.createdAt%></td>
+                            <td><%=job.id%></td>
+                            <td><%=job.title%></td>
+                            <td><%=job.details%></td>
+                            <td><%=job.timeLength%></td>
+                            <td><%=job.price%></td>
+                            <td><%=job.skills%></td>
+                        </tr>
+                        <% }); %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+<% include ../layout/footer-portal.ejs %>
