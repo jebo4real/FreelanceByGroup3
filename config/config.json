@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "root",
-    "password": null,
+    "username": "jebofree",
+    "password": "Greenfour4",
     "database": "db_freelance",
-    "host": "127.0.0.1",
+    "host": "db4free.net",
     "dialect": "mysql",
     "operatorsAliases": false
   },
