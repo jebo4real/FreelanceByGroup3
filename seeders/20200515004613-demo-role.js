@@ -6,12 +6,18 @@ module.exports = {
       {
         id: 1,
         name: 'client',
+        createdAt:'2020-05-25 00:00:00',
+        updatedAt:'2020-05-25 00:00:00'
       },{
         id: 2,
         name: 'freelancer',
+        createdAt:'2020-05-25 00:00:00',
+        updatedAt:'2020-05-25 00:00:00'
       },{
       id: 3,
       name: 'admin',
+        createdAt:'2020-05-25 00:00:00',
+        updatedAt:'2020-05-25 00:00:00'
     }], {});
   },
 

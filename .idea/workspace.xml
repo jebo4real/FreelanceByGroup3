@@ -1855,8 +1855,10 @@
       <change afterPath="$PROJECT_DIR$/../freelancegroup3/views/jobs.ejs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../freelancegroup3/views/success.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/combined.log" beforeDir="false" afterPath="$PROJECT_DIR$/combined.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seeders/20200515004613-demo-role.js" beforeDir="false" afterPath="$PROJECT_DIR$/seeders/20200515004613-demo-role.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seeders/20200519150933-demo-JobCategory.js" beforeDir="false" afterPath="$PROJECT_DIR$/seeders/20200519150933-demo-JobCategory.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seeders/20200521024553-demo-user.js" beforeDir="false" afterPath="$PROJECT_DIR$/seeders/20200521024553-demo-user.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../freelancegroup3/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../freelancegroup3/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../freelancegroup3/.idea/freelancegroup3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../freelancegroup3/.idea/freelancegroup3.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../freelancegroup3/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../freelancegroup3/.idea/misc.xml" afterDir="false" />
@@ -2023,7 +2025,7 @@
       <option name="presentableId" value="Default" />
       <updated>1589500451593</updated>
       <workItem from="1589500479748" duration="12714000" />
-      <workItem from="1589540568233" duration="134443000" />
+      <workItem from="1589540568233" duration="135601000" />
     </task>
     <servers />
   </component>

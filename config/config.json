@@ -16,10 +16,10 @@
     "operatorsAliases": false
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "username": "jebofree",
+    "password": "Greenfour4",
+    "database": "db_freelance",
+    "host": "db4free.net",
     "dialect": "mysql",
     "operatorsAliases": false
   }
