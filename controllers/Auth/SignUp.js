@@ -7,7 +7,7 @@ const nodeMailer = require('nodemailer');
 
 module.exports.GetSignUp = (req, res, next) => {
     res.render(
-        'auth/signUp'
+        'auth/signup'
     )
 };
 
