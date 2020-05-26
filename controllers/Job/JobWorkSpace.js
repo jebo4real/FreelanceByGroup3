@@ -73,3 +73,7 @@ module.exports.WorkspaceReport = async (req,res, next) =>{
     let job_reported = JobReport.create(report);
     (job_reported!==null) ? res.send("success"):res.send("error");
 };
+
+module.exports.MakePayment = async (req,res, next) =>{
+
+};

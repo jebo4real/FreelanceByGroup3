@@ -4,6 +4,8 @@ $(document).ready(function(){
         event.preventDefault();
         let username = $("#username").val().trim();
         let password = $("#password").val().trim();
+        $("#btnlogin").val("Loading...");
+        $("#btnlogin").attr("disabled", true);
         if( username !== "" && password !== "" ){
             $.ajax({
                 url:'/login',

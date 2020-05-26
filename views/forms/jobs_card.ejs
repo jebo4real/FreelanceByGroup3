@@ -1,31 +1,31 @@
 <div class="card col-md-12 shadow p-3 mb-5 bg-white rounded">
-    <table class="table table-hover " id="jobview_tb" name="jobview_tb">
+    <table class="table table-hover " id="jobview_tb" name="jobview_tb" style="border: 0;">
         <thead>
-            <tr>
-                <th></th>
-                <th></th>
-                <th></th>
+            <tr style="border: 0;">
+                <th style="border: 0;"></th>
+                <th style="border: 0;"></th>
+                <th style="border: 0;"></th>
             </tr>
         </thead>
-        <tbody>
+        <tbody style="">
         <% jobs.map( job => { %>
         <tr style="cursor: pointer;">
             <td>
                 <figure class="media">
                     <figcaption class="media-body">
-                        <h6 class="title text-truncate"><%=job.title %></h6>
-                        <p><%=job.details %></p>
+                        <h6 class="title text-truncate" style="font-size: 20px;"><%=job.title %></h6>
+                        <p style="font-size: 18px;" ><%=job.details %></p>
                     </figcaption>
                 </figure>
             </td>
             <td>
                 <div class="price-wrap">
-                    <var class="price">USD <%=job.price %></var>
+                    <var class="price" style="font-size: 18px;">USD <%=job.price %></var>
                 </div> <!-- price-wrap .// -->
             </td>
             <td class="text-right">
 <!--                <a title="" href="" class="btn btn-outline-success" data-toggle="tooltip" data-original-title="Save to Favourite"> <i class="fa fa-heart"></i></a>-->
-                <a href="job/<%=job.id %>" class="btn btn-outline-danger btn-round">Apply</a>
+                <a href="job/<%=job.id %>" class="btn btn-outline-danger btn-round" style="font-size: 18px;">Apply</a>
             </td>
         </tr>
         <% }) %>

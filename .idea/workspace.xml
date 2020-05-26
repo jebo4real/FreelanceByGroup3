@@ -1856,19 +1856,14 @@
       <change afterPath="$PROJECT_DIR$/../freelancegroup3/views/success.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/combined.log" beforeDir="false" afterPath="$PROJECT_DIR$/combined.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/Admin/Job.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Admin/Job.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/Auth/ForgotPassword.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Auth/ForgotPassword.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/Job/JobPublic.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Job/JobPublic.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/jscontroller/postjob.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/jscontroller/postjob.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/Profile/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Profile/Profile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/jscontroller/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/jscontroller/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/users.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/forms/jobs_card.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/forms/jobs_card.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/forms/post-job-form.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/forms/post-job-form.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/forms/view-single-job-form.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/forms/view-single-job-form.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/jobs.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/jobs.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layout/footer-portal.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout/footer-portal.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/forms/profile-form.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/forms/profile-form.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/layout/header-public.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout/header-public.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layout/menu-portal-admin.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout/menu-portal-admin.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/single-job-info.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/single-job-info.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../freelancegroup3/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../freelancegroup3/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../freelancegroup3/.idea/freelancegroup3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../freelancegroup3/.idea/freelancegroup3.iml" afterDir="false" />
@@ -2043,7 +2038,7 @@
       <option name="presentableId" value="Default" />
       <updated>1589500451593</updated>
       <workItem from="1589500479748" duration="12714000" />
-      <workItem from="1589540568233" duration="146698000" />
+      <workItem from="1589540568233" duration="151141000" />
     </task>
     <servers />
   </component>

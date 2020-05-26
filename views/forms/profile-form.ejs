@@ -74,7 +74,11 @@
                 <div class="col-md-6">
                     <div class="position-relative form-group">
                         <label for="country" class="">Country</label>
-                        <input name="country" id="country" value="<%=user.country%>" placeholder="" type="text" class="form-control">
+                        <select name="country" id="country" class="form-control" required >
+                            <% country.map(c =>{ %>
+                            <option value="<%=c.name%>"><%=c.name%></option>
+                            <% }); %>
+                        </select>
                     </div>
                 </div>
                 <div class="col-md-6">

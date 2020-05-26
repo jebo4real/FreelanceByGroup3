@@ -4,11 +4,26 @@ const crypto = require('crypto');
 let secret = "cv";
 const path = require('path');
 const multer = require('multer');
+const axios = require('axios');
 
-module.exports.GetProfile = (req, res, next) => {
-    res.render(
-        'profile/profile'
-    )
+module.exports.GetProfile = async (req, res, next) => {
+    //Get list of countries from an external api
+    let country = [];
+    axios.get('https://restcountries.eu/rest/v2/all')
+        .then(response => {
+            country = response.data;
+
+            res.render(
+                'profile/profile',
+                {
+                    country
+                }
+            )
+        })
+        .catch(error => {
+            console.log(error);
+        });
+
 };
 
 module.exports.UpdateProfile = async (req, res, next) => {

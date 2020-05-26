@@ -6,13 +6,14 @@ const { GetPostJob, DoPostJob } = require('../controllers/Job/PostJob');
 const { GetAllPostedJob, GetSingleJob, AwardJob } = require('../controllers/Job/ViewJobClient');
 const { UpdateJob, DeleteJob } = require('../controllers/Job/UpdateJob');
 const { GetAppliedJobs, AcceptJob, RejectJob } = require('../controllers/Job/JobFreelancer');
+const { GetDashboardSwitch } = require('../controllers/Dashboard/DashboardSwitch');
 const { GetDashboardClient } = require('../controllers/Dashboard/DashBoardClient');
 const { GetDashboardFreelancer } = require('../controllers/Dashboard/DashboardFreelancer');
 const { GetWorkSpaceInfo, SendMessage, StartJob, WorkspaceAcceptJob,
     WorkspaceRejectJob, WorkspaceReport } = require('../controllers/Job/JobWorkSpace');
 
 /* GET users listing. */
-router.get('/', GetDashboardClient);
+router.get('/', GetDashboardSwitch);
 
 //Private  routes
 //(Both client and freelancers)
