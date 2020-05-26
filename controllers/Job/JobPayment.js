@@ -1,4 +1,5 @@
 const paypal = require('paypal-rest-sdk');
+const JobPayment = require('../../models').JobPayment;
 
 paypal.configure({
     'mode': 'sandbox', //sandbox
@@ -10,9 +11,11 @@ module.exports.MakePayment = async (req,res, next) =>{
     let paymentDetails = {
       name: req.body.name,
       description: req.body.description,
-      price: req.body.price
+      price: req.body.price,
+      JobId: req.body.JobId
     };
     res.locals.price = paymentDetails.price;
+    res.locals.JobId = paymentDetails.JobId;
     //create payment request
     const create_payment_json = {
         "intent": "sale",
@@ -78,7 +81,16 @@ module.exports.success = (req, res, next) =>{
             throw error;
         } else {
             console.log(JSON.stringify(payment));
-            res.send('Success');
+            let paymentInfo = {
+              clientPaymentReceipt: paymentId,
+              clientPay: true,
+              freelancePay: false,
+              JobId: res.locals.JobId
+            };
+            let job_payment = JobPayment.create(paymentInfo);
+            if(job_payment!==null){
+                res.send('Success');
+            }
         }
     });
 };

@@ -1,0 +1,23 @@
+<p>Payment Information</p>
+<table class="table" id="client_jobs_tb">
+    <thead>
+    <tr>
+        <th>Date of Payment</th>
+        <th>Receipt No.</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% jobPayment.map( jobP => { %>
+    <tr style="cursor: pointer;">
+        <td><%=jobP.createdAt%></td>
+        <td><%=jobP.clientPaymentReceipt%></td>
+        <td><%=jobP.Job.title%></td>
+        <td><%=jobP.Job.price%></td>
+        <td><%=jobP.clientPay%></td>
+    </tr>
+    <% }); %>
+    </tbody>
+</table>

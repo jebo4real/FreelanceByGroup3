@@ -13,7 +13,7 @@ module.exports.GetWorkSpaceInfo = async (req, res, next) =>{
     let jobAppId = req.params.id;
     let jobAppDetail = await JobApplication.findOne({ where:{id:jobAppId}, include:User });
     let job = await Job.findOne({ where:{id:jobAppDetail.JobId}, include:[JobCategory, User] });
-    let jobPayment = await JobPayment.findOne({ where:{JobId: jobAppDetail.JobId} });
+    let jobPayment = await JobPayment.findAll({ where:{JobId: jobAppDetail.JobId}, include:Job });
     let chat = await Chat.findAll({ where:{JobId:job.id} });
 
     res.render(

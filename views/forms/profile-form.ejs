@@ -43,9 +43,9 @@
                     <div class="position-relative form-group">
                         <label for="gender" class="">Gender</label>
                         <select id="gender" name="gender" class="form-control">
-                            <option value="male" <%(user.gender == "male")? 'selected':'';%> >Male</option>
-                            <option value="female" <%(user.gender == "female")? 'selected':'';%>  >Female</option>
-                            <option value="p" <%(user.gender=="p")? 'selected':'';%>  >Prefer not to disclose</option>
+                            <option value="male" <%(user.gender === "male")? 'selected':'';%> >Male</option>
+                            <option value="female" <%(user.gender === "female")? 'selected':'';%>  >Female</option>
+                            <option value="p" <%(user.gender==="p")? 'selected':'';%>  >Prefer not to disclose</option>
                         </select>
                     </div>
                 </div>
@@ -75,6 +75,7 @@
                     <div class="position-relative form-group">
                         <label for="country" class="">Country</label>
                         <select name="country" id="country" class="form-control" required >
+                            <option value="<%=user.country%>" selected><%=user.country%></option>
                             <% country.map(c =>{ %>
                             <option value="<%=c.name%>"><%=c.name%></option>
                             <% }); %>
