@@ -2,6 +2,9 @@
 
 A freelance website created by Group 3.
 
+The website has been hosted on the following link
+ - https://jebo-freelance.herokuapp.com/
+
 Requirements
 1. Node: Download from https://nodejs.org/en/download/
 2. Mysql
@@ -20,7 +23,9 @@ Instructions
 6. Run the following command in your terminal to migrate the database 'sequelize db:migrate' 
 7. Run the following command to seed the database with the necessary records. 'sequelize db:seed:all'
 (This step is important because the registration depends on the records that will be seeded).
-8. To start the application run the following command. 'npm startdev' OR 'npm start'
+8. To start the application run the following command. 'npm startdev' OR 'npm start' to 
+                    OR
+ - Vist the following link to check it out https://jebo-freelance.herokuapp.com/
 
 Sprint 1 / Phase 1
 Authentication And Profile
