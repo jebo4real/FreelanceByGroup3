@@ -14,6 +14,7 @@ Instructions
    change the values in the development object to your mysql settings.
    
 5. Locate the sql file (db_freelance) in the root folder and import it into your mysql server
+(If you perform this step, skip the steps 5,6 and 7 and move to step 8 to run the app).
                             OR
 5. Run 'sequelize db:create' command to create the database if the db does not exist
 6. Run the following command in your terminal to migrate the database 'sequelize db:migrate' 
