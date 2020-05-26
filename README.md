@@ -12,6 +12,9 @@ Instructions
 3. Run 'npm install' command in the terminal at the root folder to install the dependencies
 4. Go to the config folder in the root folder and open the config.json file and 
    change the values in the development object to your mysql settings.
+   
+5. Locate the sql file (db_freelance) in the root folder and import it into your mysql server
+                            OR
 5. Run 'sequelize db:create' command to create the database if the db does not exist
 6. Run the following command in your terminal to migrate the database 'sequelize db:migrate' 
 7. Run the following command to seed the database with the necessary records. 'sequelize db:seed:all'
