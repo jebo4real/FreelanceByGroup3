@@ -26,6 +26,7 @@
     "nodemailer": "^6.4.6",
     "nodemon": "^2.0.4",
     "nodetable": "^1.0.2",
+    "paypal-rest-sdk": "^1.8.1",
     "sequelize": "^5.21.9",
     "sequelize-cli": "^5.5.1",
     "validator": "^13.0.0",

@@ -8,6 +8,7 @@ const Chat = require('../../models').Chat;
 const Contract = require('../../models').Contract;
 const JobReport = require('../../models').JobReport;
 
+
 module.exports.GetWorkSpaceInfo = async (req, res, next) =>{
     let jobAppId = req.params.id;
     let jobAppDetail = await JobApplication.findOne({ where:{id:jobAppId}, include:User });
@@ -74,6 +75,3 @@ module.exports.WorkspaceReport = async (req,res, next) =>{
     (job_reported!==null) ? res.send("success"):res.send("error");
 };
 
-module.exports.MakePayment = async (req,res, next) =>{
-
-};

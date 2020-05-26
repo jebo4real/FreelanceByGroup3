@@ -21,8 +21,8 @@ module.exports.GetDashboardClient = async (req, res, next) =>{
         }
     });
     let acc = 'accepted';
-    let jobDoneCount = await db.sequelize.query('SELECT COUNT(jobs.id) AS jobC FROM jobs ' +
-        'LEFT JOIN contracts ON contracts.JobId = jobs.id WHERE contracts.status ="'+acc+'" AND jobs.ClientId = "'+res.locals.user.id+'"', {
+    let jobDoneCount = await db.sequelize.query('SELECT COUNT(Jobs.id) AS jobC FROM Jobs ' +
+        'LEFT JOIN contracts ON contracts.JobId = Jobs.id WHERE contracts.status ="'+acc+'" AND Jobs.ClientId = "'+res.locals.user.id+'"', {
         type: QueryTypes.SELECT
     });
     jobCount  = Object.keys(jobCount).length;
