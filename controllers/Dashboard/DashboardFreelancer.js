@@ -21,8 +21,8 @@ module.exports.GetDashboardFreelancer = async (req, res, next) =>{
         }
     });
     let acc = 'accepted';
-    let jobDoneCount = await db.sequelize.query('SELECT COUNT(jobapplications.id) AS jobF FROM jobapplications ' +
-        'LEFT JOIN contracts ON contracts.JobId = jobapplications.JobId WHERE contracts.status ="'+acc+'" AND jobapplications.FreelanceId = "'+res.locals.user.id+'"', {
+    let jobDoneCount = await db.sequelize.query('SELECT COUNT(Jobapplications.id) AS jobF FROM Jobapplications ' +
+        'LEFT JOIN Contracts ON Contracts.JobId = Jobapplications.JobId WHERE Contracts.status ="'+acc+'" AND Jobapplications.FreelanceId = "'+res.locals.user.id+'"', {
         type: QueryTypes.SELECT
     });
     jobAppCount  = Object.keys(jobAppCount).length;
