@@ -12,9 +12,32 @@
           <div class="item">
             <div class="row">
               <div class="col-md-5 text-right">
-                <p><img src="img/logo.png" alt="" class="ml-auto"></p>
-                <h1>Group 3 Freelance</h1>
-                <p>Best place to get work done.</p>
+                <h3>Find the best jobs today to apply</h3>
+
+                <div class="card col-md-12 shadow p-3 mb-5 bg-white rounded" style="background-color: white !important;margin-top:20px;margin-bottom: 200px;">
+                  <form action="/jobs" method="post" >
+                    <div class="row form-group">
+                      <div class="col-md-4 ">
+                        <input type="text" id="keyword" name="keyword" class="form-control rounded" placeholder="eg. Website" />
+                      </div>
+                      <div class="col-md-4">
+                        <div class="select-wrap">
+                          <span class="icon-keyboard_arrow_down arrow-down"></span>
+                          <select name="category" id="category" class="form-control rounded">
+                            <option value="all" >All</option>
+                            <% category.map(cat =>{ %>
+                            <option value="<%=cat.id%>" ><%=cat.name%></option>
+                            <% }); %>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-4 ">
+                        <input type="submit" class="btn btn-primary btn-block rounded" value="Search">
+                      </div>
+                    </div>
+                  </form>
+                </div> <!-- card.// -->
+
               </div>
               <div class="col-md-7"><img src="img/template-homepage.png" alt="" class="img-fluid"></div>
             </div>
@@ -24,11 +47,29 @@
               <div class="col-md-7 text-center"><img src="img/template-mac.png" alt="" class="img-fluid"></div>
               <div class="col-md-5">
                 <h2>Meet The Best Freelancers</h2>
-                <ul class="list-unstyled">
-                  <li>Softwrae developer</li>
-                  <li>Graphic designers</li>
-                  <li>Engineers</li>
-                </ul>
+                <div class="card col-md-12 shadow p-3 mb-5 bg-white rounded" style="background-color: white !important;margin-top:20px;margin-bottom: 200px;">
+                  <form action="/jobs" method="post" >
+                    <div class="row form-group">
+                      <div class="col-md-4 ">
+                        <input type="text" id="keyword" name="keyword" class="form-control rounded" placeholder="eg. Website" />
+                      </div>
+                      <div class="col-md-4">
+                        <div class="select-wrap">
+                          <span class="icon-keyboard_arrow_down arrow-down"></span>
+                          <select name="category" id="category" class="form-control rounded">
+                            <option value="all" >All</option>
+                            <% category.map(cat =>{ %>
+                            <option value="<%=cat.id%>" ><%=cat.name%></option>
+                            <% }); %>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-4 ">
+                        <input type="submit" class="btn btn-primary btn-block rounded" value="Search">
+                      </div>
+                    </div>
+                  </form>
+                </div> <!-- card.// -->
               </div>
             </div>
           </div>

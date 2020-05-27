@@ -4,6 +4,18 @@ const JobApplication = require('../../models').JobApplication;
 const JobCategory = require('../../models').JobCategory;
 const User = require('../../models').User;
 
+module.exports.GetIndex = async (req, res, next) => {
+    let jobs = await Job.findAll( {include: JobCategory});
+    let category = await JobCategory.findAll();
+    res.render(
+        'index',
+        {
+            jobs,
+            category
+        }
+    )
+};
+
 module.exports.GetAllJobs = async (req, res, next) => {
     let jobs = await Job.findAll( {include: JobCategory});
     let category = await JobCategory.findAll();

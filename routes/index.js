@@ -4,14 +4,12 @@ const {GetLogin, DoLogin, Logout} = require('../controllers/Auth/Login');
 const { GetSignUp, DoSignUp } = require('../controllers/Auth/SignUp');
 const {GetForgotPassword, GetResetPassword,
         forgotPasswordEmail, DoResetPassword} = require('../controllers/Auth/ForgotPassword');
-const {GetAllJobs, GetJobsCategoryAndSearch, JobDetail} = require('../controllers/Job/JobPublic');
+const {GetIndex, GetAllJobs, GetJobsCategoryAndSearch, JobDetail} = require('../controllers/Job/JobPublic');
 const { ApplyJob } = require('../controllers/Job/JobFreelancer');
 
 //Public routes
 // GET requests
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Freelancer' });
-});
+router.get('/', GetIndex);
 router.get('/login', GetLogin);
 router.get('/signup', GetSignUp);
 router.get('/logout', Logout);
