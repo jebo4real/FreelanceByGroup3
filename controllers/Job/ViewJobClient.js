@@ -71,7 +71,7 @@ module.exports.AwardJob = async (req, res, next) => {
 
     let notifyParts = {
         title: jobOwnerInfo.title+" has been awarded to you",
-        message: "/user/jobs",
+        message: "/user/jobs/awarded",
         ReceiverId: JobApp.FreelanceId
     };
     let notifyMailParts = {

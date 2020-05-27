@@ -16,7 +16,7 @@ module.exports.ApplyJob = async (req, res, next) => {
 
     let notifyParts = {
         title: res.locals.user.firstname+" applied for a job you posted",
-        message: "/user/jobs",
+        message: "/user/jobs/all",
         ReceiverId: jobOwnerInfo.ClientId
     };
     let notifyMailParts = {
@@ -82,7 +82,7 @@ module.exports.AcceptJob = async (req, res, next) => {
 
     let notifyParts = {
         title: res.locals.user.firstname+" accepted the job",
-        message: "/user/jobs",
+        message: "/user/jobs/awarded",
         ReceiverId: job.ClientId
     };
     let notifyMailParts = {
@@ -107,7 +107,7 @@ module.exports.RejectJob = async (req, res, next) => {
 
     let notifyParts = {
         title: res.locals.user.firstname+" rejected the job",
-        message: "/user/jobs",
+        message: "/user/jobs/all",
         ReceiverId: job.ClientId
     };
     let notifyMailParts = {
