@@ -13,6 +13,7 @@ $(document).ready(function(){
                 data:{username:username,password:password},
                 success:function(response){
                     if(response.loginRes==="success"){
+                        
                         //window.location = "/user/workspace/1"
                         location.reload();
                     }else {

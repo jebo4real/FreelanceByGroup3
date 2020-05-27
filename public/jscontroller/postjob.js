@@ -56,12 +56,14 @@ $(document).ready(function(){
                 data:data,
                 success:function(response){
                     if(response==="success"){
+                        alert("Job Updated Successfully");
                         $('#responseMess').html(
                             '<div class="alert alert-success" role="alert">' +
                             'Job Updated Successfully' +
                             '</div>'
                         );
                     }else {
+                        alert(response);
                         $('#responseMess').html(
                             '<div class="alert alert-danger" role="alert">' +
                             '+ response +' +
@@ -76,7 +78,7 @@ $(document).ready(function(){
         }
         $("#btnupdate").val('Update');
         $("#fmupdatejob input,textarea,select").prop("disabled",false);
-    })
+    });
 
 
     //login
@@ -92,6 +94,7 @@ $(document).ready(function(){
                 data:{id: id},
                 success:function(response){
                     if(response==="success"){
+                        alert("Job Deleted");
                         $('#responseMess').html(
                             '<div class="alert alert-success" role="alert">' +
                             'Job Deleted Successfully' +
@@ -99,6 +102,7 @@ $(document).ready(function(){
                         );
                         window.location = "/user/my-jobs/all";
                     }else {
+                        alert(response);
                         $('#responseMess').html(
                             '<div class="alert alert-danger" role="alert">' +
                             '+ response +' +
