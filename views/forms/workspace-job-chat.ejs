@@ -1,5 +1,5 @@
 <div class="main-card mb-3 card">
-    <div class="card-body col" id="messages" name="messages" style="background-color:gainsboro;max-height: 250px;overflow-y: scroll;">
+    <div class="card-body col" id="messages" name="messages" style="background-color:gainsboro;max-height: 350px;min-height:300px;overflow-y: scroll;">
         <% chat.map(ch => {%>
             <div class="card card-body col-md-8"
                 <% if(ch.SenderId===user.id){%>
