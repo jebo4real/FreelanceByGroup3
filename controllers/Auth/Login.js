@@ -1,6 +1,7 @@
 const validator = require('validator');
 const User = require('../../models').User;
 const UserAccount = require('../../models').UserAccount;
+const Notification = require('../../models').Notification;
 const crypto = require('crypto');
 let secret = "cv";
 
@@ -23,7 +24,13 @@ module.exports.DoLogin = async (req, res, next) => {
             req.session.user = ret_userAccount;
             req.session.loginSuccessMessage = "Login Successful";
             req.session.loggedIn = true;
-            res.send({loginRes: "success"});
+            Notification.findAndCountAll({ where:{ReceiverId:req.session.user.id} }).then(result=>{
+                req.session.notification = result.rows;
+                req.session.count = result.count;
+                console.log(result.count);
+                res.send({loginRes: "success"});
+            });
+
         } else {
             console.log("Wrong Password");
             req.session.loginErrorMessage = "Wrong Password";

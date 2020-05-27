@@ -49,7 +49,11 @@
                         </div>
                         <% if(user){ %>
                             <% if(user.UserAccount.RoleId===2) {%>
-                                <a style="float:right" href="/job-apply/<%=job.id %>" class="btn btn-primary">Submit Application</a>
+                                <% if(user_applied){ %>
+                                    <a style="float:right" href="#" class="btn btn-primary">Applied</a>
+                                <% }else{ %>
+                                    <a style="float:right" href="/job-apply/<%=job.id %>" class="btn btn-primary">Submit Application</a>
+                                <% } %>
                             <% }else{ %>
                                 <a style="float:right" href="#" data-toggle="modal" data-target="#login-modal" class="btn btn-primary">
                                     Sign in as a freelancer to apply

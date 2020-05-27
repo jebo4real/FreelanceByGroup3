@@ -48,6 +48,8 @@ app.use( (req, res, next) => {
   res.locals.profileChangeMessage = req.session.profileChangeMessage;
   res.locals.passwordChangeMessage = req.session.passwordChangeMessage;
   res.locals.user = req.session.user;
+  res.locals.notifications = req.session.notification;
+  res.locals.count = req.session.count;
   next();
 });
 

@@ -7,6 +7,7 @@ const JobPayment = require('../../models').JobPayment;
 const Chat = require('../../models').Chat;
 const Contract = require('../../models').Contract;
 const JobReport = require('../../models').JobReport;
+const Notification = require('../../models').Notification;
 const db = require("../../models");
 const { QueryTypes } = require('sequelize');
 

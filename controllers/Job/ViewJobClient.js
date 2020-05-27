@@ -3,6 +3,7 @@ const Job = require('../../models').Job;
 const JobCategory = require('../../models').JobCategory;
 const JobApplication = require('../../models').JobApplication;
 const User = require('../../models').User;
+const {Notify, NotifyMail} = require('../../services/Notification');
 
 module.exports.GetAllPostedJob = async (req, res, next) => {
     let jobCat = req.params.category;
@@ -64,8 +65,22 @@ module.exports.AwardJob = async (req, res, next) => {
         status:'awarded'
     };
     let job_awarded = JobApplication.update(status,{where:{id:appId} });
-    let JobApp = await JobApplication.findOne({where:{id:appId} });
+    let JobApp = await JobApplication.findOne({where:{id:appId}, include:User });
     let job_updated = Job.update(status, {where: {id:JobApp.JobId} });
+    let jobOwnerInfo = await Job.findOne({ where:{id:JobApp.JobId}, include: User });
+
+    let notifyParts = {
+        title: jobOwnerInfo.title+" has been awarded to you",
+        message: "/user/jobs",
+        ReceiverId: JobApp.FreelanceId
+    };
+    let notifyMailParts = {
+        title: jobOwnerInfo.title+" has been awarded to you",
+        message: jobOwnerInfo.title+" has been awarded to you",
+        ReceiverEmail: JobApp.User.email
+    };
+    Notify(notifyParts.title, notifyParts.message, notifyParts.ReceiverId);
+    NotifyMail(notifyMailParts.title, notifyMailParts.message, notifyMailParts.ReceiverEmail);
 
     res.redirect('/user/my-jobs/awarded');
 };

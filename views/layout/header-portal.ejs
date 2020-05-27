@@ -81,20 +81,31 @@
                                         <a href="/logout" type="button" tabindex="0" class="dropdown-item">Log Out</a>
                                     </div>
                                 </div>
+
                             </div>
                             <div class="widget-content-left  ml-3 header-user-info">
                                 <div class="widget-heading">
                                     <%=user.UserAccount.username%>
                                 </div>
                                 <div class="widget-subheading">
-                                    <%if(user.UserAccount.username === 1){%>
+                                    <%if(user.UserAccount.RoleId === 1){%>
                                         Client
-                                    <%}else if(user.UserAccount.username === 2){%>
+                                    <%}else if(user.UserAccount.RoleId === 2){%>
                                         Freelancer
                                     <% }else{ %>
                                         Admin
                                     <%}%>
                                 </div>
+                            </div>
+                            <div class="widget-content-left  ml-3 header-user-info">
+                            <a class="login-btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-bell"></i><span><%=count%></span>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <% notifications.map(nt =>{%>
+                                    <a class="dropdown-item" href="<%=nt.message%>"><%=nt.title%></a>
+                                <%});%>
+                            </div>
                             </div>
                         </div>
                     </div>

@@ -64,6 +64,14 @@
                             <a href="/logout" class="login-btn">
                                 <i class="fa fa-sign-out"></i><span class="d-none d-md-inline-block">Log Out</span>
                             </a>
+                            <a class="login-btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-bell"></i><span><%=count%></span>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <% notifications.map(nt =>{%>
+                                <a class="dropdown-item" href="<%=nt.message%>"><%=nt.title%></a>
+                                <%});%>
+                            </div>
                         </div>
                         <% } else{ %>
                             <div class="login">

@@ -85,11 +85,28 @@ module.exports.JobDetail = async (req, res, next) => {
     let jobId = req.params.id;
     let job = await Job.findOne( { where:{id:jobId}, include: JobCategory});
     let related_jobs = await Job.findAll( {where:{CatId:job.CatId}, include: JobCategory});
+    let user_applied = false;
+    if(!req.session.loggedIn){
+
+    }else {
+        let user_application = await JobApplication.findAll({
+            where: {
+                [Op.and]: [
+                    {JobId: jobId},
+                    {FreelanceId: res.locals.user.id}
+                ]
+            }
+        });
+        if (Object.keys(user_application).length > 0) {
+            user_applied = true;
+        }
+    }
     res.render(
         'single-job-info',
         {
             job,
-            related_jobs
+            related_jobs,
+            user_applied
         }
     )
 };

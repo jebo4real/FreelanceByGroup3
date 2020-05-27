@@ -37,15 +37,17 @@
                             <td hidden><%=jobapp.Job.timeLength%></td>
                             <td><%=jobapp.Job.price%></td>
                             <td hidden><%=jobapp.Job.skills%></td>
-                            <td
-                                <%(jobapp.status==='accepted')? 'class="badge badge-success"':'';%>
-                                    >
+                            <td>
                                 <%=jobapp.status%>
+                                <% if(jobapp.status==="accepted" || jobapp.status==="awarded"){ %>
+                                    <a href="/user/workspace/<%=jobapp.id%>">View Workspace</a>
+                                <% } %>
                             </td>
                             <td><a href="/job/<%=jobapp.Job.id%>">View Details</a></td>
                             <td <%=(jobapp.status==='accepted' || jobapp.status!=='awarded') ? 'hidden':''; %> >
                                 <a href="/user/accept-job/<%=jobapp.id%>">Accept</a>
                                 <a href="/user/reject-job/<%=jobapp.id%>">Reject</a>
+
                             </td>
                         </tr>
                         <% }); %>

@@ -30,8 +30,7 @@ $(document).ready(function() {
         let table = $("#freelancer_jobs_tb").DataTable();
         let data = table.row(this).data();
         let jobId = data[1];
-        window.location = "/user/workspace/"+jobId;
-
+        let jobAppStatus = data[7];
     });
 
     $("#app_tb").DataTable({
