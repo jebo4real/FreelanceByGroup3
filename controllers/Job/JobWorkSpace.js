@@ -7,7 +7,9 @@ const JobPayment = require('../../models').JobPayment;
 const Chat = require('../../models').Chat;
 const Contract = require('../../models').Contract;
 const JobReport = require('../../models').JobReport;
-
+const JobFile = require('../../models').JobFiles;
+const multer = require('multer');
+const path = require('path');
 
 module.exports.GetWorkSpaceInfo = async (req, res, next) =>{
     let jobAppId = req.params.id;
@@ -15,6 +17,7 @@ module.exports.GetWorkSpaceInfo = async (req, res, next) =>{
     let job = await Job.findOne({ where:{id:jobAppDetail.JobId}, include:[JobCategory, User] });
     let jobPayment = await JobPayment.findAll({ where:{JobId: jobAppDetail.JobId}, include:Job });
     let chat = await Chat.findAll({ where:{JobId:job.id} });
+    let jobFiles = await JobFile.findAll({ where:{JobId:job.id}, include:User });
 
     res.render(
         'job/workspace',
@@ -22,7 +25,8 @@ module.exports.GetWorkSpaceInfo = async (req, res, next) =>{
             jobAppDetail,
             job,
             jobPayment,
-            chat
+            chat,
+            jobFiles
         }
     )
 };
@@ -35,6 +39,40 @@ module.exports.SendMessage = async (req, res, next) =>{
   };
   Chat.create(chat);
   res.send("success");
+};
+
+module.exports.UploadFile = async (req, res, next) =>{
+
+    let filenameGlobal='';
+    const storage = multer.diskStorage({
+        destination:'./public/jobfiles/',
+        filename: function(req,file,cb){
+            filenameGlobal=file.fieldname+'-'+Date.now()+path.extname(file.originalname);
+            cb(null,filenameGlobal);
+        }
+    });
+
+    const upload = multer({
+        storage:storage
+    }).single('jobfile');
+
+    upload(req,res,(err)=>{
+        if(err){
+            console.log(err.toString());
+        }else{
+            console.log("uploaded");
+            let jobFileInfo = {
+                JobId: req.body.JobId,
+                UserId: req.body.SenderId,
+                filename: filenameGlobal
+            };
+            JobFile.create(jobFileInfo).then(response =>{
+                res.redirect("/user/workspace/"+req.body.JobAppId);
+            });
+
+        }
+    });
+
 };
 
 module.exports.StartJob = async (req,res, next) =>{

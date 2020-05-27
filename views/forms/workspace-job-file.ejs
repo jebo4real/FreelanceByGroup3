@@ -1,0 +1,47 @@
+<div class="main-card mb-3 card">
+    <div class="card-header">
+        <form class="" action="/user/upload-file" method="post" enctype = "multipart/form-data" style="float:right">
+            <input type="text" id="SenderId" name="SenderId" class="form-control" value="<%=user.id%>"  hidden>
+            <input type="text" id="JobId" name="JobId" class="form-control" value="<%=job.id%>" hidden >
+            <input type="text" id="JobAppId" name="JobAppId" class="form-control" value="<%=jobAppDetail.id%>" hidden >
+
+            <div class="input-group">
+                <input type="file" id="jobfile" name="jobfile" class="form-control" />
+                <div class="input-group-append">
+                    <input type="submit" value="Upload" class="btn btn-primary" id="btnupload" name="btnupload">
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <div class="card-body col" id="files" name="files" style="">
+        <p>Job Files</p>
+        <table class="table" id="job_file_tb">
+            <thead>
+            <tr>
+                <th>Date of Upload</th>
+                <th>By</th>
+                <th>File Name</th>
+                <th>View</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% jobFiles.map( jobF => { %>
+            <tr style="cursor: pointer;">
+                <td><%=jobF.createdAt%></td>
+                <td><%=jobF.User.firstname%> <%jobF.User.lastname%></td>
+                <td><%=jobF.filename%></td>
+                <td>
+                    <a href="/user/file/<%=jobF.filename%>">
+                        View File
+                    </a>
+                </td>
+            </tr>
+            <% }); %>
+            </tbody>
+        </table>
+    </div>
+    <div class="card-footer row">
+
+    </div>
+</div>
