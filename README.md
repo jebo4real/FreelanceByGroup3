@@ -25,7 +25,7 @@ Instructions
 (This step is important because the registration depends on the records that will be seeded).
 8. To start the application run the following command. 'npm startdev' OR 'npm start' to 
                     OR
- - Vist the following link to check it out https://jebo-freelance.herokuapp.com/
+ - Vist the following link to check it out https://jebo-freelance.herokuapp.com
 
 Sprint 1 / Phase 1
 Authentication And Profile

@@ -65,6 +65,9 @@ $(document).ready(function() {
         "info":     false,
         "searching": false,
         "lengthChange": false,
+        "language": {
+            "emptyTable": "No jobs have been posted yet."
+        }
     });
 
     $("#priceApply").click((e)=>{
