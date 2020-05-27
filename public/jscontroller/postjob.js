@@ -32,7 +32,7 @@ $(document).ready(function(){
             });
 
         } else {
-            alert("Enter all required details");
+            //alert("Enter all required details");
         }
         $("#btnpost").val('Post');
         $("#fmjob input,textarea,select").prop("disabled",false);
