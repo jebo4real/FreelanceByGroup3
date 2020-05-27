@@ -19,12 +19,12 @@ module.exports = {
     ], {});
 
     const users = await queryInterface.sequelize.query(
-        `SELECT id from users;`
+        `SELECT id from Users;`
     );
 
     const usersRows = users[0];
 
-    return queryInterface.bulkInsert('Useraccounts', [
+    return queryInterface.bulkInsert('UserAccounts', [
       {username: 'admin1', password: hashPassword('admin'), UserId: usersRows[0].id, RoleId: 3,createdAt:'2020-05-25 00:00:00',
         updatedAt:'2020-05-25 00:00:00'},
       {username: 'admin2', password: hashPassword('admin'), UserId: usersRows[0].id, RoleId: 3,createdAt:'2020-05-25 00:00:00',

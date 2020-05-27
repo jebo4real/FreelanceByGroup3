@@ -3,7 +3,7 @@
     "username": "root",
     "password": null,
     "database": "db_freelance",
-    "host": "127.0.0.1",
+    "host": "localhost",
     "dialect": "mysql",
     "operatorsAliases": false
   },
@@ -16,10 +16,10 @@
     "operatorsAliases": false
   },
   "production": {
-    "username": "jebofree",
-    "password": "Greenfour4",
-    "database": "db_freelance",
-    "host": "db4free.net",
+    "username": "sql12343160",
+    "password": "mpe2zHDxlZ",
+    "database": "sql12343160",
+    "host": "sql12.freemysqlhosting.net",
     "dialect": "mysql",
     "operatorsAliases": false
   }
