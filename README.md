@@ -2,7 +2,7 @@
 
 A freelance website created by Group 3.
 
-The website has been hosted on the following link
+The website has been hosted on the following link and contains the latest features for Phase 1
  - https://jebo-freelance.herokuapp.com/
 
 Requirements
@@ -26,7 +26,11 @@ Instructions
 8. To start the application run the following command. 'npm startdev' OR 'npm start' to 
                     OR
  - Vist the following link to check it out https://jebo-freelance.herokuapp.com
-
+ 
+ - Test Accounts (Works for the hosted site)
+    - username: johnjebo@gmail.com Password: Greenfour4  (Client Account)
+    - username: jebeelectroneum@gmail.com Password: Greenfour4 (Freelancer Account)
+    
 Sprint 1 / Phase 1
 Authentication And Profile
 - Sign Up

@@ -1855,8 +1855,8 @@
       <change afterPath="$PROJECT_DIR$/../freelancegroup3/views/jobs.ejs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../freelancegroup3/views/success.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/Job/JobFreelancer.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Job/JobFreelancer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/Job/ViewJobClient.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Job/ViewJobClient.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/combined.log" beforeDir="false" afterPath="$PROJECT_DIR$/combined.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../freelancegroup3/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../freelancegroup3/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../freelancegroup3/.idea/freelancegroup3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../freelancegroup3/.idea/freelancegroup3.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../freelancegroup3/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../freelancegroup3/.idea/misc.xml" afterDir="false" />
@@ -2030,7 +2030,7 @@
       <option name="presentableId" value="Default" />
       <updated>1589500451593</updated>
       <workItem from="1589500479748" duration="12714000" />
-      <workItem from="1589540568233" duration="189238000" />
+      <workItem from="1589540568233" duration="189476000" />
     </task>
     <servers />
   </component>
