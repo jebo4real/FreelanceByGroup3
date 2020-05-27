@@ -82,5 +82,5 @@ module.exports.AwardJob = async (req, res, next) => {
     Notify(notifyParts.title, notifyParts.message, notifyParts.ReceiverId);
     NotifyMail(notifyMailParts.title, notifyMailParts.message, notifyMailParts.ReceiverEmail);
 
-    res.redirect('/user/my-jobs/awarded');
+    res.redirect('/user/view-job/'+JobApp.JobId);
 };

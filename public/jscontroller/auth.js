@@ -13,7 +13,8 @@ $(document).ready(function(){
                 data:{username:username,password:password},
                 success:function(response){
                     if(response.loginRes==="success"){
-                        
+                        // let pageURL = $(location).attr("href");
+                        // alert(pageURL);
                         //window.location = "/user/workspace/1"
                         location.reload();
                     }else {
