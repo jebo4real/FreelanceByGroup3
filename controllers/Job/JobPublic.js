@@ -7,11 +7,12 @@ const User = require('../../models').User;
 module.exports.GetIndex = async (req, res, next) => {
     let jobs = await Job.findAll( {include: JobCategory});
     let category = await JobCategory.findAll();
+    let searchResult = "All Jobs";
     res.render(
         'index',
         {
-            jobs,
-            category
+            category,
+            searchResult
         }
     )
 };
@@ -19,11 +20,14 @@ module.exports.GetIndex = async (req, res, next) => {
 module.exports.GetAllJobs = async (req, res, next) => {
     let jobs = await Job.findAll( {include: JobCategory});
     let category = await JobCategory.findAll();
+    let jobCount = Object.keys(jobs).length;
+    let searchResult = "All Jobs...";
     res.render(
         'jobs',
         {
             jobs,
-            category
+            category,
+            searchResult
         }
     )
 };
@@ -32,6 +36,7 @@ module.exports.GetJobsCategoryAndSearch = async (req, res, next) => {
     let searchParams = {};
     let jobs= {};
     let category = await JobCategory.findAll();
+    let searchResult = "All Jobs";
     if(req.body.category!=="" && req.body.keyword!=="") {
         searchParams = {
             CatId: req.body.category || '',
@@ -46,6 +51,7 @@ module.exports.GetJobsCategoryAndSearch = async (req, res, next) => {
                 },
                 include: JobCategory
             });
+            searchResult = "'"+req.body.keyword + "' search results";
         }else {
             jobs = await Job.findAll({
                 where: {
@@ -60,6 +66,7 @@ module.exports.GetJobsCategoryAndSearch = async (req, res, next) => {
                 },
                 include: JobCategory
             });
+            searchResult = "'"+req.body.keyword + "' search results";
         }
     }else if(req.body.category!==""){
         searchParams = {
@@ -69,7 +76,10 @@ module.exports.GetJobsCategoryAndSearch = async (req, res, next) => {
             jobs = await Job.findAll( {include: JobCategory});
         }else {
             jobs = await Job.findAll({where: searchParams, include: JobCategory});
+            console.log(jobs);
+            searchResult =  "Search results";
         }
+
     }else if(req.body.keyword!==""){
         let title = '%'+req.body.keyword+'%' || '';
         jobs = await Job.findAll({
@@ -80,15 +90,19 @@ module.exports.GetJobsCategoryAndSearch = async (req, res, next) => {
             },
             include: JobCategory
         });
+        searchResult = "'"+req.body.keyword + " search results";
     }else{
         jobs = await Job.findAll({include: JobCategory});
     }
+    let jobCount = Object.keys(jobs).length;
+    searchResult+="..."+jobCount+" jobs";
     console.log(jobs);
     res.render(
         'jobs',
         {
             jobs,
-            category
+            category,
+            searchResult
         }
     )
 };
