@@ -1856,9 +1856,26 @@
       <change afterPath="$PROJECT_DIR$/../freelancegroup3/views/success.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/combined.log" beforeDir="false" afterPath="$PROJECT_DIR$/combined.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/Job/JobWorkSpace.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Job/JobWorkSpace.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/Dashboard/DashBoardClient.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Dashboard/DashBoardClient.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/Dashboard/DashboardAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Dashboard/DashboardAdmin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/Dashboard/DashboardFreelancer.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Dashboard/DashboardFreelancer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/Dashboard/DashboardSwitch.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Dashboard/DashboardSwitch.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/userAssets/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/userAssets/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/dashboard/dashboard-client.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/dashboard/dashboard-client.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/dashboard/dashboard-freelancer.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/dashboard/dashboard-freelancer.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/forms/change-password-form.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/forms/change-password-form.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/forms/post-job-form.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/forms/post-job-form.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/forms/profile-form.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/forms/profile-form.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/forms/view-single-job-form.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/forms/view-single-job-form.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/forms/workspace-job-chat.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/forms/workspace-job-chat.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/forms/workspace-job-file.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/forms/workspace-job-file.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/job/view-single-job.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/job/view-single-job.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layout/header-portal.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout/header-portal.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layout/menu-portal-admin.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout/menu-portal-admin.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/modals/admin-user-info.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/modals/admin-user-info.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/modals/category.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/modals/category.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/modals/freelancer-info.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/modals/freelancer-info.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../freelancegroup3/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../freelancegroup3/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../freelancegroup3/.idea/freelancegroup3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../freelancegroup3/.idea/freelancegroup3.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../freelancegroup3/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../freelancegroup3/.idea/misc.xml" afterDir="false" />
@@ -1931,7 +1948,7 @@
         <item name="freelance_db@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="db_freelance: schema" type="ebfa3cd1:MariaImplModel$Schema" />
-        <item name="jobcategories: table" type="dbc44a63:MariaImplModel$Table" />
+        <item name="useraccounts: table" type="dbc44a63:MariaImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -2032,7 +2049,7 @@
       <option name="presentableId" value="Default" />
       <updated>1589500451593</updated>
       <workItem from="1589500479748" duration="12714000" />
-      <workItem from="1589540568233" duration="193418000" />
+      <workItem from="1589540568233" duration="207013000" />
     </task>
     <servers />
   </component>

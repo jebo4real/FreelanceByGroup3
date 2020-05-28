@@ -41,23 +41,50 @@
                             <div class="widget-subheading">Only job accepted</div>
                         </div>
                         <div class="widget-content-right">
-                            <div class="widget-numbers text-white"><span>0</span></div>
+                            <div class="widget-numbers text-white"><span><%=jobDoneCount%></span></div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="d-xl-none d-lg-block col-md-6 col-xl-4">
-                <div class="card mb-3 widget-content bg-premium-dark">
-                    <div class="widget-content-wrapper text-white">
-                        <div class="widget-content-left">
-                            <div class="widget-heading">Products Sold</div>
-                            <div class="widget-subheading">Revenue streams</div>
+
+            <div class="col-md-12">
+                <div class="main-card mb-3 card">
+                    <div class="card-header">Latest Job Applications
+                        <div class="btn-actions-pane-right">
+                            <div role="group" class="btn-group-sm btn-group">
+                                <!--                                <button class="active btn btn-focus">Last Week</button>-->
+                                <!--                                <button class="btn btn-focus">All Month</button>-->
+                            </div>
                         </div>
-                        <div class="widget-content-right">
-                            <div class="widget-numbers text-warning"><span>$14M</span></div>
-                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+                            <thead>
+                            <tr>
+                                <th class="text-center">#</th>
+                                <th>Job</th>
+                                <th class="text-center">Status</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <% count = 1;
+                                jobApps.map(j =>{ %>
+                                <tr>
+                                    <td class="text-center text-muted"><%=count%></td>
+                                    <td class="text-left"><%=j.Job.title%></td>
+                                    <td class="text-center">
+                                        <div class="badge badge-info"><%=j.status%></div>
+                                    </td>
+                                </tr>
+                                <% count++; }); %>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="d-block text-center card-footer">
+                        <a href="/user/freelancer-jobs/all" class="btn-wide btn btn-success">View All Job Applications</a>
                     </div>
                 </div>
             </div>
+
         </div>
 <% include ../layout/footer-portal.ejs %>

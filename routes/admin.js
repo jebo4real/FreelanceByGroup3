@@ -5,10 +5,12 @@ const { GetJobCategories, DoAddJobCategory,
 const { GetUsers, Accept,
     Reject, Block, UnBlock } = require('../controllers/Admin/User');
 const {GetAllPostedJob} = require('../controllers/Admin/Job');
+const { GetDashboardAdmin } = require('../controllers/Dashboard/DashboardAdmin');
 
 //Private  routes
 //GET requests
-router.get('/', GetJobCategories);
+router.get('/', GetDashboardAdmin);
+router.get('/dashboard-admin', GetDashboardAdmin);
 router.get('/job-categories', GetJobCategories);
 router.get('/users/:category', GetUsers);
 router.get('/jobs/:category', GetAllPostedJob);

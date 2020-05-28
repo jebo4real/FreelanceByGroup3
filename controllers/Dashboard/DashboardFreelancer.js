@@ -12,8 +12,8 @@ const db = require("../../models");
 const { QueryTypes } = require('sequelize');
 
 module.exports.GetDashboardFreelancer = async (req, res, next) =>{
-    let jobAppCount = JobApplication.findAll({ where:{FreelanceId:res.locals.user.id} });
-    let jobAwarded = JobApplication.findAll({
+    let jobsAppCount = JobApplication.findAll({ where:{FreelanceId:res.locals.user.id} });
+    let jobsAwarded = JobApplication.findAll({
         where:{
             [Op.and]: [
                 {FreelanceId:res.locals.user.id},
@@ -26,14 +26,44 @@ module.exports.GetDashboardFreelancer = async (req, res, next) =>{
     //     'LEFT JOIN Contracts ON Contracts.JobId = Jobapplications.JobId WHERE Contracts.status ="'+acc+'" AND Jobapplications.FreelanceId = "'+res.locals.user.id+'"', {
     //     type: QueryTypes.SELECT
     // });
-    jobAppCount  = Object.keys(jobAppCount).length;
-    jobAwarded  = Object.keys(jobAwarded).length;
-    //jobDoneCount  = Object.keys(jobDoneCount).length;
-    res.render(
-        'dashboard/dashboard-freelancer',
-        {
-            jobAppCount,
-            jobAwarded
+    let jobApps = await JobApplication.findAll({
+        where:{FreelanceId: res.locals.user.id},
+        include: [
+            {
+                model: Job,
+                as: 'Job',
+            }
+        ]
+    });
+
+    let jobAppCount = 0;
+    let jobAwarded = 0;
+    jobsAppCount.map(jb=>{
+        jobAppCount++;
+    });
+    jobsAwarded.map(jsa =>{
+        jobAwarded++;
+    });
+    JobApplication.findAndCountAll({
+        where:{
+            [Op.and]:[
+                {status: 'awarded'},
+                {FreelanceId: res.locals.user.id},
+            ]
         }
-    )
+    }).then(result=>{
+        let jobDoneCount = result.count;
+        res.render(
+            'dashboard/dashboard-freelancer',
+            {
+                jobAppCount,
+                jobAwarded,
+                jobDoneCount,
+                jobApps,
+            }
+        )
+    }).catch(err=>{
+        console.log(err);
+    });
+
 };

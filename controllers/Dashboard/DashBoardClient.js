@@ -11,8 +11,8 @@ const db = require("../../models");
 const { QueryTypes } = require('sequelize');
 
 module.exports.GetDashboardClient = async (req, res, next) =>{
-    let jobCount = Job.findAll({ where:{ClientId:res.locals.user.id} });
-    let jobAwarded = Job.findAll({
+    let jobs = Job.findAll({ where:{ClientId:res.locals.user.id} });
+    let jobsAwarded = Job.findAll({
         where:{
             [Op.and]: [
                 {ClientId:res.locals.user.id},
@@ -20,19 +20,54 @@ module.exports.GetDashboardClient = async (req, res, next) =>{
             ]
         }
     });
-    let acc = 'accepted';
-    // let jobDoneCount = await db.sequelize.query('SELECT COUNT(Jobs.id) AS jobC FROM Jobs ' +
-    //     'LEFT JOIN Contracts ON Contracts.JobId = Jobs.id WHERE Contracts.status ="'+acc+'" AND Jobs.ClientId = "'+res.locals.user.id+'"', {
-    //     type: QueryTypes.SELECT
-    // });
-    jobCount  = Object.keys(jobCount).length;
-    jobAwarded  = Object.keys(jobAwarded).length;
-    //jobDoneCount  = Object.keys(jobDoneCount).length;
-    res.render(
-        'dashboard/dashboard-client',
-        {
-            jobCount,
-            jobAwarded,
-        }
-    )
+    let jobApps = await JobApplication.findAll({
+        include: [
+            {
+                model: Job,
+                as: 'Job',
+                where: {ClientId: res.locals.user.id},
+            },
+            {
+                model: User,
+                as: 'User',
+            }
+        ],
+        order:[
+          ['createdAt', 'DESC']
+        ],
+        limit: 5
+    });
+
+    let jobCount = 0;
+    let jobAwarded = 0;
+    jobs.map(jb=>{
+       jobCount++;
+    });
+    jobsAwarded.map(jsa =>{
+        jobAwarded++;
+    });
+    Contract.findAndCountAll({
+        where:{status: 'accept'},
+        include: [
+            {
+                model: Job,
+                as: 'Job',
+                where: {ClientId: res.locals.user.id},
+            },
+        ]
+    }).then(result=>{
+        let jobDoneCount = result.count;
+        res.render(
+            'dashboard/dashboard-client',
+            {
+                jobCount,
+                jobAwarded,
+                jobDoneCount,
+                jobApps
+            }
+        )
+    }).catch(err=>{
+       console.log(err);
+    });
+
 };
