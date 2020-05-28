@@ -75,6 +75,12 @@ module.exports.UploadFile = async (req, res, next) =>{
 
 };
 
+module.exports.ViewFile = async (req, res, next) =>{
+    let filename = req.params.filename;
+    console.log(filename);
+    res.sendFile(path.dirname(app || process.mainModule.filename) + "public/jobfiles/"+filename);
+};
+
 module.exports.StartJob = async (req,res, next) =>{
     let jobId = req.body.JobId;
     let startJobStatus = {

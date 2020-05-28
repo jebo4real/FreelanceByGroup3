@@ -10,7 +10,7 @@ const { GetDashboardSwitch } = require('../controllers/Dashboard/DashboardSwitch
 const { GetDashboardClient } = require('../controllers/Dashboard/DashBoardClient');
 const { GetDashboardFreelancer } = require('../controllers/Dashboard/DashboardFreelancer');
 const { GetWorkSpaceInfo, SendMessage, StartJob, WorkspaceAcceptJob,
-    WorkspaceRejectJob, WorkspaceReport, UploadFile } = require('../controllers/Job/JobWorkSpace');
+    WorkspaceRejectJob, WorkspaceReport, UploadFile, ViewFile } = require('../controllers/Job/JobWorkSpace');
 
 /* GET users listing. */
 router.get('/', GetDashboardSwitch);
@@ -36,11 +36,13 @@ router.get('/view-job/:id', GetSingleJob);
 router.get('/award-job/:id', AwardJob);
 router.get('/accept-job/:id', AcceptJob);
 router.get('/reject-job/:id', RejectJob);
+router.get('/view-file/:filename', ViewFile);
 
 //Workspace
 router.get('/workspace/:id', GetWorkSpaceInfo);
 router.post('/send-message', SendMessage);
 router.post('/upload-file', UploadFile);
+
 
 // //POST requests
 router.post('/post-job', DoPostJob);
