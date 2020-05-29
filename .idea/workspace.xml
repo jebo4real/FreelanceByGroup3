@@ -1854,10 +1854,6 @@
       <change afterPath="$PROJECT_DIR$/../freelancegroup3/views/jobdetail.ejs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../freelancegroup3/views/jobs.ejs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../freelancegroup3/views/success.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layout/menu-portal-admin.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout/menu-portal-admin.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layout/menu-portal-client.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout/menu-portal-client.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layout/menu-portal-freelancer.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout/menu-portal-freelancer.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../freelancegroup3/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../freelancegroup3/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../freelancegroup3/.idea/freelancegroup3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../freelancegroup3/.idea/freelancegroup3.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../freelancegroup3/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../freelancegroup3/.idea/misc.xml" afterDir="false" />
@@ -2026,7 +2022,7 @@
       <workItem from="1589500479748" duration="12714000" />
       <workItem from="1589540568233" duration="207362000" />
       <workItem from="1590691331500" duration="13084000" />
-      <workItem from="1590746311605" duration="510000" />
+      <workItem from="1590746311605" duration="628000" />
     </task>
     <servers />
   </component>
