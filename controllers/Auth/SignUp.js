@@ -28,9 +28,8 @@ module.exports.DoSignUp = async (req, res, next) => {
     };
 
     let user = await User.findOne({ where:{email:req.body.email} });
-    if(user!==null){
+    if(user!==null && user.email===req.body.email){
         console.log("User already exists. Log in");
-        validationErrors.push("User by that email already exists");
         req.session.signUpErrorMessage = "User by that email already exists";
     }else{
         let user_Account = await User.create(userInfo, { include: [UserAccount] } );

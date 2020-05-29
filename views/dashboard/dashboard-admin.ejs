@@ -60,6 +60,7 @@
                             <tr>
                                 <th class="text-center">#</th>
                                 <th class="text-center">Client</th>
+                                <th class="text-center">No Of jobs</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -72,15 +73,16 @@
                                         <div class="widget-content-wrapper">
                                             <div class="widget-content-left mr-3">
                                                 <div class="widget-content-left">
-                                                    <img width="40" class="rounded-circle" src="/images/<%=c.picture%>" alt="<%=c.firstname%>"></div>
+                                                    <img width="40" class="rounded-circle" src="/images/<%=c.User.picture%>" alt="<%=c.User.firstname%>"></div>
                                             </div>
                                             <div class="widget-content-left flex2">
-                                                <div class="widget-heading"><%=c.firstname%> <%=c.lastname%></div>
-                                                <div class="widget-subheading opacity-7"><%=c.jobTitle%></div>
+                                                <div class="widget-heading"><%=c.User.firstname%> <%=c.User.lastname%></div>
+                                                <div class="widget-subheading opacity-7"><%=c.User.jobTitle%></div>
                                             </div>
                                         </div>
                                     </div>
                                 </td>
+                                <td class="text-center"><%=c.NoJob%></td>
                             </tr>
                             <% count++; }); %>
                             </tbody>
@@ -95,7 +97,7 @@
 
             <div class="col-md-6">
                 <div class="main-card mb-3 card">
-                    <div class="card-header">Top Freelancers
+                    <div class="card-header">Latest Jobs Awarded
                         <div class="btn-actions-pane-right">
                             <div role="group" class="btn-group-sm btn-group">
                             </div>
@@ -106,24 +108,26 @@
                             <thead>
                             <tr>
                                 <th class="text-center">#</th>
+                                <th class="text-center">Job</th>
                                 <th class="text-center">Freelancer</th>
                             </tr>
                             </thead>
                             <tbody>
                             <% count = 1;
-                            freelancers.map(f =>{ %>
+                            latestJobAwarded.map(f =>{ %>
                             <tr>
                                 <td class="text-center text-muted"><%=count%></td>
+                                <td class="text-center text-muted"><%=f.Job.title%></td>
                                 <td>
                                     <div class="widget-content p-0">
                                         <div class="widget-content-wrapper">
                                             <div class="widget-content-left mr-3">
                                                 <div class="widget-content-left">
-                                                    <img width="40" class="rounded-circle" src="/images/<%=f.picture%>" alt="<%=f.firstname%>"></div>
+                                                    <img width="40" class="rounded-circle" src="/images/<%=f.User.picture%>" alt="<%=f.User.firstname%>"></div>
                                             </div>
                                             <div class="widget-content-left flex2">
-                                                <div class="widget-heading"><%=f.firstname%> <%=f.lastname%></div>
-                                                <div class="widget-subheading opacity-7"><%=f.jobTitle%></div>
+                                                <div class="widget-heading"><%=f.User.firstname%> <%=f.User.lastname%></div>
+                                                <div class="widget-subheading opacity-7"><%=f.User.jobTitle%></div>
                                             </div>
                                         </div>
                                     </div>

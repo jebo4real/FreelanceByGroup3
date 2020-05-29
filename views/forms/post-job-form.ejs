@@ -34,7 +34,12 @@
                 <div class="col-md-6">
                     <div class="position-relative form-group">
                         <label for="price" class="">Price</label>
-                        <input name="price" id="price" placeholder="price" type="number" min="1" class="form-control" required />
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <a href="#" class="btn btn-success">USD</a>
+                            </div>
+                            <input name="price" id="price" placeholder="price" type="number" min="1" class="form-control" required />
+                        </div>
                     </div>
                     <div class="position-relative form-group">
                         <label for="skills" class="">Skills(Enter skills associated with job separated by comma, Optional)</label>

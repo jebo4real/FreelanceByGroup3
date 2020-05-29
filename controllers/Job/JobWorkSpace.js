@@ -19,6 +19,9 @@ module.exports.GetWorkSpaceInfo = async (req, res, next) =>{
     let chat = await Chat.findAll({ where:{JobId:job.id} });
     let jobFiles = await JobFile.findAll({ where:{JobId:job.id}, include:User });
 
+    res.locals.amountToPay = job.price * 100;
+    res.locals.jobName = job.title;
+
     res.render(
         'job/workspace',
         {

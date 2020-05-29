@@ -30,14 +30,21 @@ module.exports.GetDashboardAdmin = async (req, res, next) =>{
         group: ['User.id']
     });
     console.log(clients);
-    let freelancers = await User.findAll({
-        include: {
-            model:UserAccount,
-            as: 'UserAccount',
-            where:{RoleId:2}
-        }
+    let latestJobAwarded = await JobApplication.findAll({
+        where:{status:'awarded'},
+        include: [
+            {
+              model:Job,
+              as: 'Job'
+            },
+            {
+                model:User,
+                as: 'User',
+            }
+        ],
+        limit: 5
     });
-
+    console.log(latestJobAwarded);
     let jobCount = 0;
     let jobAwarded = 0;
     jobs.map(jb=>{
@@ -63,7 +70,7 @@ module.exports.GetDashboardAdmin = async (req, res, next) =>{
                 jobAwarded,
                 jobDoneCount,
                 clients,
-                freelancers
+                latestJobAwarded
             }
         )
     }).catch(err=>{

@@ -12,6 +12,8 @@ const { GetDashboardFreelancer } = require('../controllers/Dashboard/DashboardFr
 const { GetWorkSpaceInfo, SendMessage, StartJob, WorkspaceAcceptJob,
     WorkspaceRejectJob, WorkspaceReport, UploadFile, ViewFile } = require('../controllers/Job/JobWorkSpace');
 
+const {Pay} = require('../controllers/Job/StripePayment');
+
 /* GET users listing. */
 router.get('/', GetDashboardSwitch);
 
@@ -42,6 +44,7 @@ router.get('/view-file/:filename', ViewFile);
 router.get('/workspace/:id', GetWorkSpaceInfo);
 router.post('/send-message', SendMessage);
 router.post('/upload-file', UploadFile);
+router.post('/pay', Pay);
 
 
 // //POST requests

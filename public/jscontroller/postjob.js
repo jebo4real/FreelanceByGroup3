@@ -32,12 +32,12 @@ $(document).ready(function(){
             });
 
         } else {
-            //alert("Enter all required details");
+            alert("daksas");
         }
         $("#btnpost").val('Post');
         $("#fmjob input,textarea,select").prop("disabled",false);
         $("#fmjob")[0].reset();
-        event.preventDefault();
+        // event.preventDefault();
     });
 
     //login
