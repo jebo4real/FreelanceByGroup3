@@ -138,7 +138,6 @@ a {
   padding: 7em 0;
   background: #393e46;
   color: rgba(255, 255, 255, 0.4);
-
 }
   .site-footer a {
     color: rgba(255, 255, 255, 0.7); }
@@ -1522,3 +1521,9 @@ a {
   .top-destination .place p {
     font-size: 13px;
     color: #ccc; }
+  .bg-light{
+    background-color: #f0f0f0 !important;
+  }
+  .bg-white{
+    border:2px solid #fff!important;
+  }

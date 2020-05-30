@@ -27,34 +27,11 @@ Instructions
                     OR
  - Vist the following link to check it out https://jebo-freelance.herokuapp.com
  
- - Test Accounts (Works for the hosted site)
-    - username: johnjebo@gmail.com Password: Greenfour4  (Client Account)
-    - username: jebeelectroneum@gmail.com Password: Greenfour4 (Freelancer Account)
     
 Sprint 1 / Phase 1
-Authentication And Profile
-- Sign Up
-- Login
-- Forgot Password / Reset Password
-- Updating Profile
-- Changing Password
+- Registration and user profile.
+- Freelancer Portfolio
+- Verification: Email Verification
+- Messaging
 
-Job Module
-- Client posting, editing, and deleting jobs.
-- Client viewing job applicants and awarding jobs
-- Client viewing job workspace
-- Client chatting with freelancer in the workspace
-
-- Freelancers viewing jobs
-- Freelancers applying for jobs
-- Freelancers accepting or rejecting job awarded to them
-- Freelancers viewing workspace for jobs awarded
-- Freelancers chatting with clients
-
-View Jobs Page
-- View jobs
-- Search jobs
-- Viewing single job information
-
-Feel free to contact me for support.
 # FreelanceByGroup3

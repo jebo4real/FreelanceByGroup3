@@ -13,7 +13,7 @@
         <form class="" action="/user/update-profile" method="post" enctype = "multipart/form-data">
             <input name="id" id="id" placeholder="" type="text" class="form-control" value="<%=user.id%>" hidden><br />
             <div class="form-row">
-                <div class="col-md-10 row">
+                <div class="col-md-10 row" hidden>
                     <img src="/images/<%=user.picture%>" width="100px" height="100px" alt="picture"/>
                     <div class="position-relative form-group">
                         <input name="picture" id="picture" type="file" class="form-control" />

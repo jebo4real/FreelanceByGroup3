@@ -2,6 +2,7 @@ const express = require('express');
 let router = express.Router();
 const { GetProfile, UpdateProfile } = require('../controllers/Profile/Profile');
 const  {GetPortfolio, UpdatePortfolio} = require('../controllers/Profile/Portfolio');
+const  {GetSelectMessageUsers, GetMessageRoom, SendMessageUser} = require('../controllers/Messaging/Message');
 const { GetChangePassword, UpdatePassword } = require('../controllers/Profile/Password');
 const { GetPostJob, DoPostJob } = require('../controllers/Job/PostJob');
 const { GetAllPostedJob, GetSingleJob, AwardJob } = require('../controllers/Job/ViewJobClient');
@@ -12,7 +13,6 @@ const { GetDashboardClient } = require('../controllers/Dashboard/DashBoardClient
 const { GetDashboardFreelancer } = require('../controllers/Dashboard/DashboardFreelancer');
 const { GetWorkSpaceInfo, SendMessage, StartJob, WorkspaceAcceptJob,
     WorkspaceRejectJob, WorkspaceReport, UploadFile, ViewFile } = require('../controllers/Job/JobWorkSpace');
-
 const {Pay} = require('../controllers/Job/StripePayment');
 
 /* GET users listing. */
@@ -24,11 +24,14 @@ router.get('/', GetDashboardSwitch);
 router.get('/profile', GetProfile);
 router.get('/portfolio', GetPortfolio);
 router.get('/change-password', GetChangePassword);
+router.get('/message-users', GetSelectMessageUsers);
+router.get('/message-room/:user', GetMessageRoom);
 
 //POST requests
 router.post('/update-profile', UpdateProfile);
 router.post('/update-portfolio', UpdatePortfolio);
 router.post('/change-password', UpdatePassword);
+router.post('/send-message-user', SendMessageUser);
 
 //Client
 //GET requests

@@ -40,7 +40,7 @@ module.exports.SendMessage = async (req, res, next) =>{
       SenderId: req.body.SenderId,
       message: req.body.message
   };
-  Chat.create(chat);
+  await Chat.create(chat);
   res.send("success");
 };
 

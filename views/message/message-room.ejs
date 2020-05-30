@@ -1,0 +1,72 @@
+<% include ../layout/header-portal.ejs %>
+<div class="app-main__outer">
+    <div class="app-main__inner">
+        <div class="app-page-title">
+            <div class="page-title-wrapper">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5">
+                <div class="main-card mb-3 card">
+                    <div class="card-body"><h5 class="card-title">All Messages</h5>
+                    </div>
+                </div>
+                <% allMessages.map(am =>{%>
+                    <div class="main-card mb-3 card">
+                        <div class="card-body">
+                            <%if(user.UserAccount.RoleId===1){%>
+                                <p class="card-title"><%=am.createdAt%></p>
+                                <h4><%=am.Freelance.firstname%> <%=am.Freelance.lastname%></h4>
+                                <p><%=am.message%>
+                                <a href="/user/message-room/<%=am.Freelance.id%>">
+                                    <i class="metismenu-icon pe-7s-look"></i>
+                                </a></p>
+
+                            <%}else if(user.UserAccount.RoleId===2){%>
+                                <p class="card-title"><%=am.createdAt%></p>
+                                <p><%=am.Client.firstname%> <%=am.Client.lastname%></p>
+                                <p><%=am.message%>
+                                <a href="/user/message-room/<%=am.Client.id%>">
+                                    <i class="metismenu-icon pe-7s-look"></i>
+                                </a></p>
+                            <% } %>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+            <div class="panel col-md-6" id="messages" name="messages" style="background-color:white;">
+                <div class="" style="background-color:#f0f0f0;width:100%;margin:0px;">
+                    <div class=" row">
+                        <img src="/images/<%=receiverDetails.picture%>" class="img-rounded" width="100px" height="100px" alt="picture"/>
+                        <div class="position-relative form-group">
+                            <label for="firstname" class=""><%=receiverDetails.firstname%> <%=receiverDetails.lastname%></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body" style="max-height: 350px;min-height:300px; overflow-y: scroll;">
+                    <% messages.map(mess => {%>
+                        <div class="card card-body col-md-8"
+                        <% if(mess.ClientId===user.id && user.UserAccount.RoleId===1){%>
+                             style = "margin-bottom:5px;float:right;"
+                        <% }else if(mess.FreelanceId===user.id && user.UserAccount.RoleId===2){ %>
+                             style = "margin-bottom:5px;"
+                                <% } %>
+                        >
+                            <p><%=mess.message%></p>
+                        </div>
+                    <% }); %>
+                </div>
+                <div class="panel-footer">
+                    <form action="/user/send-message-user" method="post">
+                        <div class="row">
+                            <input class="form-control" id="receiver" name="receiver" value="<%=receiver%>" hidden/>
+                            <textarea rows="2" class="form-control" style="width: 80%" id="message" name="message"></textarea>
+                            <button style="width: 20%" type="submit" class="btn btn-primary py-2 px-4"><i class="pe-7s-paper-plane"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+<% include ../layout/footer-portal.ejs %>

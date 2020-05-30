@@ -1,6 +1,6 @@
 const User = require('../../models').User;
 const UserAccount = require('../../models').UserAccount;
-const nodeMailer = require('nodemailer');
+const {SendMailConfirmVerify} = require('./ConfirmVerification');
 
 module.exports.GetVerify = (req, res, next) => {
     res.locals.verify = "empty";
@@ -23,7 +23,7 @@ module.exports.DoVerification = async (req, res, next) => {
             let verify_user = UserAccount.update({verified:true}, {where:{id: ret_userAccount.UserAccount.id}});
             if(verify_user!==null){
                 res.locals.verify = "success";
-                SendMail(ret_userAccount.email);
+                SendMailConfirmVerify(ret_userAccount.email, token);
             }else{
                 res.locals.verify = "An error occurred during validation. Please try again";
             }
@@ -43,28 +43,3 @@ module.exports.DoVerification = async (req, res, next) => {
     );
 };
 
-
-const SendMail = (emailReceiver, token)=>{
-    let transporter = nodeMailer.createTransport({
-        service: 'gmail',
-        auth: {
-            user: 'jay4node@gmail.com',
-            pass: 'Nodemailer4@'
-        }
-    });
-    const mailOptions = {
-        to: emailReceiver,
-        from: 'Group 3 Freelancer',
-        subject: 'Verify your email',
-        text: `Welcome to Group 3 freelancer. Your email has successfully been verified.`
-    };
-    transporter.sendMail(mailOptions)
-        .then(() => {
-            console.log("Email sent successfully");
-            return 1;
-        }).catch((err) => {
-        console.log(err.message);
-        return (err.message);
-    });
-
-};

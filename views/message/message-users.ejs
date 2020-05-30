@@ -1,0 +1,49 @@
+<% include ../layout/header-portal.ejs %>
+<div class="app-main__outer">
+    <div class="app-main__inner">
+        <div class="app-page-title">
+            <div class="page-title-wrapper">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="main-card mb-3 card col-md-12">
+                <div class="card-body">
+            <div class="table-responsive">
+                <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th class="text-left">User</th>
+                        <th class="text-left">Job Title</th>
+                        <th class="text-left">Message</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <%messageUsers.map(u =>{ %>
+                    <tr>
+                        <td>
+                            <div class="widget-content p-0">
+                                <div class="widget-content-wrapper">
+                                    <div class="widget-content-left mr-3">
+                                        <div class="widget-content-left">
+                                            <img width="40" class="rounded-circle" src="/images/<%=u.picture%>" alt="<%=u.firstname%>"></div>
+                                    </div>
+                                    <div class="widget-content-left flex2">
+                                        <div class="widget-heading"><%=u.firstname%> <%=u.lastname%></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="text-left"><%=u.jobTitle%></td>
+                        <td class="text-left">
+                            <a class="btn btn-primary" href="/user/message-room/<%=u.id%>">Chat</a>
+                        </td>
+                    </tr>
+                    <%  }); %>
+                    </tbody>
+                </table>
+            </div>
+                </div>
+            </div>
+        </div>
+<% include ../layout/footer-portal.ejs %>
