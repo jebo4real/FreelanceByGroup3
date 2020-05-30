@@ -12,7 +12,8 @@ module.exports.GetIndex = async (req, res, next) => {
         'index',
         {
             category,
-            searchResult
+            searchResult,
+            page: 'index'
         }
     )
 };

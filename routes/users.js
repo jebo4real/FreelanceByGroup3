@@ -1,6 +1,7 @@
 const express = require('express');
 let router = express.Router();
 const { GetProfile, UpdateProfile } = require('../controllers/Profile/Profile');
+const  {GetPortfolio, UpdatePortfolio} = require('../controllers/Profile/Portfolio');
 const { GetChangePassword, UpdatePassword } = require('../controllers/Profile/Password');
 const { GetPostJob, DoPostJob } = require('../controllers/Job/PostJob');
 const { GetAllPostedJob, GetSingleJob, AwardJob } = require('../controllers/Job/ViewJobClient');
@@ -21,10 +22,12 @@ router.get('/', GetDashboardSwitch);
 //(Both client and freelancers)
 //GET requests
 router.get('/profile', GetProfile);
+router.get('/portfolio', GetPortfolio);
 router.get('/change-password', GetChangePassword);
 
 //POST requests
 router.post('/update-profile', UpdateProfile);
+router.post('/update-portfolio', UpdatePortfolio);
 router.post('/change-password', UpdatePassword);
 
 //Client

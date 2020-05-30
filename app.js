@@ -4,8 +4,6 @@ const session = require('express-session');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const errorLog = require('./logger/logger').logger;
-const paypal = require('paypal-rest-sdk');
 
 
 //routers
@@ -20,7 +18,6 @@ const app = express();
 
 const db = require("./models");
 db.sequelize.sync();
-errorLog.info("sequelize db synced");
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -33,7 +30,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({
-  secret: '123abcd',
+  secret: 'group3',
   resave: true,
   saveUninitialized: true,
   rolling: true,
@@ -46,10 +43,9 @@ app.use( (req, res, next) => {
   res.locals.loginSuccessMessage = req.session.loginSuccessMessage;
   res.locals.loginErrorMessage = req.session.loginErrorMessage;
   res.locals.profileChangeMessage = req.session.profileChangeMessage;
+  res.locals.portfoilioChangeMessage = req.session.portfoilioChangeMessage;
   res.locals.passwordChangeMessage = req.session.passwordChangeMessage;
   res.locals.user = req.session.user;
-  res.locals.notifications = req.session.notification;
-  res.locals.count = req.session.count;
   next();
 });
 

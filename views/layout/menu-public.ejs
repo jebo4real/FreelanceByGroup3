@@ -1,22 +1,67 @@
-<!-- Navbar Start-->
-<header class="nav-holder make-sticky">
-    <div id="navbar" role="navigation" class="navbar navbar-expand-lg">
-        <div class="container"><a href="/" class="navbar-brand home"><img width="200px" src="img/amalogo.png" alt="Universal logo" class="d-none d-md-inline-block"><img width="100px" src="img/amalogo.png" alt="Amalitech Logo" class="d-inline-block d-md-none"><span class="sr-only">Go to Homepage</span></a>
-            <button type="button" data-toggle="collapse" data-target="#navigation" class="navbar-toggler btn-template-outlined"><span class="sr-only">Toggle navigation</span><i class="fa fa-align-justify"></i></button>
-            <div id="navigation" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a href="/" >Home <b class="caret"></b></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/jobs" >View Jobs<b class="caret"></b></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" >How It Works<b class="caret"></b></a>
-                    </li>
-                </ul>
+<div class="site-wrap">
+
+    <div class="site-mobile-menu">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close mt-3">
+                <span class="icon-close2 js-menu-toggle"></span>
             </div>
         </div>
+        <div class="site-mobile-menu-body"></div>
     </div>
-</header>
-<!-- Navbar End-->
+
+    <header class="site-navbar py-1" role="banner">
+
+        <div class="container">
+            <div class="row align-items-center">
+
+                <div class="col-6 col-xl-2">
+                    <h1 class="mb-0"><a href="/" class="text-black h2 mb-0"><img src="/img/amalogo.png" width="100px" height="16px"/></a></h1>
+                </div>
+
+                <div class="col-10 col-xl-10 d-none d-xl-block">
+                    <nav class="site-navigation text-right" role="navigation">
+                        <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
+                            <li <%if(page==="index"){%>
+                                class="active"
+                                <% } %> >
+                                <a href="/">Home</a>
+                            </li>
+                            <% if(user){%>
+                                <li>
+                                    <div class="dropdown">
+                                    <a href="/user/" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="rounded bg-primary py-2 px-3 text-white dropdown-toggle"><%=user.UserAccount.username%></span></a>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="/user/profile">Profile</a>
+                                            <%if(user.UserAccount.RoleId===2){%>
+                                                <a class="dropdown-item" href="/user/portfolio">Portfolio</a>
+                                            <%}%>
+                                            <a class="dropdown-item" href="/logout">Logout</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            <% }else{ %>
+                                <li <%if(page==="signup"){%>
+                                    class="active"
+                                        <% } %> >
+                                    <a href="/signup">Sign Up</a>
+                                </li>
+                                <li <%if(page==="login"){%>
+                                    class="active"
+                                        <% } %>>
+                                    <a href="/login">Login</a>
+                                </li>
+                            <%}%>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="col-6 col-xl-2 text-right d-block">
+
+                    <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </header>

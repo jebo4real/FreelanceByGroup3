@@ -1,41 +1,94 @@
-
 <% include ../layout/header-public.ejs %>
 <% include ../layout/menu-public.ejs %>
 
-<div id="heading-breadcrumbs">
-    <div class="container">
-        <div class="row d-flex align-items-center flex-wrap">
-            <div class="col-md-7">
-                <h1 class="h2">New Account</h1>
-            </div>
-            <div class="col-md-5">
-                <ul class="breadcrumb d-flex justify-content-end">
-                    <li class="breadcrumb-item"><a href="/">Home</a></li>
-                    <li class="breadcrumb-item active">New Account</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-<div id="content">
+<div class="site-section bg-light">
     <div class="container">
         <div class="row">
-            <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3 box">
-                <% include ../forms/signup_form.ejs %>
+            <div class="col-md-8 col-lg-6 mb-5" style="margin: auto;width: 60%;">
+                <form action="/signup" method="post" class="p-5 bg-white" style="margin: auto;width: 100%;text-align: center;">
+                    <h3 style="text-align: center;">Group 3 Freelance</h3>
+                    <% if(signUpErrorMessage){ %>
+                    <div class="alert alert-danger" role="alert">
+                        <strong><%=signUpErrorMessage%></strong>
+                    </div>
+                    <% }else if(signUpSuccessMessage){%>
+                    <div class="alert alert-success" role="alert">
+                        <strong><%=signUpSuccessMessage%></strong>
+                    </div>
+                    <% } %>
+                    <div class="row form-group" style="margin-top: 20px;">
+                        <div class="col-md-12 mb-3 mb-md-0">
+                            <label class="font-weight-bold" for="role">Sign Up As</label>
+                            <select name="role" id="role" class="form-control" tabindex="1" required>
+                                <option value="2">Freelancer</option>
+                                <option value="1">Client</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12 mb-3 mb-md-0">
+                            <input type="text" id="firstname" name="firstname" class="form-control" placeholder="First Name" required>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12 mb-3 mb-md-0">
+                            <input type="text" id="lastname" name="lastname" class="form-control" placeholder="Last Name" required>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <input type="text" id="username" name="username" class="form-control" placeholder="User Name">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <input type="email" id="email" name="email" class="form-control" placeholder="Email Address">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                                <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" tabindex="5" title="Password must contain at least 6 characters, including UPPER/lowercase and numbers"
+                                       pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+                                       onchange="this.setCustomValidity(this.validity.patternMismatch ? this.title : '');
+                                    if(this.checkValidity()) form.conpassword.pattern = RegExp.escape(this.value);" required/>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <input type="password" name="conpassword" id="conpassword" class="form-control input-lg" placeholder="Confirm Password" tabindex="6"
+                                   title="Please enter the same Password as above" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+                                   onchange="this.setCustomValidity(this.validity.patternMismatch ? this.title : '');" required/>
+                            <span id='message'></span>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <div class="form-check">
+                                <input type="checkbox" class="hidden" value="1" required/>
+                                <label class="form-check-label" for="exampleCheck1">I Agree</label>
+                            </div>
+                            <div class="col-md-12" style="text-align: center;">
+                                <p>By clicking <strong class="label label-primary">Sign Up</strong>, you agree to the Terms and Conditions.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <input type="submit" value="Sign Up" class="btn btn-primary  py-2 px-4">
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <p>Already a member ? <a href="/login">Login</a></p>
+                        </div>
+                    </div>
+
+                </form>
             </div>
-            <% include ../forms/terms.ejs %>
+
         </div>
     </div>
 </div>
-<!-- GET IT-->
-<div class="get-it">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 text-center p-3">
-                <h3>Do you want cool website like this one?</h3>
-            </div>
-            <div class="col-lg-4 text-center p-3">   <a href="#" class="btn btn-template-outlined-white">Buy this template now</a></div>
-        </div>
-    </div>
-</div>
+
 <% include ../layout/footer-public.ejs %>

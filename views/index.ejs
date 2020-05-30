@@ -1,274 +1,79 @@
-
 <% include ./layout/header-public.ejs %>
 <% include ./layout/menu-public.ejs %>
 
-<section style="background: url('img/photogrid.jpg') center center repeat; background-size: cover;" class="bar background-white relative-positioned">
+<div class="site-blocks-cover" style="background-image: url(#);" data-aos="fade" data-stellar-background-ratio="0.5">
   <div class="container">
-    <!-- Carousel Start-->
-    <div class="home-carousel">
-      <div class="dark-mask mask-primary"></div>
-      <div class="container">
-        <div class="homepage owl-carousel">
-          <div class="item">
-            <div class="row">
-              <div class="col-md-5 text-right">
-                <h3>Find the best jobs today to apply</h3>
-
-                <div class="card col-md-12 shadow p-3 mb-5 bg-white rounded" style="background-color: white !important;margin-top:20px;margin-bottom: 200px;">
-                  <form action="/jobs" method="post" >
-                    <div class="row form-group">
-                      <div class="col-md-4 ">
-                        <input type="text" id="keyword" name="keyword" class="form-control rounded" placeholder="eg. Website" />
-                      </div>
-                      <div class="col-md-4">
-                        <div class="select-wrap">
-                          <span class="icon-keyboard_arrow_down arrow-down"></span>
-                          <select name="category" id="category" class="form-control rounded">
-                            <option value="all" >All</option>
-                            <% category.map(cat =>{ %>
-                            <option value="<%=cat.id%>" ><%=cat.name%></option>
-                            <% }); %>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="col-md-4 ">
-                        <input type="submit" class="btn btn-primary btn-block rounded" value="Search">
-                      </div>
+    <div class="row row-custom align-items-center">
+      <div class="col-md-10">
+        <h1 class="mb-2 text-black w-75"><span class="font-weight-bold">Best Freelance</span> Website</h1>
+        <div class="job-search">
+          <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link py-3" id="">Find A Job</a>
+            </li>
+          </ul>
+            <div class="tab-pane fade show active">
+              <form action="#" method="post">
+                <div class="row">
+                  <div class="col-md-6 col-lg-3 mb-3 mb-lg-0">
+                    <input type="text" class="form-control" placeholder="eg. Website" />
+                  </div>
+                  <div class="col-md-6 col-lg-3 mb-3 mb-lg-0">
+                    <div class="select-wrap">
+                      <span class="icon-keyboard_arrow_down arrow-down"></span>
+                      <select name="" id="" class="form-control">
+                        <option value="">Category</option>
+                      </select>
                     </div>
-                  </form>
-                </div> <!-- card.// -->
-
-              </div>
-              <div class="col-md-7"><img src="img/template-homepage.png" alt="" class="img-fluid"></div>
+                  </div>
+                  <div class="col-md-6 col-lg-3 mb-3 mb-lg-0">
+                    <input type="submit" class="btn btn-primary btn-block" value="Search">
+                  </div>
+                </div>
+              </form>
             </div>
-          </div>
-          <div class="item">
-            <div class="row">
-              <div class="col-md-7 text-center"><img src="img/template-mac.png" alt="" class="img-fluid"></div>
-              <div class="col-md-5">
-                <h2>Meet The Best Freelancers</h2>
-                <div class="card col-md-12 shadow p-3 mb-5 bg-white rounded" style="background-color: white !important;margin-top:20px;margin-bottom: 200px;">
-                  <form action="/jobs" method="post" >
-                    <div class="row form-group">
-                      <div class="col-md-4 ">
-                        <input type="text" id="keyword" name="keyword" class="form-control rounded" placeholder="eg. Website" />
-                      </div>
-                      <div class="col-md-4">
-                        <div class="select-wrap">
-                          <span class="icon-keyboard_arrow_down arrow-down"></span>
-                          <select name="category" id="category" class="form-control rounded">
-                            <option value="all" >All</option>
-                            <% category.map(cat =>{ %>
-                            <option value="<%=cat.id%>" ><%=cat.name%></option>
-                            <% }); %>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="col-md-4 ">
-                        <input type="submit" class="btn btn-primary btn-block rounded" value="Search">
-                      </div>
-                    </div>
-                  </form>
-                </div> <!-- card.// -->
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="row">
-              <div class="col-md-5 text-right">
-                <h1>Get the best work</h1>
-                <ul class="list-unstyled">
-                  <li>Clean and elegant design</li>
-                  <li>Reliable</li>
-                  <li>Easily communicate</li>
-                </ul>
-              </div>
-              <div class="col-md-7"><img src="img/template-easy-customize.png" alt="" class="img-fluid"></div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="row">
-              <div class="col-md-7"><img src="img/template-easy-code.png" alt="" class="img-fluid"></div>
-              <div class="col-md-5">
-                <h1>Easy to find job</h1>
-                <ul class="list-unstyled">
-                  <li>Jobs in all industries.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
-    </div>
-    <!-- Carousel End-->
-  </div>
-</section>
-<section class="bar background-white">
-  <div class="container text-center">
-    <div class="row">
-      <div class="col-lg-4 col-md-6">
-        <div class="box-simple">
-          <div class="icon-outlined"><i class="fa fa-desktop"></i></div>
-          <h3 class="h4">Reliable</h3>
-          <p>We have a reliable system.</p>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6">
-        <div class="box-simple">
-          <div class="icon-outlined"><i class="fa fa-print"></i></div>
-          <h3 class="h4">Fast</h3>
-          <p>Our system works fast</p>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6">
-        <div class="box-simple">
-          <div class="icon-outlined"><i class="fa fa-globe"></i></div>
-          <h3 class="h4">Secure</h3>
-          <p>Your information is secured</p>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-4 col-md-6">
-        <div class="box-simple">
-          <div class="icon-outlined"><i class="fa fa-lightbulb-o"></i></div>
-          <h3 class="h4">Secure Payment System</h3>
-          <p>Best payment system in the world</p>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6">
-        <div class="box-simple">
-          <div class="icon-outlined"><i class="fa fa-envelope-o"></i></div>
-          <h3 class="h4">Dedicated Team</h3>
-          <p>We have a good dedicated tram.</p>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6">
-        <div class="box-simple">
-          <div class="icon-outlined"><i class="fa fa-user"></i></div>
-          <h3 class="h4">24/7 Support</h3>
-          <p>Our support team is always ready to takl to you</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="bar background-pentagon no-mb text-md-center">
-  <div class="container">
-    <div class="heading text-center">
-      <h2>Testimonials</h2>
-    </div>
-    <p class="lead">See what our clients said about us.</p>
-    <!-- Carousel Start-->
-    <ul class="owl-carousel testimonials list-unstyled equal-height">
-      <li class="item">
-        <div class="testimonial d-flex flex-wrap">
-          <div class="text">
-            <p> As a freelancer this is the best place for me to get challenging jobs. I enjoy working here.</p>
-          </div>
-          <div class="bottom d-flex align-items-center justify-content-between align-self-end">
-            <div class="icon"><i class="fa fa-quote-left"></i></div>
-            <div class="testimonial-info d-flex">
-              <div class="title">
-                <h5>John Andoh</h5>
-                <p>Freelancer</p>
-              </div>
-              <div class="avatar"><img alt="" src="img/person-1.jpg" class="img-fluid"></div>
-            </div>
-          </div>
-        </div>
-      </li>
-      <li class="item">
-        <div class="testimonial d-flex flex-wrap">
-          <div class="text">
-            <p>The best part about working here is secure and smooth payment system they have.</p>
-          </div>
-          <div class="bottom d-flex align-items-center justify-content-between align-self-end">
-            <div class="icon"><i class="fa fa-quote-left"></i></div>
-            <div class="testimonial-info d-flex">
-              <div class="title">
-                <h5>Jay Will</h5>
-                <p>CEO, TransTech</p>
-              </div>
-              <div class="avatar"><img alt="" src="img/person-2.jpg" class="img-fluid"></div>
-            </div>
-          </div>
-        </div>
-      </li>
-      <li class="item">
-        <div class="testimonial d-flex flex-wrap">
-          <div class="text">
-            <p>Anytime I faced a problem, there was a response team always there to support me.</p>
-            <p></p>
-          </div>
-          <div class="bottom d-flex align-items-center justify-content-between align-self-end">
-            <div class="icon"><i class="fa fa-quote-left"></i></div>
-            <div class="testimonial-info d-flex">
-              <div class="title">
-                <h5>Rebecca Ansong</h5>
-                <p>Client</p>
-              </div>
-              <div class="avatar"><img alt="" src="img/person-3.png" class="img-fluid"></div>
-            </div>
-          </div>
-        </div>
-      </li>
-      <li class="item">
-        <div class="testimonial d-flex flex-wrap">
-          <div class="text">
-            <p>It is good to finally work people who understand my vision as freelancer.</p>
-          </div>
-          <div class="bottom d-flex align-items-center justify-content-between align-self-end">
-            <div class="icon"><i class="fa fa-quote-left"></i></div>
-            <div class="testimonial-info d-flex">
-              <div class="title">
-                <h5>Nana Kofi</h5>
-                <p>Freelancer</p>
-              </div>
-              <div class="avatar"><img alt="" src="img/person-4.jpg" class="img-fluid"></div>
-            </div>
-          </div>
-        </div>
-      </li>
-      <li class="item">
-        <div class="testimonial d-flex flex-wrap">
-          <div class="text">
-            <p>It is good to finally work people who understand my vision as freelancer.</p>
-          </div>
-          <div class="bottom d-flex align-items-center justify-content-between align-self-end">
-            <div class="icon"><i class="fa fa-quote-left"></i></div>
-            <div class="testimonial-info d-flex">
-              <div class="title">
-                <h5>Nana Kofi</h5>
-                <p>Freelancer</p>
-              </div>
-              <div class="avatar"><img alt="" src="img/person-1.jpg" class="img-fluid"></div>
-            </div>
-          </div>
-        </div>
-      </li>
-    </ul>
-    <!-- Carousel End-->
-  </div>
-</section>
-<section style="background: url(img/fixed-background-2.jpg) center top no-repeat; background-size: cover;" class="bar no-mb color-white text-center bg-fixed relative-positioned">
-  <div class="dark-mask"></div>
-  <div class="container">
-    <div class="icon icon-outlined icon-lg"><i class="fa fa-file-code-o"></i></div>
-    <h3 class="text-uppercase">Want to get your job done?</h3>
-    <p class="lead">We have over 1000 freelancers ready to take on the challenge.</p>
-    <p class="text-center"><a href="/signup" class="btn btn-template-outlined-white btn-lg">Get Started</a></p>
-  </div>
-</section>
-<!-- GET IT-->
-<div class="get-it">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 text-center p-3">
-        <h3>Do you want work from home?</h3>
-      </div>
-      <div class="col-lg-4 text-center p-3">   <a href="/signup" class="btn btn-template-outlined-white">Start Now</a></div>
     </div>
   </div>
 </div>
+
+
+<div class="site-section bg-light">
+  <div class="container">
+    <div class="row justify-content-start text-left mb-5">
+      <div class="col-md-9" data-aos="fade">
+        <h2 class="font-weight-bold text-black">Latest Jobs</h2>
+      </div>
+      <div class="col-md-3" data-aos="fade" data-aos-delay="200">
+        <a href="#" class="btn btn-primary py-3 btn-block"><span class="h5">+</span> Post a Job</a>
+      </div>
+    </div>
+
+    <div class="row" data-aos="fade">
+      <div class="col-md-12">
+        <p>Latest Jobs will be posted here</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="site-section">
+  <div class="container">
+    <div class="row justify-content-center text-center mb-5">
+      <div class="col-md-6" data-aos="fade" >
+        <h2 class="text-black">Choose<strong> Group 3 Freelance</strong> </h2>
+      </div>
+    </div>
+    <div class="row hosting">
+
+      <p>Content to be provided in face 2</p>
+
+    </div>
+
+  </div>
+</div>
+
+
 <% include ./layout/footer-public.ejs %>

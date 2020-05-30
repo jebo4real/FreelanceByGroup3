@@ -10,7 +10,7 @@ module.exports.Pay = (req, res, next) =>{
         source: req.body.stripeToken,
         name: res.locals.user.firstname + " " + res.locals.user.lastname,
         address: {
-            line1: 'TC 9/4 Old MES colony',
+            line1: 'Takoradi',
             postal_code: '452331',
             city: res.locals.user.city,
             state: res.locals.user.country,

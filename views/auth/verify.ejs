@@ -1,0 +1,30 @@
+<% include ../layout/header-public.ejs %>
+<% include ../layout/menu-public.ejs %>
+
+<div class="unit-5 overlay" style="background-image: url('#');">
+    <div class="container text-center">
+        <h2 class="mb-0">Verify Your Account</h2>
+        <p class="mb-0 unit-6"><a href="/">Home</a> <span class="sep">></span> <span>Verify Your Account</span></p>
+    </div>
+</div>
+
+<div class="site-section bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-lg-8 mb-5" style="margin: auto;width: 60%;">
+                <form action="#" method="post" class="p-5 bg-white">
+                    <%if(verify === "success"){%>
+                        <p style="text-align: center;font-weight: bold;font-size: 20px;">Congratulations</p>
+                        <p style="text-align: center;">Your account has been successfully verified. Click to <a href="/login">here</a> to login </p>
+                    <% }else{ %>
+                        <p style="text-align: center;font-weight: bold;font-size: 20px;">Error</p>
+                        <p style="text-align: center;"><%=verify%></p>
+                    <% } %>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<% include ../layout/footer-public.ejs %>

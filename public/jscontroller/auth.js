@@ -13,22 +13,27 @@ $(document).ready(function(){
                 data:{username:username,password:password},
                 success:function(response){
                     if(response.loginRes==="success"){
-                        let pageURL = window.location.pathname;
-                        if(pageURL==="/signup"){
-                            window.location = "/user/"
-                        }else {
-                            //window.location = "/user/workspace/1"
-                            location.reload();
-                        }
+                        window.location = "/";
+                        // let pageURL = window.location.pathname;
+                        // if(pageURL==="/login"){
+                        //     window.location = "/user/"
+                        // }else {
+                        //     //window.location = "/user/workspace/1"
+                        //     location.reload();
+                        // }
                     }else {
                         alert(response.loginRes);
+                        location.reload();
                     }
                 }
             });
         } else {
             alert("Enter your login details");
+            location.reload();
 
         }
+        $("#btnlogin").val("Login");
+        $("#btnlogin").attr("disabled", false);
 
     });
 

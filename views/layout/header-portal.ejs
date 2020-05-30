@@ -6,20 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Language" content="en">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Dashboard | Freelance</title>
+    <title>Group 3</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <meta name="description" content="This is an example dashboard created using build-in elements and components.">
     <meta name="msapplication-tap-highlight" content="no">
-    <!--
-    =========================================================
-    * ArchitectUI HTML Theme Dashboard - v1.0.0
-    =========================================================
-    * Product Page: https://dashboardpack.com
-    * Copyright 2019 DashboardPack (https://dashboardpack.com)
-    * Licensed under MIT (https://github.com/DashboardPack/architectui-html-theme-free/blob/master/LICENSE)
-    =========================================================
-    * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-    -->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700,900|Roboto+Mono:300,400,500">
+    <link rel="stylesheet" href="/fonts/icomoon/style.css">
+
+    <link href="/userAssets/custom.css" rel="stylesheet">
     <link href="/userAssets/main.css" rel="stylesheet">
 </head>
 <body>
@@ -48,7 +43,7 @@
         </div>
         <div class="app-header__menu" style="margin-right: 10px;">
                 <span>
-                    <button type="button" class="btn-icon btn-icon-only btn btn-success btn-sm mobile-toggle-header-nav">
+                    <button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
                         <span class="btn-icon-wrapper">
                             <i class="fa fa-ellipsis-v fa-w-6"></i>
                         </span>
@@ -81,7 +76,6 @@
                                         <a href="/logout" type="button" tabindex="0" class="dropdown-item">Log Out</a>
                                     </div>
                                 </div>
-
                             </div>
                             <div class="widget-content-left  ml-3 header-user-info">
                                 <div class="widget-heading">
@@ -96,16 +90,6 @@
                                         Admin
                                     <%}%>
                                 </div>
-                            </div>
-                            <div class="widget-content-left  ml-3 header-user-info">
-                            <a class="login-btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fa fa-bell"></i><span><%=count%></span>
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <% notifications.map(nt =>{%>
-                                    <a class="dropdown-item" href="<%=nt.message%>"><%=nt.title%></a>
-                                <%});%>
-                            </div>
                             </div>
                         </div>
                     </div>

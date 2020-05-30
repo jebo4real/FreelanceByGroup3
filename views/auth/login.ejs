@@ -1,0 +1,41 @@
+<% include ../layout/header-public.ejs %>
+<% include ../layout/menu-public.ejs %>
+
+<div class="site-section bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-4 mb-5" style="margin: auto;width: 60%;">
+                <form action="#" method="post" class="p-5 bg-white" style="margin: auto;width: 100%;">
+                    <h3 style="text-align: center;">Group 3 Freelance</h3>
+                    <div class="row form-group" style="margin-top: 20px;">
+                        <div class="col-md-12">
+                            <input type="text" id="username" name="username" class="form-control" placeholder="Email Address">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <input type="password" id="password" name="password" class="form-control" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12" >
+                            <input type="submit" value="Login" id="btnlogin" name="btnlogin" class=" form-control btn btn-primary py-2 px-4">
+                        </div>
+                    </div>
+
+                    <p class="text-center text-muted"><a href="/forgot-password"><strong>Forgot Password</strong></a></p>
+                    <p class="text-center text-muted">Not registered yet?</p>
+                    <p class="text-center text-muted"><a href="/signup"><strong>Register now</strong></a></p>
+
+                    <div class="row">
+
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<% include ../layout/footer-public.ejs %>

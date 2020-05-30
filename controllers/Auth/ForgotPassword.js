@@ -2,16 +2,17 @@ const { Op } = require('sequelize');
 const User = require('../../models').User;
 const UserAccount = require('../../models').UserAccount;
 const crypto = require('crypto');
-let secret = "cv";
+let secret = "group3";
 const nodeMailer = require('nodemailer');
-const errorLog = require('../../logger/logger').logger;
 
 module.exports.GetForgotPassword = async (req, res, next) => {
     res.locals.display = false;
     res.render(
-        'auth/forgot-password'
+        'auth/forgot-password',
+        {
+            page: 'forgot-password'
+        }
     );
-    errorLog.info("forgot password page rendered");
 };
 module.exports.GetResetPassword = async (req, res, next) => {
     res.locals.display = false;
@@ -23,7 +24,8 @@ module.exports.GetResetPassword = async (req, res, next) => {
     res.render(
         'auth/reset-password',
         {
-            correct:res.locals.correct
+            correct:res.locals.correct,
+            page: 'reset-password'
         }
     );
 };
@@ -38,11 +40,13 @@ module.exports.forgotPasswordEmail = async (req,res,next)=>{
     if(ret_user!==null) {
         let token = hashPassword(userAccount.email);
         console.log("Token:  " + token);
-        res.locals.emailSent = !!SendMail(userAccount.email, token);
+        let hostname = req.headers.host;
+        res.locals.emailSent = !!SendMail(userAccount.email, token, hostname);
         res.render(
             'auth/forgot-password',
             {
-                emailSent: res.locals.emailSent
+                emailSent: res.locals.emailSent,
+                page: 'forgot-password'
             }
         )
     }else{
@@ -50,7 +54,8 @@ module.exports.forgotPasswordEmail = async (req,res,next)=>{
         res.render(
             'auth/forgot-password',
             {
-                emailNotFound: res.locals.emailNotFound
+                emailNotFound: res.locals.emailNotFound,
+                page: 'forgot-password'
             }
         )
     }
@@ -71,12 +76,13 @@ module.exports.DoResetPassword = async (req,res,next)=>{
     res.render(
         'auth/reset-password',
         {
-            changed:res.locals.changed
+            changed:res.locals.changed,
+            page: 'reset-password'
         }
     );
 };
 
-const SendMail = (emailReceiver, token)=>{
+const SendMail = (emailReceiver, token, hostname)=>{
     let transporter = nodeMailer.createTransport({
         service: 'gmail',
         auth: {
@@ -89,7 +95,7 @@ const SendMail = (emailReceiver, token)=>{
         from: 'JCV Builder',
         subject: 'Reset Password',
         text: `Click on the link below to reset your password.\n\n
-                http://localhost:3000/reset-password/${token}/${emailReceiver}`
+                http://`+hostname+`/reset-password/${token}/${emailReceiver}`
     };
     transporter.sendMail(mailOptions)
         .then(() => {

@@ -1,18 +1,27 @@
 const User = require('../../models').User;
 const UserAccount = require('../../models').UserAccount;
-const validator = require('validator');
+const Portfolio = require('../../models').Portfolio;
 const crypto = require('crypto');
-let secret = "cv";
+let secret = "group3";
 const nodeMailer = require('nodemailer');
+const jwt = require('jsonwebtoken');
 
 module.exports.GetSignUp = (req, res, next) => {
     res.render(
-        'auth/signup'
+        'auth/signup',
+        {
+            page:'signup'
+        }
     )
 };
 
 module.exports.DoSignUp = async (req, res, next) => {
     let validationErrors = [];
+    const token = jwt.sign(
+        { userId: req.body.email },
+        'Group3Freelance',
+        { expiresIn: '24h' });
+
     let userInfo = {
         firstname: req.body.firstname || '',
         lastname: req.body.lastname || '',
@@ -22,9 +31,11 @@ module.exports.DoSignUp = async (req, res, next) => {
             {
                 username: req.body.username || '',
                 password: hashPassword(req.body.password),
-                RoleId: req.body.role || 1,
+                RoleId: req.body.role,
+                verified: false,
+                token: token,
             }
-        ],
+        ]
     };
 
     let user = await User.findOne({ where:{email:req.body.email} });
@@ -33,12 +44,17 @@ module.exports.DoSignUp = async (req, res, next) => {
         req.session.signUpErrorMessage = "User by that email already exists";
     }else{
         let user_Account = await User.create(userInfo, { include: [UserAccount] } );
-        if(user_Account!==null){
-            console.log("Account Created successfully");
-            // req.session.user = user_Account;
-            // req.session.loggedIn = true;
-            req.session.signUpSuccessMessage = "Account Created successfully. Login";
-            SendMail(userInfo.email);
+        if(user_Account.id!==null){
+            let user_Portfolio = await Portfolio.create({UserId:user_Account.id});
+            if(user_Portfolio.id!==null) {
+                console.log("Account Created successfully");
+                req.session.signUpSuccessMessage = "An email has been sent to your account to verify.";
+                let hostname = req.headers.host;
+                SendMail(userInfo.email, token, hostname);
+            }else{
+                console.log("Profile could not be created");
+                req.session.signUpErrorMessage = "Error creating account";
+            }
         }else{
             console.log("Error creating account ");
             validationErrors.push("Error creating account");
@@ -49,19 +65,20 @@ module.exports.DoSignUp = async (req, res, next) => {
 
 };
 
-const SendMail = (emailReceiver)=>{
+const SendMail = (emailReceiver, token, hostname)=>{
     let transporter = nodeMailer.createTransport({
         service: 'gmail',
         auth: {
-            user: 'jay4node@gmail.com', // generated ethereal user
+            user: 'jay4node@gmail.com',
             pass: 'Nodemailer4@'
         }
     });
     const mailOptions = {
         to: emailReceiver,
-        from: 'JCV Builder',
-        subject: 'Welcome',
-        text: `Welcome to group 3 freelancer`
+        from: 'Group 3 Freelancer',
+        subject: 'Verify your email',
+        text: `Welcome to Group 3 freelancer. Click on the link below to complete registration \n`+
+            `http://`+hostname+`/verification/`+emailReceiver+`/`+token+``
     };
     transporter.sendMail(mailOptions)
         .then(() => {

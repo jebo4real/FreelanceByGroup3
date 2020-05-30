@@ -1,13 +1,15 @@
-const validator = require('validator');
 const User = require('../../models').User;
 const UserAccount = require('../../models').UserAccount;
-const Notification = require('../../models').Notification;
+const Portfolio = require('../../models').Portfolio;
 const crypto = require('crypto');
-let secret = "cv";
+let secret = "group3";
 
 module.exports.GetLogin = (req, res, next) => {
     res.render(
-        'auth/login'
+        'auth/login',
+        {
+            page:'login'
+        }
     )
 };
 
@@ -18,19 +20,20 @@ module.exports.DoLogin = async (req, res, next) => {
     };
 
     req.session.loggedIn = false;
-    let ret_userAccount = await User.findOne({where: {email: userAccount.username}, include: UserAccount});
+    let ret_userAccount = await User.findOne({
+        where: {email: userAccount.username},
+        include: [ UserAccount]
+    });
     if (ret_userAccount !== null) {
         if (userAccount.password === ret_userAccount.UserAccount.password) {
-            req.session.user = ret_userAccount;
-            req.session.loginSuccessMessage = "Login Successful";
-            req.session.loggedIn = true;
-            Notification.findAndCountAll({ where:{ReceiverId:req.session.user.id} }).then(result=>{
-                req.session.notification = result.rows;
-                req.session.count = result.count;
-                console.log(result.count);
-                res.send({loginRes: "success"});
-            });
-
+            if(ret_userAccount.UserAccount.verified===false){
+                res.send({loginRes:"Please verify the email in your link"});
+            }else {
+                req.session.user = ret_userAccount;
+                req.session.loginSuccessMessage = "Login Successful";
+                req.session.loggedIn = true;
+                res.send({loginRes:"success"});
+            }
         } else {
             console.log("Wrong Password");
             req.session.loginErrorMessage = "Wrong Password";

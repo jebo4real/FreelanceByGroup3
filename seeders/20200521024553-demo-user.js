@@ -1,7 +1,7 @@
 'use strict';
 
 const crypto = require('crypto');
-let secret = "cv";
+let secret = "group3";
 
 const hashPassword = (password) =>{
   return crypto.createHmac('sha256', secret)
@@ -12,9 +12,9 @@ const hashPassword = (password) =>{
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.bulkInsert('Users', [
-      {id:'32fe0cf3-d47d-452b-aae8-06d16a5fa520', firstname: 'Joe', lastname: 'Fraizier', email: 'admin1@gmail.com', mobile: '02344534656',createdAt:'2020-05-25 00:00:00',
+      {id:'32fe0cf3-d47d-452b-aae8-06d16a5fa520', firstname: 'Alex', lastname: 'Amankwa', email: 'admin1@gmail.com', mobile: '02344534656',createdAt:'2020-05-25 00:00:00',
         updatedAt:'2020-05-25 00:00:00'},
-      {id:'56fe0cf3-d47d-492b-aae8-06d16a5fa410', firstname: 'Joe', lastname: 'Luis', email: 'admin2@gmail.com', mobile: '02323444656',createdAt:'2020-05-25 00:00:00',
+      {id:'56fe0cf3-d47d-492b-aae8-06d16a5fa410', firstname: 'Anita', lastname: 'Owusu', email: 'admin2@gmail.com', mobile: '02323444656',createdAt:'2020-05-25 00:00:00',
         updatedAt:'2020-05-25 00:00:00'}
     ], {});
 
