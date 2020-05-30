@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 27, 2020 at 10:28 PM
+-- Generation Time: May 30, 2020 at 06:05 AM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.1.33
 
@@ -38,24 +38,6 @@ CREATE TABLE `chats` (
   `updatedAt` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `chats`
---
-
-INSERT INTO `chats` (`id`, `JobId`, `SenderId`, `ReceiverId`, `message`, `createdAt`, `updatedAt`) VALUES
-(1, 1, '76e20105-1ced-4bc4-9120-cfffc1ad4f9e', NULL, 'what up', '2020-05-20 23:56:55', '2020-05-20 23:56:55'),
-(2, 1, '76e20105-1ced-4bc4-9120-cfffc1ad4f9e', NULL, 'damn', '2020-05-20 23:58:57', '2020-05-20 23:58:57'),
-(3, 1, '76e20105-1ced-4bc4-9120-cfffc1ad4f9e', NULL, 'dafew', '2020-05-21 00:00:31', '2020-05-21 00:00:31'),
-(4, 1, '76e20105-1ced-4bc4-9120-cfffc1ad4f9e', NULL, 'ok', '2020-05-21 00:02:46', '2020-05-21 00:02:46'),
-(5, 1, '76e20105-1ced-4bc4-9120-cfffc1ad4f9e', NULL, 'ok', '2020-05-21 00:02:48', '2020-05-21 00:02:48'),
-(6, 1, '76e20105-1ced-4bc4-9120-cfffc1ad4f9e', NULL, 'blahssd', '2020-05-21 00:04:29', '2020-05-21 00:04:29'),
-(7, 1, '76e20105-1ced-4bc4-9120-cfffc1ad4f9e', NULL, 'Nice to meet you.Nice to meet you.Nice to meet you.Nice to meet you.Nice to meet you.Nice to meet you.Nice to meet you.Nice to meet you.Nice to meet you.Nice to meet you.Nice to meet you.Nice to meet you.Nice to meet you.Nice to meet you.Nice to meet you.', '2020-05-21 00:19:12', '2020-05-21 00:19:12'),
-(8, 1, '76e20105-1ced-4bc4-9120-cfffc1ad4f9e', NULL, 'nice', '2020-05-22 01:05:40', '2020-05-22 01:05:40'),
-(9, 2, '76e20105-1ced-4bc4-9120-cfffc1ad4f9e', NULL, 'hi', '2020-05-27 10:08:25', '2020-05-27 10:08:25'),
-(10, 1, '6073a8d3-3149-4c22-89a5-69a7c70c8c0c', NULL, 'ok', '2020-05-27 10:29:52', '2020-05-27 10:29:52'),
-(11, 1, '76e20105-1ced-4bc4-9120-cfffc1ad4f9e', NULL, 'ok back', '2020-05-27 10:31:44', '2020-05-27 10:31:44'),
-(12, 1, '6073a8d3-3149-4c22-89a5-69a7c70c8c0c', NULL, 'ok', '2020-05-27 13:55:29', '2020-05-27 13:55:29');
-
 -- --------------------------------------------------------
 
 --
@@ -72,13 +54,6 @@ CREATE TABLE `contracts` (
   `updatedAt` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `contracts`
---
-
-INSERT INTO `contracts` (`id`, `JobId`, `status`, `acceptance`, `note`, `createdAt`, `updatedAt`) VALUES
-(1, NULL, NULL, NULL, NULL, '2020-05-27 10:06:57', '2020-05-27 10:06:57');
-
 -- --------------------------------------------------------
 
 --
@@ -87,22 +62,12 @@ INSERT INTO `contracts` (`id`, `JobId`, `status`, `acceptance`, `note`, `created
 
 CREATE TABLE `jobapplications` (
   `id` int(11) NOT NULL,
+  `FreelanceId` char(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `JobId` int(11) DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
   `createdAt` datetime NOT NULL,
-  `updatedAt` datetime NOT NULL,
-  `JobId` int(11) DEFAULT NULL,
-  `FreelanceId` char(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL
+  `updatedAt` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `jobapplications`
---
-
-INSERT INTO `jobapplications` (`id`, `status`, `createdAt`, `updatedAt`, `JobId`, `FreelanceId`) VALUES
-(1, 'accepted', '2020-05-17 21:11:44', '2020-05-27 10:06:57', 1, '6073a8d3-3149-4c22-89a5-69a7c70c8c0c'),
-(2, NULL, '2020-05-18 21:43:10', '2020-05-18 21:43:10', 1, '32fe0cf3-d47d-452b-aae8-06d16a5fa480'),
-(3, 'awarded', '2020-05-18 22:52:16', '2020-05-18 22:58:18', 2, '32fe0cf3-d47d-452b-aae8-06d16a5fa480'),
-(7, NULL, '2020-05-27 12:38:51', '2020-05-27 12:38:51', 1, 'ea1bee0b-25f9-4462-a730-85374e1500cf');
 
 -- --------------------------------------------------------
 
@@ -144,13 +109,6 @@ CREATE TABLE `jobfiles` (
   `updatedAt` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `jobfiles`
---
-
-INSERT INTO `jobfiles` (`id`, `JobId`, `UserId`, `filename`, `createdAt`, `updatedAt`) VALUES
-(1, 2, '76e20105-1ced-4bc4-9120-cfffc1ad4f9e', 'jobfile-1590594007124.pdf', '2020-05-27 15:40:07', '2020-05-27 15:40:07');
-
 -- --------------------------------------------------------
 
 --
@@ -159,12 +117,12 @@ INSERT INTO `jobfiles` (`id`, `JobId`, `UserId`, `filename`, `createdAt`, `updat
 
 CREATE TABLE `jobpayments` (
   `id` int(11) NOT NULL,
+  `JobId` int(11) DEFAULT NULL,
   `clientPaymentReceipt` varchar(255) DEFAULT NULL,
   `clientPay` tinyint(1) DEFAULT NULL,
   `freelancePay` tinyint(1) DEFAULT NULL,
   `createdAt` datetime NOT NULL,
-  `updatedAt` datetime NOT NULL,
-  `JobId` int(11) DEFAULT NULL
+  `updatedAt` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -190,6 +148,8 @@ CREATE TABLE `jobreports` (
 
 CREATE TABLE `jobs` (
   `id` int(11) NOT NULL,
+  `ClientId` char(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `CatId` int(11) DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
   `details` varchar(255) DEFAULT NULL,
   `timeLength` varchar(255) DEFAULT NULL,
@@ -197,20 +157,8 @@ CREATE TABLE `jobs` (
   `skills` varchar(255) DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
   `createdAt` datetime NOT NULL,
-  `updatedAt` datetime NOT NULL,
-  `ClientId` char(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
-  `CatId` int(11) DEFAULT NULL
+  `updatedAt` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `jobs`
---
-
-INSERT INTO `jobs` (`id`, `title`, `details`, `timeLength`, `price`, `skills`, `status`, `createdAt`, `updatedAt`, `ClientId`, `CatId`) VALUES
-(1, 'Website develop', '                                nothing much\r\n                            ', 'Less than 1 month', '322.00', 'HTML, CSS', 'awarded', '2020-05-17 16:48:39', '2020-05-18 21:53:37', '76e20105-1ced-4bc4-9120-cfffc1ad4f9e', 2),
-(2, 'Freelance website', 'Develop a freelance website', 'Less than 1 month', '321.00', 'Node JS', 'awarded', '2020-05-18 22:40:09', '2020-05-18 22:58:18', '76e20105-1ced-4bc4-9120-cfffc1ad4f9e', 1),
-(3, 'Deleivery App', 'Develop a delivery app for a small company', 'More than 1 month', '1000.00', 'Flutter', NULL, '2020-05-18 22:41:02', '2020-05-18 22:41:02', '76e20105-1ced-4bc4-9120-cfffc1ad4f9e', 1),
-(4, 'Fill a form', 'Fill  200 forms', 'Less than 1 month', '10.00', '', NULL, '2020-05-18 22:41:33', '2020-05-18 22:41:33', '76e20105-1ced-4bc4-9120-cfffc1ad4f9e', 2);
 
 -- --------------------------------------------------------
 
@@ -220,19 +168,12 @@ INSERT INTO `jobs` (`id`, `title`, `details`, `timeLength`, `price`, `skills`, `
 
 CREATE TABLE `notifications` (
   `id` int(11) NOT NULL,
+  `ReceiverId` char(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
   `message` varchar(255) DEFAULT NULL,
   `createdAt` datetime NOT NULL,
-  `updatedAt` datetime NOT NULL,
-  `ReceiverId` char(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL
+  `updatedAt` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `notifications`
---
-
-INSERT INTO `notifications` (`id`, `title`, `message`, `createdAt`, `updatedAt`, `ReceiverId`) VALUES
-(1, 'Kwame applied for a job you posted', '/user/jobs', '2020-05-27 12:38:51', '2020-05-27 12:38:51', '76e20105-1ced-4bc4-9120-cfffc1ad4f9e');
 
 -- --------------------------------------------------------
 
@@ -246,6 +187,30 @@ CREATE TABLE `paymentdetails` (
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `portfolios`
+--
+
+CREATE TABLE `portfolios` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `projectLinks` varchar(255) DEFAULT NULL,
+  `picture` varchar(255) DEFAULT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL,
+  `UserId` char(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `portfolios`
+--
+
+INSERT INTO `portfolios` (`id`, `title`, `description`, `projectLinks`, `picture`, `createdAt`, `updatedAt`, `UserId`) VALUES
+(1, 'Web Developer', '', '', 'picture-1590810450585.png', '2020-05-30 03:21:15', '2020-05-30 03:52:00', 'f675ff6d-fc29-4d75-a4c3-17e5215caba4');
 
 -- --------------------------------------------------------
 
@@ -266,8 +231,7 @@ CREATE TABLE `roles` (
 
 INSERT INTO `roles` (`id`, `name`, `createdAt`, `updatedAt`) VALUES
 (1, 'client', '2020-05-17 00:00:00', '2020-05-17 00:00:00'),
-(2, 'freelancer', '2020-05-17 00:00:00', '2020-05-17 00:00:00'),
-(3, 'admin', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(2, 'freelancer', '2020-05-17 00:00:00', '2020-05-17 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -297,7 +261,8 @@ INSERT INTO `sequelizemeta` (`name`) VALUES
 ('20200515004349-create-payment-details.js'),
 ('20200519200442-create-contract.js'),
 ('20200519200530-create-job-report.js'),
-('20200527145902-create-job-files.js');
+('20200527145902-create-job-files.js'),
+('20200529220237-create-portfolio.js');
 
 -- --------------------------------------------------------
 
@@ -313,6 +278,7 @@ CREATE TABLE `useraccounts` (
   `verified` tinyint(1) DEFAULT NULL,
   `blocked` tinyint(1) DEFAULT NULL,
   `RoleId` int(11) DEFAULT NULL,
+  `token` varchar(255) DEFAULT NULL,
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -321,14 +287,8 @@ CREATE TABLE `useraccounts` (
 -- Dumping data for table `useraccounts`
 --
 
-INSERT INTO `useraccounts` (`id`, `UserId`, `username`, `password`, `verified`, `blocked`, `RoleId`, `createdAt`, `updatedAt`) VALUES
-(1, '76e20105-1ced-4bc4-9120-cfffc1ad4f9e', 'jebo', 'db35bdeaec11478701759030c9da1bc83f0e1e235c0140e0133457f3625bb26b', NULL, NULL, 1, '2020-05-17 16:45:07', '2020-05-17 16:45:07'),
-(2, '6073a8d3-3149-4c22-89a5-69a7c70c8c0c', 'ekow', 'db35bdeaec11478701759030c9da1bc83f0e1e235c0140e0133457f3625bb26b', 1, 1, 2, '2020-05-17 21:07:22', '2020-05-25 22:38:37'),
-(3, '32fe0cf3-d47d-452b-aae8-06d16a5fa480', 'fei', 'c1f2f1ac32540df1a96930a3b368921a5e6074eb16ad04def5b5734e94f75d29', NULL, NULL, 3, '2020-05-18 21:42:18', '2020-05-18 21:42:18'),
-(4, '32fe0cf3-d47d-452b-aae8-06d16a5fa520', 'admin1', 'c1f2f1ac32540df1a96930a3b368921a5e6074eb16ad04def5b5734e94f75d29', NULL, NULL, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(5, '32fe0cf3-d47d-452b-aae8-06d16a5fa520', 'admin2', 'c1f2f1ac32540df1a96930a3b368921a5e6074eb16ad04def5b5734e94f75d29', NULL, NULL, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(6, 'f7ed36ce-e5b7-4e1c-b0cf-6004094e0318', 'kofi', 'db35bdeaec11478701759030c9da1bc83f0e1e235c0140e0133457f3625bb26b', NULL, NULL, 1, '2020-05-27 10:05:00', '2020-05-27 10:05:00'),
-(7, 'ea1bee0b-25f9-4462-a730-85374e1500cf', 'km', 'db35bdeaec11478701759030c9da1bc83f0e1e235c0140e0133457f3625bb26b', NULL, NULL, 2, '2020-05-27 12:14:27', '2020-05-27 12:14:27');
+INSERT INTO `useraccounts` (`id`, `UserId`, `username`, `password`, `verified`, `blocked`, `RoleId`, `token`, `createdAt`, `updatedAt`) VALUES
+(4, 'f675ff6d-fc29-4d75-a4c3-17e5215caba4', 'jay', 'db35bdeaec11478701759030c9da1bc83f0e1e235c0140e0133457f3625bb26b', 1, NULL, 2, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJqb2huLmplYm9AYW1hbGl0ZWNoLm9yZyIsImlhdCI6MTU5MDgwODg3NSwiZXhwIjoxNTkwODk1Mjc1fQ.PF42Z3t1pzzB420g-9_t82aH9FbiWFU7wj0TcYZQ48g', '2020-05-30 03:21:15', '2020-05-30 03:21:45');
 
 -- --------------------------------------------------------
 
@@ -338,10 +298,10 @@ INSERT INTO `useraccounts` (`id`, `UserId`, `username`, `password`, `verified`, 
 
 CREATE TABLE `userpaymentinfos` (
   `id` int(11) NOT NULL,
+  `UserId` char(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
   `accountNumber` varchar(255) DEFAULT NULL,
   `createdAt` datetime NOT NULL,
-  `updatedAt` datetime NOT NULL,
-  `UserId` char(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL
+  `updatedAt` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -371,13 +331,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `gender`, `dob`, `jobTitle`, `email`, `mobile`, `country`, `city`, `picture`, `createdAt`, `updatedAt`) VALUES
-('32fe0cf3-d47d-452b-aae8-06d16a5fa480', 'Kwame', 'Fei', 'male', '0000-00-00', 'Graphic Designer', 'john.jebo@amalitech.org', '', '', '', 'picture-1589838311805.png', '2020-05-18 21:42:18', '2020-05-18 21:45:11'),
-('32fe0cf3-d47d-452b-aae8-06d16a5fa520', 'Joe', 'Fraizier', NULL, NULL, NULL, 'admin1@gmail.com', '02344534656', NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-('56fe0cf3-d47d-492b-aae8-06d16a5fa410', 'Joe', 'Luis', NULL, NULL, NULL, 'admin2@gmail.com', '02323444656', NULL, NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-('6073a8d3-3149-4c22-89a5-69a7c70c8c0c', 'Ekow Benya', 'Jebo', 'male', '2012-02-14', 'Software Developer', 'jeboelectroneum@gmail.com', '', 'Ghana', '', 'picture-1589838275257.png', '2020-05-17 21:07:22', '2020-05-26 02:53:41'),
-('76e20105-1ced-4bc4-9120-cfffc1ad4f9e', 'John', 'Jebo', 'female', '2020-05-13', '', 'johnjebo@gmail.com', '0244557984', 'Ghana', 'Takoradi', 'picture-1589734019192.png', '2020-05-17 16:45:07', '2020-05-26 03:41:22'),
-('ea1bee0b-25f9-4462-a730-85374e1500cf', 'Kwame', 'Oppong', NULL, NULL, NULL, 'kwame1@gmail.com', '', NULL, NULL, NULL, '2020-05-27 12:14:27', '2020-05-27 12:14:27'),
-('f7ed36ce-e5b7-4e1c-b0cf-6004094e0318', 'Kofi', 'Man', NULL, NULL, NULL, 'kofi@gmail.com', '', NULL, NULL, NULL, '2020-05-27 10:04:58', '2020-05-27 10:04:58');
+('f675ff6d-fc29-4d75-a4c3-17e5215caba4', 'John', 'Jebo', NULL, NULL, NULL, 'john.jebo@amalitech.org', '', NULL, NULL, NULL, '2020-05-30 03:21:15', '2020-05-30 03:21:15');
 
 --
 -- Indexes for dumped tables
@@ -404,8 +358,8 @@ ALTER TABLE `contracts`
 --
 ALTER TABLE `jobapplications`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `JobId` (`JobId`),
-  ADD KEY `FreelanceId` (`FreelanceId`);
+  ADD KEY `FreelanceId` (`FreelanceId`),
+  ADD KEY `JobId` (`JobId`);
 
 --
 -- Indexes for table `jobcategories`
@@ -458,6 +412,13 @@ ALTER TABLE `paymentdetails`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `portfolios`
+--
+ALTER TABLE `portfolios`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `UserId` (`UserId`);
+
+--
 -- Indexes for table `roles`
 --
 ALTER TABLE `roles`
@@ -500,19 +461,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `chats`
 --
 ALTER TABLE `chats`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `contracts`
 --
 ALTER TABLE `contracts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `jobapplications`
 --
 ALTER TABLE `jobapplications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `jobcategories`
@@ -524,7 +485,7 @@ ALTER TABLE `jobcategories`
 -- AUTO_INCREMENT for table `jobfiles`
 --
 ALTER TABLE `jobfiles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `jobpayments`
@@ -542,19 +503,25 @@ ALTER TABLE `jobreports`
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `paymentdetails`
 --
 ALTER TABLE `paymentdetails`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `portfolios`
+--
+ALTER TABLE `portfolios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -566,7 +533,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `useraccounts`
 --
 ALTER TABLE `useraccounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `userpaymentinfos`
@@ -596,8 +563,8 @@ ALTER TABLE `contracts`
 -- Constraints for table `jobapplications`
 --
 ALTER TABLE `jobapplications`
-  ADD CONSTRAINT `jobapplications_ibfk_1` FOREIGN KEY (`JobId`) REFERENCES `jobs` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `jobapplications_ibfk_2` FOREIGN KEY (`FreelanceId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `jobapplications_ibfk_1` FOREIGN KEY (`FreelanceId`) REFERENCES `users` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `jobapplications_ibfk_2` FOREIGN KEY (`JobId`) REFERENCES `jobs` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `jobfiles`
@@ -610,7 +577,7 @@ ALTER TABLE `jobfiles`
 -- Constraints for table `jobpayments`
 --
 ALTER TABLE `jobpayments`
-  ADD CONSTRAINT `jobpayments_ibfk_1` FOREIGN KEY (`JobId`) REFERENCES `jobs` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `jobpayments_ibfk_1` FOREIGN KEY (`JobId`) REFERENCES `jobs` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `jobreports`
@@ -623,14 +590,20 @@ ALTER TABLE `jobreports`
 -- Constraints for table `jobs`
 --
 ALTER TABLE `jobs`
-  ADD CONSTRAINT `jobs_ibfk_1` FOREIGN KEY (`ClientId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `jobs_ibfk_2` FOREIGN KEY (`CatId`) REFERENCES `jobcategories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `jobs_ibfk_1` FOREIGN KEY (`ClientId`) REFERENCES `users` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `jobs_ibfk_2` FOREIGN KEY (`CatId`) REFERENCES `jobcategories` (`id`) ON UPDATE CASCADE;
 
 --
 -- Constraints for table `notifications`
 --
 ALTER TABLE `notifications`
-  ADD CONSTRAINT `notifications_ibfk_1` FOREIGN KEY (`ReceiverId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `notifications_ibfk_1` FOREIGN KEY (`ReceiverId`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `portfolios`
+--
+ALTER TABLE `portfolios`
+  ADD CONSTRAINT `portfolios_ibfk_1` FOREIGN KEY (`UserId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `useraccounts`
@@ -643,7 +616,7 @@ ALTER TABLE `useraccounts`
 -- Constraints for table `userpaymentinfos`
 --
 ALTER TABLE `userpaymentinfos`
-  ADD CONSTRAINT `userpaymentinfos_ibfk_1` FOREIGN KEY (`UserId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `userpaymentinfos_ibfk_1` FOREIGN KEY (`UserId`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
