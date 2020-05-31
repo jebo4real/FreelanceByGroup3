@@ -10,13 +10,13 @@ module.exports.GetPortfolio = async (req, res, next) => {
     let user_portfolio = await Portfolio.findOne({where:{UserId:res.locals.user.id} });
     req.session.user.Portfolio  = user_portfolio;
     console.log(user_portfolio);
+    req.session.portfoilioChangeMessage = "";
     res.render(
         'profile/portfolio'
     )
 };
 
 module.exports.GetPortfolioSuccess = async (req, res, next) => {
-    req.session.portfoilioChangeMessage = "";
     let user_portfolio = await Portfolio.findOne({where:{UserId:res.locals.user.id} });
     req.session.user.Portfolio  = user_portfolio;
     console.log(user_portfolio);

@@ -18,7 +18,7 @@
                         <ul class="list-group">
                             <% allMessages.map(am =>{%>
                             <% if(am.SenderId===user.id){%>
-                               
+
                             <%}else if(am.ReceiverId===user.id){ %>
                                 <li class="list-group-item">
                                     <a href="/user/message-room/<%=am.SenderId%>" style="text-decoration: none;color: #0b0b0b;">

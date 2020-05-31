@@ -1855,8 +1855,7 @@
       <change afterPath="$PROJECT_DIR$/../freelancegroup3/views/jobs.ejs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../freelancegroup3/views/success.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/combined.log" beforeDir="false" afterPath="$PROJECT_DIR$/combined.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/Messaging/Message.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Messaging/Message.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/Profile/Portfolio.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Profile/Portfolio.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/message/message-room.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/message/message-room.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../freelancegroup3/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../freelancegroup3/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../freelancegroup3/.idea/freelancegroup3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../freelancegroup3/.idea/freelancegroup3.iml" afterDir="false" />
@@ -1924,13 +1923,6 @@
         <item name="freelance_db@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="db_freelance: schema" type="ebfa3cd1:MariaImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="freelance_db@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="db_freelance: schema" type="ebfa3cd1:MariaImplModel$Schema" />
-        <item name="messages: table" type="dbc44a63:MariaImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -2038,7 +2030,7 @@
       <workItem from="1590746311605" duration="13410000" />
       <workItem from="1590769781100" duration="1450000" />
       <workItem from="1590771396240" duration="63101000" />
-      <workItem from="1590883422580" duration="3918000" />
+      <workItem from="1590883422580" duration="4719000" />
     </task>
     <servers />
   </component>
