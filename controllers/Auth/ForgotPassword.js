@@ -3,7 +3,7 @@ const User = require('../../models').User;
 const UserAccount = require('../../models').UserAccount;
 const crypto = require('crypto');
 let secret = "group3";
-const nodeMailer = require('nodemailer');
+const {SendMailResetPassword} = require('./ForgotPasswordMaill');
 
 module.exports.GetForgotPassword = async (req, res, next) => {
     res.locals.display = false;
@@ -41,7 +41,7 @@ module.exports.forgotPasswordEmail = async (req,res,next)=>{
         let token = hashPassword(userAccount.email);
         console.log("Token:  " + token);
         let hostname = req.headers.host;
-        res.locals.emailSent = !!SendMail(userAccount.email, token, hostname);
+        res.locals.emailSent = !!SendMailResetPassword(userAccount.email, token, hostname);
         res.render(
             'auth/forgot-password',
             {
@@ -80,31 +80,6 @@ module.exports.DoResetPassword = async (req,res,next)=>{
             page: 'reset-password'
         }
     );
-};
-
-const SendMail = (emailReceiver, token, hostname)=>{
-    let transporter = nodeMailer.createTransport({
-        service: 'gmail',
-        auth: {
-            user: 'jay4node@gmail.com',
-            pass: 'Nodemailer4@'
-        }
-    });
-    const mailOptions = {
-        to: emailReceiver,
-        from: 'JCV Builder',
-        subject: 'Reset Password',
-        text: `Click on the link below to reset your password.\n\n
-                http://`+hostname+`/reset-password/${token}/${emailReceiver}`
-    };
-    transporter.sendMail(mailOptions)
-        .then(() => {
-            console.log("Email sent successfully");
-        }).catch((err) => {
-        console.log(err.message);
-        return (err.message);
-    });
-
 };
 
 hashPassword = (password) =>{

@@ -11,8 +11,9 @@
 }
 
 .btn-success{
-    color: #fff;
-    background-color: #37A000;
+    color: #fff !important;
+    background-color: #37A000 !important;
+    border-color: #37A000 !important;
 }
 .alink{
     color:#37A000 !important;
