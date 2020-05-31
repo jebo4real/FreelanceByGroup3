@@ -78,7 +78,7 @@ module.exports.GetMessageRoom = async (req, res, next)=>{
                 }
             ],
             group: ['Message.SenderId'],
-            order: ['createdAt']
+            order: [['createdAt', 'DESC']]
         });
     console.log(allMessages);
     let receiverDetails = await User.findOne({ where:{id:receiver} });
