@@ -5,28 +5,15 @@ const UserAccount = require('../../models').UserAccount;
 
 module.exports.GetSelectMessageUsers = async (req, res, next)=>{
     let messageUsers = {};
-
     if(res.locals.user.UserAccount.RoleId===1){
         //select freelancers if user logged  in is client
         messageUsers = await User.findAll({
-           include:[
-               {
-                   model:UserAccount,
-                   as: 'UserAccount',
-                   where: {RoleId:2}
-               }
-           ]
+           include:[{model:UserAccount,as: 'UserAccount', where: {RoleId:2} }]
         });
     }else if(res.locals.user.UserAccount.RoleId===2){
         //select clients if user logged  in is freelancer
         messageUsers = await User.findAll({
-            include:[
-                {
-                    model:UserAccount,
-                    as: 'UserAccount',
-                    where: {RoleId:1}
-                }
-            ]
+            include:[{model:UserAccount,as: 'UserAccount', where: {RoleId:1} }]
         });
     }
     res.render(
@@ -39,10 +26,8 @@ module.exports.GetSelectMessageUsers = async (req, res, next)=>{
 
 module.exports.GetMessageRoom = async (req, res, next)=>{
     let receiver = req.params.user;
-    let messages = {};
-    let allMessages = {};
-
-        messages = await Message.findAll({
+    //select messages involving the receiver and user logged in( either as sender or receiver)
+       let messages = await Message.findAll({
             where: {
                 [Op.or]: [
                     {
@@ -60,7 +45,8 @@ module.exports.GetMessageRoom = async (req, res, next)=>{
                 ]
             }
         });
-        allMessages = await Message.findAll({
+       //select all messages
+    let allMessages = await Message.findAll({
             where : {
                 [Op.or]: [
                     {SenderId:res.locals.user.id},
@@ -81,9 +67,8 @@ module.exports.GetMessageRoom = async (req, res, next)=>{
             order: [['createdAt', 'DESC']]
         });
     console.log(allMessages);
+    //get receiver details to display on message room page
     let receiverDetails = await User.findOne({ where:{id:receiver} });
-
-
     res.render(
         "message/message-room",
         {
@@ -94,7 +79,7 @@ module.exports.GetMessageRoom = async (req, res, next)=>{
         }
     );
 };
-
+//send message from message room
 module.exports.SendMessageUser = async (req, res, next)=>{
     let messageInfo = {
         SenderId: res.locals.user.id,

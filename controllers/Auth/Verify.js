@@ -2,6 +2,7 @@ const User = require('../../models').User;
 const UserAccount = require('../../models').UserAccount;
 const {SendMailConfirmVerify} = require('./ConfirmVerification');
 
+//render verification status page
 module.exports.GetVerify = (req, res, next) => {
     res.locals.verify = "empty";
     res.render(
@@ -13,6 +14,7 @@ module.exports.GetVerify = (req, res, next) => {
     )
 };
 
+//perform verification process
 module.exports.DoVerification = async (req, res, next) => {
     let email = req.params.email;
     let token = req.params.token;

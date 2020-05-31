@@ -6,6 +6,7 @@ let secret = "group3";
 const path = require('path');
 const multer = require('multer');
 
+//render portfolio page
 module.exports.GetPortfolio = async (req, res, next) => {
     let user_portfolio = await Portfolio.findOne({where:{UserId:res.locals.user.id} });
     req.session.user.Portfolio  = user_portfolio;
@@ -16,6 +17,7 @@ module.exports.GetPortfolio = async (req, res, next) => {
     )
 };
 
+//render portfolio page with response
 module.exports.GetPortfolioSuccess = async (req, res, next) => {
     let user_portfolio = await Portfolio.findOne({where:{UserId:res.locals.user.id} });
     req.session.user.Portfolio  = user_portfolio;
@@ -25,6 +27,7 @@ module.exports.GetPortfolioSuccess = async (req, res, next) => {
     )
 };
 
+//update user portfolio with picture upload
 module.exports.UpdatePortfolio = async (req, res, next) => {
     let filenameGlobal='';
     const storage = multer.diskStorage({
@@ -69,6 +72,7 @@ module.exports.UpdatePortfolio = async (req, res, next) => {
 
 };
 
+//hash password
 hashPassword = (password) =>{
     return crypto.createHmac('sha256', secret)
         .update(password)

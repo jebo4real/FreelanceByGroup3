@@ -7,6 +7,7 @@ const jwt = require('jsonwebtoken');
 const {SendMailVerify} = require('./VerificationEmail');
 
 module.exports.GetSignUp = (req, res, next) => {
+    //render sign up page
     res.render(
         'auth/signup',
         {
@@ -15,7 +16,9 @@ module.exports.GetSignUp = (req, res, next) => {
     )
 };
 
+//perform signup operation. Also set up a portfolio for freelancers with empty data
 module.exports.DoSignUp = async (req, res, next) => {
+    //generate a token for email verification
     const token = jwt.sign(
         { userId: req.body.email },
         'Group3Freelance',
@@ -37,6 +40,7 @@ module.exports.DoSignUp = async (req, res, next) => {
         ]
     };
 
+    //check if email is already used
     let user = await User.findOne({ where:{email:req.body.email} });
     if(user!==null && user.email===req.body.email){
         console.log("User already exists. Log in");
@@ -44,11 +48,13 @@ module.exports.DoSignUp = async (req, res, next) => {
     }else{
         let user_Account = await User.create(userInfo, { include: [UserAccount] } );
         if(user_Account.id!==null){
+            //set up portfolio for user
             let user_Portfolio = await Portfolio.create({UserId:user_Account.id});
             if(user_Portfolio.id!==null) {
                 console.log("Account Created successfully");
                 req.session.signUpSuccessMessage = "An email has been sent to your account to verify.";
                 let hostname = req.headers.host;
+                //send verification email
                 SendMailVerify(userInfo.email, token, hostname);
                 res.render("auth/success-register",{page:'signup'});
             }else{
@@ -65,7 +71,7 @@ module.exports.DoSignUp = async (req, res, next) => {
 };
 
 
-
+//hash password
 hashPassword = (password) =>{
     return crypto.createHmac('sha256', secret)
         .update(password)

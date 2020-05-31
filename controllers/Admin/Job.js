@@ -1,3 +1,4 @@
+/*Phase 2*/
 const { Op } = require("sequelize");
 const Job = require('../../models').Job;
 const JobCategory = require('../../models').JobCategory;

@@ -5,6 +5,7 @@ const crypto = require('crypto');
 let secret = "group3";
 const {SendMailResetPassword} = require('./ForgotPasswordMaill');
 
+//render forgot password page
 module.exports.GetForgotPassword = async (req, res, next) => {
     res.locals.display = false;
     res.render(
@@ -14,6 +15,8 @@ module.exports.GetForgotPassword = async (req, res, next) => {
         }
     );
 };
+
+//render reset password page
 module.exports.GetResetPassword = async (req, res, next) => {
     res.locals.display = false;
     let token = req.params.token;
@@ -30,6 +33,7 @@ module.exports.GetResetPassword = async (req, res, next) => {
     );
 };
 
+// perform password reset by generating a token plus a link amd sending to user email if email exists
 module.exports.forgotPasswordEmail = async (req,res,next)=>{
     res.locals.display = true;
     let userAccount = {
@@ -41,6 +45,7 @@ module.exports.forgotPasswordEmail = async (req,res,next)=>{
         let token = hashPassword(userAccount.email);
         console.log("Token:  " + token);
         let hostname = req.headers.host;
+        //send reset link to email
         res.locals.emailSent = !!SendMailResetPassword(userAccount.email, token, hostname);
         res.render(
             'auth/forgot-password',
@@ -61,6 +66,7 @@ module.exports.forgotPasswordEmail = async (req,res,next)=>{
     }
 };
 
+//perform password
 module.exports.DoResetPassword = async (req,res,next)=>{
     res.locals.display = true;
     res.locals.correct = true;
@@ -82,6 +88,7 @@ module.exports.DoResetPassword = async (req,res,next)=>{
     );
 };
 
+//hash password
 hashPassword = (password) =>{
     return crypto.createHmac('sha256', secret)
         .update(password)

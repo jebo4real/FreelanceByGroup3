@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 31, 2020 at 02:18 AM
+-- Generation Time: May 31, 2020 at 07:54 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.1.33
 
@@ -184,7 +184,11 @@ INSERT INTO `messages` (`id`, `SenderId`, `ReceiverId`, `message`, `createdAt`, 
 (2, 'c3ac223d-5b3b-40cc-981b-e177c48e4456', 'd4e0590a-56dd-4a13-850e-a4128cb52073', 'so what time  ?', '2020-05-30 22:23:25', '2020-05-30 22:23:25'),
 (3, 'd4e0590a-56dd-4a13-850e-a4128cb52073', 'd4e0590a-56dd-4a13-850e-a4128cb52073', 'ok so when', '2020-05-30 22:47:01', '2020-05-30 22:47:01'),
 (4, 'd4e0590a-56dd-4a13-850e-a4128cb52073', 'c3ac223d-5b3b-40cc-981b-e177c48e4456', 'ok', '2020-05-30 22:55:40', '2020-05-30 22:55:40'),
-(5, 'c3ac223d-5b3b-40cc-981b-e177c48e4456', 'd4e0590a-56dd-4a13-850e-a4128cb52073', 'heard you', '2020-05-30 22:58:55', '2020-05-30 22:58:55');
+(5, 'c3ac223d-5b3b-40cc-981b-e177c48e4456', 'd4e0590a-56dd-4a13-850e-a4128cb52073', 'heard you', '2020-05-30 22:58:55', '2020-05-30 22:58:55'),
+(6, 'd4e0590a-56dd-4a13-850e-a4128cb52073', 'c3ac223d-5b3b-40cc-981b-e177c48e4456', 'About what', '2020-05-31 00:36:37', '2020-05-31 00:36:37'),
+(7, 'c3ac223d-5b3b-40cc-981b-e177c48e4456', 'd4e0590a-56dd-4a13-850e-a4128cb52073', 'about you', '2020-05-31 00:37:05', '2020-05-31 00:37:05'),
+(8, 'd4e0590a-56dd-4a13-850e-a4128cb52073', '0a1d3599-4591-4edb-a654-255bc3e5f11c', 'hey', '2020-05-31 01:03:43', '2020-05-31 01:03:43'),
+(9, '0a1d3599-4591-4edb-a654-255bc3e5f11c', 'd4e0590a-56dd-4a13-850e-a4128cb52073', 'what do you want please ?', '2020-05-31 01:11:58', '2020-05-31 01:11:58');
 
 -- --------------------------------------------------------
 
@@ -238,7 +242,8 @@ CREATE TABLE `portfolios` (
 INSERT INTO `portfolios` (`id`, `title`, `description`, `projectLinks`, `picture`, `createdAt`, `updatedAt`, `UserId`) VALUES
 (5, NULL, NULL, NULL, NULL, '2020-05-30 14:51:58', '2020-05-30 14:51:58', 'c3ac223d-5b3b-40cc-981b-e177c48e4456'),
 (6, NULL, NULL, NULL, NULL, '2020-05-30 14:56:19', '2020-05-30 14:56:19', 'd4e0590a-56dd-4a13-850e-a4128cb52073'),
-(8, NULL, NULL, NULL, NULL, '2020-05-30 18:43:57', '2020-05-30 18:43:57', '0a1d3599-4591-4edb-a654-255bc3e5f11c');
+(8, NULL, NULL, NULL, NULL, '2020-05-30 18:43:57', '2020-05-30 18:43:57', '0a1d3599-4591-4edb-a654-255bc3e5f11c'),
+(9, NULL, NULL, NULL, NULL, '2020-05-31 12:26:12', '2020-05-31 12:26:12', '5f824813-f1bc-4669-ae9a-b49f1d64a652');
 
 -- --------------------------------------------------------
 
@@ -318,8 +323,9 @@ CREATE TABLE `useraccounts` (
 
 INSERT INTO `useraccounts` (`id`, `UserId`, `username`, `password`, `verified`, `blocked`, `RoleId`, `token`, `createdAt`, `updatedAt`) VALUES
 (8, 'c3ac223d-5b3b-40cc-981b-e177c48e4456', 'jean', 'db35bdeaec11478701759030c9da1bc83f0e1e235c0140e0133457f3625bb26b', 1, NULL, 2, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJqb2huamVib0BnbWFpbC5jb20iLCJpYXQiOjE1OTA4NTAzMTcsImV4cCI6MTU5MDkzNjcxN30.nI-phQGfzGYzvOtWcXldlirTCV745TCstkbelPo7nEU', '2020-05-30 14:51:58', '2020-05-30 14:52:13'),
-(9, 'd4e0590a-56dd-4a13-850e-a4128cb52073', 'loma', 'db35bdeaec11478701759030c9da1bc83f0e1e235c0140e0133457f3625bb26b', 1, NULL, 1, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJqZWJvZWxlY3Ryb25ldW1AZ21haWwuY29tIiwiaWF0IjoxNTkwODUwNTc5LCJleHAiOjE1OTA5MzY5Nzl9.Tam_mKVke5CDG5vTr9fr3Xij9BkvKXuO8bZ10YkTlHI', '2020-05-30 14:56:19', '2020-05-30 14:56:44'),
-(11, '0a1d3599-4591-4edb-a654-255bc3e5f11c', 'owusu', 'db35bdeaec11478701759030c9da1bc83f0e1e235c0140e0133457f3625bb26b', 0, NULL, 2, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJqb2huLmplYm9AYW1hbGl0ZWNoLm9yZyIsImlhdCI6MTU5MDg2NDIzNiwiZXhwIjoxNTkwOTUwNjM2fQ.QHa6VQXD74KbJO_VKukNpEj7MDC-ClOkr95o1R6vLhs', '2020-05-30 18:43:57', '2020-05-30 18:43:57');
+(9, 'd4e0590a-56dd-4a13-850e-a4128cb52073', 'loma', 'db35bdeaec11478701759030c9da1bc83f0e1e235c0140e0133457f3625bb26b', 1, NULL, 1, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJqZWJvZWxlY3Ryb25ldW1AZ21haWwuY29tIiwiaWF0IjoxNTkwODUwNTc5LCJleHAiOjE1OTA5MzY5Nzl9.Tam_mKVke5CDG5vTr9fr3Xij9BkvKXuO8bZ10YkTlHI', '2020-05-30 14:56:19', '2020-05-31 00:57:46'),
+(11, '0a1d3599-4591-4edb-a654-255bc3e5f11c', 'owusu', 'db35bdeaec11478701759030c9da1bc83f0e1e235c0140e0133457f3625bb26b', 1, NULL, 2, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJqb2huLmplYm9AYW1hbGl0ZWNoLm9yZyIsImlhdCI6MTU5MDg2NDIzNiwiZXhwIjoxNTkwOTUwNjM2fQ.QHa6VQXD74KbJO_VKukNpEj7MDC-ClOkr95o1R6vLhs', '2020-05-30 18:43:57', '2020-05-31 01:11:27'),
+(12, '5f824813-f1bc-4669-ae9a-b49f1d64a652', 'sponges', 'db35bdeaec11478701759030c9da1bc83f0e1e235c0140e0133457f3625bb26b', 0, NULL, 2, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJzcG9uZ2VzQGdtYWlsLmNvbSIsImlhdCI6MTU5MDkyNzk3MiwiZXhwIjoxNTkxMDE0MzcyfQ.NKtqz8hAWbi5xbt3Vym-_Va5QmWE9ZOpm1MQ4YVkCwk', '2020-05-31 12:26:12', '2020-05-31 12:26:12');
 
 -- --------------------------------------------------------
 
@@ -363,7 +369,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `gender`, `dob`, `jobTitle`, `email`, `mobile`, `country`, `city`, `picture`, `createdAt`, `updatedAt`) VALUES
 ('0a1d3599-4591-4edb-a654-255bc3e5f11c', 'John', 'Jebo', NULL, NULL, NULL, 'john.jebo@amalitech.org', '', NULL, NULL, NULL, '2020-05-30 18:43:56', '2020-05-30 18:43:56'),
-('c3ac223d-5b3b-40cc-981b-e177c48e4456', 'Jay ', 'Jebo', 'female', '0000-00-00', '', 'johnjebo@gmail.com', '', 'Ghana', '', NULL, '2020-05-30 14:51:57', '2020-05-30 19:06:40'),
+('5f824813-f1bc-4669-ae9a-b49f1d64a652', 'Ekow ', 'Benya', NULL, NULL, NULL, 'sponges@gmail.com', '', NULL, NULL, NULL, '2020-05-31 12:26:12', '2020-05-31 12:26:12'),
+('c3ac223d-5b3b-40cc-981b-e177c48e4456', 'Jay ', 'Jebo', 'male', '0000-00-00', '', 'johnjebo@gmail.com', '', 'Ghana', '', 'picture-1590918353932.jpg', '2020-05-30 14:51:57', '2020-05-31 09:45:54'),
 ('d4e0590a-56dd-4a13-850e-a4128cb52073', 'vasily', 'loma', 'male', '0000-00-00', '', 'jeboelectroneum@gmail.com', '', 'Ghana', '', 'picture-1590866367937.jpg', '2020-05-30 14:56:19', '2020-05-30 19:19:27');
 
 --
@@ -550,7 +557,7 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `notifications`
@@ -568,7 +575,7 @@ ALTER TABLE `paymentdetails`
 -- AUTO_INCREMENT for table `portfolios`
 --
 ALTER TABLE `portfolios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -580,7 +587,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `useraccounts`
 --
 ALTER TABLE `useraccounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `userpaymentinfos`

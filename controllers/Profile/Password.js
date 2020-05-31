@@ -1,7 +1,7 @@
 const User = require('../../models').User;
 const UserAccount = require('../../models').UserAccount;
 const crypto = require('crypto');
-let secret = "cv";
+let secret = "group3";
 
 module.exports.GetChangePassword = (req, res, next) => {
     res.render(
