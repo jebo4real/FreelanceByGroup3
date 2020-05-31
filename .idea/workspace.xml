@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea233120-6a76-4e06-9ae4-4d77311e73e3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/images/picture-1590866367937.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/auth/success-register.ejs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../freelancegroup3/.idea/dataSources.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../freelancegroup3/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../freelancegroup3/.idea/sqldialects.xml" afterDir="false" />
@@ -1856,155 +1854,9 @@
       <change afterPath="$PROJECT_DIR$/../freelancegroup3/views/jobdetail.ejs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../freelancegroup3/views/jobs.ejs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../freelancegroup3/views/success.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4fbc75af-fbe5-43ae-80ec-f448f6c2f6cb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/4fbc75af-fbe5-43ae-80ec-f448f6c2f6cb.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/combined.log" beforeDir="false" afterPath="$PROJECT_DIR$/combined.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/Auth/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Auth/SignUp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/Auth/Verify.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Auth/Verify.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/Messaging/Message.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Messaging/Message.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/Profile/Portfolio.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Profile/Portfolio.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/Profile/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Profile/Profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_freelance.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db_freelance.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/20200530114452-create-message.js" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/20200530114452-create-message.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/message.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/message.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/picture-1589666760005.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/picture-1589668482635.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/picture-1589720829084.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/picture-1589734019192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/picture-1589838275257.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/picture-1589838311805.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/picture-1590809417322.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/picture-1590809752493.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/picture-1590810450585.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/picture-1590838328406.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/picture-1590838379967.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/apple-touch-icon-114x114.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/apple-touch-icon-120x120.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/apple-touch-icon-144x144.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/apple-touch-icon-152x152.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/apple-touch-icon-57x57.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/apple-touch-icon-72x72.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/apple-touch-icon-76x76.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/apple-touch-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/banner.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/banner2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/basketsquare.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/blog-avatar.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/blog-avatar2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/blog-medium.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/blog-recent-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/blog-recent-3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/blog-recent.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/blog.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/blog2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/customer-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/customer-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/customer-3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/customer-4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/customer-5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/customer-6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/detailbig1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/detailbig2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/detailbig3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/detailsquare.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/detailsquare2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/detailsquare3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/fixed-background-1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/fixed-background-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/grayscale.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/home-try.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/home.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/homepage-slider.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/logo-small.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/main-slider1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/main-slider2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/main-slider3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/main-slider4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/marker.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/men.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/page-1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/page-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/page-3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/payment.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/person-1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/person-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/person-3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/person-4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/photogrid.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/portfolio-1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/portfolio-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/portfolio-3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/portfolio-4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/portfolio-5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/portfolio-6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/portfolio-7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/portfolio-8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/portfolio-9.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/product1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/product2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/product3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/product4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/slide1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/slide2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/slide3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/slide4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/slide5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/slide6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/template-easy-code.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/template-easy-customize-less.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/template-easy-customize.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/template-homepage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/template-mac.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/template-tablets-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/template-tablets.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/texture-bw.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/texture-turquoise.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/texture-violet.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/women.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/jscontroller/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/jscontroller/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/jscontroller/jobtable.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/jscontroller/jobtable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/stylesheets/signupus.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/userAssets/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/userAssets/custom.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/userAssets/images/avatars/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/userAssets/images/avatars/10.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/userAssets/images/avatars/11.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/userAssets/images/avatars/12.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/userAssets/images/avatars/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/userAssets/images/avatars/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/userAssets/images/avatars/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/userAssets/images/avatars/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/userAssets/images/avatars/8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/userAssets/images/avatars/9.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/userAssets/images/logo-inverse.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/userAssets/images/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/userAssets/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/userAssets/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/auth/forgot-password.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/auth/forgot-password.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/auth/login.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/auth/login.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/auth/reset-password.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/auth/reset-password.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/auth/signup.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/auth/signup.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/auth/verify.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/auth/verify.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/forms/change-password-form.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/forms/change-password-form.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/forms/portfolio-form.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/forms/portfolio-form.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/forms/profile-form.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/forms/profile-form.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/index.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/jobs.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layout/footer-portal.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout/footer-portal.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layout/header-portal.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout/header-portal.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layout/menu-portal-admin.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout/menu-portal-admin.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layout/menu-portal-client.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout/menu-portal-client.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layout/menu-portal-freelancer.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout/menu-portal-freelancer.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layout/menu-public.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout/menu-public.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/message/message-room.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/message/message-room.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/message/message-users.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/message/message-users.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/profile/portfolio.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/profile/portfolio.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/profile/profile.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/profile/profile.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/single-job-info.ejs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../freelancegroup3/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../freelancegroup3/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../freelancegroup3/.idea/freelancegroup3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../freelancegroup3/.idea/freelancegroup3.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../freelancegroup3/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../freelancegroup3/.idea/misc.xml" afterDir="false" />
@@ -2185,7 +2037,7 @@
       <workItem from="1590746311605" duration="13410000" />
       <workItem from="1590769781100" duration="1450000" />
       <workItem from="1590771396240" duration="63101000" />
-      <workItem from="1590883422580" duration="1251000" />
+      <workItem from="1590883422580" duration="1908000" />
     </task>
     <servers />
   </component>
