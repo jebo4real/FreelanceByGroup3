@@ -4,13 +4,13 @@
 <div class="site-section bg-light">
     <div class="container">
         <div class="row">
-            <div class="col-md-12 col-lg-8 mb-5" style="margin: auto;width: 60%;">
+            <div class="col-md-12 col-lg-6 mb-5" style="margin: auto;width: 60%;">
                 <form action="#" method="post" class="p-5 bg-white">
                     <%if(verify === "success"){%>
-                        <p style="text-align: center;font-weight: bold;font-size: 20px;">Congratulations</p>
+                        <h4 style="text-align: center;font-weight: bold;">Congratulations</h4>
                         <p style="text-align: center;">Your account has been successfully verified. Click to <a href="/login">here</a> to login </p>
                     <% }else{ %>
-                        <p style="text-align: center;font-weight: bold;font-size: 20px;">Error</p>
+                        <h4 style="text-align: center;font-weight: bold;">Error</h4>
                         <p style="text-align: center;"><%=verify%></p>
                     <% } %>
                 </form>
