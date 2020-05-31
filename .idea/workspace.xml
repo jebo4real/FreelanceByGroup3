@@ -1855,8 +1855,7 @@
       <change afterPath="$PROJECT_DIR$/../freelancegroup3/views/jobs.ejs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../freelancegroup3/views/success.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/auth/success-register.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/auth/success-register.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/auth/verify.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/auth/verify.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layout/footer-portal.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout/footer-portal.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../freelancegroup3/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../freelancegroup3/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../freelancegroup3/.idea/freelancegroup3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../freelancegroup3/.idea/freelancegroup3.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../freelancegroup3/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../freelancegroup3/.idea/misc.xml" afterDir="false" />
@@ -2037,7 +2036,7 @@
       <workItem from="1590746311605" duration="13410000" />
       <workItem from="1590769781100" duration="1450000" />
       <workItem from="1590771396240" duration="63101000" />
-      <workItem from="1590883422580" duration="18140000" />
+      <workItem from="1590883422580" duration="18877000" />
     </task>
     <servers />
   </component>
