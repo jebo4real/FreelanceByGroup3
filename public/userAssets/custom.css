@@ -8,27 +8,27 @@ body {
 }
 
 .btn-primary{
-    background-color: #37A000 !important;
-    border-color: #37A000 !important;
+    background-color: #3ac47d !important;
+    border-color: #3ac47d !important;
 }
 .app-sidebar__heading{
-    color: #37A000 !important;
+    color: #3ac47d !important;
 }
 .card-title{
-    color: #37A000 !important;
+    color: #3ac47d !important;
 }
 
 .btn-success{
     color: #fff !important;
-    background-color: #37A000 !important;
-    border-color: #37A000 !important;
+    background-color: #3ac47d !important;
+    border-color: #3ac47d !important;
 }
 .alink{
-    color:#37A000 !important;
+    color:#3ac47d !important;
 }
 
 .form-control:focus {
-    border-color: #37A000 !important;}
+    border-color: #3ac47d !important;}
 .form-control select option:hover{
     background-color: #fff !important;
 }
@@ -40,4 +40,10 @@ body {
 .dropdown-menu a:hover{
     color: #fff;
     background-color: #99e4b7 !important;
+}
+.card-header>.nav .nav-link.active{
+    color:  #3ac47d !important;
+}
+.card-header>.nav .nav-link:hover{
+    color:  #3ac47d !important;
 }

@@ -1855,8 +1855,12 @@
       <change afterPath="$PROJECT_DIR$/../freelancegroup3/views/jobs.ejs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../freelancegroup3/views/success.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/combined.log" beforeDir="false" afterPath="$PROJECT_DIR$/combined.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/forms/profile-form.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/forms/profile-form.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/userAssets/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/userAssets/custom.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/forms/inbox.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/forms/inbox.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/forms/outbox.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/forms/outbox.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layout/menu-portal-client.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout/menu-portal-client.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layout/menu-portal-freelancer.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout/menu-portal-freelancer.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../freelancegroup3/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../freelancegroup3/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../freelancegroup3/.idea/freelancegroup3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../freelancegroup3/.idea/freelancegroup3.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../freelancegroup3/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../freelancegroup3/.idea/misc.xml" afterDir="false" />
@@ -2037,7 +2041,7 @@
       <workItem from="1590746311605" duration="13410000" />
       <workItem from="1590769781100" duration="1450000" />
       <workItem from="1590771396240" duration="63101000" />
-      <workItem from="1590883422580" duration="12938000" />
+      <workItem from="1590883422580" duration="14139000" />
     </task>
     <servers />
   </component>
