@@ -1,4 +1,4 @@
-<div class="main-card mb-3 card col-md-12">
+<div class="main-card mb-3 card col-md-12" style="margin: auto;">
     <div class="card-body">
         <% if(portfoilioChangeMessage === true){%>
             <div class="alert alert-success" role="alert">
@@ -10,13 +10,13 @@
             </div>
         <% } %>
         <h5 class="card-title">Portfolio Details</h5>
-        <form class="" action="/user/update-portfolio" method="post" enctype = "multipart/form-data">
+        <form class="" action="/user/update-portfolio" method="post" enctype = "multipart/form-data" style="margin:auto;width: 100%">
             <input name="id" id="id" placeholder="" type="text" class="form-control" value="<%=user.Portfolio.id%>" hidden><br />
             <div class="form-row">
                 <div class="col-md-10 row">
-                    <img src="/images/<%=user.Portfolio.picture%>" width="140px" height="100px" alt="picture"/>
+                    <img src="/images/<%=user.Portfolio.picture%>" width="140px" height="100px" alt="No picture"/>
                     <div class="position-relative form-group">
-                        <input name="picture" id="picture" type="file" class="form-control" />
+                        <input name="picture" id="picture" type="file" />
                     </div>
                 </div>
                 <div class="col-md-10">
@@ -40,7 +40,9 @@
                     </div>
                 </div>
             </div>
-            <input type="submit" class="mt-2 btn btn-success py-2 px-4" value="Update">
+            <div class="d-flex justify-content-center">
+                <input type="submit" class="mt-2 btn btn-success py-2 px-4" value="Update" >
+            </div>
         </form>
     </div>
 </div>

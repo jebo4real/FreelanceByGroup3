@@ -4,54 +4,26 @@
         <div class="app-page-title">
             <div class="page-title-wrapper">
                 <div class="page-title-heading">
-                    <div>Message Room
-                        <div class="page-title-subheading">Click on a message to start chatting
+                    <div class="">
+                        <img src="/images/<%=receiverDetails.picture%>" class="rounded-circle" width="70" height="70"/>
+                    </div>
+                    <div><%=receiverDetails.firstname%> <%=receiverDetails.lastname%>
+                        <div class="page-title-subheading">You are not allowed to exchange personal contacts
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4">
-                <div class="main-card mb-3 card">
-                    <div class="card-body"><h5 class="card-title">All Messages</h5>
-                        <ul class="list-group">
-                            <% allMessages.map(am =>{%>
-                            <% if(am.SenderId===user.id){%>
-
-                            <%}else if(am.ReceiverId===user.id){ %>
-                                <li class="list-group-item">
-                                    <a href="/user/message-room/<%=am.SenderId%>" style="text-decoration: none;color: #0b0b0b;">
-                                        <h5 class="list-group-item-heading">
-                                        <img src="/images/<%=am.Sender.picture%>" class="rounded-circle" width="40" height="40"/>
-                                        <%=am.Sender.firstname%> <%=am.Sender.lastname%>
-                                    </h5>
-                                    <p class="list-group-item-text">
-                                        <%=am.message%>
-                                    </p>
-                                    <p style="color:#BEC5D2;"><%=am.createdAt%></p>
-                                    </a>
-                                </li>
-                            <% } %>
-                            <% }); %>
-                         </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="panel col-md-6 col-lg-7 mb-5" id="messages" name="messages" style="background-color:white;">
-                <div class="panel-heading" style="background-color:#f0f0f0;height:60px;">
-                    <div class="row" style="margin:10px;padding:10px;">
-                        <img src="/images/<%=receiverDetails.picture%>" class="rounded-circle" width="40" height="40"/>
-                        <h3><%=receiverDetails.firstname%> <%=receiverDetails.lastname%></h3>
-                    </div>
-                </div>
-                <div class="panel-body" style="max-height: 350px;min-height:350px; overflow-y: scroll;">
+            <div class="panel col-md-8 col-lg-12 mb-5" id="messages" name="messages" style="background-color:white;">
+                <div class="panel-body" style="max-height: 400px;min-height:400px; overflow-y: scroll;">
                     <% messages.map(mess => {%>
-                        <div class="card card-body col-md-3 col-lg-8 mb-5"
+                        <div class="card card-body col-md-3 col-lg-8 col-sm-3"
                         <% if(mess.SenderId===user.id){%>
-                             style = "margin-bottom:5px;float:right;border-radius: 0.5rem 0.5rem 0 0.5rem;"
+                             style = "margin-bottom:10px;float:right;border-radius: 0.5rem 0.5rem 0 0.5rem;"
                         <% }else{ %>
-                             style = "margin-bottom:5px;border-radius: 0.5rem 0.5rem 0 0.5rem;"
+                             style = "margin-bottom:10px;float:left;border-radius: 0.5rem 0.5rem 0 0.5rem;"
                                 <% } %>
                         >
                             <p><%=mess.message%></p>

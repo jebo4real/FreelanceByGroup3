@@ -13,10 +13,10 @@
         <form class="" action="/user/update-profile" method="post" enctype = "multipart/form-data">
             <input name="id" id="id" placeholder="" type="text" class="form-control" value="<%=user.id%>" hidden><br />
             <div class="form-row">
-                <div class="col-md-10 row" >
-                    <img src="/images/<%=user.picture%>" width="100px" height="100px" alt="picture"/>
+                <div class="col-md-10 col" >
+                    <img src="/images/<%=user.picture%>" class="rounded-circle" width="200px" height="200px" alt="No picture" style="margin-bottom:10px;"/>
                     <div class="position-relative form-group">
-                        <input name="picture" id="picture" type="file" class="form-control" />
+                        <input name="picture" id="picture" type="file" />
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -68,12 +68,14 @@
                 </div>
             </div>
             <div class="form-row">
-                <div class="col-md-6">
+                <%if(user.UserAccount.RoleId===1){}else{%>
+                <div class="col-md-6" hidden>
                     <div class="position-relative form-group">
                         <label for="jobTitle" class="">Job Title</label>
                         <input name="jobTitle" id="jobTitle" value="<%=user.jobTitle%>" placeholder="eg. Website Developer" type="text" class="form-control">
                     </div>
                 </div>
+                <%}%>
                 <div class="col-md-6">
                     <div class="position-relative form-group">
                         <label for="country" class="">Country</label>
@@ -92,7 +94,9 @@
                     </div>
                 </div>
             </div>
-            <input type="submit" class="mt-2 btn btn-success py-2 px-4" value="Update">
+            <div class="d-flex justify-content-center">
+                <input type="submit" class="mt-2 btn btn-success py-2 px-4" value="Update">
+            </div>
         </form>
     </div>
 </div>

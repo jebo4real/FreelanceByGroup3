@@ -3,6 +3,7 @@ let router = express.Router();
 const { GetProfile, UpdateProfile, GetProfileSuccess } = require('../controllers/Profile/Profile');
 const  {GetPortfolio, UpdatePortfolio, GetPortfolioSuccess} = require('../controllers/Profile/Portfolio');
 const  {GetSelectMessageUsers, GetMessageRoom, SendMessageUser} = require('../controllers/Messaging/Message');
+const  {GetInboxOutbox, SendMessageFromBox} = require('../controllers/Messaging/MessageBox');
 const { GetChangePassword, UpdatePassword } = require('../controllers/Profile/Password');
 const { GetPostJob, DoPostJob } = require('../controllers/Job/PostJob');
 const { GetAllPostedJob, GetSingleJob, AwardJob } = require('../controllers/Job/ViewJobClient');
@@ -26,13 +27,15 @@ router.get('/profile/:success', GetProfileSuccess);
 router.get('/portfolio', GetPortfolio);
 router.get('/portfolio/:success', GetPortfolioSuccess);
 router.get('/change-password', GetChangePassword);
-router.get('/message-users', GetSelectMessageUsers);
+router.get('/message-box', GetInboxOutbox);
+// router.get('/message-users', GetSelectMessageUsers);
 router.get('/message-room/:user', GetMessageRoom);
 
 //POST requests
 router.post('/update-profile', UpdateProfile);
 router.post('/update-portfolio', UpdatePortfolio);
 router.post('/change-password', UpdatePassword);
+router.post('/send-message-user-from-box', SendMessageFromBox);
 router.post('/send-message-user', SendMessageUser);
 
 //Client
