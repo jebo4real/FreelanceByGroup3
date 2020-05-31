@@ -37,12 +37,12 @@
                     </div>
                     <div class="row form-group">
                         <div class="col-md-12">
-                            <input type="text" id="username" name="username" class="form-control" placeholder="User Name">
+                            <input type="text" id="username" name="username" class="form-control" placeholder="User Name" required>
                         </div>
                     </div>
                     <div class="row form-group">
                         <div class="col-md-12">
-                            <input type="email" id="email" name="email" class="form-control" placeholder="Email Address">
+                            <input type="email" id="email" name="email" class="form-control" placeholder="Email Address" required>
                         </div>
                     </div>
                     <div class="row form-group">
@@ -51,6 +51,7 @@
                                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
                                        onchange="this.setCustomValidity(this.validity.patternMismatch ? this.title : '');
                                     if(this.checkValidity()) form.conpassword.pattern = RegExp.escape(this.value);" required/>
+                            <div id="strengthMessage"></div>
                         </div>
                     </div>
                     <div class="row form-group">
@@ -58,7 +59,7 @@
                             <input type="password" name="conpassword" id="conpassword" class="form-control input-lg" placeholder="Confirm Password" tabindex="6"
                                    title="Please enter the same Password as above" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
                                    onchange="this.setCustomValidity(this.validity.patternMismatch ? this.title : '');" required/>
-                            <span id='message'></span>
+                            <div id="matchMessage"></div>
                         </div>
                     </div>
                     <div class="row form-group">
@@ -92,3 +93,4 @@
 </div>
 
 <% include ../layout/footer-public.ejs %>
+<script src="/jscontroller/validation.js"></script>
