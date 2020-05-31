@@ -17,7 +17,7 @@
         </div>
         <div class="row">
             <div class="panel col-md-8 col-lg-12 mb-5" id="messages" name="messages" style="background-color:white;">
-                <div class="panel-body col" style="max-height: 400px;overflow-y: scroll;">
+                <div class="panel-body col" style="max-height: 400px;min-height: 400px;overflow-y: scroll;">
                     <% messages.map(mess => {%>
                         <div class="card card-body col-md-8 col-lg-7 "
                         <% if(mess.SenderId===user.id){%>
