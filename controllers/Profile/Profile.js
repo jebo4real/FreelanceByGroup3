@@ -12,6 +12,36 @@ module.exports.GetProfile = async (req, res, next) => {
     axios.get('https://restcountries.eu/rest/v2/all')
         .then(response => {
             country = response.data;
+            req.session.profileChangeMessage = "";
+            res.render(
+                'profile/profile',
+                {
+                    country
+                }
+            )
+        })
+        .catch(error => {
+            console.log(error);
+            country = [
+                {name: 'Ghana'},
+                {name: 'Germany'},
+            ];
+            res.render(
+                'profile/profile',
+                {
+                    country
+                }
+            )
+        });
+
+};
+
+module.exports.GetProfileSuccess = async (req, res, next) => {
+    //Get list of countries from an external api
+    let country = [];
+    axios.get('https://restcountries.eu/rest/v2/all')
+        .then(response => {
+            country = response.data;
 
             res.render(
                 'profile/profile',
@@ -23,7 +53,6 @@ module.exports.GetProfile = async (req, res, next) => {
         .catch(error => {
             console.log(error);
         });
-
 };
 
 module.exports.UpdateProfile = async (req, res, next) => {
@@ -65,7 +94,7 @@ module.exports.UpdateProfile = async (req, res, next) => {
                  User.findOne({ where:{id:req.body.id} , include: UserAccount }).then(rows=>{
                      req.session.user = rows;
                      console.log(response);
-                     res.redirect('/user/profile');
+                     res.redirect('/user/profile/success');
                  });
             });
 

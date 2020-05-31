@@ -23,7 +23,7 @@ module.exports.DoVerification = async (req, res, next) => {
             let verify_user = UserAccount.update({verified:true}, {where:{id: ret_userAccount.UserAccount.id}});
             if(verify_user!==null){
                 res.locals.verify = "success";
-                SendMailConfirmVerify(ret_userAccount.email, token);
+                //SendMailConfirmVerify(ret_userAccount.email, token);
             }else{
                 res.locals.verify = "An error occurred during validation. Please try again";
             }

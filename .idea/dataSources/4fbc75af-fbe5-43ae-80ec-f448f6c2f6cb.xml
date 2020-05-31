@@ -1945,13 +1945,13 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="487" parent="370" name="ClientId">
+    <column id="487" parent="370" name="SenderId">
       <Position>2</Position>
       <DataType>char(36)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_bin</Collation>
     </column>
-    <column id="488" parent="370" name="FreelanceId">
+    <column id="488" parent="370" name="ReceiverId">
       <Position>3</Position>
       <DataType>char(36)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
@@ -1974,12 +1974,12 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="492" parent="370" name="ClientId">
-      <ColNames>ClientId</ColNames>
+    <index id="492" parent="370" name="SenderId">
+      <ColNames>SenderId</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="493" parent="370" name="FreelanceId">
-      <ColNames>FreelanceId</ColNames>
+    <index id="493" parent="370" name="ReceiverId">
+      <ColNames>ReceiverId</ColNames>
       <Type>btree</Type>
     </index>
     <key id="494" parent="370" name="PRIMARY">
@@ -1988,13 +1988,13 @@
       <Primary>1</Primary>
     </key>
     <foreign-key id="495" parent="370" name="messages_ibfk_1">
-      <ColNames>ClientId</ColNames>
+      <ColNames>SenderId</ColNames>
       <RefTableName>users</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
     <foreign-key id="496" parent="370" name="messages_ibfk_2">
-      <ColNames>FreelanceId</ColNames>
+      <ColNames>ReceiverId</ColNames>
       <RefTableName>users</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>

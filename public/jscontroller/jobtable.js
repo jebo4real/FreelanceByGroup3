@@ -70,6 +70,17 @@ $(document).ready(function() {
         }
     });
 
+    $("#message_users_tb").DataTable({
+        "pagingType": "numbers",
+        "pageLength": 10,
+        "ordering": false,
+        "info":     false,
+        "searching": false,
+        "lengthChange": false,
+        "language": {
+            "emptyTable": "No users have joined yet."
+        }
+    });
     $("#priceApply").click((e)=>{
         let table = $('#jobview_tb').DataTable();
         let minPrice = $("#minPrice").val();

@@ -41,47 +41,48 @@ module.exports.GetMessageRoom = async (req, res, next)=>{
     let receiver = req.params.user;
     let messages = {};
     let allMessages = {};
-    if(res.locals.user.UserAccount.RoleId===1) {
+
         messages = await Message.findAll({
             where: {
-                [Op.and]: [
-                    {ClientId:res.locals.user.id},
-                    {FreelanceId:receiver}
+                [Op.or]: [
+                    {
+                        [Op.and]:[
+                            {SenderId:res.locals.user.id},
+                            {ReceiverId:receiver}
+                        ]
+                    },
+                    {
+                        [Op.and]:[
+                            {SenderId:receiver},
+                            {ReceiverId:res.locals.user.id}
+                        ]
+                    }
                 ]
             }
         });
         allMessages = await Message.findAll({
-            where : {ClientId: res.locals.user.id},
-            include: [
-                {
-                    model:User,
-                    as: 'Freelance'
-                }
-            ],
-            group: ['Message.FreelanceId']
-        });
-    }else if(res.locals.user.UserAccount.RoleId===2){
-        messages = await Message.findAll({
-            where: {
-                [Op.and]: [
-                    {ClientId:receiver},
-                    {FreelanceId:res.locals.user.id}
+            where : {
+                [Op.or]: [
+                    {SenderId:res.locals.user.id},
+                    {ReceiverId:res.locals.user.id}
                 ]
-            }
-        });
-        allMessages = await Message.findAll({
-            where : {FreelanceId: res.locals.user.id},
+            },
             include: [
                 {
                     model:User,
-                    as: 'Client'
+                    as: 'Receiver'
+                },
+                {
+                    model:User,
+                    as: 'Sender'
                 }
             ],
-            group: ['Message.ClientId']
+            group: ['Message.SenderId'],
+            order: ['createdAt']
         });
-    }
-    let receiverDetails = User.findOne({ where:{id:receiver} });
     console.log(allMessages);
+    let receiverDetails = await User.findOne({ where:{id:receiver} });
+
 
     res.render(
         "message/message-room",
@@ -95,20 +96,11 @@ module.exports.GetMessageRoom = async (req, res, next)=>{
 };
 
 module.exports.SendMessageUser = async (req, res, next)=>{
-    let messageInfo= {};
-    if(res.locals.user.UserAccount.RoleId===1) {
-        messageInfo = {
-            ClientId: res.locals.user.id,
-            FreelanceId: req.body.receiver,
-            message: req.body.message
-        };
-    }else if(res.locals.user.UserAccount.RoleId===2){
-        messageInfo = {
-            ClientId: req.body.receiver,
-            FreelanceId: res.locals.user.id,
-            message: req.body.message
-        };
-    }
+    let messageInfo = {
+        SenderId: res.locals.user.id,
+        ReceiverId: req.body.receiver,
+        message: req.body.message
+    };
     await Message.create(messageInfo);
     res.redirect("/user/message-room/"+req.body.receiver);
 };

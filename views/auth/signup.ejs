@@ -4,9 +4,9 @@
 <div class="site-section bg-light">
     <div class="container">
         <div class="row">
-            <div class="col-md-8 col-lg-6 mb-5" style="margin: auto;width: 60%;">
-                <form action="/signup" method="post" class="p-5 bg-white" style="margin: auto;width: 100%;text-align: center;">
-                    <h3 style="text-align: center;">Group 3 Freelance</h3>
+            <div class="col-md-12 col-lg-6 mb-5" style="margin: auto;">
+                <form action="/signup" method="post" class="p-5 bg-white" style="margin: auto;text-align: center;">
+                    <h3 style="text-align: center;"class="alink">Group 3 Freelance</h3>
                     <% if(signUpErrorMessage){ %>
                     <div class="alert alert-danger" role="alert">
                         <strong><%=signUpErrorMessage%></strong>
@@ -18,9 +18,9 @@
                     <% } %>
                     <div class="row form-group" style="margin-top: 20px;">
                         <div class="col-md-12 mb-3 mb-md-0">
-                            <label class="font-weight-bold" for="role">Sign Up As</label>
+                            <label class="font-weight-bold " for="role">Sign Up As</label>
                             <select name="role" id="role" class="form-control" tabindex="1" required>
-                                <option value="2">Freelancer</option>
+                                <option value="2" >Freelancer</option>
                                 <option value="1">Client</option>
                             </select>
                         </div>
@@ -68,19 +68,19 @@
                                 <label class="form-check-label" for="exampleCheck1">I Agree</label>
                             </div>
                             <div class="col-md-12" style="text-align: center;">
-                                <p>By clicking <strong class="label label-primary">Sign Up</strong>, you agree to the Terms and Conditions.</p>
+                                <p>By clicking <strong class="label label-primary alink" >Sign Up</strong>, you agree to the Terms and Conditions.</p>
                             </div>
                         </div>
                     </div>
                     <div class="row form-group">
                         <div class="col-md-12">
-                            <input type="submit" value="Sign Up" class="btn btn-primary  py-2 px-4">
+                            <input type="submit" value="Sign Up" class="btn btn-success  py-2 px-4">
                         </div>
                     </div>
                     <hr />
                     <div class="row form-group">
                         <div class="col-md-12">
-                            <p>Already a member ? <a href="/login">Login</a></p>
+                            <p>Already a member ? <a class="alink" href="/login">Login</a></p>
                         </div>
                     </div>
 

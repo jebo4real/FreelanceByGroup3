@@ -8,7 +8,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      ClientId:{
+      SenderId:{
         type: Sequelize.UUID,
         onDelete: 'CASCADE',
         references:{
@@ -16,7 +16,7 @@ module.exports = {
           key:'id'
         }
       },
-      FreelanceId:{
+      ReceiverId:{
         type: Sequelize.UUID,
         onDelete: 'CASCADE',
         references:{

@@ -50,6 +50,7 @@ module.exports.DoSignUp = async (req, res, next) => {
                 req.session.signUpSuccessMessage = "An email has been sent to your account to verify.";
                 let hostname = req.headers.host;
                 SendMailVerify(userInfo.email, token, hostname);
+                res.render("auth/success-register",{page:'signup'});
             }else{
                 console.log("Profile could not be created");
                 req.session.signUpErrorMessage = "Error creating account";

@@ -76,12 +76,12 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     User.hasMany(models.Message, {
-      foreignKey: 'FreelanceId',
+      foreignKey: 'SenderId',
       onDelete: 'CASCADE'
     });
 
     User.hasMany(models.Message, {
-      foreignKey: 'ClientId',
+      foreignKey: 'ReceiverId',
       onDelete: 'CASCADE'
     });
 

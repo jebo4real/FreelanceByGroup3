@@ -13,7 +13,7 @@ $(document).ready(function(){
                 data:{username:username,password:password},
                 success:function(response){
                     if(response.loginRes==="success"){
-                        window.location = "/";
+                        window.location = "/user/profile";
                         // let pageURL = window.location.pathname;
                         // if(pageURL==="/login"){
                         //     window.location = "/user/"

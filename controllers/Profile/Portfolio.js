@@ -15,6 +15,16 @@ module.exports.GetPortfolio = async (req, res, next) => {
     )
 };
 
+module.exports.GetPortfolioSuccess = async (req, res, next) => {
+    req.session.portfoilioChangeMessage = "";
+    let user_portfolio = await Portfolio.findOne({where:{UserId:res.locals.user.id} });
+    req.session.user.Portfolio  = user_portfolio;
+    console.log(user_portfolio);
+    res.render(
+        'profile/portfolio'
+    )
+};
+
 module.exports.UpdatePortfolio = async (req, res, next) => {
     let filenameGlobal='';
     const storage = multer.diskStorage({

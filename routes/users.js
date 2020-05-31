@@ -1,7 +1,7 @@
 const express = require('express');
 let router = express.Router();
-const { GetProfile, UpdateProfile } = require('../controllers/Profile/Profile');
-const  {GetPortfolio, UpdatePortfolio} = require('../controllers/Profile/Portfolio');
+const { GetProfile, UpdateProfile, GetProfileSuccess } = require('../controllers/Profile/Profile');
+const  {GetPortfolio, UpdatePortfolio, GetPortfolioSuccess} = require('../controllers/Profile/Portfolio');
 const  {GetSelectMessageUsers, GetMessageRoom, SendMessageUser} = require('../controllers/Messaging/Message');
 const { GetChangePassword, UpdatePassword } = require('../controllers/Profile/Password');
 const { GetPostJob, DoPostJob } = require('../controllers/Job/PostJob');
@@ -22,7 +22,9 @@ router.get('/', GetDashboardSwitch);
 //(Both client and freelancers)
 //GET requests
 router.get('/profile', GetProfile);
+router.get('/profile/:success', GetProfileSuccess);
 router.get('/portfolio', GetPortfolio);
+router.get('/portfolio/:success', GetPortfolioSuccess);
 router.get('/change-password', GetChangePassword);
 router.get('/message-users', GetSelectMessageUsers);
 router.get('/message-room/:user', GetMessageRoom);
