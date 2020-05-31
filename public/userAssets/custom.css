@@ -47,3 +47,6 @@ body {
 .card-header>.nav .nav-link:hover{
     color:  #3ac47d !important;
 }
+.nav-link:hover {
+    color:  #3ac47d !important;
+}
