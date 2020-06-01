@@ -16,10 +16,10 @@
     "operatorsAliases": false
   },
   "production": {
-    "username": "sql12343160",
-    "password": "mpe2zHDxlZ",
-    "database": "sql12343160",
-    "host": "sql12.freemysqlhosting.net",
+    "username": "jebo@group3-server",
+    "password": "Greenfour4",
+    "database": "db_freelance",
+    "host": "group3-server.mysql.database.azure.com",
     "dialect": "mysql",
     "operatorsAliases": false
   }
