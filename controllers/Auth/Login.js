@@ -6,12 +6,17 @@ let secret = "group3";
 
 module.exports.GetLogin = (req, res, next) => {
     //render login page
-    res.render(
-        'auth/login',
-        {
-            page:'login'
-        }
-    )
+    if(req.session.loggedIn===true){
+        res.redirect('/');
+    }else{
+        res.render(
+            'auth/login',
+            {
+                page:'login'
+            }
+        )
+    }
+    
 };
 
 //perform login
@@ -28,15 +33,11 @@ module.exports.DoLogin = async (req, res, next) => {
         include: [ UserAccount]
     });
     if (ret_userAccount !== null) {
-        if (userAccount.password === ret_userAccount.UserAccount.password) {
-            if(ret_userAccount.UserAccount.verified===false){
-                res.send({loginRes:"Please verify the email in your link"});
-            }else {
-                req.session.user = ret_userAccount;
-                req.session.loginSuccessMessage = "Login Successful";
-                req.session.loggedIn = true;
-                res.send({loginRes:"success"});
-            }
+        if (userAccount.password === ret_userAccount.UserAccount.password) {           
+            req.session.user = ret_userAccount;
+            req.session.loginSuccessMessage = "Login Successful";
+            req.session.loggedIn = true;
+            res.send({loginRes:"success"});
         } else {
             console.log("Wrong Password");
             req.session.loginErrorMessage = "Wrong Password";

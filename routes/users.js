@@ -15,9 +15,13 @@ const { GetDashboardFreelancer } = require('../controllers/Dashboard/DashboardFr
 const { GetWorkSpaceInfo, SendMessage, StartJob, WorkspaceAcceptJob,
     WorkspaceRejectJob, WorkspaceReport, UploadFile, ViewFile } = require('../controllers/Job/JobWorkSpace');
 const {Pay} = require('../controllers/Job/StripePayment');
+const {NotVerified} = require('../controllers/Auth/Verify');
+
 
 /* GET users listing. */
 router.get('/', GetDashboardSwitch);
+router.get('/notverified', NotVerified);
+
 
 //Private  routes
 //(Both client and freelancers)

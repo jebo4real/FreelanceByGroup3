@@ -1,6 +1,7 @@
 const User = require('../../models').User;
 const UserAccount = require('../../models').UserAccount;
 const {SendMailConfirmVerify} = require('./ConfirmVerification');
+const {SendMailVerify} = require('./VerificationEmail');
 
 //render verification status page
 module.exports.GetVerify = (req, res, next) => {
@@ -12,6 +13,17 @@ module.exports.GetVerify = (req, res, next) => {
             page: 'verify'
         }
     )
+};
+
+//user not verified
+module.exports.NotVerified = (req, res, next) =>{
+    res.render("auth/success-register",{page:'signup'});
+};
+
+//send another verification message
+module.exports.SendVerificationAgain = (req, res, next) =>{
+    SendMailVerify(res.locals.userEmail, res.locals.token, req.headers.host);
+    res.render("auth/success-register",{page:'signup'});
 };
 
 //perform verification process

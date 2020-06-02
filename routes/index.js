@@ -6,7 +6,7 @@ const {GetForgotPassword, GetResetPassword,
         forgotPasswordEmail, DoResetPassword} = require('../controllers/Auth/ForgotPassword');
 const {GetIndex, GetAllJobs, GetJobsCategoryAndSearch, JobDetail} = require('../controllers/Job/JobPublic');
 const { ApplyJob } = require('../controllers/Job/JobFreelancer');
-const {GetVerify, DoVerification} = require('../controllers/Auth/Verify');
+const {GetVerify, DoVerification, SendVerificationAgain, NotVerified} = require('../controllers/Auth/Verify');
 
 //Public routes
 // GET requests
@@ -17,7 +17,9 @@ router.get('/logout', Logout);
 router.get('/forgot-password', GetForgotPassword);
 router.get('/reset-password/:token/:email', GetResetPassword);
 router.get('/verify', GetVerify);
+router.get('/send-verification', SendVerificationAgain);
 router.get('/verification/:email/:token', DoVerification);
+
 
 
 

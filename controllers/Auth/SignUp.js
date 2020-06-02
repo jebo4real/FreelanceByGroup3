@@ -8,12 +8,16 @@ const {SendMailVerify} = require('./VerificationEmail');
 
 module.exports.GetSignUp = (req, res, next) => {
     //render sign up page
-    res.render(
-        'auth/signup',
-        {
-            page:'signup'
-        }
-    )
+    if(req.session.loggedIn===true){
+        res.redirect('/');
+    }else{
+        res.render(
+            'auth/signup',
+            {
+                page:'signup'
+            }
+        )
+    }
 };
 
 //perform signup operation. Also set up a portfolio for freelancers with empty data
@@ -54,6 +58,8 @@ module.exports.DoSignUp = async (req, res, next) => {
                 console.log("Account Created successfully");
                 req.session.signUpSuccessMessage = "An email has been sent to your account to verify.";
                 let hostname = req.headers.host;
+                res.locals.userEmail = userInfo.email;
+                res.locals.token = token;
                 //send verification email
                 SendMailVerify(userInfo.email, token, hostname);
                 res.render("auth/success-register",{page:'signup'});
