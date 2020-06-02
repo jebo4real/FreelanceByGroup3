@@ -19,7 +19,18 @@ module.exports.GetIndex = async (req, res, next) => {
 };
 
 module.exports.GetAllJobs = async (req, res, next) => {
-    let jobs = await Job.findAll( {include: JobCategory});
+    let jobs = await Job.findAll( {
+        include: [
+            {
+                model: JobCategory,
+                as: 'JobCategory'
+            },
+            {
+                model: User,
+                as: 'User'
+            }
+        ]
+    });
     let category = await JobCategory.findAll();
     let jobCount = Object.keys(jobs).length;
     let searchResult = "All Jobs...";
@@ -28,7 +39,8 @@ module.exports.GetAllJobs = async (req, res, next) => {
         {
             jobs,
             category,
-            searchResult
+            searchResult,
+            page: 'jobs'
         }
     )
 };
@@ -110,8 +122,33 @@ module.exports.GetJobsCategoryAndSearch = async (req, res, next) => {
 
 module.exports.JobDetail = async (req, res, next) => {
     let jobId = req.params.id;
-    let job = await Job.findOne( { where:{id:jobId}, include: JobCategory});
-    let related_jobs = await Job.findAll( {where:{CatId:job.CatId}, include: JobCategory});
+    let job = await Job.findOne({
+        where:{id:jobId},
+        include: [
+            {
+                model: JobCategory,
+                as: 'JobCategory'
+            },
+            {
+                model: User,
+                as: 'User'
+            }
+        ]
+    });
+    let related_jobs = await Job.findAll( {
+        where:{CatId:job.CatId},
+        include: [
+            {
+                model: JobCategory,
+                as: 'JobCategory'
+            },
+            {
+                model: User,
+                as: 'User'
+            }
+        ],
+        limit: 2
+    });
     let user_applied = false;
     if(!req.session.loggedIn){
 
@@ -133,7 +170,8 @@ module.exports.JobDetail = async (req, res, next) => {
         {
             job,
             related_jobs,
-            user_applied
+            user_applied,
+            page:'jobs'
         }
     )
 };

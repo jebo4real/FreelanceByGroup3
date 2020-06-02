@@ -1,6 +1,6 @@
 $(document).ready(function(){
     //login
-    $("#btnpost").click(function(event){
+    $("#btnpostchat").click(function(event){
         event.preventDefault();
         let data = $('#fmjob').serialize();
         $("#btnpost").val('Posting...');
