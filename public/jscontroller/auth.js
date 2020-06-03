@@ -14,9 +14,12 @@ $(document).ready(function(){
                 success:function(response){
                     if(response.loginRes==="success"){
                         window.location = "/user/profile";
-                        // let pageURL = window.location.pathname;
-                        // if(pageURL==="/login"){
-                        //     window.location = "/user/"
+                        let pageURL = window.location.pathname;
+                        if(pageURL!=="/login"){
+                            location.reload();
+                        }else{
+                            window.location = "/user/"
+                        }
                         // }else {
                         //     //window.location = "/user/workspace/1"
                         //     location.reload();

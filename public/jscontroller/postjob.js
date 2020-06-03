@@ -7,7 +7,7 @@ $(document).ready(function(){
         let title = $("#title").val().trim();
         let details = $("#details").val().trim();
         let price = $("#price").val().trim();
-        if( title !== "" || details !== "" || price !==""){
+        if( title !== "" && details !== "" && price !==""){
             $.ajax({
                 url:'/user/post-job',
                 type:'post',
@@ -20,6 +20,8 @@ $(document).ready(function(){
                             'Job Posted Successfully' +
                             '</div>'
                         );
+                        $("#fmjob")[0].reset();
+                        location.reload();
                     }else {
                         alert(response);
                         $('#responseMess').html(
@@ -32,12 +34,10 @@ $(document).ready(function(){
             });
 
         } else {
-            alert("daksas");
+            alert("Enter all the required fields");
         }
         $("#btnpost").val('Post');
         $("#fmjob input,textarea,select").prop("disabled",false);
-        $("#fmjob")[0].reset();
-        // event.preventDefault();
     });
 
     //login

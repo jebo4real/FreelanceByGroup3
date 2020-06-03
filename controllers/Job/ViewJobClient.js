@@ -3,6 +3,7 @@ const Job = require('../../models').Job;
 const JobCategory = require('../../models').JobCategory;
 const JobApplication = require('../../models').JobApplication;
 const User = require('../../models').User;
+const Portfolio = require('../../models').Portfolio;
 const {Notify, NotifyMail} = require('../../services/Notification');
 
 module.exports.GetAllPostedJob = async (req, res, next) => {
@@ -58,6 +59,12 @@ module.exports.GetSingleJob = async (req, res, next) => {
         }
     )
 };
+
+module.exports.GetFreelancerProfile = async (req, res, next) =>{
+    let freelanceId = req.params.id;
+    let user_portfolio = await Portfolio.findOne({where:{UserId:freelanceId}, include:User});
+    res.send(user_portfolio);
+}
 
 module.exports.AwardJob = async (req, res, next) => {
     let appId = req.params.id;

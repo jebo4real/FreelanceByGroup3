@@ -12,13 +12,18 @@
         <h5 class="card-title">Personal Details</h5>
         <form class="" action="/user/update-profile" method="post" enctype = "multipart/form-data">
             <input name="id" id="id" placeholder="" type="text" class="form-control" value="<%=user.id%>" hidden><br />
-            <div class="form-row">
-                <div class="col-md-10 col" >
-                    <img src="/images/<%=user.picture%>" class="rounded-circle" width="200px" height="200px" alt="No picture" style="margin-bottom:10px;"/>
+
+            <div class="">
+                <div class="col-md-6">
                     <div class="position-relative form-group">
-                        <input name="picture" id="picture" type="file" />
-                    </div>
+                        <img src="/images/<%=user.picture%>" class="rounded-circle" width="200px" height="200px" alt="No picture" style="margin-bottom:10px;"/>
+                    </div>                   
                 </div>
+                <div class="">
+                    <input name="picture" id="picture" type="file" title="Select A Picture" />
+                </div>
+            </div><br/>
+            <div class="form-row">
                 <div class="col-md-6">
                     <div class="position-relative form-group">
                         <label for="firstname" class="">First Name</label>

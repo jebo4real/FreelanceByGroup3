@@ -29,21 +29,60 @@ module.exports.GetAllJobs = async (req, res, next) => {
                 model: User,
                 as: 'User'
             }
-        ]
+        ],
+        limit:10,
+        offset:1
     });
     let category = await JobCategory.findAll();
-    let jobCount = Object.keys(jobs).length;
+    let jobCount = await Job.count();
     let searchResult = "All Jobs...";
     res.render(
         'jobs',
         {
             jobs,
+            jobCount,
             category,
             searchResult,
-            page: 'jobs'
+            page: 'jobs',
+            page_no: 1
         }
     )
 };
+
+module.exports.GetPageAllJobs = async (req, res, next)=>{
+    let page = req.params.page;
+    page = parseInt(page);
+    console.log(page);
+    let jobs = await Job.findAll( {
+        include: [
+            {
+                model: JobCategory,
+                as: 'JobCategory'
+            },
+            {
+                model: User,
+                as: 'User'
+            }
+        ],
+        limit:10,
+        offset:page
+    });
+    let category = await JobCategory.findAll();
+    let jobCount = await Job.count();
+    let searchResult = "All Jobs...";
+    res.render(
+        'jobs',
+        {
+            jobs,
+            jobCount,
+            category,
+            searchResult,
+            page: 'jobs',
+            page_no: page
+        }
+    )
+};
+
 
 module.exports.GetJobsCategoryAndSearch = async (req, res, next) => {
     let searchParams = {};
@@ -135,6 +174,14 @@ module.exports.JobDetail = async (req, res, next) => {
             }
         ]
     });
+    // let job_offerred = JobApplication.findOne({
+    //     where: {
+    //         [Op.and]:[
+    //             {JobId:jobId},
+    //             {status:'awarded'}
+    //         ]
+    //     }
+    // });
     let related_jobs = await Job.findAll( {
         where:{CatId:job.CatId},
         include: [
@@ -150,10 +197,11 @@ module.exports.JobDetail = async (req, res, next) => {
         limit: 2
     });
     let user_applied = false;
+    let user_application = {};
     if(!req.session.loggedIn){
 
     }else {
-        let user_application = await JobApplication.findAll({
+        user_application = await JobApplication.findOne({
             where: {
                 [Op.and]: [
                     {JobId: jobId},
@@ -161,7 +209,7 @@ module.exports.JobDetail = async (req, res, next) => {
                 ]
             }
         });
-        if (Object.keys(user_application).length > 0) {
+        if (user_application) {
             user_applied = true;
         }
     }
@@ -170,6 +218,7 @@ module.exports.JobDetail = async (req, res, next) => {
         {
             job,
             related_jobs,
+            user_application,
             user_applied,
             page:'jobs'
         }

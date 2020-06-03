@@ -6,7 +6,7 @@ const  {GetSelectMessageUsers, GetMessageRoom, SendMessageUser} = require('../co
 const  {GetInboxOutbox, SendMessageFromBox} = require('../controllers/Messaging/MessageBox');
 const { GetChangePassword, UpdatePassword } = require('../controllers/Profile/Password');
 const { GetPostJob, DoPostJob } = require('../controllers/Job/PostJob');
-const { GetAllPostedJob, GetSingleJob, AwardJob } = require('../controllers/Job/ViewJobClient');
+const { GetAllPostedJob, GetSingleJob, GetFreelancerProfile, AwardJob } = require('../controllers/Job/ViewJobClient');
 const { UpdateJob, DeleteJob } = require('../controllers/Job/UpdateJob');
 const { GetAppliedJobs, AcceptJob, RejectJob } = require('../controllers/Job/JobFreelancer');
 const { GetDashboardSwitch } = require('../controllers/Dashboard/DashboardSwitch');
@@ -50,6 +50,7 @@ router.get('/post-job', GetPostJob);
 router.get('/my-jobs/:category', GetAllPostedJob);
 router.get('/freelancer-jobs/:category', GetAppliedJobs);
 router.get('/view-job/:id', GetSingleJob);
+router.get('/view-freel/:id', GetFreelancerProfile);
 router.get('/award-job/:id', AwardJob);
 router.get('/accept-job/:id', AcceptJob);
 router.get('/reject-job/:id', RejectJob);

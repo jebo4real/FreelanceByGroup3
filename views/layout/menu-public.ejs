@@ -26,6 +26,11 @@
                                 <% } %> >
                                 <a href="/">Home</a>
                             </li>
+                            <li <%if(page==="jobs"){%>
+                                class="active"
+                                <% } %> >
+                                <a href="/jobs">View Jobs</a>
+                            </li>
                             <% if(user){%>
                                 <li>
                                     <div class="dropdown">
@@ -33,6 +38,7 @@
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                             <a class="dropdown-item" href="#">Account</a>
                                             <hr />
+                                            <a class="dropdown-item" href="/user/">Dashboard</a>
                                             <a class="dropdown-item" href="/user/profile">View Profile</a>
                                             <a class="dropdown-item" href="/logout">Logout</a>
                                         </div>

@@ -21,10 +21,7 @@
                             <th hidden >Skills</th>
                             <th>Status</th>
                             <th>View Details</th>
-                            <th
-                                <%(title==='Awarded Jobs') ? '':'hidden';%> >
-                                Action
-                            </th>
+                            <th>Workspace</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -38,16 +35,15 @@
                             <td><%=jobapp.Job.price%></td>
                             <td hidden><%=jobapp.Job.skills%></td>
                             <td>
-                                <%=jobapp.status%>
-                                <% if(jobapp.status==="accepted" || jobapp.status==="awarded"){ %>
-                                    <a href="/user/workspace/<%=jobapp.id%>">View Workspace</a>
-                                <% } %>
+                                <div class="row">
+                                    <%=jobapp.status%>
+                                </div>
                             </td>
-                            <td><a href="/job/<%=jobapp.Job.id%>">View Details</a></td>
-                            <td <%=(jobapp.status==='accepted' || jobapp.status!=='awarded') ? 'hidden':''; %> >
-                                <a href="/user/accept-job/<%=jobapp.id%>">Accept</a>
-                                <a href="/user/reject-job/<%=jobapp.id%>">Reject</a>
-
+                            <td><a href="/job/<%=jobapp.Job.id%>" class="btn btn-success">View</a></td>
+                            <td>
+                                <% if(jobapp.status==="accepted"){ %>
+                                    <a href="/user/workspace/<%=jobapp.id%>" class="btn btn-success">View Workspace</a>
+                                <% } %>
                             </td>
                         </tr>
                         <% }); %>

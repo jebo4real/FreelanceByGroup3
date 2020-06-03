@@ -26,7 +26,7 @@ module.exports.ApplyJob = async (req, res, next) => {
     };
     Notify(notifyParts.title, notifyParts.message, notifyParts.ReceiverId);
     NotifyMail(notifyMailParts.title, notifyMailParts.message, notifyMailParts.ReceiverEmail);
-    res.redirect('/jobs');
+    res.redirect('/job/'+req.params.id);
 };
 
 module.exports.GetAppliedJobs = async (req, res, next) => {
@@ -73,12 +73,13 @@ module.exports.AcceptJob = async (req, res, next) => {
     let jobAppStatus = {
         status:'accepted'
     };
-    let job_awarded = JobApplication.update(jobAppStatus,{where:{id:appId} });
-    let job = JobApplication.findOne({where:{id:appId}, include:User });
+    let job_awarded = await JobApplication.update(jobAppStatus,{where:{id:appId} });
+    let job_just_awarded = await JobApplication.findOne({ where:{id:appId} });
+    let job = await Job.findOne({where:{id:job_just_awarded.JobId}, include:User });
     let jobContract = {
-        JobId: job.JobId
+        JobId: job.id
     };
-    let job_contract = Contract.create(jobContract);
+    let job_contract = await Contract.create(jobContract);
 
     let notifyParts = {
         title: res.locals.user.firstname+" accepted the job",
@@ -93,7 +94,7 @@ module.exports.AcceptJob = async (req, res, next) => {
     Notify(notifyParts.title, notifyParts.message, notifyParts.ReceiverId);
     NotifyMail(notifyMailParts.title, notifyMailParts.message, notifyMailParts.ReceiverEmail);
 
-    res.redirect('/user/freelancer-jobs/accepted');
+    res.redirect('/job/'+job.id);
 };
 
 module.exports.RejectJob = async (req, res, next) => {
@@ -101,9 +102,9 @@ module.exports.RejectJob = async (req, res, next) => {
     let jobAppStatus = {
         status:''
     };
-    let jobApp_rejected = JobApplication.update(jobAppStatus,{where:{id:appId} });
+    let jobApp_rejected = await JobApplication.update(jobAppStatus,{where:{id:appId} });
     let job = await JobApplication.findOne({where:{id:appId} });
-    let job_updated = Job.update(jobAppStatus, {where: {id:job.JobId} });
+    let job_updated = await Job.update(jobAppStatus, {where: {id:job.JobId} });
 
     let notifyParts = {
         title: res.locals.user.firstname+" rejected the job",

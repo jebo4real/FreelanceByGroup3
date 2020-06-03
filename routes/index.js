@@ -4,7 +4,7 @@ const {GetLogin, DoLogin, Logout} = require('../controllers/Auth/Login');
 const { GetSignUp, DoSignUp } = require('../controllers/Auth/SignUp');
 const {GetForgotPassword, GetResetPassword,
         forgotPasswordEmail, DoResetPassword} = require('../controllers/Auth/ForgotPassword');
-const {GetIndex, GetAllJobs, GetJobsCategoryAndSearch, JobDetail} = require('../controllers/Job/JobPublic');
+const {GetIndex, GetAllJobs, GetPageAllJobs, GetJobsCategoryAndSearch, JobDetail} = require('../controllers/Job/JobPublic');
 const { ApplyJob } = require('../controllers/Job/JobFreelancer');
 const {GetVerify, DoVerification, SendVerificationAgain, NotVerified} = require('../controllers/Auth/Verify');
 
@@ -24,6 +24,7 @@ router.get('/verification/:email/:token', DoVerification);
 
 
 router.get('/jobs',GetAllJobs);
+router.get('/jobs/:page',GetPageAllJobs);
 router.get('/job/:id', JobDetail);
 router.get('/job-apply/:id', ApplyJob);
 

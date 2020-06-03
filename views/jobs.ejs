@@ -2,12 +2,14 @@
 <% include ./layout/menu-public.ejs %>
 
 
-<div class="site-section bg-light" style="padding-top: 20px;">
+<div class="site-section bg-light">
     <div class="container">
-                <div class="col-md-12">
-                <% jobs.map( job => { %>
 
-                <div class="row" data-aos="fade" style="margin-bottom: 2px;">
+                <div class="col-md-12">
+                    <h5><%=searchResult%></h5>
+                <% jobs.map( job => { %>
+                    
+                <div class="row" data-aos="fade">
                     <div class="col-md-12">
 
                         <div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
@@ -17,8 +19,8 @@
                                     <h2 class="mr-3 text-black h6"><%=job.title %></h2>
                                 </div>
                                 <div class="job-post-item-body d-block d-md-flex">
-                                    <div class="mr-3"><span class="fl-bigmug-line-portfolio23"></span> <a style="color: #0b0b0b" href="#"><%=job.JobCategory.name %>.</a></div>
-                                    <div><span class="fl-bigmug-line-big104"></span> <span><%=job.User.country %></span></div>
+                                    <div class="mr-3"><span class="fl-bigmug-line-portfolio23 alink"></span> <a style="color: #0b0b0b" href="#"><%=job.JobCategory.name %>.</a></div>
+                                    <div><span class="fl-bigmug-line-big104 alink"></span> <span style="color: #0b0b0b" href="#"><%=job.User.country %></span></div>
                                 </div>
                             </div>
 
@@ -29,20 +31,26 @@
 
                     </div>
                 </div>
+
                 <% }); %>
+
+
+
                 </div>
 
         <div class="row mt-5">
             <div class="col-md-12 text-center">
                 <div class="site-block-27">
                     <ul>
-                        <li><a href="#"><i class="icon-keyboard_arrow_left h5"></i></a></li>
-                        <li class="active"><span>1</span></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#"><i class="icon-keyboard_arrow_right h5"></i></a></li>
+                        <%if(page_no!==1 && jobCount>10){ let prev = parseInt(page_no-1); %>
+                            <li><a href="/jobs/<%=prev%>"><i class="icon-keyboard_arrow_left h5"></i></a></li>
+                        <% } %>
+                        <% for(let i=1;i<jobCount/10;++i){ %>
+                            <li <% if(page_no===i){ %> class="active" <% } %> > <a href="/jobs/<%=i%>"><%=i%></a></li>
+                        <% } %>
+                        <%if(page_no!==jobCount && jobCount>10){ let nextp = parseInt(page_no+1); %>
+                            <li><a href="/jobs/<%=nextp%>"><i class="icon-keyboard_arrow_right h5"></i></a></li>
+                        <% } %>
                     </ul>
                 </div>
             </div>

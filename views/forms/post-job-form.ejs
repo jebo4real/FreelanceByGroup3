@@ -3,9 +3,9 @@
        <div id="responseMess">
        </div>
         <h5 class="card-title">Job Details</h5>
-        <form class="fmjob" id="fmjob" method="post">
+        <form class="fmjob justify-content-center" id="fmjob" method="post">
             <div class="form-row">
-                <div class="col-md-6">
+                <div class="col-md-10">
                     <div class="position-relative form-group">
                         <label for="category" class="">Category/Industry</label>
                         <select name="category" id="category" class="form-control" required >
@@ -30,8 +30,6 @@
                             <option value="More than 1 month">More than 1 month</option>
                         </select>
                     </div>
-                </div>
-                <div class="col-md-6">
                     <div class="position-relative form-group">
                         <label for="price" class="">Price</label>
                         <div class="input-group">
@@ -45,9 +43,12 @@
                         <label for="skills" class="">Skills(Enter skills associated with job separated by comma, Optional)</label>
                         <input name="skills" id="skills" placeholder="skills" type="text" class="form-control" />
                     </div>
+                    <div class="d-flex justify-content-center">
+                        <input type="submit" id="btnpost" name="btnpost" class="mt-2 btn btn-success" value="Post">
+                    </div>
                 </div>
+
             </div>
-            <input type="submit" id="btnpost" name="btnpost" class="mt-2 btn btn-success" value="Post">
         </form>
     </div>
 </div>

@@ -12,13 +12,18 @@
         <h5 class="card-title">Portfolio Details</h5>
         <form class="" action="/user/update-portfolio" method="post" enctype = "multipart/form-data" style="margin:auto;width: 100%">
             <input name="id" id="id" placeholder="" type="text" class="form-control" value="<%=user.Portfolio.id%>" hidden><br />
+            <div class="row">
             <div class="form-row">
-                <div class="col-md-10 row">
-                    <img src="/images/<%=user.Portfolio.picture%>" width="140px" height="100px" alt="No picture"/>
+                <div class="col-md-10">
+                    <div class="position-relative form-group">
+                    <img src="/images/<%=user.Portfolio.picture%>" class="rounded-circle" width="200px" height="200px" alt="No picture"/>
+                    </div>
                     <div class="position-relative form-group">
                         <input name="picture" id="picture" type="file" />
                     </div>
                 </div>
+            </div>
+            <div class="form-row">
                 <div class="col-md-10">
                     <div class="position-relative form-group">
                         <label for="title" class="">Title</label>
@@ -31,14 +36,13 @@
                         <textarea class="form-control" id="description" name="description"><%=user.Portfolio.description%></textarea>
                     </div>
                 </div>
-            </div>
-            <div class="form-row">
                 <div class="col-md-10">
                     <div class="position-relative form-group">
                         <label for="projectLinks" class="">Project Links</label>
                         <textarea class="form-control" id="projectLinks" name="projectLinks"><%=user.Portfolio.projectLinks%></textarea>
                     </div>
                 </div>
+            </div>
             </div>
             <div class="d-flex justify-content-center">
                 <input type="submit" class="mt-2 btn btn-success py-2 px-4" value="Update" >

@@ -1,5 +1,6 @@
 $(document).ready(function() {
     let appId = "";
+    let jobUserId = "";
     $("#client_jobs_tb").DataTable({
         "pagingType": "numbers",
         "pageLength": 10,
@@ -46,10 +47,21 @@ $(document).ready(function() {
         let table = $("#app_tb").DataTable();
         let data = table.row(this).data();
         appId = data[1];
-        $("#firstname").text(data[2]);
-        $("#lastname").text(data[3]);
-        $("#pic").attr("src", "/images/"+data[4]);
-        $("#jobTitle").text(data[5]);
+        jobUserId = data[6];
+        $.ajax({
+            url:'/user/view-freel/'+jobUserId,
+            type:'get',
+            data:{jobUserId: jobUserId},
+            success:function(response){
+                $("#firstname").text(response.User.firstname);
+                $("#lastname").text(response.User.lastname);
+                $("#jobTitle").text(response.title);
+                $("#description").text(response.description);
+                $("#projectLinks").text(response.projectLinks);
+                $("#pic").attr("src", "/images/"+response.picture);
+                
+            }
+        });
 
         //$("freelancer-info").show();
     });
@@ -60,7 +72,7 @@ $(document).ready(function() {
 
     $("#jobview_tb").DataTable({
         "pagingType": "numbers",
-        "pageLength": 4,
+        "pageLength": 1,
         "ordering": false,
         "info":     false,
         "searching": false,

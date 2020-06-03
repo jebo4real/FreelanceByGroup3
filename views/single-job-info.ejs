@@ -19,19 +19,30 @@
                             </div>
                         </div>
                         <div class="job-post-item-body d-block d-md-flex">
-                            <div class="mr-3"><span class="fl-bigmug-line-portfolio23"></span> <a href="#" class="alink"><%= job.JobCategory.name %></a></div>
-                            <div><span class="fl-bigmug-line-big104"></span> <span><%= job.User.country %></span></div>
+                            <div class="mr-3"><span class="fl-bigmug-line-portfolio23 alink"></span> <a href="#" class="" style="color: #0b0b0b"><%= job.JobCategory.name %></a></div>
+                            <div><span class="fl-bigmug-line-big104 alink"></span> <span style="color: #0b0b0b"><%= job.User.country %></span></div>
                         </div>
                     </div>
 
                     <p><%= job.details %></p>
                     <% if(user){ %>
-                        <% if(user.UserAccount.RoleId===2) {%>
+                        <% if(user.UserAccount.RoleId===2) { %>
                             <% if(user_applied){ %>
-                                <p class="mt-5"><a href="#" class="btn btn-success  py-2 px-4">Applied</a></p>
+                            <% if(user_application.status==='awarded'){%> 
+                                <p class="mt-5">
+                                    <a href="/user/accept-job/<%=user_application.id%>" class="btn btn-success  py-2 px-4">Accept</a>
+                                    <a href="/user/reject-job/<%=user_application.id%>" class="btn btn-danger  py-2 px-4">Reject</a>
+                                </p>
+                            <%}else if(user_application.status==='accepted'){%>
+                                <p class="mt-5"><a href="#" class="btn btn-success  py-2 px-4">Job Accepted</a></p>
                             <% }else{ %>
+                                <p class="mt-5"><a href="#" class="btn btn-success  py-2 px-4">Applied</a></p>
+                            <% } %>
+                        <%}else{ %>
                             <p class="mt-5"><a href="/job-apply/<%=job.id %>" class="btn btn-success  py-2 px-4">Submit Application</a></p>
                             <% } %>
+
+
                         <% }else{ %>
                             <p class="mt-5">
                                 <a href="#" data-toggle="modal" data-target="#loginModal" class="btn btn-success  py-2 px-4">
@@ -56,22 +67,24 @@
                     <h3 class="h5 text-black mb-3">Related Jobs</h3>
                     <hr style="border-color: #0b0b0b" />
                     <% related_jobs.map( job => { %>
-                    <div class="row" data-aos="fade" style="margin-bottom: 5px;width: 100%">
-                        <div class="col-md-12">
-                            <div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
-                                <div class="mb-6 mb-md-0 mr-5">
-                                    <div class="job-post-item-header d-flex align-items-center">
-                                        <h6 class="mr-3 text-black h6"><%=job.title %></h6>
-                                    </div>
-                                    <div class="job-post-item-body d-block d-md-flex">
-                                        <div class="mr-3"><span class="fl-bigmug-line-portfolio23"></span> <a class="alink" href="#"><%=job.JobCategory.name %>.</a></div>
-                                        <div><span class="fl-bigmug-line-big104"></span> <span><%=job.User.country %></span></div>
+                    <a href="/job/<%=job.id %>" class="alink">
+                        <div class="row" data-aos="fade" style="margin-bottom: 5px;width: 100%">
+                            <div class="col-md-12">
+                                <div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
+                                    <div class="mb-6 mb-md-0 mr-5">
+                                        <div class="job-post-item-header d-flex align-items-center">
+                                            <h6 class="mr-3 text-black h6"><%=job.title %></h6>
+                                        </div>
+                                        <div class="job-post-item-body d-block d-md-flex">
+                                            <div class="mr-3"><span class="fl-bigmug-line-portfolio23"></span> <a style="color: #0b0b0b" href="#"><%=job.JobCategory.name %>.</a></div>
+                                            <div><span class="fl-bigmug-line-big104 alink"></span> <span style="color: #0b0b0b"><%=job.User.country %></span></div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
+                            </div>
                         </div>
-                    </div>
+                    </a>
                     <% }); %>
                 </div>
             </div>
@@ -81,3 +94,4 @@
 
 
 <% include ./layout/footer-public.ejs %>
+<% include ./modals/login-modal.ejs %>
