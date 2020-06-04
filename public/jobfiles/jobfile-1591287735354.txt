@@ -1,0 +1,26 @@
+<div class="col-md-9 card">
+                <div class="card-header">
+                    <ul class="nav nav-justified">
+                        <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-0" class="active nav-link">Job Details</a></li>
+                        <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-1" class="nav-link">Discussion</a></li>
+                        <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-2" class="nav-link">Job Files</a></li>
+                        <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-3" class="nav-link">Payments</a></li>
+                    </ul>
+                </div>
+                <div class="card-body">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab-eg7-0" role="tabpanel">
+                            <% include ../forms/workspace-job-detail.ejs %>
+                        </div>
+                        <div class="tab-pane" id="tab-eg7-1" role="tabpanel">
+                            <% include ../forms/workspace-job-chat.ejs %>
+                        </div>
+                        <div class="tab-pane" id="tab-eg7-2" role="tabpanel">
+                            <% include ../forms/workspace-job-file.ejs %>
+                        </div>
+                        <div class="tab-pane" id="tab-eg7-3" role="tabpanel">
+                            <% include ../forms/workspace-job-payment.ejs %>
+                        </div>
+                    </div>
+                </div>
+            </div>

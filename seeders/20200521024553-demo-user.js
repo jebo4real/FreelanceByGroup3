@@ -25,9 +25,9 @@ module.exports = {
     const usersRows = users[0];
 
     return queryInterface.bulkInsert('UserAccounts', [
-      {username: 'admin1', password: hashPassword('admin'), UserId: usersRows[0].id, RoleId: 3,createdAt:'2020-05-25 00:00:00',
+      {username: 'admin1', password: hashPassword('admin'), UserId: usersRows[0].id, RoleId: 3, verified:true, createdAt:'2020-05-25 00:00:00',
         updatedAt:'2020-05-25 00:00:00'},
-      {username: 'admin2', password: hashPassword('admin'), UserId: usersRows[0].id, RoleId: 3,createdAt:'2020-05-25 00:00:00',
+      {username: 'admin2', password: hashPassword('admin'), UserId: usersRows[0].id, RoleId: 3, verified:true, createdAt:'2020-05-25 00:00:00',
         updatedAt:'2020-05-25 00:00:00'},
     ], {});
   },

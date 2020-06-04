@@ -18,6 +18,25 @@ $(document).ready(function() {
 
     });
 
+    //dashboard jobs
+    $("#client_dasboard_jobs_tb").DataTable({
+        "paging": false,
+        "pagingType": "numbers",
+        "pageLength": 5,
+        "ordering": false,
+        "info":     false,
+        "searching": false,
+        "lengthChange": false,
+    });
+
+    $("#client_dasboard_jobs_tb tbody").on("click","tr",function(){
+        let table = $("#client_dasboard_jobs_tb").DataTable();
+        let data = table.row(this).data();
+        let jobId = data[4];
+        window.location = "/user/view-job/"+jobId;
+
+    });
+
     $("#freelancer_jobs_tb").DataTable({
         "pagingType": "numbers",
         "pageLength": 10,

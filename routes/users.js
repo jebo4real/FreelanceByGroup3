@@ -12,8 +12,8 @@ const { GetAppliedJobs, AcceptJob, RejectJob } = require('../controllers/Job/Job
 const { GetDashboardSwitch } = require('../controllers/Dashboard/DashboardSwitch');
 const { GetDashboardClient } = require('../controllers/Dashboard/DashBoardClient');
 const { GetDashboardFreelancer } = require('../controllers/Dashboard/DashboardFreelancer');
-const { GetWorkSpaceInfo, SendMessage, StartJob, WorkspaceAcceptJob,
-    WorkspaceRejectJob, WorkspaceReport, UploadFile, ViewFile } = require('../controllers/Job/JobWorkSpace');
+const { GetWorkSpaceInfo, SendMessage, StartJob, WorkspaceAcceptJob, WorkspaceRejectJob, 
+    WorkspaceReport, UploadFile, ViewFile, ReviewAndRateClient, ReviewAndRateFreelancer } = require('../controllers/Job/JobWorkSpace');
 const {Pay} = require('../controllers/Job/StripePayment');
 const {NotVerified} = require('../controllers/Auth/Verify');
 
@@ -60,6 +60,9 @@ router.get('/view-file/:filename', ViewFile);
 router.get('/workspace/:id', GetWorkSpaceInfo);
 router.post('/send-message', SendMessage);
 router.post('/upload-file', UploadFile);
+router.post('/review-client', ReviewAndRateClient);
+router.post('/review-freelancer', ReviewAndRateFreelancer);
+
 router.post('/pay', Pay);
 
 

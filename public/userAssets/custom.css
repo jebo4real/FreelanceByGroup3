@@ -50,3 +50,7 @@ body {
 .nav-link:hover {
     color:  #3ac47d !important;
 }
+
+.card-header > .nav .nav-link::before{
+    background: #3ac47d !important;
+}

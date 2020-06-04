@@ -56,20 +56,21 @@
                             </div>
                         </div>
                     </div>
-                    <div class="table-responsive">
-                        <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+                    <div class="">
+                        <table class="align-middle mb-0 table table-borderless table-striped table-hover" id="client_dasboard_jobs_tb">
                             <thead>
                             <tr>
                                 <th class="text-center">#</th>
                                 <th>Job</th>
                                 <th class="text-center">Applicant</th>
                                 <th class="text-center">Status</th>
+                                <th class="text-center" hidden >JobId</th>
                             </tr>
                             </thead>
                             <tbody>
                             <% count = 1;
                                 jobApps.map(j =>{ %>
-                            <tr>
+                            <tr style="cursor: pointer;">
                                 <td class="text-center text-muted"><%=count%></td>
                                 <td class="text-left"><%=j.Job.title%></td>
                                 <td>
@@ -89,6 +90,7 @@
                                 <td class="text-center">
                                     <div class="badge badge-info"><%=j.status%></div>
                                 </td>
+                                <td class="text-center text-muted" hidden ><%=j.Job.id%></td>
                             </tr>
                             <% count++; }); %>
                             </tbody>

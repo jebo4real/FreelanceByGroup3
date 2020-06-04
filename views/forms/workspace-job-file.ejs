@@ -1,10 +1,10 @@
-<div class="main-card mb-3 card">
-    <div class="card-header">
+<div class="main-card mb-3 " style="border-bottom: 0px;">
+    <div class="card-header" style="border-bottom: 0px!important;">
         <form class="" action="/user/upload-file" method="post" enctype = "multipart/form-data" style="float:right">
             <input type="text" id="SenderId" name="SenderId" class="form-control" value="<%=user.id%>"  hidden>
             <input type="text" id="JobId" name="JobId" class="form-control" value="<%=job.id%>" hidden >
             <input type="text" id="JobAppId" name="JobAppId" class="form-control" value="<%=jobAppDetail.id%>" hidden >
-
+            <p>Note: Only upload pdf files</p>
             <div class="input-group">
                 <input type="file" id="jobfile" name="jobfile" class="form-control" />
                 <div class="input-group-append">
@@ -13,12 +13,11 @@
             </div>
 
         </form>
-    </div>
-    <div class="card-body col" id="files" name="files" style="">
-        <p>Job Files</p>
-        <table class="table" id="job_file_tb">
+    </div><br/>
+    <div class=" col" id="files" name="files">
+        <table class="table" id="job_file_tb" style="border-bottom: 0px;">
             <thead>
-            <tr>
+            <tr style="border-bottom: 0px;">
                 <th>Date of Upload</th>
                 <th>By</th>
                 <th>File Name</th>

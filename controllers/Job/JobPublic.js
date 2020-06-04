@@ -30,12 +30,13 @@ module.exports.GetAllJobs = async (req, res, next) => {
                 as: 'User'
             }
         ],
+        order:[['createdAt', 'DESC']],
         limit:10,
-        offset:1
+        offset:0
     });
     let category = await JobCategory.findAll();
     let jobCount = await Job.count();
-    let searchResult = "All Jobs...";
+    let searchResult = "All Jobs";
     res.render(
         'jobs',
         {
@@ -52,6 +53,7 @@ module.exports.GetAllJobs = async (req, res, next) => {
 module.exports.GetPageAllJobs = async (req, res, next)=>{
     let page = req.params.page;
     page = parseInt(page);
+    let offset = (page - 1) * 10;
     console.log(page);
     let jobs = await Job.findAll( {
         include: [
@@ -65,11 +67,11 @@ module.exports.GetPageAllJobs = async (req, res, next)=>{
             }
         ],
         limit:10,
-        offset:page
+        offset:offset
     });
     let category = await JobCategory.findAll();
     let jobCount = await Job.count();
-    let searchResult = "All Jobs...";
+    let searchResult = "All Jobs";
     res.render(
         'jobs',
         {

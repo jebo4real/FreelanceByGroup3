@@ -12,12 +12,19 @@ const db = require("../../models");
 const { QueryTypes } = require('sequelize');
 
 module.exports.GetDashboardFreelancer = async (req, res, next) =>{
-    let jobsAppCount = JobApplication.findAll({ where:{FreelanceId:res.locals.user.id} });
+    let jobsAppCount = JobApplication.findAll({ 
+        where:{FreelanceId:res.locals.user.id}
+    });
     let jobsAwarded = JobApplication.findAll({
         where:{
             [Op.and]: [
                 {FreelanceId:res.locals.user.id},
-                {status:'accepted'}
+                {
+                    [Op.or]:[
+                        {status: 'awarded'},
+                        {status: 'accepted'}
+                    ]
+                }
             ]
         }
     });

@@ -20,7 +20,7 @@
                                 </div>
                                 <div class="job-post-item-body d-block d-md-flex">
                                     <div class="mr-3"><span class="fl-bigmug-line-portfolio23 alink"></span> <a style="color: #0b0b0b" href="#"><%=job.JobCategory.name %>.</a></div>
-                                    <div><span class="fl-bigmug-line-big104 alink"></span> <span style="color: #0b0b0b" href="#"><%=job.User.country %></span></div>
+                                    <div><span class="alink">$</span> <span style="color: #0b0b0b" href="#"><%=job.price %></span></div>
                                 </div>
                             </div>
 
@@ -42,11 +42,9 @@
             <div class="col-md-12 text-center">
                 <div class="site-block-27">
                     <ul>
-                        <%if(page_no!==1 && jobCount>10){ let prev = parseInt(page_no-1); %>
+                        <% let num = parseInt(jobCount / 10) ; %>
+                        <%if(page_no>1 && jobCount>10){ let prev = parseInt(page_no-1); %>
                             <li><a href="/jobs/<%=prev%>"><i class="icon-keyboard_arrow_left h5"></i></a></li>
-                        <% } %>
-                        <% for(let i=1;i<jobCount/10;++i){ %>
-                            <li <% if(page_no===i){ %> class="active" <% } %> > <a href="/jobs/<%=i%>"><%=i%></a></li>
                         <% } %>
                         <%if(page_no!==jobCount && jobCount>10){ let nextp = parseInt(page_no+1); %>
                             <li><a href="/jobs/<%=nextp%>"><i class="icon-keyboard_arrow_right h5"></i></a></li>

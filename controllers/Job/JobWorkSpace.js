@@ -18,6 +18,7 @@ module.exports.GetWorkSpaceInfo = async (req, res, next) =>{
     let jobPayment = await JobPayment.findAll({ where:{JobId: jobAppDetail.JobId}, include:Job });
     let chat = await Chat.findAll({ where:{JobId:job.id} });
     let jobFiles = await JobFile.findAll({ where:{JobId:job.id}, include:User });
+    let contract_details = await Contract.findOne({where:{JobId:job.id}});
 
     res.locals.amountToPay = job.price * 100;
     res.locals.jobName = job.title;
@@ -29,6 +30,7 @@ module.exports.GetWorkSpaceInfo = async (req, res, next) =>{
             job,
             jobPayment,
             chat,
+            contract_details,
             jobFiles
         }
     )
@@ -81,7 +83,15 @@ module.exports.UploadFile = async (req, res, next) =>{
 module.exports.ViewFile = async (req, res, next) =>{
     let filename = req.params.filename;
     console.log(filename);
-    res.sendFile(path.dirname(app || process.mainModule.filename) + "public/jobfiles/"+filename);
+    let file = path.join(__dirname, 'public') + "/jobfiles/"+filename;
+    res.download(file, function (err) {
+        if (err) {
+            console.log("Error");
+            console.log(err);
+        } else {
+            console.log("Success");
+        }
+    });
 };
 
 module.exports.StartJob = async (req,res, next) =>{
@@ -91,6 +101,32 @@ module.exports.StartJob = async (req,res, next) =>{
     };
     let job_started = Contract.update({startJobStatus},{ where:{JobId:jobId} });
     (job_started!==null) ? res.send("success"):res.send("error");
+};
+
+module.exports.ReviewAndRateFreelancer = async (req,res, next) =>{
+    let jobId = req.body.JobId;
+    let ratings = {
+        freelance_review: req.body.free_review,
+        freelance_rating: req.body.free_rating
+    };
+    let rating_upd = Contract.update(ratings,{ where:{JobId:jobId} });
+    console.log(ratings);
+    console.log(jobId);
+    console.log(rating_upd);
+    (rating_upd!==null) ? res.send("success"):res.send("error");
+};
+
+module.exports.ReviewAndRateClient = async (req,res, next) =>{
+    let jobId = req.body.JobId;
+    let ratings = {
+        client_review: req.body.client_review,
+        client_rating: req.body.client_rating
+    };
+    let rating_upd = Contract.update(ratings,{ where:{JobId:jobId} });
+    console.log(ratings);
+    console.log(jobId);
+    console.log(rating_upd);
+    (rating_upd!==null) ? res.send("success"):res.send("error");
 };
 
 module.exports.WorkspaceAcceptJob = async (req,res, next) =>{

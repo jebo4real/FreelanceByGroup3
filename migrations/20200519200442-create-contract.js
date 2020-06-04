@@ -25,6 +25,18 @@ module.exports = {
       note: {
         type: Sequelize.STRING
       },
+      freelance_review: {
+        type: Sequelize.STRING
+      },
+      client_review: {
+        type: Sequelize.STRING
+      },
+      freelance_rating: {
+        type: Sequelize.INTEGER
+      },
+      client_rating: {
+        type: Sequelize.INTEGER
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

@@ -1,22 +1,26 @@
-<div class="main-card mb-3 card">
-    <div class="card-body col" id="messages" name="messages" style="background-color:gainsboro;max-height: 350px;min-height:300px;overflow-y: scroll;">
+
+<div class="panel mb-3" style="background-color:white;">
+    <div class="panel-body col" id="messages" name="messages" style="max-height: 400px;min-height: 400px;overflow-y: scroll;">
         <% chat.map(ch => {%>
-            <div class="card card-body col-md-8"
-                <% if(ch.SenderId===user.id){%>
-                    style = "margin-bottom:5px;float:right;"
-                <% }else{ %>
-                    style = "margin-bottom:5px;"
-                <% } %>
-                >
-                <p><%=ch.message%></p>
+            <div class="card card-body col-md-8 col-lg-7 "
+            <% if(ch.SenderId===user.id){%>
+                 style = "margin-bottom:10px;float:right;border-radius: 0.5rem 0.5rem 0 0.5rem;background-color: #99E4B7;color:whitesmoke;"
+            <% }else{ %>
+                 style = "margin-bottom:10px;float:left;border-radius: 0.5rem 0.5rem 0 0.5rem;"
+                    <% } %>
+            >
+            <p><%=ch.message%></p>
             </div>
         <% }); %>
-
     </div>
-    <div class="card-footer row">
-        <textarea rows="3" class="form-control col-md-11" id="message" name="message"></textarea>
-        <input type="submit" value="Send" class="btn btn-success" id="btnsendmess" name="btnsendmess">
-        <p id="sender" hidden ><%=user.id%></p>
-        <p id="jobid" hidden ><%=job.id%></p>
+    <div class="panel-footer">
+        <form action="/user/send-message-user" method="post">
+            <div class="row">
+                <input type="text" class="form-control" placeholder="Type a message" style="width: 90%" id="message" name="message" required />
+                <button style="width: 10%" type="submit" id="btnsendmess" name="btnsendmess" class="btn btn-success btn-sm"><i class="pe-7s-paper-plane"></i></button>
+                <p id="sender" hidden ><%=user.id%></p>
+                <p id="jobid" hidden ><%=job.id%></p>
+            </div>
+        </form>
     </div>
 </div>

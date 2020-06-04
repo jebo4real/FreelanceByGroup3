@@ -21,7 +21,7 @@ $(document).ready(function(){
                             '</div>'
                         );
                         $("#fmjob")[0].reset();
-                        location.reload();
+                        //location.reload();
                     }else {
                         alert(response);
                         $('#responseMess').html(
@@ -30,6 +30,7 @@ $(document).ready(function(){
                             '</div>'
                         );
                     }
+                    location.reload();
                 }
             });
 

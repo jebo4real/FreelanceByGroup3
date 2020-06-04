@@ -77,7 +77,8 @@ module.exports.AcceptJob = async (req, res, next) => {
     let job_just_awarded = await JobApplication.findOne({ where:{id:appId} });
     let job = await Job.findOne({where:{id:job_just_awarded.JobId}, include:User });
     let jobContract = {
-        JobId: job.id
+        JobId: job.id,
+        status: 'start'
     };
     let job_contract = await Contract.create(jobContract);
 

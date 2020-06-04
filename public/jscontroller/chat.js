@@ -14,7 +14,7 @@ $(document).ready(function(){
                 success:function(response){
                     if(response==="success"){
                         $('#messages').append(
-                           '<div  class="card card-body col-md-8" style="float: right;">' +
+                           '<div  class="card card-body col-md-8 col-lg-7" style="margin-bottom:10px;float:right;border-radius: 0.5rem 0.5rem 0 0.5rem;background-color: #99E4B7;color:whitesmoke;">' +
                             '<p>'+message+'</p>' +
                             '</div>'
                         );
