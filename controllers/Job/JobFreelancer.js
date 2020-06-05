@@ -104,7 +104,7 @@ module.exports.AcceptJob = async (req, res, next) => {
     Notify(notifyParts.title, notifyParts.message, notifyParts.ReceiverId);
     NotifyMail(notifyMailParts.title, notifyMailParts.message, notifyMailParts.ReceiverEmail);
 
-    res.redirect('/job/'+job.id);
+    res.redirect('/user/workspace/'+job_just_awarded.id);
 };
 
 module.exports.RejectJob = async (req, res, next) => {
@@ -129,5 +129,5 @@ module.exports.RejectJob = async (req, res, next) => {
     Notify(notifyParts.title, notifyParts.message, notifyParts.ReceiverId);
     NotifyMail(notifyMailParts.title, notifyMailParts.message, notifyMailParts.ReceiverEmail);
 
-    res.redirect('/user/freelancer-jobs/all');
+    res.redirect('/job/'+job.JobId);
 };
