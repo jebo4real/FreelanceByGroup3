@@ -4,9 +4,9 @@
             <input type="text" id="SenderId" name="SenderId" class="form-control" value="<%=user.id%>"  hidden>
             <input type="text" id="JobId" name="JobId" class="form-control" value="<%=job.id%>" hidden >
             <input type="text" id="JobAppId" name="JobAppId" class="form-control" value="<%=jobAppDetail.id%>" hidden >
-            <p>Note: Only upload pdf files</p>
+            <p>Note: Only upload pdf and image files</p>
             <div class="input-group">
-                <input type="file" id="jobfile" name="jobfile" class="form-control" />
+                <input type="file" id="jobfile" name="jobfile" class="form-control" accept="application/pdf,image/*" />
                 <div class="input-group-append">
                     <input type="submit" value="Upload" class="btn btn-success" id="btnupload" name="btnupload">
                 </div>

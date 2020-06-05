@@ -16,15 +16,15 @@
             <div class="">
                 <div class="col-md-6">
                     <div class="position-relative form-group">
+                        <label style="cursor:pointer" title="Select A picture">
                         <%if(user.picture!==null){%>
-                        <img src="/images/<%=user.picture%>" class="rounded-circle" width="200px" height="200px" alt="No picture" style="margin-bottom:10px;"/>
+                        <img src="/images/<%=user.picture%>" class="rounded-circle" width="150px" height="150px" alt="No picture" style="margin-bottom:10px;"/>
                         <% }else{ %> 
-                            <img src="/img/uploadimg.jpg" alt="No picture" style="margin-bottom:10px;"/>  
+                            <img src="/img/avatar.jpg" alt="No picture" style="margin-bottom:10px;"/>  
                         <% } %> 
+                        <input name="picture" id="picture" type="file" title="Select A Picture" style="display:none" accept="image/*" />
+                    </label>
                     </div>                   
-                </div><br/>
-                <div class="">
-                    <input name="picture" id="picture" type="file" title="Select A Picture" />
                 </div>
             </div><br/>
             <div class="form-row">
@@ -51,7 +51,7 @@
                 <div class="col-md-6">
                     <div class="position-relative form-group">
                         <label for="gender" class="">Gender</label>
-                        <select id="gender" name="gender" class="form-control">
+                        <select id="gender" name="gender" class="custom-select">
                             <option value="male" <%if(user.gender == "male"){%>
                                     selected<%}%> >Male</option>
                             <option value="female" <%if(user.gender == "female"){%>
@@ -71,9 +71,10 @@
                 </div>
                 <div class="col-md-6">
                     <div class="position-relative form-group">
-                        <label for="mobile" class="">Mobile</label>
+                        <label for="mobile" class="">Mobile(000 000 000 )</label>
                         <input name="mobile" id="mobile" value="<%=user.mobile%>" placeholder="" type="tel" pattern="^\d{3}\d{3}\d{4}$" 
-                               title="Enter a valid phone number" class="form-control">
+                               title="Enter a valid phone number eg. 000 000 000" class="form-control"
+                               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" >
                     </div>
                 </div>
             </div>

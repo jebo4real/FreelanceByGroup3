@@ -48,4 +48,15 @@ $(document).ready(function () {
             return 'Strong'
         }
     }
+
+
+    $('#city').keydown(function(er){
+        if(er.altKey||er.ctrlKey||er.shiftKey){
+            er.preventDefault();
+        }else{var key=er.keyCode;
+            if(!((key==8)||(key==9)||(key==32)||(key==46)||(key>=65 && key<=90))){
+                er.preventDefault();
+            }
+        }
+    }); 
 });
