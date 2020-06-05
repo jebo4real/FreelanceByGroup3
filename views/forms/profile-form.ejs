@@ -16,9 +16,13 @@
             <div class="">
                 <div class="col-md-6">
                     <div class="position-relative form-group">
+                        <%if(user.picture!==null){%>
                         <img src="/images/<%=user.picture%>" class="rounded-circle" width="200px" height="200px" alt="No picture" style="margin-bottom:10px;"/>
+                        <% }else{ %> 
+                            <img src="/img/uploadimg.jpg" alt="No picture" style="margin-bottom:10px;"/>  
+                        <% } %> 
                     </div>                   
-                </div>
+                </div><br/>
                 <div class="">
                     <input name="picture" id="picture" type="file" title="Select A Picture" />
                 </div>
@@ -67,8 +71,8 @@
                 </div>
                 <div class="col-md-6">
                     <div class="position-relative form-group">
-                        <label for="mobile" class="">Mobile(format: XXX XXX XXX)</label>
-                        <input name="mobile" id="mobile" value="<%=user.mobile%>" placeholder="" type="tel" pattern="^\d{3}\d{3}\d{4}$" 
+                        <label for="mobile" class=""></label>
+                        <input name="mobile" id="mobile" value="<%=user.mobile%>" placeholder="" type="number" pattern="^\d{3}\d{3}\d{3}\d{4}$" 
                                title="Enter a valid phone number" class="form-control">
                     </div>
                 </div>
