@@ -68,8 +68,12 @@ module.exports.DoSignUp = async (req, res, next) => {
             if(user_Portfolio.id!==null) {
                 console.log("Account Created successfully");
                 let hostname = req.headers.host;
-                res.locals.userEmail = userInfo.email;
-                res.locals.token = token;
+                try{
+                    req.session.uemail = userInfo.email;
+                    req.session.utoken = token;
+                }catch(e){
+                    console.log(e);
+                }
                 //send verification email
                 SendMailVerify(userInfo.email, token, hostname);
                 res.render("auth/success-register",{page:'signup',signUpSuccessMessage:'An email has been sent to your account to verify.'});

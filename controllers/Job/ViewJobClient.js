@@ -85,9 +85,9 @@ module.exports.AwardJob = async (req, res, next) => {
     let notifyMailParts = {
         title: jobOwnerInfo.title+" has been awarded to you",
         message: '<div style="background-color:white;color:black;">'+
-                 '<p style="font-weight: bold;">Group 3 freelancer.'+ 
-                 'Congratulations'+jobOwnerInfo.title+ 'has been awarded to you.Click on the following link to see.<p>'+
-                '<a href="http://'+hostname+'/login/'+'">Click here to go to see</a></div>',
+                 '<p style="font-weight: bold;">Group 3 freelancer.</p>'+ 
+                 '<p>Congratulations, '+jobOwnerInfo.title+ ' has been awarded to you. Click on the following link to see.</p>'+
+                '<p><a href="http://'+hostname+'/login/'+'">Login to accept</a></p></div>',
         ReceiverEmail: JobApp.User.email
     };
     Notify(notifyParts.title, notifyParts.message, notifyParts.ReceiverId);

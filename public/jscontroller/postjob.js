@@ -1,28 +1,28 @@
 $(document).ready(function(){
     //login
-    $("#btnpost").click(function(event){
-        let data = $('#fmjob').serialize();
-        $("#btnpost").val('Posting...');
-        $("#fmjob input,textarea,select").prop("disabled",true);
-        let title = $("#title").val().trim();
-        let details = $("#details").val().trim();
-        let price = $("#price").val().trim();
-        if( title !== "" && details !== "" && price !==""){
-            $.ajax({
-                url:'/user/post-job',
-                type:'post',
-                data:data,
-                success:function(response){
-                    location.reload();
-                }
-            });
+    // $("#btnpost").click(function(event){
+    //     let data = $('#fmjob').serialize();
+    //     $("#btnpost").val('Posting...');
+    //     $("#fmjob input,textarea,select").prop("disabled",true);
+    //     let title = $("#title").val().trim();
+    //     let details = $("#details").val().trim();
+    //     let price = $("#price").val().trim();
+    //     if( title !== "" && details !== "" && price !==""){
+    //         $.ajax({
+    //             url:'/user/post-job',
+    //             type:'post',
+    //             data:data,
+    //             success:function(response){
+    //                 location.reload();
+    //             }
+    //         });
 
-        } else {
-            alert("Enter all the required fields");
-        }
-        $("#btnpost").val('Post');
-        $("#fmjob input,textarea,select").prop("disabled",false);
-    });
+    //     } else {
+    //         alert("Enter all the required fields");
+    //     }
+    //     $("#btnpost").val('Post');
+    //     $("#fmjob input,textarea,select").prop("disabled",false);
+    // });
 
     //login
     $("#btnupdate").click(function(event){

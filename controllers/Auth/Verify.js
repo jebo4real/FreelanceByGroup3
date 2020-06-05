@@ -22,7 +22,7 @@ module.exports.NotVerified = (req, res, next) =>{
 
 //send another verification message
 module.exports.SendVerificationAgain = (req, res, next) =>{
-    SendMailVerify(res.locals.user.email, res.locals.user.UserAccount.token, req.headers.host);
+    SendMailVerify(req.session.uemail, req.session.utoken, req.headers.host);
     res.render("auth/success-register",{page:'signup'});
 };
 
