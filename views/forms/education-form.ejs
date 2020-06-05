@@ -1,0 +1,69 @@
+<div class="main-card mb-3 card col-md-12">
+    <div class="card-body">
+        <% if(error){ %>
+            <div class="alert alert-danger" role="alert">
+                <strong><%=error%></strong>
+            </div>
+            <% }else if(success){%>
+            <div class="alert alert-success" role="alert">
+                <strong><%=success%></strong>
+            </div>
+        <% } %>
+        <h5 class="card-title">Educational Background</h5>
+        <form class="" action="/user/update-education" method="post">
+            <input name="id" id="id" placeholder="" type="text" class="form-control" value="<%=user.Education.id%>"><br />
+            <div class="form-row">
+                <div class="col-md-6">
+                    <div class="position-relative form-group">
+                        <label for="edu_country" class="">Country</label>
+                        <select name="edu_country" id="edu_country" class="form-control">
+                            <option value="<%=user.Education.country%>" selected><%=user.Education.country%></option>
+                            <% country.map(c =>{ %>
+                            <option value="<%=c.name%>"><%=c.name%></option>
+                            <% }); %>
+                        </select>
+                        </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="position-relative form-group">
+                        <label for="uni" class="">College/University</label>
+                        <input name="uni" id="uni" value="<%=user.Education.uni%>" placeholder="" type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-12">
+                    <div class="position-relative form-group">
+                        <label for="cert" class="">Certification</label>
+                        <input name="cert" id="cert" value="<%=user.Education.cert%>" type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-6">
+                    <div class="position-relative form-group">
+                        <label for="start_year" class="">Start Year</label>
+                        <select name="start_year" id="start_year" class="form-control">
+                            <% for(let i=1970;i<=2020;++i){ %>
+                            <option value="<%=i%>" <% if(user.Education.start_year===i){ %> selected <% }else{} %> ><%=i%></option>
+                            <% }; %>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="position-relative form-group">
+                        <label for="end_year" class="">End Year</label>
+                        <select name="end_year" id="end_year" class="form-control">
+                            <% for(let i=1970;i<=2020;++i){ %>
+                            <option value="<%=i%>" <% if(user.Education.end_year===i){ %> selected <% }else{} %> ><%=i%></option>
+                            <% }; %>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center">
+                <input type="submit" class="mt-2 btn btn-success py-2 px-4" value="Update">
+            </div>
+        </form>
+    </div>
+</div>

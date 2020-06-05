@@ -67,8 +67,9 @@
                 </div>
                 <div class="col-md-6">
                     <div class="position-relative form-group">
-                        <label for="mobile" class="">Mobile</label>
-                        <input name="mobile" id="mobile" value="<%=user.mobile%>" placeholder="" type="text" class="form-control">
+                        <label for="mobile" class="">Mobile(format: XXX XXX XXX)</label>
+                        <input name="mobile" id="mobile" value="<%=user.mobile%>" placeholder="" type="tel" pattern="^\d{3}\d{3}\d{4}$" 
+                               title="Enter a valid phone number" class="form-control">
                     </div>
                 </div>
             </div>

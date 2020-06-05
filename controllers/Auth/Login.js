@@ -1,6 +1,8 @@
 const User = require('../../models').User;
 const UserAccount = require('../../models').UserAccount;
 const Portfolio = require('../../models').Portfolio;
+const Education = require('../../models').Education;
+const Qualification = require('../../models').Qualification;
 const crypto = require('crypto');
 let secret = "group3";
 
@@ -30,7 +32,7 @@ module.exports.DoLogin = async (req, res, next) => {
     req.session.loggedIn = false;
     let ret_userAccount = await User.findOne({
         where: {email: userAccount.username},
-        include: [ UserAccount]
+        include: [UserAccount]
     });
     if (ret_userAccount !== null) {
         if (userAccount.password === ret_userAccount.UserAccount.password) {           

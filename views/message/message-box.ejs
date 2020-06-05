@@ -38,7 +38,14 @@
                                             <div class="widget-content-wrapper">
                                                 <div class="widget-content-left mr-3">
                                                     <div class="widget-content-left">
-                                                        <img width="40" height="40" class="rounded-circle" src="/images/<%=u.User.picture%>"></div>
+                                                        <img width="40" height="40" class="rounded-circle" 
+                                                        <% if(u.User.picture!==null) {%>
+                                                            src="/images/<%=u.User.picture%>"
+                                                        <% }else{ %>
+                                                            src="/img/avatar.jpg"
+                                                        <% } %>
+                                                        >
+                                                    </div>
                                                 </div>
                                                 <div class="widget-content-left flex2">
                                                     <div class="widget-heading"><%=u.User.firstname%> <%=u.User.lastname%></div>
@@ -62,7 +69,7 @@
                 <div class="card-header">
                     <ul class="nav nav-justified">
                         <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-0" class="active nav-link">Inbox</a></li>
-                        <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-1" class="nav-link">Outbox</a></li>
+                        <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-1" class="nav-link">Sent</a></li>
                     </ul>
                 </div>
                 <div class="card-body">

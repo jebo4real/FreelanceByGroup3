@@ -112,6 +112,19 @@ $(document).ready(function() {
             "emptyTable": "No users have joined yet."
         }
     });
+
+    $("#message_other_tb").DataTable({
+        "paging":false,
+        "pageLength": 5,
+        "ordering": false,
+        "info":     false,
+        "searching": false,
+        "lengthChange": false,
+        "language": {
+            "emptyTable": "No users have joined yet."
+        }
+    });
+
     $("#priceApply").click((e)=>{
         let table = $('#jobview_tb').DataTable();
         let minPrice = $("#minPrice").val();

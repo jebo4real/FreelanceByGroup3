@@ -1,6 +1,8 @@
 const User = require('../../models').User;
 const UserAccount = require('../../models').UserAccount;
 const Portfolio = require('../../models').Portfolio;
+const Education = require('../../models').Education;
+const Qualification = require('../../models').Qualification;
 const crypto = require('crypto');
 let secret = "group3";
 const jwt = require('jsonwebtoken');
@@ -14,7 +16,10 @@ module.exports.GetSignUp = (req, res, next) => {
         res.render(
             'auth/signup',
             {
-                page:'signup'
+                page:'signup',
+                signUpErrorMessage:'',
+                signUpSuccessMessage:''
+
             }
         )
     }
@@ -29,8 +34,6 @@ module.exports.DoSignUp = async (req, res, next) => {
         { expiresIn: '24h' });
 
     let userInfo = {
-        firstname: req.body.firstname || '',
-        lastname: req.body.lastname || '',
         email: req.body.email || '',
         mobile: req.body.mobile || '',
         UserAccount: [
@@ -48,31 +51,50 @@ module.exports.DoSignUp = async (req, res, next) => {
     let user = await User.findOne({ where:{email:req.body.email} });
     if(user!==null && user.email===req.body.email){
         console.log("User already exists. Log in");
-        req.session.signUpErrorMessage = "User by that email already exists";
+        res.render(
+            'auth/signup',
+            {
+                page:'signup',
+                signUpErrorMessage: 'User by that email already exists'
+            }
+        );
     }else{
         let user_Account = await User.create(userInfo, { include: [UserAccount] } );
         if(user_Account.id!==null){
             //set up portfolio for user
             let user_Portfolio = await Portfolio.create({UserId:user_Account.id});
+            let user_Education = await Education.create({UserId:user_Account.id});
+            let user_Qualification = await Qualification.create({UserId:user_Account.id});
             if(user_Portfolio.id!==null) {
                 console.log("Account Created successfully");
-                req.session.signUpSuccessMessage = "An email has been sent to your account to verify.";
                 let hostname = req.headers.host;
                 res.locals.userEmail = userInfo.email;
                 res.locals.token = token;
                 //send verification email
                 SendMailVerify(userInfo.email, token, hostname);
-                res.render("auth/success-register",{page:'signup'});
+                res.render("auth/success-register",{page:'signup',signUpSuccessMessage:'An email has been sent to your account to verify.'});
             }else{
                 console.log("Profile could not be created");
                 req.session.signUpErrorMessage = "Error creating account";
+                res.render(
+                    'auth/signup',
+                    {
+                        page:'signup',
+                        signUpErrorMessage: 'Error creating account'
+                    }
+                );
             }
         }else{
             console.log("Error creating account ");
-            req.session.signUpErrorMessage = "Error creating account";
+            res.render(
+                'auth/signup',
+                {
+                    page:'signup',
+                    signUpErrorMessage: 'Error creating account'
+                }
+            );
         }
     }
-    res.redirect('/signUp');
 
 };
 

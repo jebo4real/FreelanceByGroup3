@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "root",
-    "password": null,
-    "database": "db_freelance",
-    "host": "localhost",
+    "username": "jebo@group3-server",
+    "password": "Greenfour4",
+    "database": "db_freelance_test2",
+    "host": "group3-server.mysql.database.azure.com",
     "dialect": "mysql",
     "operatorsAliases": false
   },

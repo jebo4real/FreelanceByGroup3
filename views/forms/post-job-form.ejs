@@ -1,7 +1,14 @@
 <div class="main-card mb-3 card col-md-12">
     <div class="card-body">
-       <div id="responseMess">
-       </div>
+            <% if(errorMessage){ %>
+            <div class="alert alert-danger" role="alert">
+                <strong><%=errorMessage%></strong>
+            </div>
+            <% }else if(successMessage){%>
+            <div class="alert alert-success" role="alert">
+                <strong><%=successMessage%></strong>
+            </div>
+            <% } %>
         <h5 class="card-title">Job Details</h5>
         <form class="fmjob justify-content-center" id="fmjob" method="post">
             <div class="form-row">

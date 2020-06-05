@@ -6,9 +6,11 @@ module.exports.GetPostJob = async (req, res, next) => {
     res.render(
         'job/post-job',
         {
-            category
+            category,
+            successMessage:'',
+            errorMessage:''
         }
-    )
+    );
 };
 
 module.exports.DoPostJob = async (req, res, next) => {
@@ -26,10 +28,26 @@ module.exports.DoPostJob = async (req, res, next) => {
     let job_created = await Job.create(jobInfo);
     if(job_created!==null){
         console.log("Job Posted successfully");
-        res.send("success");
+        let category = await JobCategory.findAll();
+        res.render(
+            'job/post-job',
+            {
+                category,
+                successMessage:'Job Posted successfully',
+                errorMessage:''
+            }
+        )
     }else{
-        console.log("Error creating account ");
-        res.send("error");
+        let category = await JobCategory.findAll();
+        console.log("Error posting job");
+        res.render(
+            'job/post-job',
+            {
+                category,
+                errorMessage:'Error Posting Job',
+                successMessage:''
+            }
+        );
     }
 
 };

@@ -13,23 +13,6 @@ $(document).ready(function(){
                 type:'post',
                 data:data,
                 success:function(response){
-                    if(response==="success"){
-                        alert("Job Posted Successfully");
-                        $('#responseMess').html(
-                            '<div class="alert alert-success" role="alert">' +
-                            'Job Posted Successfully' +
-                            '</div>'
-                        );
-                        $("#fmjob")[0].reset();
-                        //location.reload();
-                    }else {
-                        alert(response);
-                        $('#responseMess').html(
-                            '<div class="alert alert-danger" role="alert">' +
-                            '+ response +' +
-                            '</div>'
-                        );
-                    }
                     location.reload();
                 }
             });

@@ -26,6 +26,10 @@ module.exports.GetSelectMessageUsers = async (req, res, next)=>{
 
 module.exports.GetMessageRoom = async (req, res, next)=>{
     let receiver = req.params.user;
+    let inbox = await Message.findAll({
+        where:{ReceiverId:res.locals.user.id},
+        include: [{model:User,as: 'Receiver'},{ model:User,as: 'Sender'}],
+    });
     //select messages involving the receiver and user logged in( either as sender or receiver)
        let messages = await Message.findAll({
             where: {
@@ -75,7 +79,8 @@ module.exports.GetMessageRoom = async (req, res, next)=>{
             messages,
             receiver,
             receiverDetails,
-            allMessages
+            allMessages,
+            inbox
         }
     );
 };

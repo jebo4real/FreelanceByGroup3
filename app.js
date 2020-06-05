@@ -38,8 +38,6 @@ app.use(session({
 }));
 
 app.use( (req, res, next) => {
-  res.locals.signUpSuccessMessage = req.session.signUpSuccessMessage;
-  res.locals.signUpErrorMessage = req.session.signUpErrorMessage;
   res.locals.loginSuccessMessage = req.session.loginSuccessMessage;
   res.locals.loginErrorMessage = req.session.loginErrorMessage;
   res.locals.profileChangeMessage = req.session.profileChangeMessage;
