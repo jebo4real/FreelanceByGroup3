@@ -22,6 +22,10 @@ module.exports.ApplyJob = async (req, res, next) => {
     let notifyMailParts = {
         title: res.locals.user.firstname+" applied for a job you posted",
         message: res.locals.user.firstname+" applied for a job you posted",
+        message: '<div style="background-color:white;color:black;">'+
+                 '<p style="font-weight: bold;">Group 3 freelancer.'+ 
+                 'Congratulations,'+req.session.user.firstname+ 'applied for a job you posted.<p>'+
+                '<a href="http://'+hostname+'login/'+'">Click here to login</a></div>',
         ReceiverEmail: jobOwnerInfo.User.email
     };
     Notify(notifyParts.title, notifyParts.message, notifyParts.ReceiverId);
@@ -73,6 +77,7 @@ module.exports.AcceptJob = async (req, res, next) => {
     let jobAppStatus = {
         status:'accepted'
     };
+    let hostname = req.headers.host;
     let job_awarded = await JobApplication.update(jobAppStatus,{where:{id:appId} });
     let job_just_awarded = await JobApplication.findOne({ where:{id:appId} });
     let job = await Job.findOne({where:{id:job_just_awarded.JobId}, include:User });
@@ -90,6 +95,10 @@ module.exports.AcceptJob = async (req, res, next) => {
     let notifyMailParts = {
         title: res.locals.user.firstname+" accepted the job",
         message: res.locals.user.firstname+" accepted the awarded job",
+        message: '<div style="background-color:white;color:black;">'+
+                 '<p style="font-weight: bold;">Group 3 freelancer.'+ 
+                 'Congratulations'+res.locals.user.firstname+ 'accepted the awarded job.<p>'+
+                '<a href="http://'+hostname+'login/'+'">Click here to login</a></div>',
         ReceiverEmail: job.User.email
     };
     Notify(notifyParts.title, notifyParts.message, notifyParts.ReceiverId);

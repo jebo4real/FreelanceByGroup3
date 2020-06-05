@@ -11,7 +11,7 @@
         <% } %>
         <h5 class="card-title">Educational Background</h5>
         <form class="" action="/user/update-education" method="post">
-            <input name="id" id="id" placeholder="" type="text" class="form-control" value="<%=user.Education.id%>"><br />
+            <input name="id" id="id" placeholder="" type="text" class="form-control" value="<%=user.Education.id%>" hidden><br />
             <div class="form-row">
                 <div class="col-md-6">
                     <div class="position-relative form-group">
@@ -26,7 +26,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="position-relative form-group">
-                        <label for="uni" class="">College/University</label>
+                        <label for="uni" class="">School</label>
                         <input name="uni" id="uni" value="<%=user.Education.uni%>" placeholder="" type="text" class="form-control">
                     </div>
                 </div>
@@ -35,7 +35,28 @@
                 <div class="col-md-12">
                     <div class="position-relative form-group">
                         <label for="cert" class="">Certification</label>
-                        <input name="cert" id="cert" value="<%=user.Education.cert%>" type="text" class="form-control">
+                        <select name="cert" id="cert" class="form-control">
+                            <option value="High school certificate" 
+                                <% if(user.Education.cert==='High school certificate'){ %> selected <% }else{} %> >
+                                High school certificate
+                            </option>
+                            <option value="Diploma" 
+                                <% if(user.Education.cert==='Diploma'){ %> selected <% }else{} %> >
+                                Diploma
+                            </option>
+                            <option value="Bachelors" 
+                                <% if(user.Education.cert==='Bachelors'){ %> selected <% }else{} %> >
+                                Bachelors
+                            </option>
+                            <option value="Masters" 
+                                <% if(user.Education.cert==='Masters'){ %> selected <% }else{} %> >
+                                Masters
+                            </option>
+                            <option value="PhD" 
+                                <% if(user.Education.cert==='PhD'){ %> selected <% }else{} %> >
+                                PhD
+                            </option>
+                        </select>
                     </div>
                 </div>
             </div>
@@ -45,7 +66,7 @@
                         <label for="start_year" class="">Start Year</label>
                         <select name="start_year" id="start_year" class="form-control">
                             <% for(let i=1970;i<=2020;++i){ %>
-                            <option value="<%=i%>" <% if(user.Education.start_year===i){ %> selected <% }else{} %> ><%=i%></option>
+                            <option value="<%=i%>" <% if(parseInt(user.Education.start_year)===i){ %> selected <% }else{} %> ><%=i%></option>
                             <% }; %>
                         </select>
                     </div>
@@ -55,7 +76,7 @@
                         <label for="end_year" class="">End Year</label>
                         <select name="end_year" id="end_year" class="form-control">
                             <% for(let i=1970;i<=2020;++i){ %>
-                            <option value="<%=i%>" <% if(user.Education.end_year===i){ %> selected <% }else{} %> ><%=i%></option>
+                            <option value="<%=i%>" <% if(parseInt(user.Education.endyear)===i){ %> selected <% }else{} %> ><%=i%></option>
                             <% }; %>
                         </select>
                     </div>

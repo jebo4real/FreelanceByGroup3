@@ -27,7 +27,7 @@ const SendMail = (subject,message,emailReceiver)=>{
         to: emailReceiver,
         from: 'Group3 Freelancer',
         subject: subject,
-        text: message
+        html: message
     };
     transporter.sendMail(mailOptions)
         .then(() => {

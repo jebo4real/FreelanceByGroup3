@@ -71,6 +71,7 @@ module.exports.AwardJob = async (req, res, next) => {
     let status = {
         status:'awarded'
     };
+    let hostname = req.headers.host;
     let job_awarded = JobApplication.update(status,{where:{id:appId} });
     let JobApp = await JobApplication.findOne({where:{id:appId}, include:User });
     let job_updated = Job.update(status, {where: {id:JobApp.JobId} });
@@ -83,7 +84,10 @@ module.exports.AwardJob = async (req, res, next) => {
     };
     let notifyMailParts = {
         title: jobOwnerInfo.title+" has been awarded to you",
-        message: jobOwnerInfo.title+" has been awarded to you",
+        message: '<div style="background-color:white;color:black;">'+
+                 '<p style="font-weight: bold;">Group 3 freelancer.'+ 
+                 'Congratulations'+jobOwnerInfo.title+ 'has been awarded to you.Click on the following link to see.<p>'+
+                '<a href="http://'+hostname+'/login/'+'">Click here to go to see</a></div>',
         ReceiverEmail: JobApp.User.email
     };
     Notify(notifyParts.title, notifyParts.message, notifyParts.ReceiverId);

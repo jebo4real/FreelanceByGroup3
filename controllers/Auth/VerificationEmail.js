@@ -33,8 +33,9 @@ module.exports.SendMailVerify = (emailReceiver, token, hostname)=>{
         to: emailReceiver,
         from: 'Group 3 Freelancer',
         subject: 'Verify your email',
-        text: `Welcome to Group 3 freelancer. Click on the link below to complete registration \n`+
-            `http://`+hostname+`/verification/`+emailReceiver+`/`+token+``
+        html: '<div style="background-color:white;color:black;">'+
+        '<p style="font-weight: bold;">Welcome to Group 3 freelancer. Click on the link below to complete registration.Click on the following link to verify.<p>'+
+        '<a href="http://'+hostname+'/verification/'+emailReceiver+'/'+token+'">Click here to verify</a></div>',
     };
     transporter.sendMail(mailOptions)
         .then(() => {

@@ -33,8 +33,9 @@ module.exports.SendMailResetPassword = (emailReceiver, token, hostname)=>{
         to: emailReceiver,
         from: 'Group 3 Freelancer',
         subject: 'Reset Password',
-        text: `Click on the link below to reset your password.\n\n
-                http://`+hostname+`/reset-password/${token}/${emailReceiver}`
+        html: '<div style="background-color:white;color:black;">'+
+        '<p style="font-weight: bold;">You requested to resest your password. Click on the link below to reset your password.<p>'+
+        '<a href="http://'+hostname+'/reset-password/'+token+'/'+emailReceiver+'">Click here to reset password</a></div>',
     };
     transporter.sendMail(mailOptions)
         .then(() => {

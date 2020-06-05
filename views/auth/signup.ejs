@@ -16,21 +16,8 @@
                         <strong><%=signUpSuccessMessage%></strong>
                     </div>
                     <% } %>
+                    
                     <div class="row form-group" style="margin-top: 20px;">
-                        <div class="col-md-12 mb-3 mb-md-0">
-                            <div class="form-check-inline">
-                                <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="role" id="role" value="1" >Client
-                                </label>
-                            </div>
-                            <div class="form-check-inline">
-                                <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="role" id="role" value="2" >Freelancer
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row form-group">
                         <div class="col-md-12">
                             <input type="text" id="username" name="username" class="form-control" placeholder="User Name" required>
                         </div>
@@ -55,6 +42,20 @@
                                    title="Please enter the same Password as above" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
                                    onchange="this.setCustomValidity(this.validity.patternMismatch ? this.title : '');" required/>
                             <div id="matchMessage"></div>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12 mb-3 mb-md-0">
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="role" id="role" value="1" checked >Client
+                                </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="role" id="role" value="2" >Freelancer
+                                </label>
+                            </div>
                         </div>
                     </div>
                     <div class="row form-group">

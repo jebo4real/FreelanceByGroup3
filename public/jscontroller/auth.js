@@ -26,7 +26,7 @@ $(document).ready(function(){
                         // }
                     }else {
                         alert(response.loginRes);
-                        location.reload();
+                        // location.reload();
                     }
                 }
             });

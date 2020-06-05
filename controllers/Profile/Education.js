@@ -92,7 +92,7 @@ module.exports.UpdateEducation = async (req, res, next) => {
         uni: req.body.uni,
         cert: req.body.cert,
         start_year: req.body.start_year,
-        end_year: req.body.end_year
+        endyear: req.body.end_year
     };
     Education.update(userEducation, { where: {id:req.body.id} }).then(response =>{
         req.session.educationChangeMessage = response != null;
