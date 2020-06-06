@@ -35,11 +35,15 @@ module.exports.DoLogin = async (req, res, next) => {
         include: [UserAccount]
     });
     if (ret_userAccount !== null) {
-        if (userAccount.password === ret_userAccount.UserAccount.password) {           
-            req.session.user = ret_userAccount;
-            req.session.loginSuccessMessage = "Login Successful";
-            req.session.loggedIn = true;
-            res.send({loginRes:"success"});
+        if (userAccount.password === ret_userAccount.UserAccount.password) {
+            if(ret_userAccount.UserAccount.blocked){
+                res.send({loginRes:"Your account has been blocked"});
+            }else{           
+                req.session.user = ret_userAccount;
+                req.session.loginSuccessMessage = "Login Successful";
+                req.session.loggedIn = true;
+                res.send({loginRes:"success"});
+            }
         } else {
             console.log("Wrong Password");
             req.session.loginErrorMessage = "Wrong Password";
