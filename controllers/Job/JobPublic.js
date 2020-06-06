@@ -170,7 +170,10 @@ module.exports.GetJobsCategoryAndSearch = async (req, res, next) => {
         'jobs',
         {
             jobs,
+            jobCount,
             category,
+            page: 'jobs',
+            page_no: 1,
             searchResult
         }
     )
