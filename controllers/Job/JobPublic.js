@@ -5,12 +5,27 @@ const JobCategory = require('../../models').JobCategory;
 const User = require('../../models').User;
 
 module.exports.GetIndex = async (req, res, next) => {
-    let jobs = await Job.findAll( {include: JobCategory});
+    let jobs = await Job.findAll( {
+        include: [
+            {
+                model: JobCategory,
+                as: 'JobCategory'
+            },
+            {
+                model: User,
+                as: 'User'
+            }
+        ],
+        order:[['createdAt', 'DESC']],
+        limit:5,
+        offset:0
+    });
     let category = await JobCategory.findAll();
     let searchResult = "All Jobs";
     res.render(
         'index',
         {
+            jobs,
             category,
             searchResult,
             page: 'index'

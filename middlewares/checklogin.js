@@ -11,7 +11,7 @@ module.exports.checkLoggedIn = function(req, res, next) {
             }
         }       
     } else{
-        res.redirect("/");
+        res.redirect("/login");
     }
      
 };

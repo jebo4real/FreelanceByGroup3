@@ -126,7 +126,7 @@ module.exports.RejectJob = async (req, res, next) => {
         title: res.locals.user.firstname+" rejected the job",
         message: '<div style="background-color:white;color:black;">'+
                  '<p style="font-weight: bold;">Group 3 freelancer.</p>'+ 
-                 '<p>Congratulations'+res.locals.user.firstname+ 'rejected the awarded job.</p>'+
+                 '<p>Sorry '+res.locals.user.firstname+ ' rejected the awarded job.</p>'+
                 '<p><a href="http://'+hostname+'login/'+'">Click here to see other applicants</a></p></div>',
         ReceiverEmail: job.User.email
     };
