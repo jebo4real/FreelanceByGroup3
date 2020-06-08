@@ -51,6 +51,7 @@
                         <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-1" id="tab2" class="nav-link">Discussion</a></li>
                         <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-2" class="nav-link">Job Files</a></li>
                         <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-3" class="nav-link">Bill & Payment</a></li>
+                        <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-4" class="nav-link">Support</a></li>
                     </ul>
                 </div>
                 <div class="card-body">
@@ -65,12 +66,21 @@
                             <% include ../forms/workspace-job-file.ejs %>
                         </div>
                         <div class="tab-pane" id="tab-eg7-3" role="tabpanel">
-                            <!-- <div class="row">
+                            <% if(user.UserAccount.RoleId===1){ %>
+                            <div class="row">
                                 <a style="margin-right: 5px;" class="btn btn-success" href="/user/invoice/<%=jobAppDetail.id%>">Print</a>
-                                <a class="btn btn-success" data-toggle="modal" data-target="#make-payment-info">Pay</a>
-                                <a class="btn btn-success" href="/user/get-paid">Get Paid</a>
-                            </div> -->
+                                <a class="btn btn-success" data-toggle="modal" data-target="#make-payment-info">Make Payment</a>
+                                <!-- <a class="btn btn-success" href="/user/get-paid">Get Paid</a> -->
+                            </div>
                             <% include ./invoice.ejs %>
+                            <% }else if(user.UserAccount.RoleId===2){ %>
+                            <div>
+                                
+                            </div>
+                            <% } %>
+                        </div>
+                        <div class="tab-pane" id="tab-eg7-4" role="tabpanel">
+                            <% include ../forms/workspace-support.ejs %>
                         </div>
                     </div>
                 </div>

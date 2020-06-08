@@ -154,11 +154,11 @@ module.exports.WorkspaceRejectJob = async (req,res, next) =>{
     res.redirect("/user/workspace/"+jobAppId);
 };
 
-module.exports.WorkspaceReport = async (req,res, next) =>{
+module.exports.WorkspaceSupport = async (req,res, next) =>{
     let report = {
         JobId:req.body.JobId,
-        UserId: req.body.UserId,
-        report: req.body.report
+        UserId: res.locals.user.id,
+        report: req.body.support
     };
     let job_reported = JobReport.create(report);
     (job_reported!==null) ? res.send("success"):res.send("error");

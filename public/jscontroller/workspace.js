@@ -43,4 +43,30 @@ $(document).ready(function(){
             }); 
     });
 
+    $("#btnsupport").click(function(event){
+        event.preventDefault();
+        let data = $('#fmsupport').serialize();
+            $.ajax({
+                url:'/user/support-job',
+                type:'post',
+                data:data,
+                success:function(response){
+                    if(response==="success"){
+                        $("#support").text("");
+                        $('#repMess').html(
+                            '<div class="alert alert-success" role="alert">' +
+                            'Message Sent Successfully' +
+                            '</div>'
+                        );                     
+                    }else {
+                        $('#repMess').html(
+                            '<div class="alert alert-danger" role="alert">' +
+                            'Error submitting message' +
+                            '</div>'
+                        );            
+                    }
+                }
+            }); 
+    });
+
 });

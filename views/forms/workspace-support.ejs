@@ -1,0 +1,33 @@
+<div class="main-card mb-3 " style="border-bottom: 0px;">
+    <div class="card-header" >
+        <h6 class="card-title">Write to Support</h6>
+    </div>
+    <div class="card-body">
+        <div id="repMess">
+        </div>
+        <form class="" action="" id="fmsupport" name="fmsupport" method="post">
+            <input name="JobId" id="JobId" placeholder="" type="text" class="form-control" value="<%=job.id%>" hidden><br />
+            <div class="row">
+                <!-- <div class="w-100">
+                    <div class="position-relative form-group">
+                        <label for="title" class="">Subject</label>
+                        <input name="subject" id="subject" value="" placeholder="Subject" type="text" class="form-control">
+                    </div>
+                </div> -->
+                <div class="w-100">
+                    <div class="position-relative form-group">
+                        <label for="lastname" class="">Support</label>
+                        <textarea rows="4" class="form-control" id="support" name="support"></textarea>
+                    </div>
+                </div>
+
+            </div>
+            <div class="d-flex justify-content-center">
+                <input type="submit" id="btnsupport" name="btnsupport" class="mt-2 btn btn-success py-2 px-4" value="Send" >
+            </div>
+        </form>
+    </div>
+    <div class="card-footer row">
+
+    </div>
+</div>
