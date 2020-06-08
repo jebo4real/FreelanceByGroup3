@@ -3,7 +3,24 @@
     <div class="app-main__inner">
         <div class="app-page-title">
             <div class="page-title-wrapper">
-
+                <div class="page-title-heading">
+                    
+                </div>
+                <div class="page-title-actions">
+                    <% if(user.UserAccount.RoleId===2){%>
+                        <a href="/user/complete-job/<%=jobAppDetail.id%>" class="mt-2 btn btn-success">
+                            Complete Job
+                        </a>
+                    <% }else if(user.UserAccount.RoleId===1){ %>
+                        <% if(contract_details.status==="completed"){ %>
+                        <a href="/user/client-accept-job/<%=jobAppDetail.id%>" class="mt-2 btn btn-success">
+                            Accept Job
+                        </a>
+                        <a href="/user/client-reject-job/<%=jobAppDetail.id%>" class="mt-2 btn btn-danger">
+                            Reject Job
+                        </a>
+                    <% } } %>
+                </div>
             </div>
         </div>
         <div class="row">
@@ -33,7 +50,7 @@
                         <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-0" class="active nav-link">Job Details</a></li>
                         <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-1" id="tab2" class="nav-link">Discussion</a></li>
                         <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-2" class="nav-link">Job Files</a></li>
-                        <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-3" class="nav-link">Payments</a></li>
+                        <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-3" class="nav-link">Bill & Payment</a></li>
                     </ul>
                 </div>
                 <div class="card-body">
@@ -48,7 +65,12 @@
                             <% include ../forms/workspace-job-file.ejs %>
                         </div>
                         <div class="tab-pane" id="tab-eg7-3" role="tabpanel">
-                            <% include ../forms/workspace-job-payment.ejs %>
+                            <!-- <div class="row">
+                                <a style="margin-right: 5px;" class="btn btn-success" href="/user/invoice/<%=jobAppDetail.id%>">Print</a>
+                                <a class="btn btn-success" data-toggle="modal" data-target="#make-payment-info">Pay</a>
+                                <a class="btn btn-success" href="/user/get-paid">Get Paid</a>
+                            </div> -->
+                            <% include ./invoice.ejs %>
                         </div>
                     </div>
                 </div>

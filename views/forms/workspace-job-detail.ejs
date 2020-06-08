@@ -16,6 +16,7 @@
             <label>Details: </label>
             <label><%= job.details %></label><br/>
         </div>
+        
     </div>
 
     <div class="col-md-4">
@@ -26,6 +27,18 @@
         <div>
             <label>Skills Required: </label>
             <label><%= job.timeLength %></label><br/>
+        </div>
+        <div>
+            <label>Job Status: </label>
+            <% if(contract_details.status==="start") { %>
+                <label class="badge badge-info"><%= contract_details.status %></label><br/>
+            <% }else if(contract_details.status==="completed"){ %>
+                <label class="badge badge-info"><%= contract_details.status %></label><br/>
+            <% }else if(contract_details.status==="accepted"){ %>
+                <label class="badge badge-info"><%= contract_details.status %></label><br/>
+            <% }else if(contract_details.status==="rejected"){ %>
+                <label class="badge badge-danger"><%= contract_details.status %></label><br/>
+            <% } %>
         </div>
     </div>
 </div>

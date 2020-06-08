@@ -20,7 +20,7 @@ module.exports.GetWorkSpaceInfo = async (req, res, next) =>{
     let jobFiles = await JobFile.findAll({ where:{JobId:job.id}, include:User });
     let contract_details = await Contract.findOne({where:{JobId:job.id}});
 
-    res.locals.amountToPay = job.price * 100;
+    res.locals.amountToPay = job.price;
     res.locals.jobName = job.title;
 
     res.render(
@@ -94,14 +94,15 @@ module.exports.ViewFile = async (req, res, next) =>{
     });
 };
 
-module.exports.StartJob = async (req,res, next) =>{
-    let jobId = req.body.JobId;
-    let startJobStatus = {
-        status: 'start'
-    };
-    let job_started = Contract.update({startJobStatus},{ where:{JobId:jobId} });
-    (job_started!==null) ? res.send("success"):res.send("error");
-};
+// module.exports.StartJob = async (req,res, next) =>{
+//     let jobId = req.body.JobId;
+//     let startJobStatus = {
+//         status: 'start'
+//     };
+//     let job_started = Contract.update({startJobStatus},{ where:{JobId:jobId} });
+//     let job_app = JobApplication.findOne({ where:{JobId:jobId} });
+//     res.redirect("/user/workspace/"+job_app.id);
+// };
 
 module.exports.ReviewAndRateFreelancer = async (req,res, next) =>{
     let jobId = req.body.JobId;
@@ -129,23 +130,28 @@ module.exports.ReviewAndRateClient = async (req,res, next) =>{
     (rating_upd!==null) ? res.send("success"):res.send("error");
 };
 
+module.exports.CompleteJob = async (req,res, next) =>{
+    let jobAppId = req.params.id;
+    let job_app = await JobApplication.findOne({ where:{Id:jobAppId} });
+    console.log(job_app.JobId);
+    let job_con_started = await Contract.update({status:'completed'},{ where:{JobId:job_app.JobId} });
+    res.redirect("/user/workspace/"+jobAppId);
+};
+
 module.exports.WorkspaceAcceptJob = async (req,res, next) =>{
-    let jobId = req.body.JobId;
-    let acceptJobStatus = {
-        status: 'end',
-        acceptance: 'accept'
-    };
-    let job_accepted = Contract.update({acceptJobStatus},{ where:{JobId:jobId} });
-    (job_accepted!==null) ? res.send("success"):res.send("error");
+    let jobAppId = req.params.id;
+    let job_app = await JobApplication.findOne({ where:{Id:jobAppId} });
+    console.log(job_app.JobId);
+    let job_con_started = await Contract.update({status:'accepted'},{ where:{JobId:job_app.JobId} });
+    res.redirect("/user/workspace/"+jobAppId);
 };
 
 module.exports.WorkspaceRejectJob = async (req,res, next) =>{
-    let jobId = req.body.JobId;
-    let acceptJobStatus = {
-        acceptance: 'reject'
-    };
-    let job_rejected = Contract.update({acceptJobStatus},{ where:{JobId:jobId} });
-    (job_rejected!==null) ? res.send("success"):res.send("error");
+    let jobAppId = req.params.id;
+    let job_app = await JobApplication.findOne({ where:{Id:jobAppId} });
+    console.log(job_app.JobId);
+    let job_con_started = await Contract.update({status:'rejected'},{ where:{JobId:job_app.JobId} });
+    res.redirect("/user/workspace/"+jobAppId);
 };
 
 module.exports.WorkspaceReport = async (req,res, next) =>{
@@ -156,5 +162,26 @@ module.exports.WorkspaceReport = async (req,res, next) =>{
     };
     let job_reported = JobReport.create(report);
     (job_reported!==null) ? res.send("success"):res.send("error");
+};
+
+module.exports.Invoice = async (req,res, next) =>{
+    let jobAppId = req.params.id;
+    let jobAppDetail = await JobApplication.findOne({ where:{id:jobAppId}, include:User });
+    let job = await Job.findOne({ where:{id:jobAppDetail.JobId}, include:[JobCategory, User] });
+    let jobPayment = await JobPayment.findAll({ where:{JobId: jobAppDetail.JobId}, include:Job });
+    let contract_details = await Contract.findOne({where:{JobId:job.id}});
+
+    res.locals.amountToPay = job.price * 100;
+    res.locals.jobName = job.title;
+
+    res.render(
+        'job/invoice',
+        {
+            jobAppDetail,
+            job,
+            jobPayment,
+            contract_details
+        }
+    );
 };
 

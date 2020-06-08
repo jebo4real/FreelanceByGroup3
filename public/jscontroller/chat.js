@@ -20,7 +20,7 @@ $(document).ready(function(){
                         );
                         $("#message").val("");
                     }else {
-                       alert('Error sending message')
+                       alert('Error sending message');
                     }
                 }
             });
