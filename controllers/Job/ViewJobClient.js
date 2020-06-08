@@ -4,6 +4,7 @@ const JobCategory = require('../../models').JobCategory;
 const JobApplication = require('../../models').JobApplication;
 const User = require('../../models').User;
 const Portfolio = require('../../models').Portfolio;
+const Contract = require('../../models').Contract;
 const {Notify, NotifyMail} = require('../../services/Notification');
 
 module.exports.GetAllPostedJob = async (req, res, next) => {
@@ -42,9 +43,10 @@ module.exports.GetSingleJob = async (req, res, next) => {
         where: {JobId: jobId},
         include: User
     });
+    let job_contract = await Contract.findOne({ where:{JobId:jobId} });
     let jobAppAwardId = 0;
     jobDetail.map(app=>{
-       if(app.status==='awarded' || app.status==='accepted'){
+       if((app.status==='awarded' || app.status==='accepted') && job_contract){
            jobAppAwardId = app.id;
        }
     });
