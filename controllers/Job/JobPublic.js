@@ -244,3 +244,51 @@ module.exports.JobDetail = async (req, res, next) => {
         }
     )
 };
+
+
+module.exports.GetJobsFilter = async (req, res, next) => {
+    let jobs = {};
+    let searchResult = "";
+    if(req.body.filter_date!==null && req.body.filter_price_min && req.body.filter_price_max){
+        jobs = await Job.findAll({
+            where: {
+                [Op.and]: [
+                    {
+                        price:{
+                            [Op.between]:
+                                [parseFloat(req.body.filter_price_min), parseFloat(req.body.filter_price_max)]                       
+                        }
+                },
+                    {createdAt: req.body.filter_date}
+                ]
+            },
+            include: JobCategory
+        });
+        searchResult = "";
+    }else{
+        jobs = await Job.findAll({
+            where: {
+                price:{
+                    [Op.between]:
+                        [parseFloat(req.body.filter_price_min), parseFloat(req.body.filter_price_max)]                        
+                }              
+            },
+            include: JobCategory
+        });
+        searchResult = "";
+    }
+
+    let category = await JobCategory.findAll();
+    let jobCount = await Job.count();
+    res.render(
+        'jobs',
+        {
+            jobs,
+            jobCount,
+            category,
+            searchResult,
+            page: 'jobs',
+            page_no: 1
+        }
+    )
+};

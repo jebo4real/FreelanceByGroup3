@@ -4,13 +4,15 @@ const {GetLogin, DoLogin, Logout} = require('../controllers/Auth/Login');
 const { GetSignUp, DoSignUp } = require('../controllers/Auth/SignUp');
 const {GetForgotPassword, GetResetPassword,
         forgotPasswordEmail, DoResetPassword} = require('../controllers/Auth/ForgotPassword');
-const {GetIndex, GetAllJobs, GetPageAllJobs, GetJobsCategoryAndSearch, JobDetail} = require('../controllers/Job/JobPublic');
+const {GetIndex, GetAllJobs, GetPageAllJobs, GetJobsCategoryAndSearch, GetJobsFilter, JobDetail} = require('../controllers/Job/JobPublic');
 const { ApplyJob } = require('../controllers/Job/JobFreelancer');
 const {GetVerify, DoVerification, SendVerificationAgain, NotVerified} = require('../controllers/Auth/Verify');
+const {GetHowItWorks} = require('../controllers/Public');
 
 //Public routes
 // GET requests
 router.get('/', GetIndex);
+router.get('/how-it-works', GetHowItWorks);
 router.get('/login', GetLogin);
 router.get('/signup', GetSignUp);
 router.get('/logout', Logout);
@@ -34,6 +36,6 @@ router.post('/login', DoLogin);
 router.post('/forgot-password', forgotPasswordEmail);
 router.post('/reset-password', DoResetPassword);
 router.post('/jobs', GetJobsCategoryAndSearch);
-
+router.post('/filter-jobs', GetJobsFilter);
 
 module.exports = router;

@@ -2,6 +2,7 @@ const keyPublishable = 'pk_test_cGawfDbRwNlwGc7L9OHxVLwB00AvTIgTkg';
 const keySecret = 'sk_test_RDIoGjkXBg7304rnk6NaypWd00MxIWl5U4';
 const stripe = require("stripe")(keySecret);
 const Job = require('../../models').Job;
+const JobPayment = require('../../models').JobPayment;
 
 module.exports.Pay = (req, res, next) =>{
     let amount = Math.round(parseInt(req.body.amount)*100);
@@ -11,10 +12,10 @@ module.exports.Pay = (req, res, next) =>{
         source: req.body.stripeToken,
         name: res.locals.user.firstname + " " + res.locals.user.lastname,
         address: {
-            line1: 'Takoradi',
-            postal_code: '452331',
+            line1: res.locals.user.city,
+            postal_code: '',
             city: res.locals.user.city,
-            state: res.locals.user.country,
+            state: res.locals.user.city,
             country: res.locals.user.country,
         }
     }).then((customer) => {
@@ -27,38 +28,48 @@ module.exports.Pay = (req, res, next) =>{
         })
         .then((charge) => {
             console.log("success");
-            res.render("job/success-payment");  // If no error occurs
+            console.log(charge);
+            let payment_details = {
+                JobId: req.body.JobId,
+                amount: charge.amount,
+                clientPaymentReceipt:charge.balance_transaction,
+                clientPay: true
+            };
+            let client_pay = JobPayment.create(payment_details);
+            res.render("job/success-payment",{amount:req.body.amount,jobname:res.locals.jobName});  // If no error occurs
         })
         .catch((err) => {
             console.log(err);
-            res.render("job/error-payment");// If some error occurs
+            res.render("job/error-payment",{amount:req.body.amount,jobname:res.locals.jobName});// If some error occurs
         });
 };
 
 module.exports.GetPaid = async (req, res, next)=>{
-    let amount = Math.round(129*100);
-    stripe.customers.create({
-        email: "jeboelectroneum@gmail.com",
-        name: "nana kofi",
-        address: {
-            line1: 'Takoradi',
-            postal_code: '02332',
-            city: "Takoradi",
-            state: "Western",
-            country: "Ghana",
-        }
-    }).then((customer) => {
-        console.log(customer);
-        // stripe.payouts.create({
-        //     amount: amount,
-        //     description: res.locals.jobName,
-        //     destination: customer.id, 
-        //     currency: 'USD'
-        // }).then((payout)=>{
-        //     console.log(payout);
-        // }).catch((err)=>{
-        //     console.log(err);
-        // });
-    });
+    let amount = Math.round(parseInt(req.body.amount)*100);
+    amount = amount - ((15/100)*amount);
+      
+            stripe.accounts.retrieve(res.locals.user.UserPaymentInfo.accountNumber).then(accounts=>{     
+            stripe.payouts.create({
+                amount,
+                currency:"usd",
+                // source_type:source_type,
+                // destination:bank_acount_id
+            },{ stripeAccount:accounts.id}).then((payouts)=>{
+                console.log(payouts);
+                console.log("success");
+
+                let payment_details = {
+                    free_amount: amount,
+                    freelancePay: true
+                };
+                let feee_pay = JobPayment.update(payment_details,{where:{JobId:req.body.JobId} });
+                res.render("job/success-payment",{amount:req.body.amount,jobname:res.locals.jobName});  // If no error occurs
+            }).catch((err)=>{
+                console.log(err);
+                res.render("job/error-payment",{amount:req.body.amount,jobname:res.locals.jobName});// If some error occurs
+            });
+        }).catch(e=>{
+            console.log(e);
+        })
         
 };

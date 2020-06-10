@@ -104,10 +104,10 @@ $(document).ready(function() {
     $("#message_users_tb").DataTable({
         "pagingType": "numbers",
         "pageLength": 10,
-        "ordering": false,
+        "ordering": true,
         "info":     false,
-        "searching": false,
-        "lengthChange": false,
+        "searching": true,
+        "lengthChange": true,
         "language": {
             "emptyTable": "No users have joined yet."
         }

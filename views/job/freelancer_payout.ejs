@@ -130,9 +130,9 @@
                             </td>
                             
                             <td>
-                                Cient<br>
-                                <%=job.User.firstname%> <%=job.User.lastname%><br>
-                                <%=job.User.email%>
+                                Freelancer<br>
+                                <%=user.firstname%> <%=user.lastname%><br>
+                                <%=user.email%>
                             </td>
                         </tr>
                     </table>
@@ -145,7 +145,7 @@
                 </td>
                 
                 <td>
-                    Transaction
+                    Transaction 
                 </td>
             </tr>
             
@@ -175,7 +175,7 @@
                 </td>
                 
                 <td>
-                    $<%=job.price%>
+                    $<%=parseFloat(job.price) - ((15/100)*parseFloat(job.price))%>
                 </td>
             </tr>
             

@@ -1,5 +1,5 @@
 <!-- Modal -->
-<div class="modal fade" id="make-payment-info" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="request-payment-info" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -11,21 +11,18 @@
             <div class="modal-body">
                 <div class="form-row">
                     <div class="col-md-6">
-                        <form action="/user/pay" method="post">
+                        <form action="/user/get-paid" method="post">
                             <div class="position-relative form-group">
                                 <label for="id">Amount:</label>
                                 <input type="text" id="amount" name="amount" class="form-control" value="<%=amountToPay%>" readonly />
                             </div>
-                            <script
-                                    src="//checkout.stripe.com/v2/checkout.js"
-                                    class="stripe-button"
-                                    data-key="pk_test_cGawfDbRwNlwGc7L9OHxVLwB00AvTIgTkg"
-                                    data-amount="<%=amountToPay*100%>"
-                                    data-currency="usd"
-                                    data-name="<%=user.firstname%> <%=user.lastname%>"
-                                    data-description="<%=jobName%>"
-                                    data-locale="auto" >
-                            </script>
+                            <div class="position-relative form-group">
+                                <label for="id">Stripe Account ID:</label>
+                                <input type="text" id="acc_id" name="acc_id" class="form-control" value="" />
+                            </div>
+                            <div class="position-relative form-group justify-content-center">
+                                <input type="submit" class="btn btn-success" name="submit" class="form-control" value="Proceed" />
+                            </div>
                         </form>
                     </div>
                 </div>

@@ -4,6 +4,7 @@ const JobCategory = require('../../models').JobCategory;
 const JobApplication = require('../../models').JobApplication;
 const User = require('../../models').User;
 const JobPayment = require('../../models').JobPayment;
+const UserPaymentInfo = require('../../models').UserPaymentInfo;
 const Chat = require('../../models').Chat;
 const Contract = require('../../models').Contract;
 const JobReport = require('../../models').JobReport;
@@ -15,10 +16,11 @@ module.exports.GetWorkSpaceInfo = async (req, res, next) =>{
     let jobAppId = req.params.id;
     let jobAppDetail = await JobApplication.findOne({ where:{id:jobAppId}, include:User });
     let job = await Job.findOne({ where:{id:jobAppDetail.JobId}, include:[JobCategory, User] });
-    let jobPayment = await JobPayment.findAll({ where:{JobId: jobAppDetail.JobId}, include:Job });
+    let jobPayment = await JobPayment.findOne({ where:{JobId: jobAppDetail.JobId}, include:Job });
     let chat = await Chat.findAll({ where:{JobId:job.id} });
     let jobFiles = await JobFile.findAll({ where:{JobId:job.id}, include:User });
     let contract_details = await Contract.findOne({where:{JobId:job.id}});
+    let user_payment = await UserPaymentInfo.findOne({where:{UserId:res.locals.user.id} });
 
     res.locals.amountToPay = job.price;
     res.locals.jobName = job.title;
@@ -31,7 +33,8 @@ module.exports.GetWorkSpaceInfo = async (req, res, next) =>{
             jobPayment,
             chat,
             contract_details,
-            jobFiles
+            jobFiles,
+            user_payment
         }
     )
 };

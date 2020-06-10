@@ -16,6 +16,12 @@ module.exports = {
           key:'id'
         }
       },
+      amount: {
+        type: Sequelize.STRING
+      },
+      free_amount: {
+        type: Sequelize.STRING
+      },
       clientPaymentReceipt: {
         type: Sequelize.STRING
       },

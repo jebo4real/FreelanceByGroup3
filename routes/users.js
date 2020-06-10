@@ -18,6 +18,7 @@ const { GetWorkSpaceInfo, SendMessage, WorkspaceAcceptJob, WorkspaceRejectJob, W
     UploadFile, ViewFile, ReviewAndRateClient, ReviewAndRateFreelancer, Invoice, CompleteJob } = require('../controllers/Job/JobWorkSpace');
 const {Pay, GetPaid} = require('../controllers/Job/StripePayment');
 const {NotVerified} = require('../controllers/Auth/Verify');
+const {GetPaymentDetails, AddPaymentDetails, CreateStripeAccount} = require('../controllers/Profile/PaymentDetails');
 
 
 /* GET users listing. */
@@ -36,6 +37,8 @@ router.get('/education', GetEducation);
 router.get('/education/:success', GetEducationSuccess);
 router.get('/qualification', GetQualification);
 router.get('/qualification/:success', GetQualificationSuccess);
+router.get('/payment', GetPaymentDetails);
+router.get('/create-stripe-account', CreateStripeAccount);
 router.get('/change-password', GetChangePassword);
 router.get('/message-box', GetInboxOutbox);
 // router.get('/message-users', GetSelectMessageUsers);
@@ -49,6 +52,7 @@ router.post('/update-qualification', UpdateQualification);
 router.post('/change-password', UpdatePassword);
 router.post('/send-message-user-from-box', SendMessageFromBox);
 router.post('/send-message-user', SendMessageUser);
+router.post('/add-payment-account', AddPaymentDetails);
 
 //Client
 //GET requests
@@ -77,7 +81,7 @@ router.post('/support-job', WorkspaceSupport);
 
 router.get('/invoice/:id', Invoice);
 router.post('/pay/', Pay);
-router.get('/get-paid/', GetPaid);
+router.post('/get-paid/', GetPaid);
 
 // //POST requests
 router.post('/post-job', DoPostJob);

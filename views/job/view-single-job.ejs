@@ -4,10 +4,6 @@
         <div class="app-page-title">
             <div class="page-title-wrapper">
                 <div class="page-title-heading">
-                    <div class="page-title-icon">
-                        <i class="pe-7s-car icon-gradient bg-mean-fruit">
-                        </i>
-                    </div>
                     <div><%=job.title%> Information 
                         <div class="page-title-subheading">
                             Click on an applicant to award job to.
@@ -18,7 +14,7 @@
                 <div class="page-title-actions">
                     <% if(jobAppAwardId!==0){ %>
                         <a href="/user/workspace/<%=jobAppAwardId%>" class="mt-2 btn btn-success">
-                           Go to Work Space
+                           Go to Job WorkSpace
                         </a>
                     <% }else{ %>
                         No applicant has been selected / Applicant is yet to accept job

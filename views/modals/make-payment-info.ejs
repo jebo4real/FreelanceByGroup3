@@ -13,6 +13,7 @@
                     <div class="col-md-6">
                         <form action="/user/pay" method="post">
                             <div class="position-relative form-group">
+                                <input type="text" id="JobId" name="JobId" class="form-control" value="<%=job.id%>" hidden />
                                 <label for="id">Amount:</label>
                                 <input type="text" id="amount" name="amount" class="form-control" value="<%=amountToPay%>" readonly />
                             </div>

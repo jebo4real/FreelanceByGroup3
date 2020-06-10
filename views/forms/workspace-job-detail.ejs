@@ -31,11 +31,11 @@
         <div>
             <label>Job Status: </label>
             <% if(contract_details.status==="start") { %>
-                <label class="badge badge-info"><%= contract_details.status %></label><br/>
+                <label class="badge badge-success"><%= contract_details.status %></label><br/>
             <% }else if(contract_details.status==="completed"){ %>
-                <label class="badge badge-info"><%= contract_details.status %></label><br/>
+                <label class="badge badge-success"><%= contract_details.status %></label><br/>
             <% }else if(contract_details.status==="accepted"){ %>
-                <label class="badge badge-info"><%= contract_details.status %></label><br/>
+                <label class="badge badge-success"><%= contract_details.status %></label><br/>
             <% }else if(contract_details.status==="rejected"){ %>
                 <label class="badge badge-danger"><%= contract_details.status %></label><br/>
             <% } %>

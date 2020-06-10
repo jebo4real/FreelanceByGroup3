@@ -43,6 +43,7 @@
                             <% } %>
                         </div>
                     </div>
+                    <a class="btn btn-success" data-toggle="modal" data-target="#support-modal">Write to Support</a>
             </div>
             <div class="col-md-9 card">
                 <div class="card-header">
@@ -51,7 +52,6 @@
                         <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-1" id="tab2" class="nav-link">Discussion</a></li>
                         <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-2" class="nav-link">Job Files</a></li>
                         <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-3" class="nav-link">Bill & Payment</a></li>
-                        <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-4" class="nav-link">Support</a></li>
                     </ul>
                 </div>
                 <div class="card-body">
@@ -69,18 +69,24 @@
                             <% if(user.UserAccount.RoleId===1){ %>
                             <div class="row">
                                 <a style="margin-right: 5px;" class="btn btn-success" href="/user/invoice/<%=jobAppDetail.id%>">Print</a>
-                                <a class="btn btn-success" data-toggle="modal" data-target="#make-payment-info">Make Payment</a>
-                                <!-- <a class="btn btn-success" href="/user/get-paid">Get Paid</a> -->
+                                <% if(jobPayment.clienPay!==null){ %>
+                                    <a class="btn btn-success" data-toggle="modal" data-target="#make-payment-info">Make Payment</a>
+                                <% } %>
+                                
                             </div>
                             <% include ./invoice.ejs %>
                             <% }else if(user.UserAccount.RoleId===2){ %>
-                            <div>
-                                
+                            <div class="row">
+                                <% if(!jobPayment.freelancePay!==null){ %>
+                                    <% if(user_payment!==null){ %>
+                                        <a class="btn btn-success" data-toggle="modal" data-target="#request-payment-info">Request Payment</a>
+                                    <% }else{ %>
+                                    <a class="btn btn-success" href="/user/payment">Add Payment Information</a>
+                                <% } } else{ %>
+                                <% }%>
                             </div>
+                            <% include ./freelancer_payout.ejs %>
                             <% } %>
-                        </div>
-                        <div class="tab-pane" id="tab-eg7-4" role="tabpanel">
-                            <% include ../forms/workspace-support.ejs %>
                         </div>
                     </div>
                 </div>
@@ -88,5 +94,7 @@
         </div>
 <% include ../layout/footer-portal.ejs %>
 <% include ../modals/make-payment-info.ejs %>
+<% include ../modals/support-modal.ejs %>
+<% include ../modals/request-payment-info.ejs %>
 <% include ../modals/review-client-info.ejs %>
 <% include ../modals/review-freelancer-info.ejs %>
