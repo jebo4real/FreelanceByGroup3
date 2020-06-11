@@ -27,6 +27,9 @@ $(document).ready(function() {
         "info":     false,
         "searching": false,
         "lengthChange": false,
+        "language": {
+            "emptyTable": "No applicants yet."
+        }
     });
 
     $("#client_dasboard_jobs_tb tbody").on("click","tr",function(){

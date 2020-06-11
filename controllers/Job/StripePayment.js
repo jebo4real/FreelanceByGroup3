@@ -3,6 +3,7 @@ const keySecret = 'sk_test_RDIoGjkXBg7304rnk6NaypWd00MxIWl5U4';
 const stripe = require("stripe")(keySecret);
 const Job = require('../../models').Job;
 const JobPayment = require('../../models').JobPayment;
+const UserPaymentInfo = require('../../models').UserPaymentInfo;
 
 module.exports.Pay = (req, res, next) =>{
     let amount = Math.round(parseInt(req.body.amount)*100);
@@ -47,8 +48,8 @@ module.exports.Pay = (req, res, next) =>{
 module.exports.GetPaid = async (req, res, next)=>{
     let amount = Math.round(parseInt(req.body.amount)*100);
     amount = amount - ((15/100)*amount);
-      
-            stripe.accounts.retrieve(res.locals.user.UserPaymentInfo.accountNumber).then(accounts=>{     
+    UserPaymentInfo.findOne({where:{UserId:res.locals.user.id} }).then(userP=>{
+        stripe.accounts.retrieve(userP.accountNumber).then(accounts=>{     
             stripe.payouts.create({
                 amount,
                 currency:"usd",
@@ -70,6 +71,10 @@ module.exports.GetPaid = async (req, res, next)=>{
             });
         }).catch(e=>{
             console.log(e);
-        })
-        
+            res.render("job/error-payment",{amount:req.body.amount,jobname:res.locals.jobName});
+        });
+    }).catch(e=>{
+        console.log(e);
+        res.render("job/error-payment",{amount:req.body.amount,jobname:res.locals.jobName});
+    });  
 };

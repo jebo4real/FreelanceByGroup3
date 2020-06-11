@@ -25,7 +25,7 @@ module.exports.ApplyJob = async (req, res, next) => {
         message: '<div style="background-color:white;color:black;">'+
                  '<p style="font-weight: bold;">Group 3 freelancer.</p>'+ 
                  '<p>Congratulations, '+req.session.user.firstname+ ' applied for a job you posted.</p>'+
-                '<p><a href="http://'+hostname+'login/'+'">Click here to login</a></p></div>',
+                '<p><a href="http://'+hostname+'/login/'+'">Click here to login</a></p></div>',
         ReceiverEmail: jobOwnerInfo.User.email
     };
     Notify(notifyParts.title, notifyParts.message, notifyParts.ReceiverId);
@@ -97,7 +97,7 @@ module.exports.AcceptJob = async (req, res, next) => {
         message: '<div style="background-color:white;color:black;">'+
                  '<p style="font-weight: bold;">Group 3 freelancer.</p>'+ 
                  '<p>Congratulations'+res.locals.user.firstname+ 'accepted the awarded job.</p>'+
-                '<p><a href="http://'+hostname+'login/'+'">Click here to login</a></p></div>',
+                '<p><a href="http://'+hostname+'/login/'+'">Click here to login</a></p></div>',
         ReceiverEmail: job.User.email
     };
     Notify(notifyParts.title, notifyParts.message, notifyParts.ReceiverId);
@@ -127,7 +127,7 @@ module.exports.RejectJob = async (req, res, next) => {
         message: '<div style="background-color:white;color:black;">'+
                  '<p style="font-weight: bold;">Group 3 freelancer.</p>'+ 
                  '<p>Sorry '+res.locals.user.firstname+ ' rejected the awarded job.</p>'+
-                '<p><a href="http://'+hostname+'login/'+'">Click here to see other applicants</a></p></div>',
+                '<p><a href="http://'+hostname+'/login/'+'">Click here to see other applicants</a></p></div>',
         ReceiverEmail: job.User.email
     };
     Notify(notifyParts.title, notifyParts.message, notifyParts.ReceiverId);

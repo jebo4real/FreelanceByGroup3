@@ -1,9 +1,9 @@
 $(document).ready(function(){
 
-    $("#tab2").click(e=>{
-        window.location = "http://localhost:3000/user/workspace/7#tab-eg7-1";
-    });
 
+$('button').on('click',function(){
+printData();
+})
 
     //client review
     $("#btnreviewclient").click(function(event){

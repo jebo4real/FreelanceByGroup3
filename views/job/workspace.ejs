@@ -60,30 +60,74 @@
                             <% include ../forms/workspace-job-detail.ejs %>
                         </div>
                         <div class="tab-pane" id="tab-eg7-1" role="tabpanel">
-                            <% include ../forms/workspace-job-chat.ejs %>
+                            <% if(jobPayment){ %>
+                                <% if(jobPayment.clienPay===null) {%>
+                                    <%if(user.UserAccount.RoleId===1){%>      
+                                        <span class="badge btn-danger">Make payment to start work</span> 
+                                    <% }else{ %>  
+                                        <span class="badge btn-danger">Client has not made payment</span>
+                                    <% } %>                  
+                                <% }else{%>
+                                    <% include ../forms/workspace-job-chat.ejs %>
+                                <% } }else{%>
+                                    <%if(user.UserAccount.RoleId===1){%>      
+                                        <span class="badge btn-danger">Make payment to start work</span> 
+                                    <% }else{ %>  
+                                        <span class="badge btn-danger">Client has not made payment</span>
+                                    <% } %> 
+                            <% } %>
                         </div>
                         <div class="tab-pane" id="tab-eg7-2" role="tabpanel">
-                            <% include ../forms/workspace-job-file.ejs %>
+                            <% if(jobPayment){ %>
+                                <% if(jobPayment.clienPay===null) {%>      
+                                    <%if(user.UserAccount.RoleId===1){%>      
+                                        <span class="badge btn-danger">Make payment to start work</span> 
+                                    <% }else{ %>  
+                                        <span class="badge btn-danger">Client has not made payment</span>
+                                    <% } %>                      
+                                <% }else{%>
+                                    <% include ../forms/workspace-job-file.ejs %>
+                                <% } }else{%>
+                                    <%if(user.UserAccount.RoleId===1){%>      
+                                        <span class="badge btn-danger">Make payment to start work</span> 
+                                    <% }else{ %>  
+                                        <span class="badge btn-danger">Client has not made payment</span>
+                                    <% } %>  
+                            <% } %>
                         </div>
                         <div class="tab-pane" id="tab-eg7-3" role="tabpanel">
                             <% if(user.UserAccount.RoleId===1){ %>
                             <div class="row">
-                                <a style="margin-right: 5px;" class="btn btn-success" href="/user/invoice/<%=jobAppDetail.id%>">Print</a>
-                                <% if(jobPayment && jobPayment.clienPay!==null){ %>
-                                    <a class="btn btn-success" data-toggle="modal" data-target="#make-payment-info">Make Payment</a>
-                                <% } %>
+                                <!-- <a style="margin-right: 5px;" class="btn btn-success" href="#" onclick="printData()">Print</a> -->
+                                    <% if(jobPayment){ %>
+                                        <% if(jobPayment.clienPay===null) {%>
+                                            <a class="btn btn-success" data-toggle="modal" data-target="#make-payment-info">Make Payment</a>
+                                        <% }else{ %>
+                                            <span class="badge btn-success">Payment has been made</span>
+                                        <% } %>
+                                    <% }else{ %>
+                                        <a class="btn btn-success" data-toggle="modal" data-target="#make-payment-info">Make Payment</a>
+                                <% }  %>
                                 
                             </div>
                             <% include ./invoice.ejs %>
                             <% }else if(user.UserAccount.RoleId===2){ %>
                             <div class="row">
-                                <% if(jobPayment && jobPayment.freelancePay!==null){ %>
-                                    <% if(user_payment!==null){ %>
-                                        <a class="btn btn-success" data-toggle="modal" data-target="#request-payment-info">Request Payment</a>
-                                    <% }else{ %>
+                                <!-- <a style="margin-right: 5px;" class="btn btn-success" href="#" onclick="printData()">Print</a> -->
+                                <% if(user_payment===null){ %>
                                     <a class="btn btn-success" href="/user/payment">Add Payment Information</a>
-                                <% } } else{ %>
-                                <% }%>
+                                <% }else { %>
+                                    <% if(jobPayment){ %>
+                                        <% if(jobPayment.freelancePay===null) {%>
+                                        <%if(contract_details.status!=="accepted"){}else{%>
+                                            <a class="btn btn-success" data-toggle="modal" data-target="#request-payment-info">Request Payment</a>
+                                            <% } %>
+                                        <% }else{ %>
+                                            <span class="badge btn-success">Payment has been made</span>
+                                        <% } %>
+                                    <% }else{ %>
+                                        <span class="badge btn-danger">Client has not made payment</span>
+                                <% } } %>
                             </div>
                             <% include ./freelancer_payout.ejs %>
                             <% } %>

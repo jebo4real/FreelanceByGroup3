@@ -2,7 +2,7 @@
   "development": {
     "username": "jebo@group3-server",
     "password": "Greenfour4",
-    "database": "db_freelance_test2",
+    "database": "db_freelance_test",
     "host": "group3-server.mysql.database.azure.com",
     "dialect": "mysql",
     "operatorsAliases": false
@@ -18,7 +18,7 @@
   "production": {
     "username": "jebo@group3-server",
     "password": "Greenfour4",
-    "database": "db_freelance_test2",
+    "database": "db_freelance_test",
     "host": "group3-server.mysql.database.azure.com",
     "dialect": "mysql",
     "operatorsAliases": false

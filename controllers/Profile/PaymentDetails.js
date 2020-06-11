@@ -25,10 +25,11 @@ module.exports.CreateStripeAccount = async (req, res, next) => {
     let user_payment = await UserPaymentInfo.findOne({where:{UserId:res.locals.user.id} });
     req.session.user.UserPaymentInfo  = user_payment;
     let account_rec_id;
+    console.log("Email: "+res.locals.user.email);
     let account_obj = {
         type: 'custom',
         country: 'US',
-        email: res.locals.user.UserAccount.email,
+        email: res.locals.user.email,
         individual:{
           id_number:"000000000",
           first_name: res.locals.user.firstname,
@@ -39,7 +40,7 @@ module.exports.CreateStripeAccount = async (req, res, next) => {
               year:"1901"
           },
           phone: "000 000 0000",
-          email:res.locals.user.UserAccount.email,
+          email: res.locals.user.email,
           ssn_last_4:"0000",
           address: {
               line1: "address_full_match",

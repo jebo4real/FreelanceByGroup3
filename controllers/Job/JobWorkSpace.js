@@ -176,15 +176,26 @@ module.exports.Invoice = async (req,res, next) =>{
 
     res.locals.amountToPay = job.price * 100;
     res.locals.jobName = job.title;
-
-    res.render(
-        'job/invoice',
-        {
-            jobAppDetail,
-            job,
-            jobPayment,
-            contract_details
-        }
-    );
+    if(res.locals.user.UserAccount.RoleId===1){
+        res.render(
+            'job/invoice',
+            {
+                jobAppDetail,
+                job,
+                jobPayment,
+                contract_details
+            }
+        );
+    }else{
+        res.render(
+            'job/freelancer_payout',
+            {
+                jobAppDetail,
+                job,
+                jobPayment,
+                contract_details
+            }
+        );
+    }
 };
 
