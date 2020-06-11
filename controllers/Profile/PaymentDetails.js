@@ -15,7 +15,8 @@ module.exports.GetPaymentDetails = async (req, res, next) => {
         {
             page:'payment',
             success:'',
-            error:''
+            error:'',
+            accountNumber:'',
         }
     )
 };
@@ -23,6 +24,7 @@ module.exports.GetPaymentDetails = async (req, res, next) => {
 module.exports.CreateStripeAccount = async (req, res, next) => {
     let user_payment = await UserPaymentInfo.findOne({where:{UserId:res.locals.user.id} });
     req.session.user.UserPaymentInfo  = user_payment;
+    let account_rec_id;
     let account_obj = {
         type: 'custom',
         country: 'US',
@@ -37,7 +39,7 @@ module.exports.CreateStripeAccount = async (req, res, next) => {
               year:"1901"
           },
           phone: "000 000 0000",
-          email:"jamin@gmail.com",
+          email:res.locals.user.UserAccount.email,
           ssn_last_4:"0000",
           address: {
               line1: "address_full_match",
@@ -76,24 +78,31 @@ module.exports.CreateStripeAccount = async (req, res, next) => {
       };
       stripe.accounts.create(account_obj).then(accounts=>{
           console.log(accounts);
+          account_rec_id = accounts.id;
+          console.log("account id - " + account_rec_id);
         let paymentdetails = {
             UserId: res.locals.user.id,
-            accountNumber:accounts.id
+            accountNumber:account_rec_id
         };
-        let check_if_exisits = UserPaymentInfo.findOne({where:{UserId:res.locals.user.id}});
-        let user_pay = {};
-        if(check_if_exisits!==null){
-            user_pay = UserPaymentInfo.update(paymentdetails,{where:{UserId:res.locals.user.id}});
-        }else{
-            user_pay = UserPaymentInfo.create(paymentdetails);
-        }
+        UserPaymentInfo.findOne({where:{UserId:res.locals.user.id}}).then(rows=>{
+            let user_pay = {};
+            if(rows){
+                user_pay = UserPaymentInfo.update(paymentdetails,{where:{UserId:res.locals.user.id}});
+            }else{
+                user_pay = UserPaymentInfo.create(paymentdetails);
+            }
+            console.log(user_pay);
+        }).catch(e=>{
+            console.log(e);
+        });
+        
         res.render(
             "profile/payment-details",
             {
                 page:'payment',
                 success:'Stripe Account Created and Payment Details Added',
                 error:'',
-                accountNumber:accounts.id,
+                accountNumber:account_rec_id,
             }
         )
       });

@@ -16,9 +16,11 @@
                 <div class="position-relative form-group col-md-7">
                     <label for="title" class="">Stripe Account ID</label>
                     <input name="account_id" id="account_id" placeholder="eg. cus_ax34tefzwe" type="text" 
-                    <%if(user.UserPaymentInfo){%>
-                    value=<%=user.UserPaymentInfo.accountNumber%> 
-                    <% }%>
+                    <% if(accountNumber){ %>
+                        value="<%=accountNumber%>" 
+                    <%}else if(user.UserPaymentInfo){%>
+                        value="<%=user.UserPaymentInfo.accountNumber%>" 
+                    <% } %>
                     class="form-control" required />
                 </div>
                 <div class="position-relative form-group col-md-7">

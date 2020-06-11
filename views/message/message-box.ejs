@@ -13,7 +13,7 @@
         </div>
         <div class="row">
             <div class="col-md-4">
-                <div class="main-card mb-3 card">
+                <div class="main-card mb-3 card" >
                     <div class="card-body">
                         <h5 class="card-title">
                             <%if(user.UserAccount.RoleId===1){%>
@@ -23,7 +23,7 @@
                             <%}%>
                         </h5>
                         <div class="">
-                            <table class="align-middle mb-0 table table-borderless table-striped table-hover" id="message_users_tb">
+                            <table class="align-middle mb-0 table table-borderless table-striped table-hover" id="message_users_tb" style="max-height: 350px;min-height:500px;overflow-y: scroll;">
                                 <thead>
                                 <tr>
                                     <th class="text-left">User</th>
@@ -72,7 +72,7 @@
                         <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-1" class="nav-link">Sent</a></li>
                     </ul>
                 </div>
-                <div class="card-body">
+                <div class="card-body" style="max-height: 350px;min-height:500px;overflow-y: scroll;">
                     <div class="tab-content">
                         <div class="tab-pane active" id="tab-eg7-0" role="tabpanel">
                             <% include ../forms/inbox.ejs %>

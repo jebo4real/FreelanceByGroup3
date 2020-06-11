@@ -5,7 +5,11 @@
             <div class="page-title-wrapper">
                 <div class="page-title-heading">
                     <div class="">
-                        <img src="/images/<%=receiverDetails.picture%>" class="rounded-circle" width="70" height="70"/>
+                        <%if(receiverDetails.picture!==null){%>
+                            <img src="/images/<%=receiverDetails.picture%>" class="rounded-circle" width="70" height="70" alt="No picture"/>
+                            <% }else{ %> 
+                                <img src="/img/avatar.jpg" alt="No picture" width="70" height="70" />  
+                            <% } %> 
                     </div>
                     <div><%=receiverDetails.firstname%> <%=receiverDetails.lastname%>
                         <div class="page-title-subheading">You are not allowed to exchange personal contacts

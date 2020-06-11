@@ -77,7 +77,11 @@ $(document).ready(function() {
                 $("#jobTitle").text(response.title);
                 $("#description").text(response.description);
                 $("#projectLinks").text(response.projectLinks);
-                $("#pic").attr("src", "/images/"+response.picture);
+                if(response.picture!==""){
+                    $("#pic").attr("src", "/images/"+response.picture);
+                }else{
+                    
+                }
                 
             }
         });
@@ -121,7 +125,7 @@ $(document).ready(function() {
         "searching": false,
         "lengthChange": false,
         "language": {
-            "emptyTable": "No users have joined yet."
+            "emptyTable": "No message received yet."
         }
     });
 

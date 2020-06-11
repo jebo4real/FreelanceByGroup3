@@ -16,10 +16,14 @@
             <div class="form-row">
                 <div class="col-md-10">
                     <div class="position-relative form-group">
-                    <img src="/images/<%=user.Portfolio.picture%>" class="rounded-circle" width="200px" height="200px" alt="No picture"/>
-                    </div>
-                    <div class="position-relative form-group">
-                        <input name="picture" id="picture" type="file" />
+                        <label style="cursor:pointer" title="Select A picture">
+                            <%if(user.Portfolio.picture!==null){%>
+                            <img src="/images/<%=user.Portfolio.picture%>" class="rounded-circle" width="150px" height="150px" alt="No picture" style="margin-bottom:10px;"/>
+                            <% }else{ %> 
+                                <img src="/img/avatar.jpg" alt="No picture" style="margin-bottom:10px;"/>  
+                            <% } %> 
+                            <input name="picture" id="picture" type="file" title="Select A Picture" style="display:none" accept="image/*" />
+                        </label>
                     </div>
                 </div>
             </div>
