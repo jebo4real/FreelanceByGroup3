@@ -1,4 +1,7 @@
 <div class="main-card mb-3 card col-md-12">
+    <div class="card-header">
+        <h5 class="card-title" style="color:#4d4d4d!important">Personal Details</h5>
+    </div>
     <div class="card-body">
         <% if(profileChangeMessage === true){%>
             <div class="alert alert-success" role="alert">
@@ -9,13 +12,16 @@
                 Error Updating
             </div>
         <% } %>
-        <h5 class="card-title">Personal Details</h5>
-        <form class="" action="/user/update-profile" method="post" enctype = "multipart/form-data">
+        
+        <div class="justify-content-end" style="float:right;">
+            <a id="edit"  class="btn btn-success" href="#">Edit</a>
+        </div>
+        <form class="" action="/user/update-profile" method="post" enctype = "multipart/form-data" id="fmprofile">
             <input name="id" id="id" placeholder="" type="text" class="form-control" value="<%=user.id%>" hidden><br />
 
-            <div class="">
-                <div class="col-md-6">
-                    <div class="position-relative form-group">
+            <div class="form-row justify-content-center">
+                <div class="col-md-">
+                    <div class="form-group">
                         <label style="cursor:pointer" title="Select A picture">
                         <%if(user.picture!==null){%>
                         <img src="/images/<%=user.picture%>" class="rounded-circle" width="150px" height="150px" alt="No picture" style="margin-bottom:10px;"/>

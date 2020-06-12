@@ -1,0 +1,30 @@
+<% include ../layout/header-portal.ejs %>
+<div class="app-main__outer">
+    <div class="app-main__inner">
+        <div class="row">
+            <div class="main-card mb-3 card col-md-12">
+                <div class="card-body"><h5 class="card-title">Education</h5>
+                    <table class="table" id="portfolio_tb">
+                        <thead>
+                        <tr>
+                            <th>Date Added</th>
+                            <th>school</th>
+                            <th>Certificate</th>
+                            <th>View</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <% user.Education.map( p => { %>
+                        <tr style="cursor: pointer;">
+                            <td><%=p.createdAt%></td>
+                            <td ><%=p.school%></td>
+                            <td><%=p.cert%></td>
+                            <td><a class="btn btn-success" href="/user/education/<%=p.id%>">View</a></td>
+                        </tr>
+                        <% }); %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+<% include ../layout/footer-portal.ejs %>

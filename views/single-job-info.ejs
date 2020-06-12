@@ -31,16 +31,23 @@
                             <% if(user_applied){ %>
                             <% if(user_application.status==='awarded'){%> 
                                 <p class="mt-5">
+                                    <a href="/user/message-room/<%=job.User.id %>" class="btn btn-success  py-2 px-4">Contact Client</a>
                                     <a href="/user/accept-job/<%=user_application.id%>" class="btn btn-success  py-2 px-4">Accept</a>
                                     <a href="/user/reject-job/<%=user_application.id%>" class="btn btn-danger  py-2 px-4">Reject</a>
                                 </p>
                             <%}else if(user_application.status==='accepted'){%>
                                 <p class="mt-5"><a href="#" class="btn btn-success  py-2 px-4">Job Accepted</a></p>
                             <% }else{ %>
-                                <p class="mt-5"><a href="#" class="btn btn-success  py-2 px-4">Applied</a></p>
+                                <p class="mt-5">
+                                    <a href="/user/message-room/<%=job.User.id %>" class="btn btn-success  py-2 px-4">Contact Client</a>
+                                    <a href="#" class="btn btn-success  py-2 px-4">Applied</a>
+                                </p>
                             <% } %>
                         <%}else{ %>
-                            <p class="mt-5"><a href="/job-apply/<%=job.id %>" class="btn btn-success  py-2 px-4">Submit Application</a></p>
+                            <p class="mt-5">
+                                <a href="/user/message-room/<%=job.User.id %>" class="btn btn-success  py-2 px-4">Contact Client</a>
+                                <a href="/job-apply/<%=job.id %>" class="btn btn-success  py-2 px-4">Submit Application</a>
+                            </p>
                             <% } %>
 
 

@@ -12,60 +12,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4">
-                <div class="main-card mb-3 card" >
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <%if(user.UserAccount.RoleId===1){%>
-                                Available Freelancers
-                            <% } else if(user.UserAccount.RoleId===2){%>
-                                Available Clients
-                            <%}%>
-                        </h5>
-                        <div class="">
-                            <table class="align-middle mb-0 table table-borderless table-striped table-hover" id="message_users_tb" style="max-height: 350px;min-height:500px;overflow-y: scroll;">
-                                <thead>
-                                <tr>
-                                    <th class="text-left">User</th>
-                                    <th class="text-left">Send</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <%messageUsers.map(u =>{ %>
-                                <tr>
-                                    <td>
-                                        <div class="widget-content p-0">
-                                            <div class="widget-content-wrapper">
-                                                <div class="widget-content-left mr-3">
-                                                    <div class="widget-content-left">
-                                                        <img width="40" height="40" class="rounded-circle" 
-                                                        <% if(u.User.picture!==null) {%>
-                                                            src="/images/<%=u.User.picture%>"
-                                                        <% }else{ %>
-                                                            src="/img/avatar.jpg"
-                                                        <% } %>
-                                                        >
-                                                    </div>
-                                                </div>
-                                                <div class="widget-content-left flex2">
-                                                    <div class="widget-heading"><%=u.User.firstname%> <%=u.User.lastname%></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="text-left">
-                                        <a class="btn btn-success" href="/user/message-room/<%=u.User.id%>">+</a>
-                                    </td>
-                                </tr>
-                                <%  }); %>
-                                </tbody>
-                            </table>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-8 col-lg-8 mb-5 card">
+            <div class="col-md-10 col-lg-8 mb-5 card">
                 <div class="card-header">
                     <ul class="nav nav-justified">
                         <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-0" class="active nav-link">Inbox</a></li>

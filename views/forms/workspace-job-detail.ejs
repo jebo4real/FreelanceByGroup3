@@ -1,19 +1,19 @@
 <div class="row">
     <div class="col-md-6">
         <div>
-            <label>Title: </label>
+            <label><strong>Title:</strong></label>
             <label><%= job.title %></label><br/>
         </div>
         <div>
-            <label>Price: </label>
+            <label><strong>Price: </strong></label>
             <label>USD <%= job.price %></label><br/>
         </div>
         <div>
-            <label>Duration: </label>
+            <label><strong>Duration:</strong> </label>
             <label><%= job.timeLength %></label><br/>
         </div>
         <div>
-            <label>Details: </label>
+            <label><strong>Details: </strong></label>
             <label><%= job.details %></label><br/>
         </div>
         
@@ -21,15 +21,23 @@
 
     <div class="col-md-4">
         <div>
-            <label>Category: </label>
+            <label><strong>Category: </strong></label>
             <label><%= job.JobCategory.name %></label><br/>
         </div>
         <div>
-            <label>Skills Required: </label>
+            <label><strong>Skills Required: </strong></label>
             <label><%= job.timeLength %></label><br/>
         </div>
         <div>
-            <label>Job Status: </label>
+            <label><strong>Client: </strong></label>
+            <label><%=job.User.firstname%> <%=job.User.lastname%></label><br/>
+        </div>
+        <div>
+            <label><strong>Freelancer: </strong></label>
+            <label><%=jobAppDetail.User.firstname%> <%=jobAppDetail.User.lastname%></label><br/>
+        </div>
+        <div>
+            <label><strong>Job Status: </strong></label>
             <% if(contract_details.status==="start") { %>
                 <label class="badge badge-success"><%= contract_details.status %></label><br/>
             <% }else if(contract_details.status==="completed"){ %>
@@ -40,5 +48,19 @@
                 <label class="badge badge-danger"><%= contract_details.status %></label><br/>
             <% } %>
         </div>
+        <div>
+            
+            <% if(user.UserAccount.RoleId===2){ %>
+            <label>
+                <a href="#" data-toggle="modal" data-target="#clientReviewModal" style="float:right;" class="btn btn-primary">Review<i class="fa fa-star"></i></a>
+            </label>
+              <% } %>
+            <% if(user.UserAccount.RoleId===1){ %>
+            <label>
+                <a href="#" data-toggle="modal" data-target="#freelanceReviewModal" style="float:right;" class="btn btn-primary">Review<i class="fa fa-star"></i></a>
+            </label>
+                <% } %>
+        </div>
+        
     </div>
 </div>

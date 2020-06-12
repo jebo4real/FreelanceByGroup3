@@ -62,7 +62,7 @@
                             <tr>
                                 <th class="text-center">#</th>
                                 <th>Job</th>
-                                <th class="text-center">Applicant</th>
+                                <th class="text-left">Applicant</th>
                                 <th class="text-center">Status</th>
                                 <th class="text-center" hidden >JobId</th>
                             </tr>
@@ -88,7 +88,11 @@
                                     </div>
                                 </td>
                                 <td class="text-center">
-                                    <div class="badge badge-success"><%=j.status%></div>
+                                    <% if(j.status===null){ %>
+                                        Pending
+                                    <% }else{ %>
+                                        <div class="badge badge-success"><%=j.status%></div>
+                                    <% } %>
                                 </td>
                                 <td class="text-center text-muted" hidden ><%=j.Job.id%></td>
                             </tr>

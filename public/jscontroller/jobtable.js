@@ -77,11 +77,11 @@ $(document).ready(function() {
             success:function(response){
                 $("#firstname").text(response.User.firstname);
                 $("#lastname").text(response.User.lastname);
-                $("#jobTitle").text(response.title);
-                $("#description").text(response.description);
-                $("#projectLinks").text(response.projectLinks);
-                if(response.picture!==""){
-                    $("#pic").attr("src", "/images/"+response.picture);
+                $("#country").text(response.User.country);
+                $("#btnsendfree").attr("href", "/freelancer/"+response.User.id);
+                $("#pic").attr("src", "/img/avatar.jpg");
+                if(response.User.picture!==""){
+                    $("#pic").attr("src", "/images/"+response.User.picture);
                 }else{
                     
                 }

@@ -1,0 +1,59 @@
+<% include ./layout/header-public.ejs %>
+<% include ./layout/menu-public.ejs %>
+
+<div class="site-section bg-light">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12 col-lg-12 mb-5" >
+                <div class="p-5 bg-white justify-content-center" style="height: 700px;margin:auto;">
+
+                    <div class="mb-4 mb-md-5 mr-5">
+                        <div class="job-post-item-header d-flex align-items-center justify-content-center">
+                            <h2 class="mr-3 text-black h4">
+                                <%if(free.picture!==null){%>
+                                    <img src="/images/<%=free.picture%>" class="rounded-circle" width="80px" height="80px" />
+                                    <% }else{ %> 
+                                        <img src="img/avatar.jpg" class="rounded-circle" width="80px" height="80px" />  
+                                    <% } %> 
+                                <%= free.firstname %> <%= free.lastname %>
+                            </h2>
+                            <div class="badge-wrap">
+                                <span class="bg-success text-white badge py-2 px-4">Freelancer</span>
+                            </div>
+                        </div>
+                        <div class="job-post-item-body d-block d-md-flex justify-content-center">
+                            <div class="mr-3"><span class="fl-bigmug-line-big104 alink"></span> <a style="color: #0b0b0b"><%=free.city%></a></div>
+                            <div><span class="fl-bigmug-line-big104 alink"></span> <span style="color: #0b0b0b"><%=free.country%></span></div>
+                        </div>
+                    </div>
+                    <div class="justify-content-center" style="max-height: 500px;max-width:100%;overflow-y:auto;overflow-x: auto;">
+                        <div class="col-md-10 ">
+                            <h5>Highest Educational Background</h5>
+                            <p>   
+                                <%=freeEducation.uni%>, <%=freeEducation.country%> <br />
+                                <%=freeEducation.start_year%>-<%=freeEducation.start_year%><br />
+                                <%=freeEducation.cert%><br/>
+                            </p> 
+                        </div> <br />
+                        <div class="col-md-10 " >
+                            <h5>Portfolio</h5>
+                            <%freePortfolio.map(p=>{%>
+                                <%=p.title %>  - <a href="http://<%=p.projectLinks%>" target="_blank" class="alink">Visit Project Link</a><br />
+                            <% }) %>
+                            
+                        </div>
+                    </div>
+                    <p class="mt-5">
+                        <a href="/user/message-room/<%=free.id %>" class="btn btn-success justify-content-center py-2 px-4">Contact Freelancer</a>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<% include ./layout/footer-public.ejs %>
+<% include ./modals/login-modal.ejs %>

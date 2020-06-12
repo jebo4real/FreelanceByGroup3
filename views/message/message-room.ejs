@@ -6,9 +6,9 @@
                 <div class="page-title-heading">
                     <div class="">
                         <%if(receiverDetails.picture!==null){%>
-                            <img src="/images/<%=receiverDetails.picture%>" class="rounded-circle" width="70" height="70" alt="No picture"/>
+                            <img src="/images/<%=receiverDetails.picture%>" class="rounded-circle" width="70" height="70" />
                             <% }else{ %> 
-                                <img src="/img/avatar.jpg" alt="No picture" width="70" height="70" />  
+                                <img src="/img/avatar.jpg" width="70" height="70" />  
                             <% } %> 
                     </div>
                     <div><%=receiverDetails.firstname%> <%=receiverDetails.lastname%>
@@ -21,9 +21,9 @@
         </div>
         <div class="row">
             <div class="col-md-4">
-                <div class="main-card mb-3 card">
+                <div class="main-card mb-3 card" style="height: 550px;">
                     <div class="card-body">
-                        <h5 class="card-title">
+                        <h5 class="card-title" style="color:#4d4d4d !important">
                             Latest Messages
                         </h5>
                         <div class="">
@@ -62,8 +62,8 @@
                     </div>
                 </div>
             </div>
-            <div class="panel col-md-6 col-lg-8 mb-5" id="messages" name="messages" style="background-color:white;">
-                <div class="panel-body col" style="max-height: 400px;min-height: 400px;overflow-y: scroll;">
+            <div class="panel col-md-6 col-lg-8 mb-5" id="messages" name="messages" style="background-color:white;height: 550px;">
+                <div class="panel-body col" style="height:93%;max-height: 550px;min-height: 400px;overflow-y: scroll;">
                     <% messages.map(mess => {%>
                         <div class="card card-body col-md-8 col-lg-7 "
                         <% if(mess.SenderId===user.id){%>

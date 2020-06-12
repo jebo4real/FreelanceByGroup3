@@ -11,18 +11,18 @@
             <% } %>
         <h5 class="card-title">Qualification Details</h5>
         <form class="" action="/user/update-qualification" method="post">
-            <input name="id" id="id" placeholder="" type="text" class="form-control" value="<%=user.Qualification.id%>" hidden><br />
+            <input name="id" id="id" placeholder="" type="text" class="form-control" value="<%=user_qualification.id%>" hidden><br />
             <div class="form-row">
                 <div class="col-md-6">
                     <div class="position-relative form-group">
                         <label for="prof_cert" class="">Professional Certificate or Award</label>
-                        <input name="prof_cert" id="prof_cert" value="<%=user.Qualification.prof_cert%>" placeholder="" type="text" class="form-control">
+                        <input name="prof_cert" id="prof_cert" value="<%=user_qualification.prof_cert%>" placeholder="" type="text" class="form-control">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="position-relative form-group">
                         <label for="lastname" class="">Conferring Organization</label>
-                        <input name="con_org" id="con_org" value="<%=user.Qualification.con_org%>" placeholder="" type="text" class="form-control">
+                        <input name="con_org" id="con_org" value="<%=user_qualification.con_org%>" placeholder="" type="text" class="form-control">
                     </div>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                 <div class="col-md-12">
                     <div class="position-relative form-group">
                         <label for="dob" class="">Summary</label>
-                        <textarea rows="3" name="summary" id="summary" type="date" class="form-control"><%=user.Qualification.summary%></textarea>
+                        <textarea rows="3" name="summary" id="summary" type="date" class="form-control"><%=user_qualification.summary%></textarea>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,7 @@
-<div class="main-card mb-3 card col-md-12">
+<div class="main-card mb-3 card col-md-12" style="height:650px;">
+    <div class="card-header">
+        <h5 class="card-title" style="color:#4d4d4d!important">Highest Educational Qualification</h5>
+    </div>
     <div class="card-body">
         <% if(error){ %>
             <div class="alert alert-danger" role="alert">
@@ -9,8 +12,10 @@
                 <strong><%=success%></strong>
             </div>
         <% } %>
-        <h5 class="card-title">Educational Background</h5>
-        <form class="" action="/user/update-education" method="post">
+        <div class="justify-content-end" style="float:right;">
+            <a id="edit"  class="btn btn-success" href="#">Edit</a>
+        </div>
+        <form id="fmprofile" class="" action="/user/update-education" method="post">
             <input name="id" id="id" placeholder="" type="text" class="form-control" value="<%=user.Education.id%>" hidden><br />
             <div class="form-row">
                 <div class="col-md-6">
@@ -34,29 +39,9 @@
             <div class="form-row">
                 <div class="col-md-12">
                     <div class="position-relative form-group">
-                        <label for="cert" class="">Certification</label>
-                        <select name="cert" id="cert" class="form-control">
-                            <option value="High school certificate" 
-                                <% if(user.Education.cert==='High school certificate'){ %> selected <% }else{} %> >
-                                High school certificate
-                            </option>
-                            <option value="Diploma" 
-                                <% if(user.Education.cert==='Diploma'){ %> selected <% }else{} %> >
-                                Diploma
-                            </option>
-                            <option value="Bachelors" 
-                                <% if(user.Education.cert==='Bachelors'){ %> selected <% }else{} %> >
-                                Bachelors
-                            </option>
-                            <option value="Masters" 
-                                <% if(user.Education.cert==='Masters'){ %> selected <% }else{} %> >
-                                Masters
-                            </option>
-                            <option value="PhD" 
-                                <% if(user.Education.cert==='PhD'){ %> selected <% }else{} %> >
-                                PhD
-                            </option>
-                        </select>
+                        <label for="cert" class="">Certification & Specialisation</label>
+                        <input name="cert" id="cert" value="<%=user.Education.cert%>" placeholder="" type="text" class="form-control">
+                        
                     </div>
                 </div>
             </div>

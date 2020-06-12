@@ -1,14 +1,12 @@
 <% include ../layout/header-portal.ejs %>
 <div class="app-main__outer">
     <div class="app-main__inner">
-        <div class="app-page-title">
-            <div class="page-title-wrapper">
-
-            </div>
-        </div>
         <div class="row">
-                <div class="main-card mb-3 card col-md-12">
-                    <div class="card-body"><h5 class="card-title"><%=title%></h5>
+                <div class="main-card mb-3 card col-md-12" style="height: 650px;">
+                    <div class="card-header">
+                        <h5 class="card-title" style="color:#4d4d4d!important"><%=title%></h5>
+                    </div>
+                    <div class="card-body">
                         <p>Click on a job to view its information and workspace</p>
                         <table class="table" id="client_jobs_tb">
                             <thead>

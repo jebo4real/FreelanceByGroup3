@@ -1,14 +1,12 @@
 <% include ../layout/header-portal.ejs %>
 <div class="app-main__outer">
     <div class="app-main__inner">
-        <div class="app-page-title">
-            <div class="page-title-wrapper">
-
-            </div>
-        </div>
         <div class="row">
-            <div class="main-card mb-3 card col-md-12">
-                <div class="card-body"><h5 class="card-title"><%=title%></h5>
+            <div class="main-card mb-3 card col-md-12" style="height: 650px;">
+                <div class="card-header">
+                    <h5 class="card-title" style="color:#4d4d4d!important"><%=title%></h5>
+                </div>
+                <div class="card-body">
                     <table class="table" id="freelancer_jobs_tb">
                         <thead>
                         <tr>
@@ -36,13 +34,19 @@
                             <td hidden><%=jobapp.Job.skills%></td>
                             <td>
                                 <div class="row">
-                                    <%=jobapp.status%>
+                                    <% if(jobapp.status===null){ %>
+                                        pending
+                                    <% }else{ %>
+                                        <%=jobapp.status%>
+                                    <% } %>
                                 </div>
                             </td>
-                            <td><a href="/job/<%=jobapp.Job.id%>" class="btn btn-success">View</a></td>
+                            <td class="text-left" ><a href="/job/<%=jobapp.Job.id%>" class="btn btn-success"><i class="pe-7s-look"></i></a></td>
                             <td>
                                 <% if(jobapp.status==="accepted"){ %>
                                     <a href="/user/workspace/<%=jobapp.id%>" class="btn btn-success">View Workspace</a>
+                                <% }else{ %>
+                                    <a class="btn btn-secondary" style="color:#fff">View Workspace</a>
                                 <% } %>
                             </td>
                         </tr>

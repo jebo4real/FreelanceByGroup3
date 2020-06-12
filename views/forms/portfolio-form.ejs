@@ -1,4 +1,7 @@
 <div class="main-card mb-3 card col-md-12" style="margin: auto;">
+    <div class="card-header">
+        <h5 class="card-title" style="color:#4d4d4d!important">Portfolio Details</h5>
+    </div>
     <div class="card-body">
         <% if(portfoilioChangeMessage === true){%>
             <div class="alert alert-success" role="alert">
@@ -9,16 +12,15 @@
                 Error Updating
             </div>
         <% } %>
-        <h5 class="card-title">Portfolio Details</h5>
         <form class="" action="/user/update-portfolio" method="post" enctype = "multipart/form-data" style="margin:auto;width: 100%">
-            <input name="id" id="id" placeholder="" type="text" class="form-control" value="<%=user.Portfolio.id%>" hidden><br />
+            <input name="id" id="id" placeholder="" type="text" class="form-control" value="<%=user_portfolio.id%>" hidden><br />
             <div class="row">
             <div class="form-row">
                 <div class="col-md-10">
                     <div class="position-relative form-group">
                         <label style="cursor:pointer" title="Select A picture">
-                            <%if(user.Portfolio.picture!==null){%>
-                            <img src="/images/<%=user.Portfolio.picture%>" class="rounded-circle" width="150px" height="150px" alt="No picture" style="margin-bottom:10px;"/>
+                            <%if(user_portfolio.picture!==null){%>
+                            <img src="/images/<%=user_portfolio.picture%>" class="rounded-circle" width="150px" height="150px" alt="No picture" style="margin-bottom:10px;"/>
                             <% }else{ %> 
                                 <img src="/img/avatar.jpg" alt="No picture" style="margin-bottom:10px;"/>  
                             <% } %> 
@@ -31,19 +33,19 @@
                 <div class="col-md-10">
                     <div class="position-relative form-group">
                         <label for="title" class="">Title</label>
-                        <input name="title" id="title" value="<%=user.Portfolio.title%>" placeholder="" type="text" class="form-control">
+                        <input name="title" id="title" value="<%=user_portfolio.title%>" placeholder="" type="text" class="form-control">
                     </div>
                 </div>
                 <div class="col-md-10">
                     <div class="position-relative form-group">
                         <label for="lastname" class="">Description</label>
-                        <textarea class="form-control" id="description" name="description"><%=user.Portfolio.description%></textarea>
+                        <textarea class="form-control" id="description" name="description"><%=user_portfolio.description%></textarea>
                     </div>
                 </div>
                 <div class="col-md-10">
                     <div class="position-relative form-group">
                         <label for="projectLinks" class="">Project Links</label>
-                        <textarea class="form-control" id="projectLinks" name="projectLinks"><%=user.Portfolio.projectLinks%></textarea>
+                        <textarea class="form-control" id="projectLinks" name="projectLinks"><%=user_portfolio.projectLinks%></textarea>
                     </div>
                 </div>
             </div>

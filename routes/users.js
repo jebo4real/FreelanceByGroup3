@@ -1,7 +1,7 @@
 const express = require('express');
 let router = express.Router();
 const { GetProfile, UpdateProfile, GetProfileSuccess } = require('../controllers/Profile/Profile');
-const  {GetPortfolio, UpdatePortfolio, GetPortfolioSuccess} = require('../controllers/Profile/Portfolio');
+const  {GetPortfolio, UpdatePortfolio, GetPortfolioSuccess, GetAllPortfolios,GetAddPortfolio,AddPortfolio} = require('../controllers/Profile/Portfolio');
 const  {GetEducation, UpdateEducation, GetEducationSuccess} = require('../controllers/Profile/Education');
 const  {GetQualification, UpdateQualification, GetQualificationSuccess} = require('../controllers/Profile/Qualification');
 const  {GetSelectMessageUsers, GetMessageRoom, SendMessageUser} = require('../controllers/Messaging/Message');
@@ -26,13 +26,16 @@ router.get('/', GetDashboardSwitch);
 router.get('/notverified', NotVerified);
 
 
+
 //Private  routes
 //(Both client and freelancers)
 //GET requests
 router.get('/profile', GetProfile);
 router.get('/profile/:success', GetProfileSuccess);
-router.get('/portfolio', GetPortfolio);
-router.get('/portfolio/:success', GetPortfolioSuccess);
+router.get('/add-portfolio', GetAddPortfolio);
+router.get('/portfolios', GetAllPortfolios);
+router.get('/portfolio/:id', GetPortfolio);
+router.get('/portfolio/:id/:success', GetPortfolioSuccess);
 router.get('/education', GetEducation);
 router.get('/education/:success', GetEducationSuccess);
 router.get('/qualification', GetQualification);
@@ -47,6 +50,7 @@ router.get('/message-room/:user', GetMessageRoom);
 //POST requests
 router.post('/update-profile', UpdateProfile);
 router.post('/update-portfolio', UpdatePortfolio);
+router.post('/add-portfolio', AddPortfolio);
 router.post('/update-education', UpdateEducation);
 router.post('/update-qualification', UpdateQualification);
 router.post('/change-password', UpdatePassword);

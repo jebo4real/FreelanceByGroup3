@@ -7,6 +7,7 @@
                     
                 </div>
                 <div class="page-title-actions">
+                    <a class="mt-2 btn btn-success" data-toggle="modal" data-target="#support-modal">Write to Support</a>
                     <% if(user.UserAccount.RoleId===2){%>
                         <a href="/user/complete-job/<%=jobAppDetail.id%>" class="mt-2 btn btn-success">
                             Complete Job
@@ -24,34 +25,13 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-3">
-                    <div class="main-card mb-3 card">
-                        <div class="card-body"><h5 class="card-title">Client</h5>
-                            <p>Name: <%=job.User.firstname%> <%=job.User.lastname%></p>
-                            <p>Location: <%=job.User.country%></p>
-                            <% if(user.UserAccount.RoleId===2){ %>
-                            <a href="#" data-toggle="modal" data-target="#clientReviewModal" style="float:right;" class="btn btn-primary">Review<i class="fa fa-star"></i></a>
-                            <% } %>
-                        </div>
-                    </div>
-                    <div class="main-card mb-3 card">
-                        <div class="card-body"><h5 class="card-title">Freelancer</h5>
-                            <p>Name: <%=jobAppDetail.User.firstname%> <%=jobAppDetail.User.lastname%></p>
-                            <p>Location: <%=jobAppDetail.User.country%></p>
-                            <% if(user.UserAccount.RoleId===1){ %>
-                            <a href="#" data-toggle="modal" data-target="#freelanceReviewModal" style="float:right;" class="btn btn-primary">Review<i class="fa fa-star"></i></a>
-                            <% } %>
-                        </div>
-                    </div>
-                    <a class="btn btn-success" data-toggle="modal" data-target="#support-modal">Write to Support</a>
-            </div>
-            <div class="col-md-9 card">
+            <div class="col-md-12 card">
                 <div class="card-header">
                     <ul class="nav nav-justified">
                         <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-0" class="active nav-link">Job Details</a></li>
                         <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-1" id="tab2" class="nav-link">Discussion</a></li>
-                        <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-2" class="nav-link">Job Files</a></li>
-                        <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-3" class="nav-link">Bill & Payment</a></li>
+                        <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-2" class="nav-link">Files</a></li>
+                        <li class="nav-item"><a data-toggle="tab" href="#tab-eg7-3" class="nav-link">Payment</a></li>
                     </ul>
                 </div>
                 <div class="card-body">
@@ -98,7 +78,7 @@
                         <div class="tab-pane" id="tab-eg7-3" role="tabpanel">
                             <% if(user.UserAccount.RoleId===1){ %>
                             <div class="row">
-                                <!-- <a style="margin-right: 5px;" class="btn btn-success" href="#" onclick="printData()">Print</a> -->
+                                <a style="margin-right: 5px;" class="btn btn-success" href="/user/invoice/<%=jobAppDetail.id%>">Print</a>
                                     <% if(jobPayment){ %>
                                         <% if(jobPayment.clienPay===null) {%>
                                             <a class="btn btn-success" data-toggle="modal" data-target="#make-payment-info">Make Payment</a>
@@ -113,7 +93,7 @@
                             <% include ./invoice.ejs %>
                             <% }else if(user.UserAccount.RoleId===2){ %>
                             <div class="row">
-                                <!-- <a style="margin-right: 5px;" class="btn btn-success" href="#" onclick="printData()">Print</a> -->
+                                <a style="margin-right: 5px;" class="btn btn-success" href="/user/invoice/<%=jobAppDetail.id%>">Print</a>
                                 <% if(user_payment===null){ %>
                                     <a class="btn btn-success" href="/user/payment">Add Payment Information</a>
                                 <% }else { %>

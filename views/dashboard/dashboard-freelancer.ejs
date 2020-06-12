@@ -74,7 +74,11 @@
                                     <td class="text-center text-muted"><%=count%></td>
                                     <td class="text-left"><%=j.Job.title%></td>
                                     <td class="text-center">
-                                        <div class="badge badge-info"><%=j.status%></div>
+                                        <%if(j.status===null){%>
+                                            pending
+                                        <% }else{ %>
+                                            <%=j.status%>
+                                        <% } %>
                                     </td>
                                     <td class="text-center">
                                         <% if(j.status === "awarded"){ %>
@@ -82,7 +86,7 @@
                                         <% }else if(j.status === "accepted"){ %>
                                             <a href="/user/workspace/<%=j.id%>" class="btn btn-success" >Go to Workspace</a>
                                         <% }else{ %>
-                                            <a  class="btn btn-success">Pending</a>
+                                            Pending
                                         <% } %>
                                     </td>
                                 </tr>

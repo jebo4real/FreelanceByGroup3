@@ -40,8 +40,8 @@
                                     <div class="form-group">
                                       <label for="exampleDropdownFormPassword1">Price Range</label>
                                       <div class="">
-                                        <input style="margin-bottom: 5px;" type="number" class="form-control" id="filter_price_min" name="filter_price_min" min="0" placeholder="From"/>
-                                        <input style="margin-bottom: 20px;" type="number" class="form-control" id="filter_price_max" name="filter_price_max" max="20000" placeholder="To"/>
+                                        <input style="margin-bottom: 5px;" type="number" class="form-control" id="filter_price_min" name="filter_price_min" min="0" placeholder="From" value="0" />
+                                        <input style="margin-bottom: 20px;" type="number" class="form-control" id="filter_price_max" name="filter_price_max" max="20000" value="20000" placeholder="To"/>
                                       </div>
                                       <div style="margin:auto; width:50px;">
                                         <input type="submit" class="btn btn-success " value="Apply" >
@@ -72,7 +72,7 @@
                             </div>
 
                             <div class="ml-auto">
-                                <a href="/job/<%=job.id %>" class="btn btn-success py-2">Apply Job</a>
+                                <a href="/job/<%=job.id %>" class="btn btn-success py-2">View Job</a>
                             </div>
                         </div>
 

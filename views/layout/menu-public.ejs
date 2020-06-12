@@ -31,6 +31,11 @@
                                 <% } %> >
                                 <a href="/jobs">View Jobs</a>
                             </li>
+                            <li <%if(page==="freelancers"){%>
+                                class="active"
+                                <% } %> >
+                                <a href="/freelancers">View Freelancers</a>
+                            </li>
                             <% if(user){%>
                                 <li>
                                     <div class="dropdown">

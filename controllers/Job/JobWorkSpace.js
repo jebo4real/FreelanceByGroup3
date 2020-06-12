@@ -86,7 +86,8 @@ module.exports.UploadFile = async (req, res, next) =>{
 module.exports.ViewFile = async (req, res, next) =>{
     let filename = req.params.filename;
     console.log(filename);
-    let file = path.join(__dirname, 'public') + "/jobfiles/"+filename;
+    //let file = path.join(__dirname, 'public') + "/jobfiles/"+filename;
+    let file = path.resolve('public/jobfiles/'+ filename);
     res.download(file, function (err) {
         if (err) {
             console.log("Error");
@@ -178,7 +179,7 @@ module.exports.Invoice = async (req,res, next) =>{
     res.locals.jobName = job.title;
     if(res.locals.user.UserAccount.RoleId===1){
         res.render(
-            'job/invoice',
+            'job/invoice-new',
             {
                 jobAppDetail,
                 job,
@@ -188,7 +189,7 @@ module.exports.Invoice = async (req,res, next) =>{
         );
     }else{
         res.render(
-            'job/freelancer_payout',
+            'job/payout-new',
             {
                 jobAppDetail,
                 job,

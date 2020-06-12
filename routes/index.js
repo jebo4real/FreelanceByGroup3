@@ -8,9 +8,13 @@ const {GetIndex, GetAllJobs, GetPageAllJobs, GetJobsCategoryAndSearch, GetJobsFi
 const { ApplyJob } = require('../controllers/Job/JobFreelancer');
 const {GetVerify, DoVerification, SendVerificationAgain, NotVerified} = require('../controllers/Auth/Verify');
 const {GetHowItWorks} = require('../controllers/Public');
+const { GetFreelancers, GetSingleFreelancer, GetFreelancerCountryAndSearch } = require('../controllers/Freelancer/FreelancersPublic');
 
 //Public routes
 // GET requests
+
+router.get('/freelancers', GetFreelancers);
+router.get('/freelancer/:id', GetSingleFreelancer);
 router.get('/', GetIndex);
 router.get('/how-it-works', GetHowItWorks);
 router.get('/login', GetLogin);
@@ -36,6 +40,7 @@ router.post('/login', DoLogin);
 router.post('/forgot-password', forgotPasswordEmail);
 router.post('/reset-password', DoResetPassword);
 router.post('/jobs', GetJobsCategoryAndSearch);
+router.post('/freelancers', GetFreelancerCountryAndSearch);
 router.post('/filter-jobs', GetJobsFilter);
 
 module.exports = router;

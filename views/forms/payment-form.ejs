@@ -1,4 +1,7 @@
-<div class="main-card mb-3 card col-md-12">
+<div class="main-card mb-3 card col-md-12" style="height:650px;">
+    <div class="card-header">
+        <h5 class="card-title" style="color:#4d4d4d!important">Payment Details</h5>
+    </div>
     <div class="card-body">
         <% if(error){ %>
             <div class="alert alert-danger" role="alert">
@@ -9,11 +12,13 @@
                 <strong><%=success%></strong>
             </div>
         <% } %>
-        <h5 class="card-title">Payment Details</h5>
-        <form class="" action="/user/add-payment-account" method="post">
+        <div class="justify-content-end" style="float:right;">
+            <a id="edit"  class="btn btn-success" href="#">Edit</a>
+        </div>
+        <form id="fmprofile" class="" action="/user/add-payment-account" method="post">
             <input name="id" id="id" placeholder="" type="text" class="form-control" value="<%=user.id%>" hidden><br />
             <div class="form-row">
-                <div class="position-relative form-group col-md-7">
+                <div class="position-relative form-group col-md-7" style="margin-bottom: 50px;">
                     <label for="title" class="">Stripe Account ID</label>
                     <input name="account_id" id="account_id" placeholder="eg. cus_ax34tefzwe" type="text" 
                     <% if(accountNumber){ %>

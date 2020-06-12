@@ -12,13 +12,13 @@
             <% if(user.UserAccount.RoleId===1){ %>
             <div class="alert alert-danger justify-content-center col-md-8" role="alert">
                 <h4 class="alert-heading">Error!</h4>
-                <p>An error was encountered making a payment of $<%=amount%> for <%=jobname%>. <a onclick="window.history.back()">Go back to workspace</a> </p>
+                <p>An error was encountered making a payment of $<%=amount%>. <a onclick="window.history.back()">Go back to workspace</a> </p>
                 <p class="mb-0">Try again. If problem persists, contact support</p>
             </div>
             <% }else if(user.UserAccount.RoleId===2){ %>
                 <div class="alert alert-danger justify-content-center col-md-8" role="alert">
                     <h4 class="alert-heading">Error!</h4>
-                    <p>An error was encountered transferring payment of $<%=amount%> for <%=jobname%> to your account. <a onclick="window.history.back()">Go back to workspace</a></p>
+                    <p>An error was encountered transferring payment of $<%=amount%> to your account. <a onclick="window.history.back()">Go back to workspace</a></p>
                     <p class="mb-0">Try again. If problem persists, contact support</p>
                 </div>
             <% } %>

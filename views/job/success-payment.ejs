@@ -12,14 +12,14 @@
             <% if(user.UserAccount.RoleId===1){ %>
                 <div class="alert alert-success justify-content-center col-md-8" role="alert">
                     <h4 class="alert-heading">Successful!</h4>
-                    <p>You have successfully made a payment of $<%=amount%> for <%=jobname%>. <a onclick="window.history.back()">Go back to workspace</a></p>
-                    <p class="mb-0">Write to support for aby problem</p>
+                    <p>You have successfully made a payment of $<%=amount%>. <a onclick="window.history.back()">Go back to workspace</a></p>
+                    <p class="mb-0">Write to support for any problem</p>
                 </div>
             <% }else if(user.UserAccount.RoleId===2){ %>
                 <div class="alert alert-success justify-content-center col-md-8" role="alert">
                     <h4 class="alert-heading">Successful!</h4>
-                    <p>Payment of $<%=amount%> has been to your stripe account for <%=jobname%>. <a onclick="window.history.back()">Go back to workspace</a></p>
-                    <p class="mb-0">Write to support for aby problem.</p>
+                    <p>Payment of $<%=amount%> has been to your stripe account. <a onclick="window.history.back()">Go back to workspace</a></p>
+                    <p class="mb-0">Write to support for any problem.</p>
                 </div>  
             <% } %>
                 </div>
