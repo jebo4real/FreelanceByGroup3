@@ -20,6 +20,9 @@ $(document).ready(function(){
 
         $('#fmprofile input[type=text]').addClass('form-control');
         $('#fmprofile input[type=number]').addClass('form-control');
+        $('#fmprofile input[type=email]').addClass('form-control');
+        $('#fmprofile input[type=tel]').addClass('form-control');
+        $('#fmprofile input[type=date]').addClass('form-control');
         $('#fmprofile select').addClass('form-control');
         $('#fmprofile select').addClass('custom-select');
     });
