@@ -37,8 +37,8 @@
                 <div class="card mb-3 widget-content bg-grow-early">
                     <div class="widget-content-wrapper text-white">
                         <div class="widget-content-left">
-                            <div class="widget-heading">Jobs Accepted</div>
-                            <div class="widget-subheading">Only job offers accepted</div>
+                            <div class="widget-heading">Jobs Pending</div>
+                            <div class="widget-subheading"></div>
                         </div>
                         <div class="widget-content-right">
                             <div class="widget-numbers text-white"><span><%=jobDoneCount%></span></div>
@@ -82,7 +82,7 @@
                                     </td>
                                     <td class="text-center">
                                         <% if(j.status === "awarded"){ %>
-                                            <a href="/job/<%=j.Job.id%>" class="btn btn-success" >View Offer</a>
+                                            <a href="/user/job-view/<%=j.Job.id%>" class="btn btn-success" >View Offer</a>
                                         <% }else if(j.status === "accepted"){ %>
                                             <a href="/user/workspace/<%=j.id%>" class="btn btn-success" >Go to Workspace</a>
                                         <% }else{ %>

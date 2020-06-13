@@ -54,7 +54,7 @@ module.exports.GetDashboardFreelancer = async (req, res, next) =>{
     JobApplication.findAndCountAll({
         where:{
             [Op.and]:[
-                {status: 'awarded'},
+                {status: null},
                 {FreelanceId: res.locals.user.id},
             ]
         }

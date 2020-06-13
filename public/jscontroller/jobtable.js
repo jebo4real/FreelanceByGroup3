@@ -61,7 +61,7 @@ $(document).ready(function() {
         "pageLength": 10,
         "searching":false,
         "ordering": true,
-        "info":     true,
+        "info":     false,
         "lengthChange": false,
     });
 

@@ -1,42 +1,43 @@
 <div class="main-card mb-3 card col-md-12">
     <div class="card-body">
-        <h5 class="card-title">Job Details</h5>
+        <h5 class="card-title" style="color:#4d4d4d!important">Job Details</h5>
+        <div class="justify-content-end" style="float:right;">
+            <a id="edit"  class="btn btn-success" href="#">Edit</a>
+        </div>
             <div class="form-row">
                 <div class="col-md-6">
                     <form class="fmupdatejob" id="fmupdatejob" method="post">
-                        <input name="id" id="id" value="<%=job.id%>" type="text" class="form-control" hidden />
+                        <input name="id" id="id" value="<%=job.id%>" type="text" class="custom-select" hidden />
                         <div class="position-relative form-group">
-                            <label for="category" class="">Category/Industry</label>
-                            <select name="category" id="category" class="form-control" >
+                            <label for="category" class="">Category/Industry:</label>
+                            <select name="category" id="category" class="custom-select" >
                                 <% category.map(cat =>{ %>
                                 <option value="<%=cat.id%>" <% if(cat.id==job.CatId){'selected'}else{''}%> > <%=cat.name%></option>
                                 <% }); %>
                             </select>
                         </div>
                         <div class="position-relative form-group">
-                            <label for="title" class="">Title</label>
+                            <label for="title" class="">Title:</label>
                             <input name="title" id="title" value="<%=job.title%>" placeholder="Job title" type="text" class="form-control" />
                         </div>
                         <div class="position-relative form-group">
-                            <label for="details" class="">Details</label>
-                            <textarea name="details" id="details" rows="3" placeholder="Job Details" class="form-control" style="text-align: left;">
-                                <%=job.details%>
-                            </textarea>
+                            <label for="details" class="">Details: </label><br>
+                            <textarea name="details" id="details" rows="5" cols="40" placeholder="Job Details" class="form-control" style="text-align: left;"><%=job.details%></textarea>
                         </div>
                         <div class="position-relative form-group">
-                            <label for="timeLength" class="">Estimated length of job</label>
-                            <select name="timeLength" id="timeLength" class="form-control" >
+                            <label for="timeLength" class="">Estimated length of job: </label>
+                            <select name="timeLength" id="timeLength" class="custom-select" >
                                 <option value="Less than 1 month" <%(job.timeLength==="Less than 1 month") ? 'selected':''; %> >Less than 1 month</option>
                                 <option value="1 month" <%(job.timeLength==="1 month") ? 'selected':''; %> >1 month</option>
                                 <option value="More than 1 month" <%(job.timeLength==="More than 1 month") ? 'selected':''; %> >More than 1 month</option>
                             </select>
                         </div>
                         <div class="position-relative form-group">
-                            <label for="price" class="">Price</label>
+                            <label for="price" class="">Price: </label>
                             <input  name="price" id="price" value="<%=job.price%>" placeholder="price" type="number" min="1" class="form-control" />
                         </div>
                         <div class="position-relative form-group">
-                            <label for="skills" class="">Skills(Enter skills associated with job separated by comma)</label>
+                            <label for="skills" class="">Skills(Enter skills associated with job separated by comma): </label>
                             <input name="skills" id="skills" value="<%=job.skills%>" placeholder="skills" type="text" class="form-control" />
                         </div>
                         <% if(user.UserAccount.RoleId===3){}else{ %>
@@ -45,7 +46,7 @@
                     </form>
                 </div>
                 <div class="col-md-6">
-                    <div class="main-card mb-3 card">
+                    <div class="main-card mb-3 ">
                         <div class="card-header">Applicants (<%=Object.keys(jobDetail).length%> applicants)
                             <div class="btn-actions-pane-right">
                             </div>

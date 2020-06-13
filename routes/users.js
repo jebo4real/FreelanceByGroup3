@@ -2,7 +2,7 @@ const express = require('express');
 let router = express.Router();
 const { GetProfile, UpdateProfile, GetProfileSuccess } = require('../controllers/Profile/Profile');
 const  {GetPortfolio, UpdatePortfolio, GetPortfolioSuccess, GetAllPortfolios,GetAddPortfolio,AddPortfolio} = require('../controllers/Profile/Portfolio');
-const  {GetEducation, UpdateEducation, GetEducationSuccess} = require('../controllers/Profile/Education');
+const  {GetEducation, UpdateEducation, GetAllEducations, AddEducation,GetAddEducation} = require('../controllers/Profile/Education');
 const  {GetQualification, UpdateQualification, GetQualificationSuccess} = require('../controllers/Profile/Qualification');
 const  {GetSelectMessageUsers, GetMessageRoom, SendMessageUser} = require('../controllers/Messaging/Message');
 const  {GetInboxOutbox, SendMessageFromBox} = require('../controllers/Messaging/MessageBox');
@@ -10,7 +10,7 @@ const { GetChangePassword, UpdatePassword } = require('../controllers/Profile/Pa
 const { GetPostJob, DoPostJob } = require('../controllers/Job/PostJob');
 const { GetAllPostedJob, GetSingleJob, GetFreelancerProfile, AwardJob } = require('../controllers/Job/ViewJobClient');
 const { UpdateJob, DeleteJob } = require('../controllers/Job/UpdateJob');
-const { GetAppliedJobs, AcceptJob, RejectJob } = require('../controllers/Job/JobFreelancer');
+const { GetAppliedJobs, AcceptJob, RejectJob, GetAllJobsFreelancer, SingleJobDetail } = require('../controllers/Job/JobFreelancer');
 const { GetDashboardSwitch } = require('../controllers/Dashboard/DashboardSwitch');
 const { GetDashboardClient } = require('../controllers/Dashboard/DashBoardClient');
 const { GetDashboardFreelancer } = require('../controllers/Dashboard/DashboardFreelancer');
@@ -36,8 +36,9 @@ router.get('/add-portfolio', GetAddPortfolio);
 router.get('/portfolios', GetAllPortfolios);
 router.get('/portfolio/:id', GetPortfolio);
 router.get('/portfolio/:id/:success', GetPortfolioSuccess);
-router.get('/education', GetEducation);
-router.get('/education/:success', GetEducationSuccess);
+router.get('/add-education', GetAddEducation)
+router.get('/education/:id', GetEducation);
+router.get('/educations', GetAllEducations);
 router.get('/qualification', GetQualification);
 router.get('/qualification/:success', GetQualificationSuccess);
 router.get('/payment', GetPaymentDetails);
@@ -52,6 +53,7 @@ router.post('/update-profile', UpdateProfile);
 router.post('/update-portfolio', UpdatePortfolio);
 router.post('/add-portfolio', AddPortfolio);
 router.post('/update-education', UpdateEducation);
+router.post('/add-education', AddEducation);
 router.post('/update-qualification', UpdateQualification);
 router.post('/change-password', UpdatePassword);
 router.post('/send-message-user-from-box', SendMessageFromBox);
@@ -65,12 +67,17 @@ router.get('/dashboard-freelancer', GetDashboardFreelancer);
 router.get('/post-job', GetPostJob);
 router.get('/my-jobs/:category', GetAllPostedJob);
 router.get('/freelancer-jobs/:category', GetAppliedJobs);
+router.get('/all-jobs', GetAllJobsFreelancer);
 router.get('/view-job/:id', GetSingleJob);
 router.get('/view-freel/:id', GetFreelancerProfile);
 router.get('/award-job/:id', AwardJob);
 router.get('/accept-job/:id', AcceptJob);
 router.get('/reject-job/:id', RejectJob);
 router.get('/view-file/:filename', ViewFile);
+
+//user job view 
+router.get('/job-view/:id', SingleJobDetail);
+
 
 //Workspace
 router.get('/workspace/:id', GetWorkSpaceInfo);

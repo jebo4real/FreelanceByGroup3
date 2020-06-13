@@ -30,7 +30,94 @@ module.exports.ApplyJob = async (req, res, next) => {
     };
     Notify(notifyParts.title, notifyParts.message, notifyParts.ReceiverId);
     NotifyMail(notifyMailParts.title, notifyMailParts.message, notifyMailParts.ReceiverEmail);
-    res.redirect('/job/'+req.params.id);
+    res.redirect('/user/job-view/'+req.params.id);
+};
+
+module.exports.GetAllJobsFreelancer = async (req, res, next) =>{
+    let jobs = await Job.findAll( {
+        include: [
+            {
+                model: JobCategory,
+                as: 'JobCategory'
+            },
+            {
+                model: User,
+                as: 'User'
+            }
+        ],
+        order:[['createdAt', 'DESC']]
+    });
+    let category = await JobCategory.findAll();
+    let jobCount = await Job.count();
+    let searchResult = "All Jobs";
+    res.render(
+        'job/jobs_all',
+        {
+            jobs,
+            jobCount,
+            category,
+            searchResult,
+            page: 'jobs'
+        }
+    )
+}
+
+module.exports.SingleJobDetail = async (req, res, next) => {
+    let jobId = req.params.id;
+    let job = await Job.findOne({
+        where:{id:jobId},
+        include: [
+            {
+                model: JobCategory,
+                as: 'JobCategory'
+            },
+            {
+                model: User,
+                as: 'User'
+            }
+        ]
+    });
+    let related_jobs = await Job.findAll( {
+        where:{CatId:job.CatId},
+        include: [
+            {
+                model: JobCategory,
+                as: 'JobCategory'
+            },
+            {
+                model: User,
+                as: 'User'
+            }
+        ],
+        limit: 2
+    });
+    let user_applied = false;
+    let user_application = {};
+    if(!req.session.loggedIn){
+
+    }else {
+        user_application = await JobApplication.findOne({
+            where: {
+                [Op.and]: [
+                    {JobId: jobId},
+                    {FreelanceId: res.locals.user.id}
+                ]
+            }
+        });
+        if (user_application) {
+            user_applied = true;
+        }
+    }
+    res.render(
+        'job/job-view',
+        {
+            job,
+            related_jobs,
+            user_application,
+            user_applied,
+            page:'jobs'
+        }
+    )
 };
 
 module.exports.GetAppliedJobs = async (req, res, next) => {

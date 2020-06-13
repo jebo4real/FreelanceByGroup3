@@ -9,15 +9,6 @@
             <div class="form-row">
                 <div class="col-md-10">
                     <div class="position-relative form-group">
-                        <label style="cursor:pointer" title="Select A picture">
-                            <img src="/img/avatar.jpg" id="picture" name="picture" alt="No picture" style="margin-bottom:10px;"/>  
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="col-md-10">
-                    <div class="position-relative form-group">
                         <label for="title" class="">Title</label>
                         <input name="title" id="title"  placeholder="" type="text" class="form-control">
                     </div>
@@ -32,6 +23,18 @@
                     <div class="position-relative form-group">
                         <label for="projectLinks" class="">Project Links</label>
                         <textarea class="form-control" id="projectLinks" name="projectLinks"></textarea>
+                    </div>
+                </div>
+                <div>
+                    <div class="position-relative form-group">
+                        <!-- <label style="cursor:pointer" title="Select A picture">
+                            <img src="/img/avatar.jpg" id="picture" name="picture" alt="No picture" style="margin-bottom:10px;"/> 
+                            <input name="picture" id="picture" type="file" title="Select A Picture" style="display:none" accept="image/*" /> 
+                        </label> -->
+                        <div class="upload-btn-wrapper">
+                            <button class="btncustom">Upload a file</button>
+                            <input type="file" name="myfile" name="picture" id="picture" />
+                        </div>
                     </div>
                 </div>
             </div>

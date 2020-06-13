@@ -7,81 +7,86 @@ const path = require('path');
 const multer = require('multer');
 const axios = require('axios');
 
-//render education page
+
+//get all education
+module.exports.GetAllEducations = async (req, res, next) => {
+    let user_education = await Education.findAll({where:{UserId:res.locals.user.id} });
+    req.session.user.Education  = user_education;
+    res.render(
+        'profile/educations'
+    )
+}
+
+
 module.exports.GetEducation = async (req, res, next) => {
-    let user_education = await Education.findOne({where:{UserId:res.locals.user.id} });
-    req.session.user.Education  = user_education;
-    console.log(user_education);
-    let country = [];
+    let education_id = req.params.id;
+    let user_education = await Education.findOne({where:{id:education_id} });
+    let country = [
+        {name: 'Ghana'},
+        {name: 'Germany'},
+    ];
+    res.render(
+        'profile/education',
+        {
+            user_education,
+            country
+        }
+    )
+ 
+    
+};
+
+//render education page
+module.exports.GetAddEducation = async (req, res, next) => {
+    let country = [
+        {name: 'Ghana'},
+        {name: 'Germany'},
+    ];
+    res.render(
+        'profile/add-education',
+        {
+            country
+        }
+    )   
+};
+
+module.exports.AddEducation = async (req, res, next) =>{
+    let country = {};
+    let userEducation = {
+        UserId: res.locals.user.id,
+        country: req.body.edu_country,
+        uni: req.body.uni,
+        cert: req.body.cert,
+        start_year: req.body.start_year,
+        endyear: req.body.end_year
+    };
     axios.get('https://restcountries.eu/rest/v2/all')
         .then(response => {
             country = response.data;
-            req.session.profileChangeMessage = "";
-            res.render(
-                'profile/education',
-                {
-                    success:'',
-                    error: '',
-                    country
-                }
-            )
-        })
-        .catch(error => {
+            Education.create(userEducation).then(rows=>{
+                Education.findAll({
+                    where:{UserId:res.locals.user.id}
+                }).then(rows=>{
+                    req.session.user.Education = rows;
+                    console.log(response);
+                });
+            }).catch(e=>{
+                console.log(e);
+            });
+            
+        }).catch(error => {
             //api fails, add some countries
             console.log(error);
             country = [
                 {name: 'Ghana'},
                 {name: 'Germany'},
             ];
-            res.render(
-                'profile/education',
-                {
-                    success:'',
-                    error: '',
-                    country
-                }
-            )
         });
+        res.redirect('/user/educations');
+    
 };
 
-//render education page with response
-module.exports.GetEducationSuccess = async (req, res, next) => {
-    let user_education = await Education.findOne({where:{UserId:res.locals.user.id} });
-    req.session.user.Education  = user_education;
-    console.log(user_education);
-    let country = [];
-    axios.get('https://restcountries.eu/rest/v2/all')
-        .then(response => {
-            country = response.data;
-            req.session.profileChangeMessage = "";
-            res.render(
-                'profile/education',
-                {
-                    success:'Information Updated',
-                    error: '',
-                    country
-                }
-            )
-        })
-        .catch(error => {
-            //api fails, add some countries
-            console.log(error);
-            country = [
-                {name: 'Ghana'},
-                {name: 'Germany'},
-            ];
-            res.render(
-                'profile/education',
-                {
-                    success:'Information Updated',
-                    error: '',
-                    country
-                }
-            )
-        });
-};
-
-//update user education with picture upload
+//update user education
 module.exports.UpdateEducation = async (req, res, next) => {
     let country = [
         {name: 'Ghana'},
@@ -96,30 +101,16 @@ module.exports.UpdateEducation = async (req, res, next) => {
     };
     Education.update(userEducation, { where: {id:req.body.id} }).then(response =>{
         req.session.educationChangeMessage = response != null;
-        Education.findOne({
-            where:{id:req.body.id}
+        Education.findAll({
+            where:{userId:res.locals.user.id}
         }).then(rows=>{
             req.session.user.Education = rows;
             console.log(response);
-            res.render(
-                'profile/education',
-                {
-                    success:'Information Updated',
-                    error: '',
-                    country
-                }
-            )
         }).catch(e=>{
-            res.render(
-                'profile/education',
-                {
-                    success:'',
-                    error: e,
-                    country
-                }
-            )
+            console.log(e);
         });
     });
+    res.redirect('/user/educations');
 
 };
 

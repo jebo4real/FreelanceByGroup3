@@ -1,30 +1,35 @@
 $(document).ready(function(){
-    //login
-    // $("#btnpost").click(function(event){
-    //     let data = $('#fmjob').serialize();
-    //     $("#btnpost").val('Posting...');
-    //     $("#fmjob input,textarea,select").prop("disabled",true);
-    //     let title = $("#title").val().trim();
-    //     let details = $("#details").val().trim();
-    //     let price = $("#price").val().trim();
-    //     if( title !== "" && details !== "" && price !==""){
-    //         $.ajax({
-    //             url:'/user/post-job',
-    //             type:'post',
-    //             data:data,
-    //             success:function(response){
-    //                 location.reload();
-    //             }
-    //         });
+    
+    
+    $('#fmupdatejob input').removeClass('form-control');
+    $('#fmupdatejob select').removeClass('custom-select');
+    $('#fmupdatejob textarea').removeClass('form-control');
 
-    //     } else {
-    //         alert("Enter all the required fields");
-    //     }
-    //     $("#btnpost").val('Post');
-    //     $("#fmjob input,textarea,select").prop("disabled",false);
-    // });
+    $('#fmupdatejob input').attr('disabled', true);
+    $('#fmupdatejob input').addClass('inputdisabled');
+    $('#fmupdatejob select').attr('disabled', true);
+    $('#fmupdatejob select').addClass('selectdisabled');
+    $('#fmupdatejob textarea').attr('disabled', true);
+    $('#fmupdatejob textarea').addClass('selectdisabled');
 
-    //login
+
+
+    
+    $('#edit').click(function(event){
+        $('#fmupdatejob input').removeAttr('disabled');
+        $('#fmupdatejob input').removeClass('inputdisabled');
+        $('#fmupdatejob select').removeAttr('disabled');
+        $('#fmupdatejob textarea').removeAttr('disabled');
+        $('#fmupdatejob select').removeClass('selectdisabled');
+        $('#fmupdatejob textarea').removeClass('selectdisabled');
+
+        $('#fmupdatejob input[type=text]').addClass('form-control');
+        $('#fmupdatejob input[type=number]').addClass('form-control');
+        //$('#fmprofile select').addClass('form-control');
+        $('#fmupdatejob select').addClass('custom-select');
+        $('#fmupdatejob textarea').addClass('form-control');
+    });
+
     $("#btnupdate").click(function(event){
         event.preventDefault();
         let data = $('#fmupdatejob').serialize();

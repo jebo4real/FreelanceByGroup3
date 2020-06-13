@@ -20,7 +20,7 @@
             <input name="id" id="id" placeholder="" type="text" class="form-control" value="<%=user.id%>" hidden><br />
 
             <div class="form-row justify-content-center">
-                <div class="col-md-">
+                <div class="col-md-6">
                     <div class="form-group">
                         <label style="cursor:pointer" title="Select A picture">
                         <%if(user.picture!==null){%>
@@ -36,13 +36,13 @@
             <div class="form-row">
                 <div class="col-md-6">
                     <div class="position-relative form-group">
-                        <label for="firstname" class="">First Name</label>
+                        <label for="firstname" class="">First Name: </label>
                         <input name="firstname" id="firstName" value="<%=user.firstname%>" placeholder="" type="text" class="form-control">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="position-relative form-group">
-                        <label for="lastname" class="">Last Name</label>
+                        <label for="lastname" class="">Last Name: </label>
                         <input name="lastname" id="lastName" value="<%=user.lastname%>" placeholder="" type="text" class="form-control">
                     </div>
                 </div>
@@ -50,13 +50,13 @@
             <div class="form-row">
                 <div class="col-md-6">
                     <div class="position-relative form-group">
-                        <label for="dob" class="">Date Of Birth</label>
+                        <label for="dob" class="">Date Of Birth: </label>
                         <input name="dob" id="dob" value="<%=user.dob%>" type="date" class="form-control">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="position-relative form-group">
-                        <label for="gender" class="">Gender</label>
+                        <label for="gender" class="">Gender: </label>
                         <select id="gender" name="gender" class="custom-select">
                             <option value="male" <%if(user.gender == "male"){%>
                                     selected<%}%> >Male</option>
@@ -71,7 +71,7 @@
             <div class="form-row">
                 <div class="col-md-6">
                     <div class="position-relative form-group">
-                        <label for="email" class="">Email</label>
+                        <label for="email" class="">Email: </label>
                         <input name="email" id="email" value="<%=user.email%>" placeholder="" type="email" class="form-control" readonly >
                     </div>
                 </div>
@@ -88,15 +88,15 @@
                 <%if(user.UserAccount.RoleId===1){}else{%>
                 <div class="col-md-6" hidden>
                     <div class="position-relative form-group">
-                        <label for="jobTitle" class="">Job Title</label>
+                        <label for="jobTitle" class="">Job Title: </label>
                         <input name="jobTitle" id="jobTitle" value="<%=user.jobTitle%>" placeholder="eg. Website Developer" type="text" class="form-control">
                     </div>
                 </div>
                 <%}%>
                 <div class="col-md-6">
                     <div class="position-relative form-group">
-                        <label for="country" class="">Country</label>
-                        <select name="country" id="country" class="form-control">
+                        <label for="country" class="">Country: </label>
+                        <select name="country" id="country" class="custom-select">
                             <option value="<%=user.country%>" selected><%=user.country%></option>
                             <% country.map(c =>{ %>
                             <option value="<%=c.name%>"><%=c.name%></option>
@@ -106,7 +106,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="position-relative form-group">
-                        <label for="city" class="">City</label>
+                        <label for="city" class="">City: </label>
                         <input name="city" id="city" value="<%=user.city%>" placeholder="" type="text" class="form-control">
                     </div>
                 </div>
