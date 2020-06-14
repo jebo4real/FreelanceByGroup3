@@ -42,7 +42,7 @@ $(document).ready(function() {
 
     let table = $("#jobs_all_tb").DataTable({
         "pagingType": "numbers",
-        "pageLength": 10,
+        "pageLength": 7,
         "ordering": true,
         "info":     false,
         "searching": true,

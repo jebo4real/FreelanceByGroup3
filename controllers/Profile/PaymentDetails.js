@@ -123,12 +123,14 @@ module.exports.AddPaymentDetails = async (req, res, next) => {
     }else{
         user_pay = await UserPaymentInfo.create(paymentdetails);
     }
+    let user_payment2 = await UserPaymentInfo.findOne({where:{UserId:res.locals.user.id} });
     res.render(
         "profile/payment-details",
         {
             page:'payment',
             success:'Payment Details Added',
-            error:''  
+            error:'',
+            accountNumber:user_payment2.accountNumber
         }
     )
 };
