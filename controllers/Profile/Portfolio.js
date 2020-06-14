@@ -39,13 +39,6 @@ module.exports.GetPortfolioSuccess = async (req, res, next) => {
 };
 
 module.exports.GetAddPortfolio = async (req, res, next) =>{
-    let userPortfolio = {
-        UserId: res.locals.user.id,
-        title: req.body.title,
-        description: req.body.description,
-        projectLinks: req.body.projectLinks,
-    };
-
     res.render(
         'profile/add-portfolio',
     )
@@ -68,6 +61,7 @@ module.exports.AddPortfolio = async (req, res, next) =>{
     upload(req,res,(err)=>{
         if(err){
             console.log(err.toString());
+            res.redirect('/user/portfolios');
         }else{
             console.log("uploaded");
             let userPortfolio = {
