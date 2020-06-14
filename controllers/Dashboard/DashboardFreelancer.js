@@ -40,7 +40,11 @@ module.exports.GetDashboardFreelancer = async (req, res, next) =>{
                 model: Job,
                 as: 'Job',
             }
-        ]
+        ],
+        order:[
+            ['createdAt', 'DESC']
+        ],
+          limit: 4
     });
 
     let jobAppCount = 0;

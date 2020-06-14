@@ -33,6 +33,34 @@ module.exports.ApplyJob = async (req, res, next) => {
     res.redirect('/user/job-view/'+req.params.id);
 };
 
+
+module.exports.ContactApplyJob = async (req, res, next) => {
+    let hostname = req.headers.host;
+    let appInfo = {
+        JobId: req.params.id || '00',
+        FreelanceId: res.locals.user.id || '00'
+    };
+    const job_created= await JobApplication.create(appInfo);
+    let jobOwnerInfo = await Job.findOne({ where:{id: appInfo.JobId}, include: User });
+
+    let notifyParts = {
+        title: res.locals.user.firstname+" applied for a job you posted",
+        message: "/user/my-jobs/all",
+        ReceiverId: jobOwnerInfo.ClientId
+    };
+    let notifyMailParts = {
+        title: res.locals.user.firstname+" applied for a job you posted",
+        message: '<div style="background-color:white;color:black;">'+
+                 '<p style="font-weight: bold;">Group 3 freelancer.</p>'+ 
+                 '<p>Congratulations, '+req.session.user.firstname+ ' applied for a job you posted.</p>'+
+                '<p><a href="http://'+hostname+'/login/'+'">Click here to login</a></p></div>',
+        ReceiverEmail: jobOwnerInfo.User.email
+    };
+    Notify(notifyParts.title, notifyParts.message, notifyParts.ReceiverId);
+    NotifyMail(notifyMailParts.title, notifyMailParts.message, notifyMailParts.ReceiverEmail);
+    res.redirect('/user/message-room/'+jobOwnerInfo.User.id);
+};
+
 module.exports.GetAllJobsFreelancer = async (req, res, next) =>{
     let jobs = await Job.findAll( {
         include: [
@@ -61,6 +89,71 @@ module.exports.GetAllJobsFreelancer = async (req, res, next) =>{
         }
     )
 }
+
+module.exports.GetJobsFilterFreel = async (req, res, next)=>{
+    let jobs = {};
+    let searchResult = "";
+    if(req.body.filter_date!==null && req.body.filter_price_min && req.body.filter_price_max){
+        jobs = await Job.findAll({
+            where: {
+                [Op.and]: [
+                    {
+                        price:{
+                            [Op.between]:
+                                [parseFloat(req.body.filter_price_min), parseFloat(req.body.filter_price_max)]                       
+                        }
+                },
+                    {createdAt: req.body.filter_date}
+                ]
+            },
+            include: [
+                {
+                    model: JobCategory,
+                    as: 'JobCategory'
+                },
+                {
+                    model: User,
+                    as: 'User'
+                }
+            ],
+        });
+        searchResult = "";
+    }else{
+        jobs = await Job.findAll({
+            where: {
+                price:{
+                    [Op.between]:
+                        [parseFloat(req.body.filter_price_min), parseFloat(req.body.filter_price_max)]                        
+                }              
+            },
+            include: [
+                {
+                    model: JobCategory,
+                    as: 'JobCategory'
+                },
+                {
+                    model: User,
+                    as: 'User'
+                }
+            ],
+        });
+        searchResult = "";
+    }
+
+    let category = await JobCategory.findAll();
+    let jobCount = await Job.count();
+    res.render(
+        'job/jobs_all',
+        {
+            jobs,
+            jobCount,
+            category,
+            searchResult,
+            page: 'jobs',
+            page_no: 1
+        }
+    )
+};
 
 module.exports.SingleJobDetail = async (req, res, next) => {
     let jobId = req.params.id;
@@ -131,7 +224,12 @@ module.exports.GetAppliedJobs = async (req, res, next) => {
             where: {
                 [Op.and]: [
                     {FreelanceId: res.locals.user.id},
-                    {status: 'awarded'}
+                    {
+                        [Op.or]:[
+                            {status: 'awarded'},
+                            {status: 'accepted'}
+                        ]
+                    }
                 ]
             },
             include:Job

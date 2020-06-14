@@ -12,25 +12,25 @@
                 Error Updating
             </div>
         <% } %>
-        <form class="" action="/user/update-portfolio" method="post" enctype = "multipart/form-data" style="margin:auto;width: 100%">
+        <form id="" action="/user/update-portfolio" method="post" enctype = "multipart/form-data" style="margin:auto;width: 100%">
             <input name="id" id="id" placeholder="" type="text" class="form-control" value="<%=user_portfolio.id%>" hidden><br />
             <div class="row">
             <div class="form-row">
                 <div class="col-md-10">
                     <div class="position-relative form-group">
-                        <label for="title" class="">Title</label>
+                        <label for="title" class="">Title: </label>
                         <input name="title" id="title" value="<%=user_portfolio.title%>" placeholder="" type="text" class="form-control">
                     </div>
                 </div>
                 <div class="col-md-10">
                     <div class="position-relative form-group">
-                        <label for="lastname" class="">Description</label>
+                        <label for="description" class="">Description: </label><br>
                         <textarea class="form-control" id="description" name="description"><%=user_portfolio.description%></textarea>
                     </div>
                 </div>
                 <div class="col-md-10">
                     <div class="position-relative form-group">
-                        <label for="projectLinks" class="">Project Links</label>
+                        <label for="projectLinks" class="">Project Links</label><br>
                         <textarea class="form-control" id="projectLinks" name="projectLinks"><%=user_portfolio.projectLinks%></textarea>
                     </div>
                 </div>

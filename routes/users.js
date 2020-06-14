@@ -4,13 +4,13 @@ const { GetProfile, UpdateProfile, GetProfileSuccess } = require('../controllers
 const  {GetPortfolio, UpdatePortfolio, GetPortfolioSuccess, GetAllPortfolios,GetAddPortfolio,AddPortfolio} = require('../controllers/Profile/Portfolio');
 const  {GetEducation, UpdateEducation, GetAllEducations, AddEducation,GetAddEducation} = require('../controllers/Profile/Education');
 const  {GetQualification, UpdateQualification, GetQualificationSuccess} = require('../controllers/Profile/Qualification');
-const  {GetSelectMessageUsers, GetMessageRoom, SendMessageUser} = require('../controllers/Messaging/Message');
+const  {GetSelectMessageUsers, GetMessageRoom, GetRandomMessageRoom, SendMessageUser} = require('../controllers/Messaging/Message');
 const  {GetInboxOutbox, SendMessageFromBox} = require('../controllers/Messaging/MessageBox');
 const { GetChangePassword, UpdatePassword } = require('../controllers/Profile/Password');
 const { GetPostJob, DoPostJob } = require('../controllers/Job/PostJob');
 const { GetAllPostedJob, GetSingleJob, GetFreelancerProfile, AwardJob } = require('../controllers/Job/ViewJobClient');
 const { UpdateJob, DeleteJob } = require('../controllers/Job/UpdateJob');
-const { GetAppliedJobs, AcceptJob, RejectJob, GetAllJobsFreelancer, SingleJobDetail } = require('../controllers/Job/JobFreelancer');
+const { GetAppliedJobs, AcceptJob, RejectJob, GetAllJobsFreelancer, GetJobsFilterFreel, SingleJobDetail, ContactApplyJob } = require('../controllers/Job/JobFreelancer');
 const { GetDashboardSwitch } = require('../controllers/Dashboard/DashboardSwitch');
 const { GetDashboardClient } = require('../controllers/Dashboard/DashBoardClient');
 const { GetDashboardFreelancer } = require('../controllers/Dashboard/DashboardFreelancer');
@@ -47,6 +47,7 @@ router.get('/change-password', GetChangePassword);
 router.get('/message-box', GetInboxOutbox);
 // router.get('/message-users', GetSelectMessageUsers);
 router.get('/message-room/:user', GetMessageRoom);
+router.get('/message-room/', GetRandomMessageRoom);
 
 //POST requests
 router.post('/update-profile', UpdateProfile);
@@ -76,8 +77,9 @@ router.get('/reject-job/:id', RejectJob);
 router.get('/view-file/:filename', ViewFile);
 
 //user job view 
+router.post('/filter-jobs-freel', GetJobsFilterFreel);
 router.get('/job-view/:id', SingleJobDetail);
-
+router.get('/contact-about-job/:id', ContactApplyJob);
 
 //Workspace
 router.get('/workspace/:id', GetWorkSpaceInfo);

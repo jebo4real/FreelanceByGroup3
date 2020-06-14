@@ -20,7 +20,7 @@
             <input name="id" id="id" placeholder="" type="text" class="form-control" value="<%=user.id%>" hidden><br />
 
             <div class="form-row justify-content-center">
-                <div class="col-md-6">
+                <div class="col-md-3">
                     <div class="form-group">
                         <label style="cursor:pointer" title="Select A picture">
                         <%if(user.picture!==null){%>
@@ -77,9 +77,9 @@
                 </div>
                 <div class="col-md-6">
                     <div class="position-relative form-group">
-                        <label for="mobile" class="">Mobile(000 000 000 )</label>
-                        <input name="mobile" id="mobile" value="<%=user.mobile%>" placeholder="" type="tel" pattern="^\d{3}\d{3}\d{4}$" 
-                               title="Enter a valid phone number eg. 000 000 000" class="form-control"
+                        <label for="mobile" class="">Mobile(001 201 211 121)</label>
+                        <input name="mobile" id="mobile" value="<%=user.mobile%>" placeholder="" type="tel" pattern="[0-9]{3}[0-9]{3}[0-9]{3}[0-9]{3}" 
+                               title="Enter a valid phone number eg. 001 201 211 121" class="form-control"
                                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" >
                     </div>
                 </div>

@@ -7,38 +7,79 @@
                     <h5 class="card-title" style="color:#4d4d4d!important">All Jobs</h5>
                 </div>
                 <div class="card-body">
-                    <table class="mb-0 table table-borderless table-striped table-hover" id="freelancer_jobs_tb">
+                    
+                    <table class="mb-0 table table-borderless table-striped table-hover" id="jobs_all_tb">
                         <thead>
                         <tr>
-                            <th>Date Applied</th>
+                            <th>
+                                <div class="dropdown">
+                                    <button style="height: 37px;" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      <i class="fa fa-filter"></i>Filter
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <form class="px-4 py-3" action="/user/filter-jobs-freel" method="post">
+                                            <div class="form-group">
+                                              <label for="exampleDropdownFormEmail1">Date</label>
+                                              <input type="date" class="form-control" id="filter_date" name="filter_date">
+                                            </div>
+                                            <div class="form-group">
+                                              <label for="exampleDropdownFormPassword1">Price Range</label>
+                                              <div class="">
+                                                <input style="margin-bottom: 5px;" type="number" class="form-control" id="filter_price_min" name="filter_price_min" min="0" placeholder="From" value="0" />
+                                                <input style="margin-bottom: 20px;" type="number" class="form-control" id="filter_price_max" name="filter_price_max" max="20000" value="20000" placeholder="To"/>
+                                              </div>
+                                              <div style="margin:auto; width:50px;">
+                                                <input type="submit" class="btn btn-success " value="Apply" >
+                                            </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                
+                                            </div>
+                                          </form>
+                                </div>
+                                <div id="newSearchPlace" style="position:absolute;left:20%;bottom:1px;">
+                                    <input type="text" id="searchFilter" class="form-control" placeholder="Search">
+                                </div>
+                            </th>
                             <th hidden >ID</th>
-                            <th>Title</th>
+                            <th hidden>Title</th>
                             <th hidden >Details</th>
-                            <th hidden >TimeLength</th>
-                            <th>Price</th>
+                            <th  ></th>
+                            <th ></th>
                             <th hidden >Skills</th>
-                            <th>Status</th>
-                            <th>View Details</th>
+                            <th ></th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tbody>
                         <% jobs.map( job => { %>
                         <tr style="cursor: pointer;">
-                            <td><%=job.createdAt%></td>
+                            <td hidden><%=job.createdAt%></td>
                             <td hidden><%=job.id%></td>
-                            <td><%=job.title%></td>
+                            <td>
+                                <div class="widget-content p-0">
+                                    <div class="widget-content-wrapper">
+                                        <div class="widget-content-left mr-3">
+                                            <div class="widget-content-left">
+                                                <!-- <img width="40" class="rounded-circle" src="assets/images/avatars/4.jpg" alt=""> -->
+                                            </div>
+                                        </div>
+                                        <div class="widget-content-left flex2">
+                                            <div class="widget-heading" style="color:#000"><%=job.title%></div>
+                                            <div class="widget-subheading opacity-7">
+                                                <span class="fl-bigmug-line-portfolio23 alink"></span> <a style="color: #0b0b0b"><%=job.JobCategory.name %></a>&nbsp;
+                                                <span class="fl-bigmug-line-big104 alink"></span> <span style="color: #0b0b0b"><%=job.User.country %></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                        
+                            </td>
                             <td hidden ><%=job.details%></td>
                             <td hidden><%=job.timeLength%></td>
-                            <td><%=job.price%></td>
-                            <td hidden><%=job.skills%></td>
+                            <td style="color:#000">$<%=job.price%></td>
+                            <td style="color:#000"><%=job.skills%></td>
                             <td>
-                                <div class="row">
-                                    <% if(job.status===null){ %>
-                                        pending
-                                    <% }else{ %>
-                                        <%=job.status%>
-                                    <% } %>
-                                </div>
+                                
                             </td>
                             <td class="text-left" >
                                 <a href="/user/job-view/<%=job.id%>" class="btn btn-success">View</a>

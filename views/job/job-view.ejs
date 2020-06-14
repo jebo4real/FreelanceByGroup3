@@ -34,17 +34,21 @@
                                         <a href="/user/reject-job/<%=user_application.id%>" class="btn btn-danger  py-2 px-4">Reject</a>
                                     </p>
                                 <%}else if(user_application.status==='accepted'){%>
-                                    <p class="mt-5"><a href="#" class="btn btn-secondary  py-2 px-4" >Job Accepted</a></p>
+                                    <p class="mt-5">
+                                        <a href="#" class="btn btn-secondary  py-2 px-4" >Job Accepted</a>
+                                        <a href="/user/workspace/<%=user_application.id %>" class="btn btn-success py-2 px-4">Go to workspace</a>
+                                    </p>
+                                    
                                 <% }else{ %>
                                     <p class="mt-5">
                                         <a href="/user/message-room/<%=job.User.id %>" class="btn btn-success  py-2 px-4">Contact Client</a>
-                                        <a href="#" class="btn btn-secondary py-2 px-4">Applied</a>
+                                        <!-- <a href="#" class="btn btn-secondary py-2 px-4">Applied</a> -->
                                     </p>
                                 <% } %>
                             <%}else{ %>
                                 <p class="mt-5">
-                                    <a href="/user/message-room/<%=job.User.id %>" class="btn btn-success  py-2 px-4">Contact Client</a>
-                                    <a href="/job-apply/<%=job.id %>" class="btn btn-success  py-2 px-4">Submit Application</a>
+                                    <a href="/user/contact-about-job/<%=job.id %>" class="btn btn-success  py-2 px-4">Contact Client</a>
+                                    <!-- <a href="/job-apply/<%=job.id %>" class="btn btn-success  py-2 px-4">Submit Application</a> -->
                                 </p>
                                 <% } %>
     
@@ -81,7 +85,7 @@
                                                 </div>
                                                 <div class="job-post-item-body d-block d-md-flex">
                                                     <div class="mr-3"><span class="fl-bigmug-line-portfolio23"></span> <a style="color: #0b0b0b"><%=job.JobCategory.name %></a></div>
-                                                    <div><span class="fl-bigmug-line-big104 alink"></span> <span style="color: #0b0b0b"><%=job.User.country %></span></div>
+                                                    <div><span class="fl-bigmug-line-big104 alink"></span> <span style="color: #0b0b0b"><%=job.User.country.substr(0, 10) %></span></div>
                                                 </div>
                                             </div>
                                         </div>

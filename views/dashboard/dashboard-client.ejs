@@ -8,20 +8,23 @@
         </div>
         <div class="row">
             <div class="col-md-6 col-xl-4">
-                <div class="card mb-3 widget-content bg-midnight-bloom">
-                    <div class="widget-content-wrapper text-white">
-                        <div class="widget-content-left">
-                            <div class="widget-heading">Jobs Posted</div>
-                            <div class="widget-subheading"></div>
-                        </div>
-                        <div class="widget-content-right">
-                            <div class="widget-numbers text-white"><span><%=jobCount%></span></div>
+                <a href="/user/my-jobs/all">
+                    <div class="card mb-3 widget-content bg-midnight-bloom">
+                        <div class="widget-content-wrapper text-white">
+                            <div class="widget-content-left">
+                                <div class="widget-heading">Jobs Posted</div>
+                                <div class="widget-subheading"></div>
+                            </div>
+                            <div class="widget-content-right">
+                                <div class="widget-numbers text-white"><span><%=jobCount%></span></div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
             <div class="col-md-6 col-xl-4">
-                <div class="card mb-3 widget-content bg-arielle-smile">
+                <a href="/user/my-jobs/awarded">
+                    <div class="card mb-3 widget-content bg-arielle-smile">
                     <div class="widget-content-wrapper text-white">
                         <div class="widget-content-left">
                             <div class="widget-heading">Jobs Awarded</div>
@@ -32,19 +35,22 @@
                         </div>
                     </div>
                 </div>
+            </a>
             </div>
             <div class="col-md-6 col-xl-4">
-                <div class="card mb-3 widget-content bg-grow-early">
-                    <div class="widget-content-wrapper text-white">
-                        <div class="widget-content-left">
-                            <div class="widget-heading">Jobs Completed</div>
-                            <div class="widget-subheading">Only job accepted</div>
-                        </div>
-                        <div class="widget-content-right">
-                            <div class="widget-numbers text-white"><span><%=jobDoneCount%></span></div>
+                <a href="/user/my-jobs/awarded">
+                    <div class="card mb-3 widget-content bg-grow-early">
+                        <div class="widget-content-wrapper text-white">
+                            <div class="widget-content-left">
+                                <div class="widget-heading">Jobs Completed</div>
+                                <div class="widget-subheading">Only job accepted</div>
+                            </div>
+                            <div class="widget-content-right">
+                                <div class="widget-numbers text-white"><span><%=jobDoneCount%></span></div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
             <div class="col-md-12">
                 <div class="main-card mb-3 card">
@@ -76,10 +82,7 @@
                                 <td>
                                     <div class="widget-content p-0">
                                         <div class="widget-content-wrapper">
-                                            <div class="widget-content-left mr-3">
-                                                <div class="widget-content-left">
-                                                    <img width="40" class="rounded-circle" src="/images/<%=j.User.picture%>" alt="<%=j.User.firstname%>"></div>
-                                            </div>
+                                            
                                             <div class="widget-content-left flex2">
                                                 <div class="widget-heading"><%=j.User.firstname%> <%=j.User.lastname%></div>
                                                 <div class="widget-subheading opacity-7"><%=j.User.jobTitle%></div>

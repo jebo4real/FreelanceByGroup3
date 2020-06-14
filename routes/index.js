@@ -43,4 +43,5 @@ router.post('/jobs', GetJobsCategoryAndSearch);
 router.post('/freelancers', GetFreelancerCountryAndSearch);
 router.post('/filter-jobs', GetJobsFilter);
 
+
 module.exports = router;

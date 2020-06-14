@@ -10,7 +10,7 @@
                         <div class="col-md-4 ">
                             <input type="text" id="keyword" name="keyword" class="form-control rounded" placeholder="eg. Alex" />
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4" hidden>
                             <div class="select-wrap">
                                 <span class="icon-keyboard_arrow_down arrow-down"></span>
                                 <select name="country" id="country" class="form-control rounded">
@@ -22,7 +22,7 @@
                             </div>
                         </div>
                         <div class="col-md-4 ">
-                            <input type="submit" class="btn btn-success btn-block rounded" value="Search">
+                            <input type="submit" class="btn btn-success btn-block rounded" style="height: 45px;" value="Search">
                         </div>
                     </div>
                 </form>
@@ -37,15 +37,19 @@
                             <div class="mb-4 mb-md-0 mr-5">
                                 <div class="job-post-item-header d-flex align-items-center">
                                     <%if(free.picture!==null){%>
-                                        <img src="/images/<%=free.picture%>" class="rounded-circle" width="80px" height="80px" style="padding-right:5px;" />
+                                        <img src="/images/<%=free.picture%>" class="rounded-circle" width="100px" height="100px" style="padding-right:5px;" />
                                         <% }else{ %> 
-                                            <img src="img/avatar.jpg" class="rounded-circle" width="80px" height="80px" style="padding-right:5px;"/>  
+                                            <img src="img/avatar.jpg" class="rounded-circle" width="100px" height="100px" style="padding-right:5px;"/>  
                                         <% } %> 
-                                    <h2 class="mr-3 text-black h6"><%=free.firstname %> <%=free.firstname %></h2>
+                                        <h2 class="mr-3 text-black h6"><%=free.firstname %> <%=free.firstname %></h2>
+                                        <div class="mr-3" style="position:absolute;left:30%;bottom:63px;">
+                                            <span class="fl-bigmug-line-big104 alink"></span> 
+                                            <a style="color: #0b0b0b" href="#">
+                                            <%=free.city %>, <%=free.country %></a>
+                                        </div>
+                                   
                                 </div>
-                                <div class="job-post-item-body d-block d-md-flex">
-                                    <div class="mr-3"><span class="fl-bigmug-line-big104 alink"></span> <a style="color: #0b0b0b" href="#"><%=free.city %>, <%=free.country %></a></div>
-                                </div>
+                                
                             </div>
 
                             <div class="ml-auto">
