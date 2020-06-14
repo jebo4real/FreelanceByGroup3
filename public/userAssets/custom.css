@@ -131,4 +131,16 @@ body {
   }
   .dataTables_filter { 
       display: none;
-    }
+    } 
+
+  .box-anchor{
+      background-color: #777B7E !important;
+  }
+
+  .box-other{
+    background-color: #3E424B !important;
+}
+
+.box-other2{
+  background-color: #3E424B !important;
+}

@@ -5,9 +5,12 @@ $(document).ready(function() {
         "pagingType": "numbers",
         "pageLength": 10,
         "ordering": true,
-        "info":     true,
+        "info":     false,
         "searching": true,
         "lengthChange": false,
+        "language": {
+            "emptyTable": "No jobs yet."
+        }
     });
 
     $("#client_jobs_tb tbody").on("click","tr",function(){
@@ -57,9 +60,12 @@ $(document).ready(function() {
         "pagingType": "numbers",
         "pageLength": 10,
         "ordering": true,
-        "info":     true,
+        "info":     false,
         "searching": true,
         "lengthChange": false,
+        "language": {
+            "emptyTable": "No jobs yet."
+        }
     });
 
     $("#freelancer_jobs_tb tbody").on("click","tr",function(){
